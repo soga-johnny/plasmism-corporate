@@ -2,7 +2,7 @@ import Footer from '@/components/Footer';
 import PageTitle from '@/components/PageTitle';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getAllAchievements } from '../../lib/notion';
+// import { getAllAchievements } from '../../lib/notion'; // 未使用のためコメントアウト
 import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 
 export const metadata = {
@@ -12,7 +12,9 @@ export const metadata = {
 
 export default async function AchievementsPage() {
 
-  const achievementsData = await getAllAchievements();
+  // const achievementsData = await getAllAchievements(); // Notion API 呼び出しをコメントアウト
+  const achievementsData: PageObjectResponse[] = []; // ダミーデータとして空配列を設定
+  
   return (
 
     <main className="min-h-screen flex flex-col text-[var(--foreground)] md:py-12 pt-2 pb-24">
@@ -24,7 +26,8 @@ export default async function AchievementsPage() {
         />
         {/* 実績一覧（2カラムグリッド） */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-14">
-          {achievementsData.length > 0 ? (
+          {/* Notion API 無効化中の表示 */}
+          {achievementsData && achievementsData.length > 0 ? (
             achievementsData.filter((p): p is PageObjectResponse => 'properties' in p).map((achievement: PageObjectResponse) => {
               // ページIDを取得
               const id = achievement.id;
@@ -89,7 +92,7 @@ export default async function AchievementsPage() {
             })
           ) : (
             <div className="col-span-full text-center py-12">
-              <p>実績データを読み込み中...</p>
+              <p className="text-[var(--foreground)]/70">現在、実績情報を準備中です。</p>
             </div>
           )}
         </div>
