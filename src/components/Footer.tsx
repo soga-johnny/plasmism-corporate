@@ -97,7 +97,7 @@ export default function Footer() {
   }, [pathname, isContactPage, isDownloadPage, shouldShowContactSection])
   
   return (
-    <footer className="text-white font-extralight py-12">
+    <footer className="text-white font-extralight pt-12 pb-4">
       <div className="w-full max-w-[1440px] mx-auto px-6 md:px-12">
         {/* パンくずリスト */}
         <div className="border-y border-white/10 py-6 my-8">
@@ -176,7 +176,7 @@ export default function Footer() {
         </div>
         
         <div className="text-center pt-12">
-          <p className="mb-6 md:text-3xl text-md font-thin">
+          <p className="mb-6 md:text-xl text-xs font-thin">
             想像もできなかった豊かさを、いつどの瞬間であっても、噛み締めて実感できる、そんな会社。
           </p>
           <div className="mb-20">

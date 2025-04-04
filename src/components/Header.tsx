@@ -77,7 +77,7 @@ export default function Header() {
   // PCヘッダー
   if (!isMobile) {
     return (
-      <header className="fixed top-0 left-0 right-0 text-white py-4 z-40">
+      <header className="fixed top-0 left-0 right-0 text-white py-4 z-40 mix-blend-difference">
         <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8 flex items-center justify-between">
           <div className="flex items-center">
             <Link href="/">
@@ -128,9 +128,9 @@ export default function Header() {
       </div>
       
       {/* 下部固定メニュー */}
-      <header className="fixed bottom-5 left-1/2 transform -translate-x-1/2 w-2/3 z-[70] flex bg-white overflow-hidden rounded-lg rounded-tr-lg">
+      <header className="fixed bottom-5 left-1/2 transform -translate-x-1/2 w-1/2 z-[70] flex mix-blend-difference backdrop-blur-lg overflow-hidden rounded-lg rounded-tr-lg">
         <button 
-          className="flex-1 flex items-center justify-center py-4 bg-white text-[#251E1F] border-r border-gray-200 active:scale-95 active:bg-gray-100 transition-all duration-300 overflow-hidden"
+          className="flex-1 flex items-center justify-center py-4 bg-white/90 text-[#251E1F] border-r border-gray-200 active:scale-95 active:bg-gray-100 transition-all duration-300 overflow-hidden"
           onClick={toggleMenu}
         >
           <div className="relative w-full h-full flex items-center justify-center">
@@ -144,7 +144,7 @@ export default function Header() {
                   <div className="w-6 h-[1px] bg-[#251E1F] mb-1 transform transition-transform duration-300"></div>
                   <div className="w-6 h-[1px] bg-[#251E1F] transform transition-transform duration-300"></div>
                 </div>
-                <span className="text-xs">メニュー</span>
+                <span className="text-xs">Menu</span>
               </div>
             </div>
 
@@ -165,7 +165,7 @@ export default function Header() {
                   <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" fill="currentColor" stroke="currentColor" strokeWidth="0.5"/>
                 </svg>
               </span>
-              <span className="text-xs">閉じる</span>
+              <span className="text-xs">Close</span>
             </div>
           </div>
         </button>

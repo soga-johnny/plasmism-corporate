@@ -13,27 +13,27 @@ export default function AboutPage() {
           description="プラズミズムは、最適解の設計・実装・検証・改善をコンピューターと情報表現でデザインする会社です。" 
         />
         
-        <div className="space-y-12 mb-16 md:mx-16 mx-4 pt-10 ">
+        <div className="space-y-12 mb-16 md:mx-16 mx-4">
           <section className="border-b border-white/10 pb-10">
             <div className="flex flex-col md:flex-row justify-between">
               <div>
                 <div className="flex space-x-4 mb-8">
                   <div className="border border-white/20 bg-white/10 rounded-full px-4 py-3">
-                    <h2 className="text-md font-thin">ミッション</h2>
+                    <h2 className="md:text-md text-xs font-thin">ミッション</h2>
                   </div>
                   <div className="border border-white/10 rounded-full -ml-8 px-4 py-3">
-                    <h2 className="text-md font-thin">存在意義</h2>
+                    <h2 className="md:text-md text-xs font-thin">存在意義</h2>
                   </div>
                 </div>
                 <div className="rounded-lg">
-                  <p className="font-thin text-3xl md:text-6xl leading-tight">
+                  <p className="font-thin text-xl md:text-5xl leading-tight">
                     豊かな毎日を、<br/>
                     コンピューターと情報表現で、<br/>
                     真摯にデザインする。
                   </p>
                 </div>
               </div>
-              <div className="mt-8 md:mt-2 md:ml-2 w-full md:w-auto">
+              {/* <div className="mt-8 md:mt-2 md:ml-2 w-full md:w-auto">
                 <Image 
                   src="/sample1.png"
                   alt="Mission Image"
@@ -41,7 +41,7 @@ export default function AboutPage() {
                   height={300}
                   className="rounded-lg object-cover aspect-square w-full md:w-[300px]"
                 />
-              </div>
+              </div> */}
             </div>
           </section>
 
@@ -50,14 +50,14 @@ export default function AboutPage() {
               <div>
                 <div className="flex space-x-4 mb-8">
                   <div className="border border-white/20 bg-white/10 rounded-full px-4 py-3">
-                    <h2 className="text-md font-thin">ビジョン</h2>
+                    <h2 className="md:text-md text-xs font-thin">ビジョン</h2>
                   </div>
                   <div className="border border-white/10 rounded-full -ml-8 px-4 py-3">
-                    <h2 className="text-md font-thin">あるべき目指す世界</h2>
+                    <h2 className="md:text-md text-xs font-thin">あるべき目指す世界</h2>
                   </div>
                 </div>
                 <div className="rounded-lg">
-                  <p className="font-thin text-3xl md:text-6xl leading-tight">
+                  <p className="font-thin text-xl md:text-5xl leading-tight">
                     想像もできなかった豊かさを、<br/>
                     いつどの瞬間であっても、<br/>
                     噛み締めて実感できる、<br/>
@@ -65,7 +65,7 @@ export default function AboutPage() {
                   </p>
                 </div>
               </div>
-              <div className="mt-8 md:mt-12 md:ml-2 w-full md:w-auto">
+              {/* <div className="mt-8 md:mt-12 md:ml-2 w-full md:w-auto">
                 <Image 
                   src="/sample1.png"
                   alt="Mission Image" // Changed alt text for clarity
@@ -73,7 +73,7 @@ export default function AboutPage() {
                   height={300}
                   className="rounded-lg object-cover aspect-square w-full md:w-[300px]"
                 />
-              </div>
+              </div> */}
             </div>
           </section>
           
@@ -82,47 +82,47 @@ export default function AboutPage() {
               <div>
                 <div className="flex space-x-4 mb-8">
                   <div className="border border-white/20 bg-white/10 rounded-full px-4 py-3">
-                    <h2 className="text-md font-thin">バリュー</h2>
+                    <h2 className="md:text-md text-xs font-thin">バリュー</h2>
                   </div>
                   <div className="border border-white/10 rounded-full -ml-8 px-4 py-3">
-                    <h2 className="text-md font-thin">そのために大切にする価値観</h2>
+                    <h2 className="md:text-md text-xs font-thin">そのために大切にする価値観</h2>
                   </div>
                 </div>
                 <div className="rounded-lg">
                   <div className="space-y-6">
                     <div className="flex items-center">
                       <div className="text-lg font-thin text-white/50 mr-4">01</div>
-                      <p className="font-thin text-2xl md:text-5xl">過去にはどうしても戻れない</p>
+                      <p className="font-thin text-xl md:text-5xl">過去にはどうしても戻れない</p>
                     </div>
                     <div className="border-t border-white/10 pt-6 flex items-center">
                       <div className="text-lg font-thin text-white/50 mr-4">02</div>
-                      <p className="font-thin text-2xl md:text-5xl">どこにも敵はいない</p>
+                      <p className="font-thin text-xl md:text-5xl">どこにも敵はいない</p>
                     </div>
                     <div className="border-t border-white/10 pt-6 flex items-center">
                       <div className="text-lg font-thin text-white/50 mr-4">03</div>
-                      <p className="font-thin text-2xl md:text-5xl">意志は盗まれない</p>
+                      <p className="font-thin text-xl md:text-5xl">意志は盗まれない</p>
                     </div>
                     <div className="border-t border-white/10 pt-6 flex items-center">
                       <div className="text-lg font-thin text-white/50 mr-4">04</div>
-                      <p className="font-thin text-2xl md:text-5xl">知識は裏切らない</p>
+                      <p className="font-thin text-xl md:text-5xl">知識は裏切らない</p>
                     </div>
                     <div className="border-t border-white/10 pt-6 flex items-center">
                       <div className="text-lg font-thin text-white/50 mr-4">05</div>
-                      <p className="font-thin text-2xl md:text-5xl">ほとんどが伝わらない</p>
+                      <p className="font-thin text-xl md:text-5xl">ほとんどが伝わらない</p>
                     </div>
                     <div className="border-t border-white/10 pt-6 flex items-center">
                       <div className="text-lg font-thin text-white/50 mr-4">06</div>
-                      <p className="font-thin text-2xl md:text-5xl">良いものは多くない</p>
+                      <p className="font-thin text-xl md:text-5xl">良いものは多くない</p>
                     </div>
                     <div className="border-t border-white/10 pt-6 flex items-center">
                       <div className="text-lg font-thin text-white/50 mr-4">07</div>
-                      <p className="font-thin text-2xl md:text-5xl">可能性は尽きない</p>
+                      <p className="font-thin text-xl md:text-5xl">可能性は尽きない</p>
                     </div>
                   </div>
                 
                 </div>
               </div>
-              <div className="mt-8 md:mt-2 md:ml-2 w-full md:w-auto">
+              {/* <div className="mt-8 md:mt-2 md:ml-2 w-full md:w-auto">
                 <Image 
                   src="/sample1.png"
                   alt="Values Image"
@@ -130,7 +130,7 @@ export default function AboutPage() {
                   height={300}
                   className="rounded-lg object-cover aspect-square w-full md:w-[300px]"
                 />
-              </div>
+              </div> */}
             </div>
           </section>
           
@@ -206,7 +206,7 @@ export default function AboutPage() {
           </section>
           
           <section>
-            <h2 className="text-3xl md:text-4xl font-thin mb-6">ボードメンバー</h2>
+            <h2 className="md:text-3xl text-2xl font-thin mb-6">ボードメンバー</h2>
             <div className="p-6 rounded-lg">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="mb-4 border-b border-white/10 pb-4">

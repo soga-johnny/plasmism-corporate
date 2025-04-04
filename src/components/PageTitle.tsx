@@ -10,11 +10,11 @@ interface PageTitleProps {
 
 const PageTitle: React.FC<PageTitleProps> = ({ titleEn, titleJa, description }) => {
   return (
-    <div className="mb-8 border-b border-white/10 px-4 md:px-8">
-      <p className="text-md mb-4 font-serif font-light tracking-wider">● {titleEn}</p>
-      <h1 className="text-5xl font-thin mb-6">{titleJa}</h1>
+    <div className="md:mt-10 mt-8 mb-8 border-b border-white/10 px-4 md:px-8">
+      <p className="text-md mb-2 font-serif font-light tracking-wider">● {titleEn}</p>
+      <h1 className="md:text-4xl text-2xl font-light mb-4">{titleJa}</h1>
       {description && (
-        <p className="mb-8 font-extralight text-sm md:text-base">{description}</p>
+        <p className="mb-8 font-extralight md:text-sm text-xs">{description}</p>
       )}
     </div>
   )

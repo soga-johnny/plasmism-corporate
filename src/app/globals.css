@@ -1,26 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
 @import "tailwindcss";
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Default: Dark Theme */
+  --background: #251E1F;
+  --foreground: #ffffff;
+  /* Add other theme variables if needed */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.light {
+  /* Light Theme */
+  --background: #F5F5F5; /* Light Gray */
+  --foreground: #4D4345; /* Dark Brownish Gray */
+  /* Add other light theme variables if needed */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Noto Sans JP', sans-serif; /* Keep google font import */
+  background-image: url('/background.png');
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-size: 280%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (min-width: 768px) {
+  body {
+    background-size: 80%;
+  }
+}
+
+/* Keyframes */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes quickFadeOut {
+  0% { opacity: 0; }
+  15% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes blink {
+  0% { opacity: 0.7; }
+  50% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
+
+@keyframes mobileFadeIn {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.7); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes mobileFadeOut {
+  0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(1.2); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); opacity: 0.02; }
+  20% { transform: translate(-2px, 1px); opacity: 0.03; }
+  40% { transform: translate(-1px, -1px); opacity: 0.04; }
+  60% { transform: translate(2px, 1px); opacity: 0.05; }
+  80% { transform: translate(1px, -2px); opacity: 0.03; }
+  100% { transform: translate(0); opacity: 0.02; }
+}
+
+/* Custom Classes */
+.digital-transition::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.08); /* Consider theming this if needed */
+  animation: scanline 1.2s linear forwards;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.digital-transition::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--background); /* Use theme variable */
+  mix-blend-mode: difference;
+  opacity: 0.02;
+  animation: glitch 0.2s linear 5;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.quick-fade-out {
+  animation: quickFadeOut 0.6s forwards;
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Custom Cursor Styles (Pointer devices only) */
+@media (pointer: fine) {
+  .custom-cursor-info {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2), 0 0 2px rgba(255, 255, 255, 0.1); /* Consider theming? */
+    letter-spacing: 0.05em;
+    font-size: 10px;
+    min-width: 40px;
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  .custom-cursor-info span {
+    transition: opacity 0.3s ease;
+  }
+
+  .cursor-transition-state {
+    animation: pulse 1.2s infinite;
+  }
+
+  .cursor-transition-state span {
+    animation: blink 1s infinite;
+  }
+}
+
+/* Mobile Specific Styles (Max width or coarse pointer) */
+@media (max-width: 768px), (pointer: coarse) {
+  .mobile-transition-state {
+    font-size: 12px;
+    padding: 4px 10px;
+    animation: mobileFadeIn 0.3s ease-out forwards, mobileFadeOut 0.4s ease-in forwards 1.5s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Consider theming? */
+  }
+
+  /* Mobile adjustments for page content wrapper */
+  .page-content-wrapper {
+    padding-top: 60px; /* Adjust based on mobile header height */
+    min-height: calc(100vh - 60px);
+  }
+}
+
+/* Page Content Wrapper */
+.page-content-wrapper {
+  padding-top: 76px; /* Adjust based on desktop header height */
+  min-height: calc(100vh - 76px);
+  width: 100%;
+  position: relative;
+  z-index: 20; /* Ensure content is above background effects if any */
+}
+
+/* Loading Screen Fade Out */
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.8s ease-out; /* Match LoadingScreen timeout */
 }
