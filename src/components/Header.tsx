@@ -77,41 +77,48 @@ export default function Header() {
   // PCヘッダー
   if (!isMobile) {
     return (
-      <header className="fixed top-0 left-0 right-0 text-white py-4 z-40 mix-blend-difference">
+      <header className="fixed top-0 left-0 right-0 text-[var(--foreground)] py-4 z-40 mix-blend-difference">
         <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8 flex items-center justify-between">
           <div className="flex items-center">
             <Link href="/">
               <Image 
-                src="/logo.svg" 
+                src="/logo-white.svg" 
                 alt="Plasmism" 
                 width={100}
                 height={20}
-                className="h-5 w-auto hover:opacity-70 transition-all duration-300" 
+                className="h-5 w-auto hover:opacity-70 transition-all duration-300 logo-white mix-blend-difference" 
+              />
+              <Image 
+                src="/logo-dark.svg" 
+                alt="Plasmism" 
+                width={100}
+                height={20}
+                className="h-5 w-auto hover:opacity-70 transition-all duration-300 logo-dark mix-blend-difference" 
               />
             </Link>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center mix-blend-difference">
             <nav>
-              <ul className="flex space-x-6 text-sm font-extralight mr-12">
-                <li><Link href="/" className={`hover:opacity-70 hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/' ? 'line-through font-normal' : ''}`}>トップ</Link></li>
-                <li><Link href="/about" className={`hover:opacity-70 hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/about' ? 'line-through font-normal' : ''}`}>私たちについて</Link></li>
-                <li><Link href="/feature" className={`hover:opacity-70 hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/feature' ? 'line-through font-normal' : ''}`}>特徴</Link></li>
-                <li><Link href="/product" className={`hover:opacity-70 hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/product' ? 'line-through font-normal' : ''}`}>プロダクト</Link></li>
-                <li><Link href="/service" className={`hover:opacity-70 hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/service' ? 'line-through font-normal' : ''}`}>サービス</Link></li>
-                <li><Link href="/achievements" className={`hover:opacity-70 hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/achievements' ? 'line-through font-normal' : ''}`}>実績</Link></li>
-                <li><Link href="/recruit" className={`hover:opacity-70 hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/recruit' ? 'line-through font-normal' : ''}`}>採用</Link></li>
-                <li><Link href="/company" className={`hover:opacity-70 hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/company' ? 'line-through font-normal' : ''}`}>会社案内</Link></li>
+              <ul className="flex space-x-6 text-sm mr-12">
+                <li><Link href="/" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/' ? 'line-through font-normal' : ''}`}>トップ</Link></li>
+                <li><Link href="/about" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/about' ? 'line-through font-normal' : ''}`}>私たちについて</Link></li>
+                <li><Link href="/feature" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/feature' ? 'line-through font-normal' : ''}`}>特徴</Link></li>
+                <li><Link href="/product" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/product' ? 'line-through font-normal' : ''}`}>プロダクト</Link></li>
+                <li><Link href="/service" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/service' ? 'line-through font-normal' : ''}`}>サービス</Link></li>
+                <li><Link href="/achievements" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/achievements' ? 'line-through font-normal' : ''}`}>実績</Link></li>
+                <li><Link href="/recruit" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/recruit' ? 'line-through font-normal' : ''}`}>採用</Link></li>
+                <li><Link href="/company" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/company' ? 'line-through font-normal' : ''}`}>会社案内</Link></li>
               </ul>
             </nav>
-            <div className="mr-2 text-right border-r border-gray-500 pr-4">
+            <div className="mr-2 text-right border-r border-[var(--foreground)]/50 pr-4">
               <div className="text-sm font-extralight">{currentDate}</div>
               <div className="text-md font-extralight">{currentTime}</div>
             </div>
-            <Link href="/contact" className="bg-[#ffffff] hover:bg-[#BC2611] hover:scale-105 hover:text-[#ffffff] transition-all duration-300 text-[#251E1F] rounded-md py-3 px-4 mx-2 flex items-center text-sm">
-              お問い合わせ <span className="ml-2 border-l border-[#251E1F] pl-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
+            <Link href="/contact" className="bg-[var(--background)] hover:bg-[#BC2611] hover:scale-105 hover:text-[var(--foreground)] transition-all duration-300 text-[var(--foreground)] rounded-md py-3 px-4 mx-2 flex items-center text-sm border border-[var(--foreground)]/20">
+              お問い合わせ <span className="ml-2 border-l border-[var(--foreground)]/50 pl-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
             </Link>
-            <Link href="/download" className="bg-[#ffffff] hover:bg-[#BC2611] hover:scale-105 hover:text-[#ffffff] transition-all duration-300 text-[#251E1F] rounded-md py-3 px-4 flex items-center text-sm">
-              資料DL <span className="ml-2 border-l border-[#251E1F] pl-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
+            <Link href="/download" className="bg-[var(--background)] hover:bg-[#BC2611] hover:scale-105 hover:text-[var(--foreground)] transition-all duration-300 text-[var(--foreground)] rounded-md py-3 px-4 flex items-center text-sm border border-[var(--foreground)]/20">
+              資料DL <span className="ml-2 border-l border-[var(--foreground)]/50 pl-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
             </Link>
           </div>
         </div>
@@ -123,14 +130,15 @@ export default function Header() {
   return (
     <>
       {/* モバイル用時計 - 最上部中央配置 */}
-      <div className="fixed top-0.5 left-1/2 transform -translate-x-1/2 z-[40] mix-blend-difference text-white text-center">
+      <div className="fixed top-0.5 left-1/2 transform -translate-x-1/2 z-[40] text-[var(--foreground)] text-center">
         <div className="text-[8px] font-extralight tracking-wider">{currentDate} {currentTime}</div>
       </div>
       
       {/* 下部固定メニュー */}
-      <header className="fixed bottom-5 left-1/2 transform -translate-x-1/2 w-1/2 z-[70] flex mix-blend-difference backdrop-blur-lg overflow-hidden rounded-lg rounded-tr-lg">
+      <header className="fixed bottom-5 left-1/2 transform -translate-x-1/2 w-1/2 z-[70] flex backdrop-blur-lg mix-blend-difference border border-[var(--foreground)]/40 overflow-hidden rounded-lg">
         <button 
-          className="flex-1 flex items-center justify-center py-4 bg-white/90 text-[#251E1F] border-r border-gray-200 active:scale-95 active:bg-gray-100 transition-all duration-300 overflow-hidden"
+          className="flex-1 flex items-center justify-center py-4 text-[var(--foreground)] active:scale-95 active:bg-opacity-80 transition-all duration-300 overflow-hidden"
+          style={{ backgroundColor: 'var(--menu-button-bg)' }}
           onClick={toggleMenu}
         >
           <div className="relative w-full h-full flex items-center justify-center">
@@ -141,10 +149,10 @@ export default function Header() {
             >
               <div className="flex items-center">
                 <div className="flex flex-col items-center mr-3">
-                  <div className="w-6 h-[1px] bg-[#251E1F] mb-1 transform transition-transform duration-300"></div>
-                  <div className="w-6 h-[1px] bg-[#251E1F] transform transition-transform duration-300"></div>
+                  <div className="w-6 h-[1px] bg-[var(--foreground)] mb-1 transform transition-transform duration-300"></div>
+                  <div className="w-6 h-[1px] bg-[var(--foreground)] transform transition-transform duration-300"></div>
                 </div>
-                <span className="text-xs">Menu</span>
+                <span className="text-xs text-[var(--menu-button-text)]">Menu</span>
               </div>
             </div>
 
@@ -165,7 +173,7 @@ export default function Header() {
                   <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" fill="currentColor" stroke="currentColor" strokeWidth="0.5"/>
                 </svg>
               </span>
-              <span className="text-xs">Close</span>
+              <span className="text-xs text-[var(--menu-button-text)]">Close</span>
             </div>
           </div>
         </button>
@@ -182,7 +190,7 @@ export default function Header() {
         {isMenuOpen && (
           <>
             <motion.div
-              className="fixed inset-0 bg-black/60 z-[60]"
+              className="fixed inset-0 bg-black/60 z-[60] backdrop-blur-sm"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -191,7 +199,7 @@ export default function Header() {
             />
             
             <motion.div
-              className="fixed inset-x-4 bottom-16 h-[84vh] bg-[#1C1819] border border-white/10 rounded-lg overflow-hidden z-[70] flex flex-col"
+              className="fixed inset-x-4 bottom-16 h-[84vh] bg-[var(--background)] border border-[var(--foreground)]/10 rounded-lg overflow-hidden z-[70] flex flex-col"
               initial={{ opacity: 0, scale: 0.95, filter: "blur(8px)" }}
               animate={{ 
                 opacity: 1, 
@@ -218,11 +226,18 @@ export default function Header() {
               <div className="px-8 pt-4">
                 <Link href="/" onClick={closeMenu}>
                   <Image 
-                    src="/logo.svg" 
+                    src="/logo-white.svg" 
                     alt="Plasmism" 
                     width={100}
                     height={20}
-                    className="h-3 w-auto" 
+                    className="h-3 w-auto logo-white" 
+                  />
+                  <Image 
+                    src="/logo-dark.svg" 
+                    alt="Plasmism" 
+                    width={100}
+                    height={20}
+                    className="h-3 w-auto logo-dark" 
                   />
                 </Link>
               </div>
@@ -231,7 +246,7 @@ export default function Header() {
               <div className="flex-1 overflow-y-auto py-6">
                 {/* メニュー項目アニメーション */}
                 <nav className="flex flex-col justify-start">
-                  <ul className="text-left mx-8 py-1 space-y-0 border-t border-white/10">
+                  <ul className="text-left mx-8 py-1 space-y-0 border-t border-[var(--foreground)]/10">
                     {[
                       { path: "/", label: "トップ" },
                       { path: "/about", label: "私たちについて" },
@@ -244,7 +259,7 @@ export default function Header() {
                     ].map((item, index) => (
                       <motion.li 
                         key={item.path}
-                        className="border-b border-white/10"
+                        className="border-b border-[var(--foreground)]/10"
                         initial={{ opacity: 0, x: -10 }}
                         animate={{ 
                           opacity: 1, 
@@ -257,7 +272,7 @@ export default function Header() {
                       >
                         <Link 
                           href={item.path} 
-                          className={`block py-3 px-8 text-md font-extralight hover:bg-gray-900 transition-colors duration-200 ${pathname === item.path ? 'line-through font-normal' : ''}`}
+                          className={`block py-3 px-8 text-md font-extralight hover:bg-[var(--foreground)]/10 transition-colors duration-200 ${pathname === item.path ? 'line-through font-normal' : ''}`}
                           onClick={closeMenu}
                         >
                           {item.label}
@@ -280,10 +295,10 @@ export default function Header() {
                     >
                       <Link 
                         href="/download" 
-                        className="bg-[#ffffff] hover:bg-[#BC2611] hover:scale-105 hover:text-[#ffffff] transition-all duration-300 text-[#251E1F] rounded-md py-3 px-4 flex items-center justify-between text-sm w-full"
+                        className="bg-[var(--foreground)] hover:bg-[#BC2611] hover:scale-105 hover:text-[var(--background)] transition-all duration-300 text-[var(--background)] rounded-md py-3 px-4 flex items-center justify-between text-sm w-full"
                         onClick={closeMenu}
                       >
-                        資料ダウンロード <span className="border-l border-[#251E1F] pl-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
+                        資料ダウンロード <span className="border-l border-[var(--background)]/50 pl-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
                       </Link>
                     </motion.div>
                     
@@ -300,10 +315,10 @@ export default function Header() {
                     >
                       <Link 
                         href="/contact" 
-                        className="bg-[#ffffff] hover:bg-[#BC2611] hover:scale-105 hover:text-[#ffffff] transition-all duration-300 text-[#251E1F] rounded-md py-3 px-4 flex items-center justify-between text-sm w-full"
+                        className="bg-[var(--foreground)] hover:bg-[#BC2611] hover:scale-105 hover:text-[var(--background)] transition-all duration-300 text-[var(--background)] rounded-md py-3 px-4 flex items-center justify-between text-sm w-full"
                         onClick={closeMenu}
                       >
-                        お問い合わせ <span className="ml-2 border-l border-[#251E1F] pl-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
+                        お問い合わせ <span className="ml-2 border-l border-[var(--background)]/50 pl-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
                       </Link>
                     </motion.div>
                   </div>

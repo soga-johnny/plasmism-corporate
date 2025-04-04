@@ -79,6 +79,7 @@ export interface NotionRichText {
   export interface NotionBlock {
     id: string;
     type: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     [key: string]: any; // 各ブロックタイプに応じたプロパティ
   }
   

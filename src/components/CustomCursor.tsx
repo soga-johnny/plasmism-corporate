@@ -218,7 +218,7 @@ const CustomCursor: React.FC<CustomCursorProps> = ({ className }) => {
       {isTransitioning ? (
         // 遷移中の表示
         <div
-          className={`text-xs bg-[#251E1F] ${transitionState === 'ready' ? 'text-[#00E7A2]' : 'text-[#FFB800]'} px-2 py-1 rounded-lg whitespace-nowrap custom-cursor-info cursor-transition-state backdrop-blur-sm border border-white/10 ${isMobile ? 'mobile-transition-state' : ''}`}
+          className={`text-xs bg-[var(--background)] ${transitionState === 'ready' ? 'text-[#00E7A2]' : 'text-[#FFB800]'} px-2 py-1 rounded-lg whitespace-nowrap custom-cursor-info cursor-transition-state backdrop-blur-sm border border-[var(--foreground)]/10 ${isMobile ? 'mobile-transition-state' : ''}`}
         >
           <span className="transition-opacity duration-300">
             {transitionState === 'compiling' ? 'Compiling...' : 'Ready'}
@@ -227,7 +227,7 @@ const CustomCursor: React.FC<CustomCursorProps> = ({ className }) => {
       ) : (
         // 通常の表示（モバイルでは表示されない）
         <div
-          className={`text-xs bg-[#251E1F] ${isClickable ? 'text-[#EC5D49]' : 'text-white'} px-2 py-1 rounded-lg whitespace-nowrap custom-cursor-info backdrop-blur-sm border border-white/10`}
+          className={`text-xs bg-[var(--background)] ${isClickable ? 'text-[#EC5D49]' : 'text-[var(--foreground)]'} px-2 py-1 rounded-lg whitespace-nowrap custom-cursor-info backdrop-blur-sm border border-[var(--foreground)]/10`}
           style={{
             transition: 'color 0.3s ease, background-color 0.3s ease, transform 0.3s ease',
           }}

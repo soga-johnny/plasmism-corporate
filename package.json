@@ -11,6 +11,8 @@
   "dependencies": {
     "@aws-sdk/client-ses": "^3.777.0",
     "@notionhq/client": "^2.3.0",
+    "@react-three/drei": "^10.0.5",
+    "@react-three/postprocessing": "^3.0.4",
     "@splinetool/react-spline": "^4.0.0",
     "@splinetool/runtime": "^1.9.82",
     "@vercel/og": "^0.6.8",
@@ -19,6 +21,8 @@
     "next": "15.2.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-three-fiber": "^6.0.13",
+    "three": "^0.175.0",
     "zustand": "^5.0.3"
   },
   "devDependencies": {
@@ -27,6 +31,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/three": "^0.175.0",
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
     "tailwindcss": "^4",

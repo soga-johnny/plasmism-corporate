@@ -6,17 +6,27 @@
 @tailwind utilities;
 
 :root {
-  /* Default: Dark Theme */
-  --background: #251E1F;
-  --foreground: #ffffff;
+  /* Default: Light Theme */
+  --background: #251E1F; /* Dark Brownish Gray */
+  --foreground: #FFFFFF; /* White */
+  --menu-button-bg: var(--foreground);
+  --menu-button-text: var(--background);
+  --card-foreground: #FFFFFF;
+  --card-background: rgba(255, 255, 255, 0.05);
   /* Add other theme variables if needed */
 }
 
 .light {
   /* Light Theme */
-  --background: #F5F5F5; /* Light Gray */
+  --background: #FFFFFF; /* White */
   --foreground: #4D4345; /* Dark Brownish Gray */
+  --menu-button-bg: var(--background);
+  --menu-button-text: var(--foreground);
   /* Add other light theme variables if needed */
+}
+
+.light body {
+  color: var(--foreground);
 }
 
 html {
@@ -24,20 +34,41 @@ html {
 }
 
 body {
+  position: relative; /* Added for ::before positioning */
+  z-index: 1; /* Added to ensure content is above ::before */
   background-color: var(--background);
   color: var(--foreground);
   font-family: 'Noto Sans JP', sans-serif; /* Keep google font import */
-  background-image: url('/background.png');
-  background-repeat: repeat;
-  background-attachment: fixed;
-  background-size: 280%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Background image using ::before pseudo-element */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/background.png') repeat fixed;
+  background-size: 320%;
+  opacity: 30%; /* Default opacity */
+  z-index: -1; /* Place behind the body content */
+  transition: opacity 0.3s ease-in-out; /* Smooth transition */
+}
+
+/* Adjust background opacity for light theme */
+.light body::before {
+  opacity: 30%;
+}
+
 @media (min-width: 768px) {
   body {
-    background-size: 80%;
+    /* background-size moved to body::before */
+  }
+  body::before {
+    background-size: 80%; /* Adjust size for larger screens */
   }
 }
 
@@ -179,3 +210,20 @@ body {
   opacity: 0;
   transition: opacity 0.8s ease-out; /* Match LoadingScreen timeout */
 }
+
+/* Logo switching based on theme - TEMP: Force dark logo */
+img.logo-dark {
+  display: inline-block !important; /* Always show dark logo */
+}
+img.logo-white {
+  display: none !important; /* Always hide white logo */
+}
+
+/* Commenting out theme-specific rules for now
+html.light img.logo-dark {
+  display: inline-block; 
+}
+html.light img.logo-white {
+  display: none; 
+}
+*/

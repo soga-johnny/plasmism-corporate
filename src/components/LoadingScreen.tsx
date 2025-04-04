@@ -15,7 +15,8 @@ interface LoadingState {
 }
 
 // クライアントサイド専用のストア
-const loadingStoreCreator: StateCreator<LoadingState> = (set, get) => ({
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const loadingStoreCreator: StateCreator<LoadingState> = (set, _get) => ({
   isLoading: true,
   progress: 0,
   loadStartTime: typeof window !== 'undefined' ? Date.now() : undefined,
@@ -104,12 +105,12 @@ export default function LoadingScreen() {
       className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#2B2325] ${isFading ? 'fade-out' : ''}`}
       style={{
         backgroundImage: 'url("/background.png")',
-        backgroundRepeat: 'repeat'
+        backgroundRepeat: 'repeat',
       }}
     >
       <div className="relative w-32 h-32 md:w-48 md:h-48 fade-in mb-8">
         <Image
-          src="/logo.svg"
+          src="/logo-white.svg"
           alt="Logo"
           fill
           className="object-contain"
@@ -119,7 +120,7 @@ export default function LoadingScreen() {
 
       <div className="w-24 h-0.5 bg-white/20 rounded-full overflow-hidden fade-in">
         <div 
-          className="h-full bg-white transition-all duration-300 ease-out"
+          className="h-full bg-white transition-all duration-600 ease-out"
           style={{ width: `${progress}%` }}
         />
       </div>

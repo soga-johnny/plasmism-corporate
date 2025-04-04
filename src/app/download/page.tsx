@@ -1,3 +1,5 @@
+"use client";
+
 import Footer from '@/components/Footer';
 import PageTitle from '@/components/PageTitle';
 import { useState } from 'react';
@@ -10,7 +12,7 @@ export default function DownloadPage() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col text-white md:py-12 pt-2 pb-24">
+    <main className="min-h-screen flex flex-col text-[var(--foreground)] md:py-12 pt-2 pb-24">
       <div className="flex-1 w-full max-w-[1440px] mx-auto px-4 md:px-2 pb-12">
         <PageTitle 
           titleEn="Download" 
@@ -30,7 +32,7 @@ export default function DownloadPage() {
                 type="text"
                 id="company"
                 placeholder="例) Plasmism株式会社"
-                className="w-full bg-white/10 border border-white/20 rounded-md py-8 px-3 text-white placeholder-white/30"
+                className="w-full bg-[var(--foreground)]/10 border border-[var(--foreground)]/20 rounded-md py-8 px-3 text-[var(--foreground)] placeholder-[var(--foreground)]/30"
                 required
               />
             </div>
@@ -43,7 +45,7 @@ export default function DownloadPage() {
                 type="text"
                 id="name"
                 placeholder="例) 山田 太郎"
-                className="w-full bg-white/10 border border-white/20 rounded-md py-8 px-3 text-white placeholder-white/30"
+                className="w-full bg-[var(--foreground)]/10 border border-[var(--foreground)]/20 rounded-md py-8 px-3 text-[var(--foreground)] placeholder-[var(--foreground)]/30"
                 required
               />
             </div>
@@ -56,7 +58,7 @@ export default function DownloadPage() {
                 type="email"
                 id="email"
                 placeholder="例) example@plasmism.com"
-                className="w-full bg-white/10 border border-white/20 rounded-md py-8 px-3 text-white placeholder-white/30"
+                className="w-full bg-[var(--foreground)]/10 border border-[var(--foreground)]/20 rounded-md py-8 px-3 text-[var(--foreground)] placeholder-[var(--foreground)]/30"
                 required
               />
             </div>
@@ -69,7 +71,7 @@ export default function DownloadPage() {
                 type="tel"
                 id="phone"
                 placeholder="例) 03-1234-5678"
-                className="w-full bg-white/10 border border-white/20 rounded-md py-8 px-3 text-white placeholder-white/30"
+                className="w-full bg-[var(--foreground)]/10 border border-[var(--foreground)]/20 rounded-md py-8 px-3 text-[var(--foreground)] placeholder-[var(--foreground)]/30"
               />
             </div>
             
@@ -80,7 +82,7 @@ export default function DownloadPage() {
               <div className="relative">
                 <select
                   id="document_type"
-                  className="appearance-none w-full bg-white/10 border border-white/20 rounded-md py-8 px-3 text-white pr-10"
+                  className="appearance-none w-full bg-[var(--foreground)]/10 border border-[var(--foreground)]/20 rounded-md py-8 px-3 text-[var(--foreground)] pr-10"
                   required
                   defaultValue=""
                 >
@@ -91,7 +93,7 @@ export default function DownloadPage() {
                   <option value="all">全資料</option>
                 </select>
                 <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3">
-                  <svg className="h-4 w-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <svg className="h-4 w-4 text-[var(--foreground)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                   </svg>
                 </div>
@@ -105,7 +107,7 @@ export default function DownloadPage() {
               <div className="relative">
                 <select
                   id="industry"
-                  className="appearance-none w-full bg-white/10 border border-white/20 rounded-md py-8 px-3 text-white pr-10"
+                  className="appearance-none w-full bg-[var(--foreground)]/10 border border-[var(--foreground)]/20 rounded-md py-8 px-3 text-[var(--foreground)] pr-10"
                   required
                   defaultValue=""
                 >
@@ -118,7 +120,7 @@ export default function DownloadPage() {
                   <option value="other">その他</option>
                 </select>
                 <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3">
-                  <svg className="h-4 w-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <svg className="h-4 w-4 text-[var(--foreground)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                   </svg>
                 </div>
@@ -133,11 +135,11 @@ export default function DownloadPage() {
                 id="message"
                 rows={6}
                 placeholder="その他ご要望などございましたらご記入ください"
-                className="w-full bg-white/10 border border-white/20 rounded-md py-8 px-3 text-white placeholder-white/30 resize-none"
+                className="w-full bg-[var(--foreground)]/10 border border-[var(--foreground)]/20 rounded-md py-8 px-3 text-[var(--foreground)] placeholder-[var(--foreground)]/30 resize-none"
                 maxLength={2000}
                 onChange={handleTextChange}
               ></textarea>
-              <div className="text-right text-sm text-white/50">
+              <div className="text-right text-sm text-[var(--foreground)]/50">
                 {charCount} / 2000
               </div>
             </div>
@@ -154,7 +156,7 @@ export default function DownloadPage() {
               </button>
             </div>
             
-            <div className="text-sm text-center text-white/70 pt-4">
+            <div className="text-sm text-center text-[var(--foreground)]/70 pt-4">
               送信ボタンをクリックすることで、<span className="underline">プライバシーポリシー</span>に同意したものとみなされます。
             </div>
           </form>

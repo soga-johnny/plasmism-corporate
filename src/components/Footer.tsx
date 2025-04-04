@@ -97,18 +97,18 @@ export default function Footer() {
   }, [pathname, isContactPage, isDownloadPage, shouldShowContactSection])
   
   return (
-    <footer className="text-white font-extralight pt-12 pb-4">
+    <footer className="text-[var(--foreground)] font-extralight pt-12 pb-4">
       <div className="w-full max-w-[1440px] mx-auto px-6 md:px-12">
         {/* パンくずリスト */}
-        <div className="border-y border-white/10 py-6 my-8">
+        <div className="border-y border-[var(--foreground)]/10 py-6 my-8">
           <div className="flex items-center space-x-2 text-sm">
             {breadcrumbs.map((breadcrumb, index) => (
               <div key={breadcrumb.path} className="flex items-center">
                 {index > 0 && <span className="mx-2">/</span>}
                 {index === breadcrumbs.length - 1 ? (
-                  <span className="text-white">{breadcrumb.label}</span>
+                  <span className="text-[var(--foreground)]">{breadcrumb.label}</span>
                 ) : (
-                  <Link href={breadcrumb.path} className="hover:text-white transition-colors">
+                  <Link href={breadcrumb.path} className="hover:text-[var(--foreground)]/70 transition-colors">
                     {breadcrumb.label}
                   </Link>
                 )}
@@ -125,9 +125,9 @@ export default function Footer() {
           {shouldShowContactSection && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-1">
               <Link href="/contact" className="inline-block group">
-              <div className="bg-white/10 hover:bg-white/15 transition-all border border-white/20 rounded-xl md:px-12 px-8 md:py-20 py-10 w-full">
-                  <h3 className="md:text-4xl text-3xl mb-6 font-thin text-center border-b border-white/10 pb-4">お問い合わせ・ご相談</h3>
-                <p className="text-sm md:mb-12 mb-6 text-gray-300">
+              <div className="bg-[var(--foreground)]/10 hover:bg-[var(--foreground)]/15 transition-all border border-[var(--foreground)]/20 rounded-xl md:px-12 px-8 md:py-20 py-10 w-full">
+                  <h3 className="md:text-4xl text-3xl mb-6 font-thin text-center border-b border-[var(--foreground)]/10 pb-4">お問い合わせ・ご相談</h3>
+                <p className="text-sm md:mb-12 mb-6 text-[var(--foreground)]/80">
                   UI/UXデザイン、ブランディング、クラウドインフラなど、あらゆるデジタル課題に対応。
                   初回相談は無料で、お客様の状況に合わせた最適な提案をいたします。
                 </p>
@@ -140,9 +140,9 @@ export default function Footer() {
               </Link>
               
               <Link href="/download" className="inline-block group">
-              <div className="bg-white/10 hover:bg-white/15 transition-all border border-white/20 rounded-xl md:px-12 px-8 md:py-20 py-10 w-full">
-                <h3 className="md:text-4xl text-3xl mb-6 font-thin text-center border-b border-white/10 pb-4">会社資料ダウンロード</h3>
-                <p className="text-sm md:mb-12 mb-6 text-gray-300">
+              <div className="bg-[var(--foreground)]/10 hover:bg-[var(--foreground)]/15 transition-all border border-[var(--foreground)]/20 rounded-xl md:px-12 px-8 md:py-20 py-10 w-full">
+                <h3 className="md:text-4xl text-3xl mb-6 font-thin text-center border-b border-[var(--foreground)]/10 pb-4">会社資料ダウンロード</h3>
+                <p className="text-sm md:mb-12 mb-6 text-[var(--foreground)]/80">
                   サービス内容、実績事例、アプローチをまとめた資料をご用意。
                   メールアドレスをご登録いただくだけで、すぐにダウンロードいただけます。
                 </p>
@@ -160,17 +160,17 @@ export default function Footer() {
         <div className="grid grid-cols-2 gap-y-8 md:grid-cols-4 gap-6 mb-16">
           <div>
             <ul className="space-y-3">
-              <li><Link href="/about" className="hover:text-gray-300 transition-colors text-lg">私たちについて</Link></li>
-              <li><Link href="/feature" className="hover:text-gray-300 transition-colors text-lg">特徴</Link></li>
-              <li><Link href="/product" className="hover:text-gray-300 transition-colors text-lg">プロダクト</Link></li>
-              <li><Link href="/services" className="hover:text-gray-300 transition-colors text-lg">サービス</Link></li>
+              <li><Link href="/about" className="hover:text-[var(--foreground)]/70 transition-colors text-lg">私たちについて</Link></li>
+              <li><Link href="/feature" className="hover:text-[var(--foreground)]/70 transition-colors text-lg">特徴</Link></li>
+              <li><Link href="/product" className="hover:text-[var(--foreground)]/70 transition-colors text-lg">プロダクト</Link></li>
+              <li><Link href="/services" className="hover:text-[var(--foreground)]/70 transition-colors text-lg">サービス</Link></li>
             </ul>
           </div>
           <div>
             <ul className="space-y-3">
-              <li><Link href="/achievements" className="hover:text-gray-300 transition-colors text-lg">実績</Link></li>
-              <li><Link href="/recruit" className="hover:text-gray-300 transition-colors text-lg">採用</Link></li>
-              <li><Link href="/company" className="hover:text-gray-300 transition-colors text-lg">会社案内</Link></li>
+              <li><Link href="/achievements" className="hover:text-[var(--foreground)]/70 transition-colors text-lg">実績</Link></li>
+              <li><Link href="/recruit" className="hover:text-[var(--foreground)]/70 transition-colors text-lg">採用</Link></li>
+              <li><Link href="/company" className="hover:text-[var(--foreground)]/70 transition-colors text-lg">会社案内</Link></li>
             </ul>
           </div>
         </div>
@@ -185,19 +185,26 @@ export default function Footer() {
               className="mr-4"
             >
               <Image 
-                src="/logo.svg" 
+                src="/logo-white.svg" 
                 alt="Plasmism" 
                 width={100}
                 height={20}
-                className="h-auto w-full"
+                className="h-auto w-full logo-white"
+              />
+              <Image 
+                src="/logo-dark.svg" 
+                alt="Plasmism" 
+                width={100}
+                height={20}
+                className="h-auto w-full logo-dark"
               />
             </Link>
           </div>
           <div className="flex justify-between items-center">
             <div className="text-xs font-extralight">
-              <Link href="/privacy" className="hover:text-white">プライバシーポリシー</Link>
+              <Link href="/privacy" className="hover:text-[var(--foreground)]/70">プライバシーポリシー</Link>
             </div>
-            <div className="text-xs font-thin text-white/50">©2024 Plasmism Inc.</div>
+            <div className="text-xs font-thin text-[var(--foreground)]/50">©2024 Plasmism Inc.</div>
           </div>
         </div>
       </div>
