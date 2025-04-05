@@ -177,7 +177,7 @@ export default function Header() {
           y: isVisible ? 0 : 10,
           transition: { duration: 1.0, delay: isVisible ? 0.1 : 0, ease: "easeInOut" }
         }}
-        className="fixed bottom-5 left-1/2 transform -translate-x-1/2 w-1/2 z-[70] flex backdrop-blur-lg mix-blend-difference border border-[var(--foreground)]/20 overflow-hidden rounded-lg"
+        className="fixed bottom-5 left-1/2 transform -translate-x-1/2 w-1/2 z-[70] flex backdrop-blur-lg mix-blend-difference overflow-hidden rounded-lg"
       >
         <button 
           className="flex-1 flex items-center justify-center py-4 text-[var(--foreground)] active:scale-95 active:bg-opacity-80 transition-all duration-300 overflow-hidden"
@@ -236,7 +236,7 @@ export default function Header() {
             />
             
             <motion.div
-              className="fixed inset-x-4 bottom-16 h-[84vh] bg-[var(--background)] border border-[var(--foreground)]/10 rounded-lg overflow-hidden z-[70] flex flex-col"
+              className="fixed inset-x-4 bottom-16 h-[78vh] bg-[var(--background)] border border-[var(--foreground)]/10 rounded-lg overflow-hidden z-[70] flex flex-col"
               initial={{ opacity: 0, scale: 0.95, filter: "blur(8px)" }}
               animate={{ 
                 opacity: 1, 

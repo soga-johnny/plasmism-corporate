@@ -547,7 +547,7 @@ function Scene({ isMobile }: { isMobile: boolean }) {
       <Cube isMobile={isMobile} />
       <Environment preset="sunset" />
       <EffectComposer>
-        <Noise opacity={0.15} />
+        <Noise opacity={0.1} />
       </EffectComposer>
     </>
   )
@@ -628,7 +628,7 @@ export default function CubeInteractive() {
 
     const blurStart = s2TransitionStart - 0.02; // isMobile に応じた境界値を使用
     const blurEnd = s3TransitionEnd + 0.02; // isMobile に応じた境界値を使用
-    const maxBlur = 30; // スクロール時の最大ブラー
+    const maxBlur = 20; // スクロール時の最大ブラー
 
     let newBlur = 0;
     if (currentProgress > blurStart && currentProgress < blurEnd) {

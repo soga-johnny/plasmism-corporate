@@ -58,18 +58,34 @@ export default function Footer() {
   
   // フッターの表示状態に応じてテーマを切り替える (IntersectionObserver)
   useEffect(() => {
+    // クライアントサイドでのみ実行
+    const isMobile = window.innerWidth <= 768;
+    const thresholdValue = isMobile ? 0.3 : 0.6; // モバイルなら0.4、PCなら0.6
+
+    if (process.env.NODE_ENV === 'development') {
+      console.log(`Setting threshold based on screen width. isMobile: ${isMobile}, threshold: ${thresholdValue}`);
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         const htmlElement = document.documentElement;
         if (entry.isIntersecting) {
+          // フッターが表示領域に入ったらダークテーマ（lightクラスを削除）
           htmlElement.classList.remove('light');
+          if (process.env.NODE_ENV === 'development') {
+              console.log('Footer intersecting, removing light theme.');
+          }
         } else {
+          // フッターが表示領域から出たらライトテーマ（lightクラスを追加）
           htmlElement.classList.add('light');
+          if (process.env.NODE_ENV === 'development') {
+              console.log('Footer not intersecting, adding light theme.');
+          }
         }
       },
       {
         rootMargin: '0px',
-        threshold: 0.1, // 10%表示されたら切り替え（調整可能）
+        threshold: thresholdValue, // 動的に設定した閾値を使用
       }
     );
 
@@ -86,7 +102,7 @@ export default function Footer() {
       // 念のため、アンマウント時にライトテーマに戻す
       document.documentElement.classList.add('light');
     };
-  }, []); // マウント/アンマウント時に実行
+  }, []); // マウント時に一度だけ実行
   
   // パンくずリストを生成する関数
   const generateBreadcrumbs = () => {
@@ -265,7 +281,7 @@ export default function Footer() {
                       />
                     </Link>
                 </div>
-                <div className="text-xs text-[var(--foreground)]/60 text-center w-full md:mb-0 mb-16">
+                <div className="text-xs text-[var(--foreground)]/60 text-center w-full md:pb-0 pb-16">
                     ©2025 Plasmism Inc. All Rights Reserved.
                 </div>
             </div>

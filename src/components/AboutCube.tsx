@@ -78,7 +78,7 @@ export default function AboutScene() {
         gl.setPixelRatio(Math.min(window.devicePixelRatio, 2))
         gl.outputColorSpace = 'srgb'
       }}
-      dpr={[0.1, 0.8]}
+      dpr={[0.6, 0.8]}
       style={{ pointerEvents: 'none' }} // Canvas 自体は操作不可に
     >
       <Suspense fallback={null}>

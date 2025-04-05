@@ -35,24 +35,7 @@ const metalMaterial = new MeshStandardMaterial({
 function FeatureCubeMesh() {
   const instancedMeshRef = useRef<InstancedMesh>(null)
   const groupRef = useRef<Group>(null)
-  const [isMobile, setIsMobile] = useState(false)
-  const targetSpread = isMobile ? 2 : 3; // モバイルではスプレッドを小さく
-
-  // 画面サイズ監視
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-    
-    // 初期チェック
-    checkMobile();
-    
-    // リサイズイベント監視
-    window.addEventListener('resize', checkMobile);
-    
-    // クリーンアップ
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+  const targetSpread = 2.5; // キューブの広がり具合 (PC用)
 
   // ダミーオブジェクトの初期化 (Matrix計算用)
   // const dummyMatrix = useRef(new Matrix4());
@@ -79,16 +62,16 @@ function FeatureCubeMesh() {
     const time = state.clock.elapsedTime;
     
     // グループ全体の回転
-    const groupRotationSpeed = 0.3;
+    const groupRotationSpeed = 0.45;
     groupRef.current.rotation.y += delta * groupRotationSpeed;
     groupRef.current.rotation.x += delta * groupRotationSpeed * 0.6;
     groupRef.current.rotation.z += delta * groupRotationSpeed * 0.3;
     
-    // モバイルなら中央に、PCなら右側に配置
-    groupRef.current.position.x = isMobile ? 0 : 1.5;
+    // 右側に配置 (PC用)
+    groupRef.current.position.x = 2;
     
-    // モバイルならサイズを小さく
-    const groupScale = isMobile ? 0.8 : 1.0;
+    // PC用サイズ
+    const groupScale = 0.8;
     groupRef.current.scale.set(groupScale, groupScale, groupScale);
 
     // 浮遊アニメーションの設定
@@ -135,7 +118,8 @@ function FeatureCubeMesh() {
   });
 
   return (
-    <group ref={groupRef} position={[isMobile ? 0 : 2, 0, 0]}>
+    // position はPC用のみ
+    <group ref={groupRef} position={[3, 0, 0]}>
       <instancedMesh
         ref={instancedMeshRef}
         args={[roundedBoxGeometry, metalMaterial, NUM_INSTANCES]}
@@ -145,6 +129,29 @@ function FeatureCubeMesh() {
 }
 
 export default function FeatureScene() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  // 画面サイズ監視
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    // 初期チェック
+    checkMobile();
+    
+    // リサイズイベント監視
+    window.addEventListener('resize', checkMobile);
+    
+    // クリーンアップ
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // モバイルの場合は何もレンダリングしない
+  if (isMobile) {
+    return null;
+  }
+
   const cameraPosition: [number, number, number] = [0, 0, 10];
   const cameraFov = 50;
 
@@ -161,7 +168,7 @@ export default function FeatureScene() {
         gl.setPixelRatio(Math.min(window.devicePixelRatio, 2))
         gl.outputColorSpace = 'srgb'
       }}
-      dpr={[0.1, 0.8]}
+      dpr={[0.4, 0.8]}
       style={{ pointerEvents: 'none' }} // Canvas 自体は操作不可に
     >
       <Suspense fallback={null}>

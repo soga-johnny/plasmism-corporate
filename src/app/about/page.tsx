@@ -34,7 +34,7 @@ export default function AboutPage() {
                   </div>
                 </div>
                 <div className="rounded-lg">
-                  <p className="text-xl md:text-5xl leading-tight">
+                  <p className="text-2xl md:text-5xl leading-tight tracking-tighter">
                     豊かな毎日を、<br/>
                     コンピューターと情報表現で、<br/>
                     真摯にデザインする。
@@ -65,7 +65,7 @@ export default function AboutPage() {
                   </div>
                 </div>
                 <div className="rounded-lg">
-                  <p className="text-xl md:text-5xl leading-tight">
+                  <p className="text-2xl md:text-5xl leading-tight tracking-tighter">
                     想像もできなかった豊かさを、<br/>
                     いつどの瞬間であっても、<br/>
                     噛み締めて実感できる、<br/>
@@ -85,7 +85,7 @@ export default function AboutPage() {
             </div>
           </section>
           
-          <section className="py-20">
+          <section className="md:py-20 py-10">
             <div className="flex flex-col md:flex-row justify-between">
               <div>
                 <div className="flex space-x-4 mb-8">
@@ -99,40 +99,40 @@ export default function AboutPage() {
                 <div className="rounded-lg">
                   <div className="space-y-6">
                     <div className="flex items-center">
-                      <div className="text-lg text-[var(--foreground)]/50 mr-4">01</div>
-                      <p className="text-xl md:text-5xl">過去にはどうしても戻れない</p>
+                      <div className="text-lg text-[var(--foreground)]/50 mr-4">1</div>
+                      <p className="text-2xl md:text-5xl">過去には戻れない</p>
                     </div>
-                    <p className="text-sm text-[var(--foreground)]/70 mt-2 pl-10">過去の成功や失敗を想っても時間を戻せる方法はない。</p>
+                    <p className="text-sm text-[var(--foreground)]/70 mt-2 pl-10">全ての生物が、今この瞬間から抜け出すことはできない。</p>
                     <div className="border-t border-[var(--foreground)]/10 pt-6 flex items-center">
-                      <div className="text-lg text-[var(--foreground)]/50 mr-4">02</div>
-                      <p className="text-xl md:text-5xl">どこにも敵はいない</p>
+                      <div className="text-lg text-[var(--foreground)]/50 mr-4">2</div>
+                      <p className="text-2xl md:text-5xl">どこにも敵はいない</p>
                     </div>
-                    <p className="text-sm text-[var(--foreground)]/70 mt-2 pl-10">意見が対立しても目指す方向は違わない。</p>
+                    <p className="text-sm text-[var(--foreground)]/70 mt-2 pl-10">すべては関係性によるもので、敵というものは存在しない。</p>
                     <div className="border-t border-[var(--foreground)]/10 pt-6 flex items-center">
-                      <div className="text-lg text-[var(--foreground)]/50 mr-4">03</div>
-                      <p className="text-xl md:text-5xl">意志は盗まれない</p>
+                      <div className="text-lg text-[var(--foreground)]/50 mr-4">3</div>
+                      <p className="text-2xl md:text-5xl">意志は盗まれない</p>
                     </div>
-                    <p className="text-sm text-[var(--foreground)]/70 mt-2 pl-10">真似られることはあっても自分自身が失うものはない。</p>
+                    <p className="text-sm text-[var(--foreground)]/70 mt-2 pl-10">他者がどのような手段を用いようとも、意志を奪うことはできない。</p>
                     <div className="border-t border-[var(--foreground)]/10 pt-6 flex items-center">
-                      <div className="text-lg text-[var(--foreground)]/50 mr-4">04</div>
-                      <p className="text-xl md:text-5xl">知識は裏切らない</p>
+                      <div className="text-lg text-[var(--foreground)]/50 mr-4">4</div>
+                      <p className="text-2xl md:text-5xl">知識は裏切らない</p>
                     </div>
-                    <p className="text-sm text-[var(--foreground)]/70 mt-2 pl-10">経験や学びからしか選択肢は生み出せない。</p>
+                    <p className="text-sm text-[var(--foreground)]/70 mt-2 pl-10">使い続けられる選択肢は、経験や学びからしか生み出されない。</p>
                     <div className="border-t border-[var(--foreground)]/10 pt-6 flex items-center">
-                      <div className="text-lg text-[var(--foreground)]/50 mr-4">05</div>
-                      <p className="text-xl md:text-5xl">ほとんどが伝わらない</p>
+                      <div className="text-lg text-[var(--foreground)]/50 mr-4">5</div>
+                      <p className="text-2xl md:text-5xl">ほとんどが伝わらない</p>
                     </div>
-                    <p className="text-sm text-[var(--foreground)]/70 mt-2 pl-10">相手に伝わっていなければ、自分自身の表現が完璧であることはない。</p>
+                    <p className="text-sm text-[var(--foreground)]/70 mt-2 pl-10">意思疎通が最も難しいものであることは、これまでもこれからも変わらない。</p>
                     <div className="border-t border-[var(--foreground)]/10 pt-6 flex items-center">
-                      <div className="text-lg text-[var(--foreground)]/50 mr-4">06</div>
-                      <p className="text-xl md:text-5xl">良いものは多くない</p>
+                      <div className="text-lg text-[var(--foreground)]/50 mr-4">6</div>
+                      <p className="text-2xl md:text-5xl">良いものは多くない</p>
                     </div>
-                    <p className="text-sm text-[var(--foreground)]/70 mt-2 pl-10">普段手にしているものが、最適解とは限らない</p>
+                    <p className="text-sm text-[var(--foreground)]/70 mt-2 pl-10">有り余る選択肢の中で、良いと言い切れるものはごく僅かしかない。</p>
                     <div className="border-t border-[var(--foreground)]/10 pt-6 flex items-center">
-                      <div className="text-lg text-[var(--foreground)]/50 mr-4">07</div>
-                      <p className="text-xl md:text-5xl">可能性は尽きない</p>
+                      <div className="text-lg text-[var(--foreground)]/50 mr-4">7</div>
+                      <p className="text-2xl md:text-5xl">可能性は尽きない</p>
                     </div>
-                    <p className="text-sm text-[var(--foreground)]/70 mt-2 pl-10">どんな局面でも、思考の限界は存在ない。</p>
+                    <p className="text-sm text-[var(--foreground)]/70 mt-2 pl-10">どのような状況であっても、考え抜くことに限界は存在しない。</p>
                   </div>
                 
                 </div>
