@@ -98,7 +98,7 @@ export default function Footer() {
     if (pathname.startsWith('/achievements/')) {
       const match = pathname.match(/^\/achievements\/([^/]+)$/);
       if (match && match[1]) {
-        const achievementId = match[1];
+        // const achievementId = match[1]; // 未使用のため削除
         // ローディング中か、タイトル取得済みか
         const label = isLoading ? '読み込み中...' : (dynamicTitle || '実績詳細'); // タイトル or フォールバック
         breadcrumbs.unshift({ path: pathname, label: label });
