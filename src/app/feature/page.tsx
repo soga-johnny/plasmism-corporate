@@ -1,7 +1,9 @@
 import Footer from '@/components/Footer';
 import PageTitle from '@/components/PageTitle';
-import Image from 'next/image';
 import Header from '@/components/Header';
+import FeatureScene from '@/components/FeatureCube';
+import ScrollingTitle from '@/components/ScrollingTitle';
+
 export default function FeaturePage() {
   return (
     <main className="min-h-screen flex flex-col text-[var(--foreground)] md:py-12 pt-2 pb-24">
@@ -13,9 +15,14 @@ export default function FeaturePage() {
         description="少数精鋭だからこそ実現する、幅広い経験と深い専門性があります。" 
       />
       
-      <div className="space-y-12 md:mx-16 mx-4 pt-10 ">
+      <div className="space-y-12 md:px-16 px-4 pt-10">
 
-      <section className="border-b border-[var(--foreground)]/10 pb-10">
+      <section className="relative">
+        <div className="sticky top-0 inset-0 z-[-10] h-screen -mb-[100vh] w-full">
+          <FeatureScene />
+        </div>
+
+      <section className="border-b border-[var(--foreground)]/10 md:pb-40 pb-12">
           <div className="flex flex-col items-center text-center">
               <div className="rounded-lg">
                 <h2 className="text-3xl md:text-7xl leading-tight mb-6">
@@ -31,9 +38,8 @@ export default function FeaturePage() {
         {/* 1-1 設計セクション */}
         <section className="border-b border-[var(--foreground)]/10 md:pt-40 pt-20 md:pb-20 pb-10 relative overflow-visible overflow-x-hidden">
           {/* 背景テキスト */}
-          <div className="absolute md:-top-24 -top-10 left-1/2 transform -translate-x-1/2 md:text-[300px] text-[120px] font-serif font-light z-0 select-none pointer-events-none text-center bg-clip-text text-transparent md:w-[200%] w-[220%]" style={{ backgroundImage: 'linear-gradient(to right, transparent 0%, transparent 30%, rgba(77, 67, 69, 0.05) 50%, transparent 70%, transparent 100%)' }}>
-            Design
-          </div>
+            <ScrollingTitle text="Design" />
+
           <div className="flex flex-col md:flex-row justify-between relative z-10">
             <div className="md:flex md:mr-12 flex">
               {/* 左側のナンバリング - モバイルとPC共通 */}
@@ -50,7 +56,7 @@ export default function FeaturePage() {
                 </div>
               </div>
               {/* コンテンツ部分 */}
-              <div className="w-full md:mr-12">
+              <div className="w-full md:w-1/2 md:mr-12">
                 <h2 className="text-3xl md:text-5xl mb-4">設計</h2>
                 <div className="rounded-lg">
                   <p className="text-2xl md:text-3xl leading-loose mb-4">
@@ -69,7 +75,7 @@ export default function FeaturePage() {
                 </div>
               </div>
             </div>
-            <div className="mt-8 md:mt-2 md:max-w-[500px] w-full h-full">
+            {/* <div className="mt-8 md:mt-2 md:max-w-[500px] w-full h-full">
               <Image 
                 src="/sample1.png"
                 alt="実装イメージ"
@@ -77,16 +83,15 @@ export default function FeaturePage() {
                 height={600}
                 className="rounded-lg object-cover aspect-square w-full h-full"
               />
-            </div>
+            </div> */}
           </div>
         </section>
 
         {/* 1-2 実装セクション */}
         <section className="border-b border-[var(--foreground)]/10 md:pt-40 pt-20 md:pb-20 pb-10 relative overflow-visible overflow-x-hidden">
           {/* 背景テキスト */}
-          <div className="absolute md:-top-20 -top-10 left-1/2 transform -translate-x-1/2 md:text-[250px] text-[100px] font-serif font-light z-0 select-none pointer-events-none text-center bg-clip-text text-transparent md:w-[200%] w-[220%]" style={{ backgroundImage: 'linear-gradient(to right, transparent 0%, transparent 25%, rgba(77, 67, 69, 0.05) 50%, transparent 75%, transparent 100%)' }}>
-            Implement
-          </div>
+          <ScrollingTitle text="Implementation" />
+
           <div className="flex flex-col md:flex-row justify-between relative z-10">
             <div className="md:flex flex">
               {/* 左側のナンバリング */}
@@ -100,7 +105,7 @@ export default function FeaturePage() {
                 </div>
               </div>
               {/* コンテンツ部分 */}
-              <div className="w-full md:mr-12">
+              <div className="w-full md:w-1/2 md:mr-12">
                 <h2 className="text-3xl md:text-4xl mb-4">実装</h2>
                 <div className="rounded-lg">
                   <p className="text-2xl md:text-3xl leading-loose mb-4">
@@ -119,7 +124,7 @@ export default function FeaturePage() {
                 </div>
               </div>
             </div>
-            <div className="mt-8 md:mt-2 md:max-w-[500px] w-full h-full">
+            {/* <div className="mt-8 md:mt-2 md:max-w-[500px] w-full h-full">
               <Image 
                 src="/sample1.png"
                 alt="実装イメージ"
@@ -127,16 +132,15 @@ export default function FeaturePage() {
                 height={600}
                 className="rounded-lg object-cover aspect-square w-full h-full"
               />
-            </div>
+            </div> */}
           </div>
         </section>
         
         {/* 1-3 検証セクション */}
         <section className="border-b border-[var(--foreground)]/10 md:pt-40 pt-20 md:pb-20 pb-10 relative overflow-visible overflow-x-hidden">
           {/* 背景テキスト */}
-          <div className="absolute md:-top-24 -top-10 left-1/2 transform -translate-x-1/2 md:text-[300px] text-[120px] font-serif font-light z-0 select-none pointer-events-none text-center bg-clip-text text-transparent md:w-[200%] w-[220%]" style={{ backgroundImage: 'linear-gradient(to right, transparent 0%, transparent 30%, rgba(77, 67, 69, 0.05) 50%, transparent 70%, transparent 100%)' }}>
-            Testing
-          </div>
+          <ScrollingTitle text="Testing" />
+
           <div className="flex flex-col md:flex-row justify-between relative z-10">
             <div className="md:flex flex">
               {/* 左側のナンバリング */}
@@ -150,7 +154,7 @@ export default function FeaturePage() {
                 </div>
               </div>
               {/* コンテンツ部分 */}
-              <div className="w-full md:mr-12">
+              <div className="w-full md:w-1/2 md:mr-12">
                 <h2 className="text-3xl md:text-4xl mb-4">検証</h2>
                 <div className="rounded-lg">
                   <p className="text-2xl md:text-3xl leading-loose mb-4">
@@ -170,7 +174,7 @@ export default function FeaturePage() {
                 </div>
               </div>
             </div>
-            <div className="mt-8 md:mt-2 md:max-w-[500px] w-full h-full">
+            {/* <div className="mt-8 md:mt-2 md:max-w-[500px] w-full h-full">
               <Image 
                 src="/sample1.png"
                 alt="検証イメージ"
@@ -178,16 +182,15 @@ export default function FeaturePage() {
                 height={600}
                 className="rounded-lg object-cover aspect-square w-full h-full"
               />
-            </div>
+            </div> */}
           </div>
         </section>
         
         {/* 1-4 改良セクション */}
         <section className="border-b border-[var(--foreground)]/10 md:pt-40 pt-20 md:pb-20 pb-10 relative overflow-visible overflow-x-hidden">
           {/* 背景テキスト */}
-          <div className="absolute md:-top-20 -top-10 left-1/2 transform -translate-x-1/2 md:text-[250px] text-[100px] font-serif font-light z-0 select-none pointer-events-none text-center bg-clip-text text-transparent md:w-[200%] w-[220%]" style={{ backgroundImage: 'linear-gradient(to right, transparent 0%, transparent 25%, rgba(77, 67, 69, 0.05) 50%, transparent 75%, transparent 100%)' }}>
-            Improvement
-          </div>
+          <ScrollingTitle text="Improvement" />
+
           <div className="flex flex-col md:flex-row justify-between relative z-10">
             <div className="md:flex flex">
               {/* 左側のナンバリング */}
@@ -201,7 +204,7 @@ export default function FeaturePage() {
                 </div>
               </div>
               {/* コンテンツ部分 */}
-              <div className="w-full md:mr-12">
+              <div className="w-full md:w-1/2 md:mr-12">
                 <h2 className="text-3xl md:text-4xl mb-4">改良</h2>
                 <div className="rounded-lg">
                   <p className="text-2xl md:text-3xl leading-loose mb-4">
@@ -221,7 +224,7 @@ export default function FeaturePage() {
                 </div>
               </div>
             </div>
-            <div className="mt-8 md:mt-2 md:max-w-[500px] w-full h-full">
+            {/* <div className="mt-8 md:mt-2 md:max-w-[500px] w-full h-full">
               <Image 
                 src="/sample1.png"
                 alt="改良イメージ"
@@ -229,20 +232,21 @@ export default function FeaturePage() {
                 height={600}
                 className="rounded-lg object-cover aspect-square w-full h-full"
               />
-            </div>
+            </div> */}
           </div>
         </section>
-        
-        {/* 2 仕事の進め方 */}
-        <section className="relative overflow-visible overflow-x-hidden">
-          <div className="relative z-10">
-          <div className="mt-20 border-b border-[var(--foreground)]/10">
-        <h1 className="text-4xl mb-6">仕事の進め方</h1>
-        <p className="mb-20 font-extralight text-sm md:text-base">クライアントの負担軽減に向け、コミュニケーションコストやヒューマンエラーを極力まで削るガイドラインを作成しています。</p>
-      </div>
-            
-            {/* UIUXデザインの場合 */}
-              <div className="py-20 border-b border-[var(--foreground)]/10">
+        </section>
+
+        <section className="pb-10 bg-[var(--background)] rounded-3xl md:p-20 p-6 border border-[var(--foreground)]/10 mb-20 md:mb-40">
+            <div className="flex flex-col md:flex-row justify-between">
+              <div className="w-full">
+                <div className="flex flex-col">
+                  <div className="mb-8 bg-[var(--foreground)]/4 rounded-xl p-4">
+                    <h2 className="border-l-4 border-[var(--foreground)]/30 md:pl-4 pl-2 md:text-xl text-base text-[var(--foreground)]">仕事の進め方</h2>
+                  </div>
+                  
+           {/* UIUXデザインの場合 */}
+           <div className="md:py-20 py-10 border-b border-[var(--foreground)]/10">
               <h3 className="md:text-4xl text-2xl md:mb-12 mb-6">UIUXデザインの場合</h3>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
                 <div className="flex flex-col bg-[var(--foreground)]/5 p-10 rounded-lg border border-[var(--foreground)]/10">
@@ -285,7 +289,7 @@ export default function FeaturePage() {
             </div>
 
            {/* コーポレートブランディングの場合 */}
-           <div className="py-20 border-b border-[var(--foreground)]/10">
+           <div className="md:py-20 py-10 border-b border-[var(--foreground)]/10">
               <h3 className="md:text-4xl text-2xl md:mb-12 mb-6">コーポレートブランディングの場合</h3>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
                 <div className="flex flex-col bg-[var(--foreground)]/5 p-10 rounded-lg border border-[var(--foreground)]/10">
@@ -328,7 +332,149 @@ export default function FeaturePage() {
             </div>
 
                {/* クラウドインフラ構築の場合 */}
-               <div className="py-20 border-b border-[var(--foreground)]/10">
+               <div className="md:py-20 py-10 border-b border-[var(--foreground)]/10">
+              <h3 className="md:text-4xl text-2xl md:mb-12 mb-6">クラウドインフラ構築の場合</h3>
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
+                <div className="flex flex-col bg-[var(--foreground)]/5 p-10 rounded-lg border border-[var(--foreground)]/10">
+                  <div className="text-xl text-[var(--foreground)]/70 mb-2 text-center">01</div>
+                  <h4 className="text-xl mb-3 text-center">要件定義と設計</h4>
+                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base font-light text-[var(--foreground)]/80">
+                    <li>ビジネス要件の把握</li>
+                    <li>安全性と拡張性の設計</li>
+                    <li>コスト分析と最適化計画</li>
+                  </ul>
+                </div>
+                <div className="flex flex-col bg-[var(--foreground)]/5 p-10 rounded-lg border border-[var(--foreground)]/10">
+                  <div className="text-xl text-[var(--foreground)]/70 mb-2 text-center">02</div>
+                  <h4 className="text-xl mb-3 text-center">環境構築</h4>
+                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base font-light text-[var(--foreground)]/80">
+                    <li>クラウドプラットフォーム選定</li>
+                    <li>システムアーキテクチャ設計</li>
+                    <li>ネットワークとセキュリティ設定</li>
+                  </ul>
+                </div>
+                <div className="flex flex-col bg-[var(--foreground)]/5 p-10 rounded-lg border border-[var(--foreground)]/10">
+                  <div className="text-xl text-[var(--foreground)]/70 mb-2 text-center">03</div>
+                  <h4 className="text-xl mb-3 text-center">実装とテスト</h4>
+                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base font-light text-[var(--foreground)]/80">
+                    <li>インフラのコード化(IaC)</li>
+                    <li>自動化パイプライン構築</li>
+                    <li>パフォーマンスと負荷テスト</li>
+                  </ul>
+                </div>
+                <div className="flex flex-col bg-[var(--foreground)]/5 p-10 rounded-lg border border-[var(--foreground)]/10">
+                  <div className="text-xl text-[var(--foreground)]/70 mb-2 text-center">04</div>
+                  <h4 className="text-xl mb-3 text-center">運用と最適化</h4>
+                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base font-light text-[var(--foreground)]/80">
+                    <li>モニタリングと監視体制</li>
+                    <li>コスト管理とリソース最適化</li>
+                    <li>継続的な改善とスケーリング</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        
+        {/* 2 仕事の進め方 */}
+        <section className="relative overflow-visible overflow-x-hidden">
+          <div className="relative z-10">
+          <div className="mt-20 border-b border-[var(--foreground)]/10">
+        <h1 className="text-4xl mb-6">仕事の進め方</h1>
+        <p className="mb-20 font-extralight text-sm md:text-base">クライアントの負担軽減に向け、コミュニケーションコストやヒューマンエラーを極力まで削るガイドラインを作成しています。</p>
+      </div>
+            
+            {/* UIUXデザインの場合 */}
+              <div className="md:py-20 py-10 border-b border-[var(--foreground)]/10">
+              <h3 className="md:text-4xl text-2xl md:mb-12 mb-6">UIUXデザインの場合</h3>
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
+                <div className="flex flex-col bg-[var(--foreground)]/5 p-10 rounded-lg border border-[var(--foreground)]/10">
+                  <div className="text-xl text-[var(--foreground)]/70 mb-2 text-center">01</div>
+                  <h4 className="text-xl mb-3 text-center">ユーザー調査と分析</h4>
+                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base font-light text-[var(--foreground)]/80">
+                    <li>行動分析とリサーチ</li>
+                    <li>ペルソナ設計</li>
+                    <li>ユーザーインタビュー</li>
+                  </ul>
+                </div>
+                <div className="flex flex-col bg-[var(--foreground)]/5 p-10 rounded-lg border border-[var(--foreground)]/10">
+                  <div className="text-xl text-[var(--foreground)]/70 mb-2 text-center">02</div>
+                  <h4 className="text-xl mb-3 text-center">設計と構築</h4>
+                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base font-light text-[var(--foreground)]/80">
+                    <li>情報アーキテクチャ設計</li>
+                    <li>ワイヤーフレーム作成</li>
+                    <li>インタラクション設計</li>
+                  </ul>
+                </div>
+                <div className="flex flex-col bg-[var(--foreground)]/5 p-10 rounded-lg border border-[var(--foreground)]/10">
+                  <div className="text-xl text-[var(--foreground)]/70 mb-2 text-center">03</div>
+                  <h4 className="text-xl mb-3 text-center">ビジュアルとプロトタイプ</h4>
+                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base font-light text-[var(--foreground)]/80">
+                    <li>UI設計とスタイリング</li>
+                    <li>ビジュアル要素の統一</li>
+                    <li>インタラクティブプロトタイプ作成</li>
+                  </ul>
+                </div>
+                  <div className="flex flex-col bg-[var(--foreground)]/5 p-10 rounded-lg border border-[var(--foreground)]/10">
+                  <div className="text-xl text-[var(--foreground)]/70 mb-2 text-center">04</div>
+                  <h4 className="text-xl mb-3 text-center">テストと改善</h4>
+                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base font-light text-[var(--foreground)]/80">
+                    <li>ユーザビリティテスト</li>
+                    <li>フィードバック収集</li>
+                    <li>継続的な改善</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+           {/* コーポレートブランディングの場合 */}
+           <div className="md:py-20 py-10 border-b border-[var(--foreground)]/10">
+              <h3 className="md:text-4xl text-2xl md:mb-12 mb-6">コーポレートブランディングの場合</h3>
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
+                <div className="flex flex-col bg-[var(--foreground)]/5 p-10 rounded-lg border border-[var(--foreground)]/10">
+                  <div className="text-xl text-[var(--foreground)]/70 mb-2 text-center">01</div>
+                  <h4 className="text-xl mb-3 text-center">ブランド戦略</h4>
+                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base font-light text-[var(--foreground)]/80">
+                    <li>企業価値とビジョン明確化</li>
+                    <li>市場調査・競合分析</li>
+                    <li>ブランドポジショニング</li>
+                  </ul>
+                </div>
+                <div className="flex flex-col bg-[var(--foreground)]/5 p-10 rounded-lg border border-[var(--foreground)]/10">
+                  <div className="text-xl text-[var(--foreground)]/70 mb-2 text-center">02</div>
+                  <h4 className="text-xl mb-3 text-center">アイデンティティ構築</h4>
+                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base font-light text-[var(--foreground)]/80">
+                    <li>ブランドコンセプト策定</li>
+                    <li>ロゴ・カラー・タイポグラフィ設計</li>
+                    <li>ブランドガイドライン策定</li>
+                  </ul>
+                </div>
+                <div className="flex flex-col bg-[var(--foreground)]/5 p-10 rounded-lg border border-[var(--foreground)]/10">
+                  <div className="text-xl text-[var(--foreground)]/70 mb-2 text-center">03</div>
+                  <h4 className="text-xl mb-3 text-center">ブランド表現</h4>
+                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base font-light text-[var(--foreground)]/80">
+                    <li>コミュニケーション戦略</li>
+                    <li>ウェブ・印刷物・SNSなどの表現統一</li>
+                    <li>マーケティング素材制作</li>
+                  </ul>
+                </div>
+                <div className="flex flex-col bg-[var(--foreground)]/5 p-10 rounded-lg border border-[var(--foreground)]/10">
+                  <div className="text-xl text-[var(--foreground)]/70 mb-2 text-center">04</div>
+                  <h4 className="text-xl mb-3 text-center">浸透と維持</h4>
+                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base font-light text-[var(--foreground)]/80">
+                    <li>社内外へのブランド教育</li>
+                    <li>一貫性のあるブランド体験提供</li>
+                    <li>認知度向上の施策実施</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+               {/* クラウドインフラ構築の場合 */}
+               <div className="md:py-20 py-10 border-b border-[var(--foreground)]/10">
               <h3 className="md:text-4xl text-2xl md:mb-12 mb-6">クラウドインフラ構築の場合</h3>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
                 <div className="flex flex-col bg-[var(--foreground)]/5 p-10 rounded-lg border border-[var(--foreground)]/10">
@@ -381,7 +527,7 @@ export default function FeaturePage() {
       </div>
             
             {/* UIUXデザインの場合 */}
-            <div className="py-20 border-b border-[var(--foreground)]/10">
+            <div className="md:py-20 py-10 border-b border-[var(--foreground)]/10">
               <h3 className="md:text-4xl text-2xl md:mb-12 mb-6">UIUXデザインの場合</h3>
               <div className="bg-[var(--foreground)]/5 p-10 rounded-lg border border-[var(--foreground)]/10 mb-6">
                 <ul className="list-none space-y-6 text-sm md:text-base font-light text-[var(--foreground)]/80">
@@ -418,7 +564,7 @@ export default function FeaturePage() {
             </div>
             
             {/* コーポレートブランディングの場合 */}
-            <div className="py-20 border-b border-[var(--foreground)]/10">
+            <div className="md:py-20 py-10 border-b border-[var(--foreground)]/10">
               <h3 className="md:text-4xl text-2xl md:mb-12 mb-6">コーポレートブランディングの場合</h3>
               <div className="bg-[var(--foreground)]/5 p-10 rounded-lg border border-[var(--foreground)]/10 mb-6">
                 <ul className="list-none space-y-6 text-sm md:text-base font-light text-[var(--foreground)]/80">
@@ -446,7 +592,7 @@ export default function FeaturePage() {
             </div>
 
              {/* クラウドインフラ構築の場合 */}
-             <div className="pt-20">
+             <div className="md:pt-20 pt-10">
               <h3 className="md:text-4xl text-2xl md:mb-12 mb-6">クラウドインフラ構築の場合</h3>
               <div className="bg-[var(--foreground)]/5 p-10 rounded-lg border border-[var(--foreground)]/10 mb-6">
                 <ul className="list-none space-y-6 text-sm md:text-base font-light text-[var(--foreground)]/80">

@@ -8,6 +8,7 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import { useRef, useEffect } from 'react';
 import ScrollingTitle from '@/components/ScrollingTitle';
+
 export default function Home() {
   const aboutSectionRef = useRef<HTMLDivElement>(null);
 
@@ -62,7 +63,7 @@ export default function Home() {
         <div className="relative z-10">
           <div
             ref={aboutSectionRef}
-            className="w-full h-[500vh] max-w-[1440px] my-80 mx-auto px-4 md:px-16 flex flex-col justify-center pt-80 pb-24 bg-background"
+            className="w-full h-[500vh] max-w-[1440px] my-80 mx-auto px-6 md:px-16 flex flex-col justify-center pt-80 pb-24 bg-background"
           >
             <section className="py-[100vh] mt-[110vh] w-full">
             <ScrollingTitle text="OUR VISION" />
@@ -85,7 +86,7 @@ export default function Home() {
                   </p>
                 </div>
                 <p className="md:w-full text-[var(--foreground)] text-sm md:text-base font-light leading-relaxed mb-20">
-                  プラズミズムは、最適解の設計・実装・検証・改良をコンピューターと情報表現でデザインする会社です。
+                  プラズミズムは、テクノロジーと人々がよりシームレスに共存できる世界を目指し、最適解の設計・実装・検証・改良をコンピューターと情報表現でデザインする会社です。
                   </p>
                   <Link href="/about" className="w-1/2 bg-[var(--foreground)] hover:bg-[#BC2611] hover:scale-105 hover:text-[var(--foreground)] transition-all duration-300 text-[var(--background)] rounded-md py-3 px-4 flex items-center justify-between text-sm border border-[var(--background)]/20">
               私たちについて <span className="ml-2 border-l border-[var(--background)]/50 hover:border-[var(--foreground)]/50 pl-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
@@ -114,7 +115,7 @@ export default function Home() {
                   </p>
                 </div>
                 <p className="md:w-full text-[var(--foreground)] text-sm md:text-base font-light leading-relaxed mb-20">
-                設計・実装・検証・改良のサイクルで、新しい価値を速く、強くデザインします。
+                経験と実績からブラッシュアップしたオリジナルの課題解決プロセスである、設計・実装・検証・改良のサイクルで、新しい価値を速く、強くデザインします。
                   </p>
                   <Link href="/feature" className="w-1/2 bg-[var(--foreground)] hover:bg-[#BC2611] hover:scale-105 hover:text-[var(--foreground)] transition-all duration-300 text-[var(--background)] rounded-md py-3 px-4 flex items-center justify-between text-sm border border-[var(--background)]/20">
               特徴 <span className="ml-2 border-l border-[var(--background)]/50 hover:border-[var(--foreground)]/50 pl-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
