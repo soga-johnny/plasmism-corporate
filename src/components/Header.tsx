@@ -108,7 +108,7 @@ export default function Header() {
       >
         <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8 flex items-center justify-between">
           <div className="flex items-center">
-            <Link href="/">
+            <Link href="/" className="mix-blend-normal">
               <Image 
                 src="/logo-white.svg" 
                 alt="Plasmism" 
@@ -116,6 +116,8 @@ export default function Header() {
                 height={20}
                 className="h-5 w-auto hover:opacity-70 transition-all duration-300 logo-white mix-blend-difference" 
               />
+            </Link>
+            <Link href="/" className="mix-blend-normal">
               <Image 
                 src="/logo-dark.svg" 
                 alt="Plasmism" 
@@ -178,8 +180,8 @@ export default function Header() {
         className="fixed bottom-5 left-1/2 transform -translate-x-1/2 w-1/2 z-[70] flex backdrop-blur-lg mix-blend-difference border border-[var(--foreground)]/20 overflow-hidden rounded-lg"
       >
         <button 
-          className="flex-1 flex items-center justify-center py-4 text-[var(--background)] active:scale-95 active:bg-opacity-80 transition-all duration-300 overflow-hidden"
-          style={{ backgroundColor: 'var(--menu-button-bg)' }}
+          className="flex-1 flex items-center justify-center py-4 text-[var(--foreground)] active:scale-95 active:bg-opacity-80 transition-all duration-300 overflow-hidden"
+          style={{ backgroundColor: isMenuOpen ? 'var(--background)' : 'var(--foreground)' }}
           onClick={toggleMenu}
         >
           <div className="relative w-full h-full flex items-center justify-center">
@@ -190,10 +192,10 @@ export default function Header() {
             >
               <div className="flex items-center">
                 <div className="flex flex-col items-center mr-3">
-                  <div className="w-6 h-[1px] bg-[var(--menu-button-text)] mb-1 transform transition-transform duration-300"></div>
-                  <div className="w-6 h-[1px] bg-[var(--menu-button-text)] transform transition-transform duration-300"></div>
+                  <div className="w-6 h-[1px] bg-[var(--background)] mb-1 transform transition-transform duration-300"></div>
+                  <div className="w-6 h-[1px] bg-[var(--background)] transform transition-transform duration-300"></div>
                 </div>
-                <span className="text-xs text-[var(--menu-button-text)]">Menu</span>
+                <span className="text-xs text-[var(--background)]">Menu</span>
               </div>
             </div>
 
@@ -209,21 +211,15 @@ export default function Header() {
                   viewBox="0 0 24 24" 
                   fill="none" 
                   xmlns="http://www.w3.org/2000/svg"
-                  className="transform rotate-0 transition-transform duration-500 text-[var(--menu-button-text)]"
+                  className="transform rotate-0 transition-transform duration-500 text-[var(--foreground)]"
                 >
                   <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" fill="currentColor" stroke="currentColor" strokeWidth="0.5"/>
                 </svg>
               </span>
-              <span className="text-xs text-[var(--menu-button-text)]">Close</span>
+              <span className="text-xs text-[var(--foreground)]">Close</span>
             </div>
           </div>
         </button>
-        {/* <Link 
-          href="/contact" 
-          className="flex-1 flex items-center justify-center gap-2 py-1 bg-[#c22626] text-white"
-        >
-          <span className="text-xs">お問合わせ</span>
-        </Link> */}
       </motion.header>
       
       {/* モバイルメニュー - AnimatePresenceをクライアントサイドでのみレンダリング */}
@@ -265,7 +261,7 @@ export default function Header() {
             >
               {/* ロゴ */}
               <div className="px-8 pt-4">
-                <Link href="/" onClick={closeMenu}>
+                <Link href="/" onClick={closeMenu} className="mix-blend-normal">
                   <Image 
                     src="/logo-white.svg" 
                     alt="Plasmism" 
@@ -273,6 +269,8 @@ export default function Header() {
                     height={20}
                     className="h-3 w-auto logo-white" 
                   />
+                </Link>
+                <Link href="/" onClick={closeMenu} className="mix-blend-normal">
                   <Image 
                     src="/logo-dark.svg" 
                     alt="Plasmism" 

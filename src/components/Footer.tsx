@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 
 // パンくずリストの設定
 const breadcrumbMap: { [key: string]: { label: string; parent?: string } } = {
@@ -25,6 +25,7 @@ export default function Footer() {
   const pathname = usePathname()
   const [dynamicTitle, setDynamicTitle] = useState<string>('')
   const [isLoading, setIsLoading] = useState(false)
+  const footerRef = useRef<HTMLDivElement>(null);
   
   // Notionのタイトルを取得する関数
   const fetchNotionTitle = async (id: string) => {
@@ -47,36 +48,88 @@ export default function Footer() {
   
   // パスが変更されたときにタイトルを取得
   useEffect(() => {
-    if (pathname.startsWith('/achievements/')) {
-      const _id = pathname.split('/')[2]
-      fetchNotionTitle(_id)
+    const match = pathname.match(/^\/achievements\/([^/]+)$/);
+    if (match && match[1]) {
+      fetchNotionTitle(match[1]);
+    } else {
+      setDynamicTitle('');
     }
-  }, [pathname])
+  }, [pathname]);
+  
+  // フッターの表示状態に応じてテーマを切り替える (IntersectionObserver)
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const htmlElement = document.documentElement;
+        if (entry.isIntersecting) {
+          htmlElement.classList.remove('light');
+        } else {
+          htmlElement.classList.add('light');
+        }
+      },
+      {
+        rootMargin: '0px',
+        threshold: 0.1, // 10%表示されたら切り替え（調整可能）
+      }
+    );
+
+    const currentRef = footerRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    // クリーンアップ
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+      // 念のため、アンマウント時にライトテーマに戻す
+      document.documentElement.classList.add('light');
+    };
+  }, []); // マウント/アンマウント時に実行
   
   // パンくずリストを生成する関数
   const generateBreadcrumbs = () => {
     const breadcrumbs: {path: string; label: string}[] = []
     let currentPath = pathname
-    
-    // 動的なパスの処理
-    if (currentPath.startsWith('/achievements/')) {
-      breadcrumbs.unshift({
-        path: currentPath,
-        label: isLoading ? '読み込み中...' : (dynamicTitle || '実績詳細')
-      })
-      currentPath = '/achievements'
+    let basePathForLookup = pathname;
+
+    // 実績詳細ページの特別処理
+    if (pathname.startsWith('/achievements/')) {
+      const match = pathname.match(/^\/achievements\/([^/]+)$/);
+      if (match && match[1]) {
+        const achievementId = match[1];
+        // ローディング中か、タイトル取得済みか
+        const label = isLoading ? '読み込み中...' : (dynamicTitle || '実績詳細'); // タイトル or フォールバック
+        breadcrumbs.unshift({ path: pathname, label: label });
+        basePathForLookup = '/achievements'; // 親パスから辿る
+      }
+    }
+
+    // 静的パスを辿る
+    currentPath = basePathForLookup;
+    while (currentPath) {
+        const mapEntry = breadcrumbMap[currentPath];
+        if (mapEntry) {
+            // 既に動的パンくずが追加されている場合、その親は追加しない
+            // （例: /achievements/[id] があれば、/achievements は追加済みのはず）
+            // ただし、動的処理で親を設定しているので、ここでは単純に追加で良いはず
+            if (!breadcrumbs.some(b => b.path === currentPath)) {
+               breadcrumbs.unshift({ path: currentPath, label: mapEntry.label });
+            }
+            currentPath = mapEntry.parent || '';
+        } else {
+            // マップにない場合は終了
+            break;
+        }
     }
     
-    while (currentPath && breadcrumbMap[currentPath]) {
-      breadcrumbs.unshift({
-        path: currentPath,
-        label: breadcrumbMap[currentPath].label
-      })
-      
-      currentPath = breadcrumbMap[currentPath].parent || ''
+    // トップページがなければ追加 (ルートパスの考慮)
+    if (!breadcrumbs.some(b => b.path === '/') && breadcrumbMap['/'] && pathname !== '/') {
+        breadcrumbs.unshift({ path: '/', label: breadcrumbMap['/'].label });
     }
-    
-    return breadcrumbs
+
+    return breadcrumbs;
   }
   
   const breadcrumbs = generateBreadcrumbs()
@@ -97,7 +150,7 @@ export default function Footer() {
   }, [pathname, isContactPage, isDownloadPage, shouldShowContactSection])
   
   return (
-    <footer className="text-[var(--foreground)] font-extralight pt-12 pb-4">
+    <footer ref={footerRef} className="text-[var(--foreground)] font-extralight pt-12 pb-4 transition-colors duration-300">
       <div className="w-full max-w-[1440px] mx-auto px-6 md:px-12">
         {/* パンくずリスト */}
         <div className="border-y border-[var(--foreground)]/10 py-6 my-8">
@@ -106,7 +159,7 @@ export default function Footer() {
               <div key={breadcrumb.path} className="flex items-center">
                 {index > 0 && <span className="mx-2">/</span>}
                 {index === breadcrumbs.length - 1 ? (
-                  <span className="text-[var(--foreground)]">{breadcrumb.label}</span>
+                  <span className="text-[var(--foreground)]">{breadcrumb.label || '現在のページ'}</span>
                 ) : (
                   <Link href={breadcrumb.path} className="hover:text-[var(--foreground)]/70 transition-colors">
                     {breadcrumb.label}
@@ -125,87 +178,97 @@ export default function Footer() {
           {shouldShowContactSection && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-1">
               <Link href="/contact" className="inline-block group">
-              <div className="bg-[var(--foreground)]/10 hover:bg-[var(--foreground)]/15 transition-all border border-[var(--foreground)]/20 rounded-xl md:px-12 px-8 md:py-20 py-10 w-full">
-                  <h3 className="md:text-4xl text-3xl mb-6 text-center border-b border-[var(--foreground)]/10 pb-4">お問い合わせ・ご相談</h3>
-                <p className="text-sm md:mb-12 mb-6 text-[var(--foreground)]/80">
-                  UI/UXデザイン、ブランディング、クラウドインフラなど、あらゆるデジタル課題に対応。
-                  初回相談は無料で、お客様の状況に合わせた最適な提案をいたします。
-                </p>
-                <div className="flex justify-center">
+                <div className="bg-[var(--foreground)]/10 hover:bg-[var(--foreground)]/15 transition-all border border-[var(--foreground)]/20 rounded-xl md:px-12 px-8 md:py-20 py-10 w-full">
+                  <h3 className="md:text-4xl text-2xl mb-6 text-center border-b border-[var(--foreground)]/10 pb-4">お問い合わせ・ご相談</h3>
+                  <p className="text-sm md:mb-12 mb-6 text-[var(--foreground)]/80">
+                    UXデザイン、コーポレートデザイン、アーキテクチャデザインなど、課題に真摯に向き合って対応。
+                    初回相談は無料で、お客様の状況に合わせた最適な提案をいたします。
+                  </p>
+                  <div className="flex justify-center">
                     <svg className="w-14 h-14 transition-transform duration-500 group-hover:rotate-[360deg]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.5">
                       <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
-                </div> 
-              </div>
+                  </div>
+                </div>
               </Link>
-              
+
               <Link href="/download" className="inline-block group">
-              <div className="bg-[var(--foreground)]/10 hover:bg-[var(--foreground)]/15 transition-all border border-[var(--foreground)]/20 rounded-xl md:px-12 px-8 md:py-20 py-10 w-full">
-                <h3 className="md:text-4xl text-3xl mb-6 text-center border-b border-[var(--foreground)]/10 pb-4">会社資料ダウンロード</h3>
-                <p className="text-sm md:mb-12 mb-6 text-[var(--foreground)]/80">
-                  サービス内容、実績事例、アプローチをまとめた資料をご用意。
-                  メールアドレスをご登録いただくだけで、すぐにダウンロードいただけます。
-                </p>
-                <div className="flex justify-center">
-  
+                <div className="bg-[var(--foreground)]/10 hover:bg-[var(--foreground)]/15 transition-all border border-[var(--foreground)]/20 rounded-xl md:px-12 px-8 md:py-20 py-10 w-full">
+                  <h3 className="md:text-4xl text-2xl mb-6 text-center border-b border-[var(--foreground)]/10 pb-4">会社資料ダウンロード</h3>
+                  <p className="text-sm md:mb-12 mb-6 text-[var(--foreground)]/80">
+                    サービス内容、実績事例、アプローチをまとめた資料をご用意。
+                    メールアドレスをご登録いただくだけで、すぐにダウンロードいただけます。
+                  </p>
+                  <div className="flex justify-center">
                     <svg className="w-14 h-14 transition-transform duration-500 group-hover:rotate-[360deg]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.5">
                       <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                     </svg>
+                  </div>
                 </div>
-              </div>
               </Link>
             </div>
           )}
         </div>
-        <div className="grid grid-cols-2 gap-y-8 md:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
           <div>
+            <h4 className="text-sm font-semibold mb-4 text-[var(--foreground)]/80">Plasmism</h4>
             <ul className="space-y-3">
-              <li><Link href="/about" className="hover:text-[var(--foreground)]/70 transition-colors text-lg">私たちについて</Link></li>
-              <li><Link href="/feature" className="hover:text-[var(--foreground)]/70 transition-colors text-lg">特徴</Link></li>
-              <li><Link href="/product" className="hover:text-[var(--foreground)]/70 transition-colors text-lg">プロダクト</Link></li>
-              <li><Link href="/services" className="hover:text-[var(--foreground)]/70 transition-colors text-lg">サービス</Link></li>
+              <li><Link href="/about" className="hover:text-[var(--foreground)]/70 transition-colors text-base font-light">私たちについて</Link></li>
+              <li><Link href="/feature" className="hover:text-[var(--foreground)]/70 transition-colors text-base font-light">特徴</Link></li>
+              <li><Link href="/company" className="hover:text-[var(--foreground)]/70 transition-colors text-base font-light">会社案内</Link></li>
             </ul>
           </div>
           <div>
+            <h4 className="text-sm font-semibold mb-4 text-[var(--foreground)]/80">Service & Product</h4>
             <ul className="space-y-3">
-              <li><Link href="/achievements" className="hover:text-[var(--foreground)]/70 transition-colors text-lg">実績</Link></li>
-              <li><Link href="/recruit" className="hover:text-[var(--foreground)]/70 transition-colors text-lg">採用</Link></li>
-              <li><Link href="/company" className="hover:text-[var(--foreground)]/70 transition-colors text-lg">会社案内</Link></li>
+              <li><Link href="/service" className="hover:text-[var(--foreground)]/70 transition-colors text-base font-light">サービス</Link></li>
+              <li><Link href="/product" className="hover:text-[var(--foreground)]/70 transition-colors text-base font-light">プロダクト</Link></li>
+               <li><Link href="/achievements" className="hover:text-[var(--foreground)]/70 transition-colors text-base font-light">実績</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-sm font-semibold mb-4 text-[var(--foreground)]/80">Support</h4>
+            <ul className="space-y-3">
+              <li><Link href="/contact" className="hover:text-[var(--foreground)]/70 transition-colors text-base font-light">お問い合わせ</Link></li>
+              <li><Link href="/download" className="hover:text-[var(--foreground)]/70 transition-colors text-base font-light">資料ダウンロード</Link></li>
+              <li><Link href="/privacy" className="hover:text-[var(--foreground)]/70 transition-colors text-base font-light">プライバシーポリシー</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-sm font-semibold mb-4 text-[var(--foreground)]/80">Career</h4>
+            <ul className="space-y-3">
+              <li><Link href="/recruit" className="hover:text-[var(--foreground)]/70 transition-colors text-base font-light">採用情報</Link></li>
             </ul>
           </div>
         </div>
         
-        <div className="text-center pt-12">
-          <p className="mb-6 md:text-xl text-xs">
-            想像もできなかった豊かさを、いつどの瞬間であっても、噛み締めて実感できる、そんな会社。
-          </p>
-          <div className="mb-20">
-            <Link
-              href="/"
-              className="mr-4"
-            >
-              <Image 
-                src="/logo-white.svg" 
-                alt="Plasmism" 
-                width={100}
-                height={20}
-                className="h-auto w-full logo-white"
-              />
-              <Image 
-                src="/logo-dark.svg" 
-                alt="Plasmism" 
-                width={100}
-                height={20}
-                className="h-auto w-full logo-dark"
-              />
-            </Link>
-          </div>
-          <div className="flex justify-between items-center">
-            <div className="text-xs font-extralight">
-              <Link href="/privacy" className="hover:text-[var(--foreground)]/70">プライバシーポリシー</Link>
+        <div className="border-t border-[var(--foreground)]/10 pt-8">
+            <div className="flex flex-col justify-between items-center">
+                <div className="w-full md:mb-40 mb-12 md:mt-24 mt-4">
+                    <Link
+                      href="/"
+                      className="mr-4 mix-blend-normal"
+                    >
+                      <Image
+                        src="/logo-white.svg"
+                        alt="Plasmism Logo Dark"
+                        width={1200}
+                        height={240}
+                        className="w-full h-auto logo-white"
+                      />
+                      <Image
+                        src="/logo-dark.svg"
+                        alt="Plasmism Logo Light"
+                        width={1200}
+                        height={240}
+                        className="w-full h-auto logo-dark"
+                      />
+                    </Link>
+                </div>
+                <div className="text-xs text-[var(--foreground)]/60 text-center w-full md:mb-0 mb-16">
+                    ©2025 Plasmism Inc. All Rights Reserved.
+                </div>
             </div>
-            <div className="text-xs text-[var(--foreground)]/50">©2024 Plasmism Inc.</div>
-          </div>
         </div>
       </div>
     </footer>

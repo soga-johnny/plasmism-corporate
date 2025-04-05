@@ -50,8 +50,8 @@ export default function Home() {
         <div className="sticky top-0 h-screen z-0">
           <CubeInteractive />
         </div>
-        <div className="absolute top-0 w-full h-screen flex items-center justify-center text-center px-4">
-            <div className="mix-blend-color-dodge">
+        <div className="absolute top-0 w-full h-screen mix-blend-color-dodge flex items-center justify-center text-center px-4">
+            <div>
               <Image src="/logo-dark.svg" width={1080} height={360} alt="Logo" className="w-[400px] md:w-[1080px] text-center mb-4" />
               <p className="absolute bottom-4 left-0 right-0 text-center text-xs md:text-sm text-[var(--foreground)]">
                 Scroll Down
@@ -137,53 +137,67 @@ export default function Home() {
       </section>
       
       
-      <section className="w-full max-w-[1440px] mx-auto px-4 md:px-16 py-24 bg-[var(--foreground)]/5 rounded-t-[40px]">
-        <h2 className="text-3xl md:text-5xl font-thin mb-12 text-center text-[var(--foreground)]">SERVICE</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-[var(--foreground)]/5 p-8 rounded-lg border border-[var(--foreground)]/10">
-            <h3 className="text-2xl font-thin mb-4 text-[var(--foreground)]">コンサルティング</h3>
-            <p className="text-sm font-light leading-relaxed text-[var(--foreground)]/80 mb-6">
-              事業戦略から技術選定、開発プロセスの改善まで、ビジネス成長に必要な技術的課題を解決します。
-            </p>
-            <Link 
-              href="/service#consulting"
-              className="inline-flex items-center text-[var(--foreground)]/60 hover:text-[var(--foreground)] transition-colors duration-300 text-sm font-thin"
-            >
-              詳細を見る →
-            </Link>
-          </div>
-          <div className="bg-[var(--foreground)]/5 p-8 rounded-lg border border-[var(--foreground)]/10">
-            <h3 className="text-2xl font-thin mb-4 text-[var(--foreground)]">受託開発</h3>
-            <p className="text-sm font-light leading-relaxed text-[var(--foreground)]/80 mb-6">
-              Webアプリケーション、モバイルアプリ、基幹システムなど、高品質なソフトウェア開発をワンストップで提供します。
-            </p>
-            <Link 
-              href="/service#contract-development"
-              className="inline-flex items-center text-[var(--foreground)]/60 hover:text-[var(--foreground)] transition-colors duration-300 text-sm font-thin"
-            >
-              詳細を見る →
-            </Link>
-          </div>
-          <div className="bg-[var(--foreground)]/5 p-8 rounded-lg border border-[var(--foreground)]/10">
-            <h3 className="text-2xl font-thin mb-4 text-[var(--foreground)]">技術パートナーシップ</h3>
-            <p className="text-sm font-light leading-relaxed text-[var(--foreground)]/80 mb-6">
-              お客様の技術チームの一員として、長期的な視点で開発支援や技術力向上をサポートします。
-            </p>
-            <Link 
-              href="/service#technology-partnership"
-              className="inline-flex items-center text-[var(--foreground)]/60 hover:text-[var(--foreground)] transition-colors duration-300 text-sm font-thin"
-            >
-              詳細を見る →
-            </Link>
-          </div>
+      <section className="w-full max-w-[1440px] mx-auto px-4 md:px-16 py-24 bg-[var(--background)]/5 rounded-t-[40px]">
+        <h2 className="text-3xl md:text-5xl font-thin mb-16 text-center text-[var(--foreground)]">SERVICE</h2>
+        <div className="space-y-4 mb-12">
+          <Link href="/service#consulting" className="flex items-center group border-b border-[var(--foreground)]/10 pb-4 hover:bg-[var(--foreground)]/5 hover:border-[var(--foreground)]/20 transition-all duration-300 rounded-lg p-4">
+            <div className="w-12 md:w-16 text-right pr-4 md:pr-6">
+              <span className="text-lg md:text-2xl text-[var(--foreground)]/50 group-hover:text-[var(--foreground)]/80 transition-colors">01</span>
+            </div>
+            <div className="flex-1">
+              <h3 className="text-xl md:text-2xl font-light mb-1 group-hover:text-[var(--foreground)]/90 transition-colors">事業開発・技術顧問</h3>
+              <p className="text-[var(--foreground)]/70 text-sm font-light group-hover:text-[var(--foreground)]/80 transition-colors">ビジネス成長を加速する戦略的ITパートナー</p>
+            </div>
+            <div className="ml-4 opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all duration-300">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[var(--foreground)]/70 group-hover:text-[var(--foreground)]">
+                <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+          </Link>
+          <Link href="/service#contract-development" className="flex items-center group border-b border-[var(--foreground)]/10 pb-4 hover:bg-[var(--foreground)]/5 hover:border-[var(--foreground)]/20 transition-all duration-300 rounded-lg p-4">
+            <div className="w-12 md:w-16 text-right pr-4 md:pr-6">
+              <span className="text-lg md:text-2xl text-[var(--foreground)]/50 group-hover:text-[var(--foreground)]/80 transition-colors">02</span>
+            </div>
+            <div className="flex-1">
+              <h3 className="text-xl md:text-2xl font-light mb-1 group-hover:text-[var(--foreground)]/90 transition-colors">受託開発</h3>
+              <p className="text-[var(--foreground)]/70 text-sm font-light group-hover:text-[var(--foreground)]/80 transition-colors">高品質なソフトウェア開発をワンストップで提供</p>
+            </div>
+            <div className="ml-4 opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all duration-300">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[var(--foreground)]/70 group-hover:text-[var(--foreground)]">
+                <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+          </Link>
+          <Link href="/service#technology-partnership" className="flex items-center group border-b border-[var(--foreground)]/10 pb-4 hover:bg-[var(--foreground)]/5 hover:border-[var(--foreground)]/20 transition-all duration-300 rounded-lg p-4">
+            <div className="w-12 md:w-16 text-right pr-4 md:pr-6">
+              <span className="text-lg md:text-2xl text-[var(--foreground)]/50 group-hover:text-[var(--foreground)]/80 transition-colors">03</span>
+            </div>
+            <div className="flex-1">
+              <h3 className="text-xl md:text-2xl font-light mb-1 group-hover:text-[var(--foreground)]/90 transition-colors">技術パートナーシップ</h3>
+              <p className="text-[var(--foreground)]/70 text-sm font-light group-hover:text-[var(--foreground)]/80 transition-colors">長期的な視点で技術力向上を伴走支援</p>
+            </div>
+            <div className="ml-4 opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all duration-300">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[var(--foreground)]/70 group-hover:text-[var(--foreground)]">
+                <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+          </Link>
+        </div>
+        <div className="text-center">
+          <Link 
+            href="/service"
+            className="inline-block text-[var(--foreground)] border border-[var(--foreground)]/30 px-6 py-2 rounded-full hover:bg-[var(--foreground)]/10 transition-colors duration-300 text-sm font-thin"
+          >
+            サービス一覧を見る
+          </Link>
         </div>
       </section>
       
       <section className="w-full max-w-[1440px] mx-auto px-4 md:px-16 py-24 bg-[var(--background)]">
-        <h2 className="text-3xl md:text-5xl font-thin mb-12 text-center text-[var(--foreground)]">PRODUCT</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <h2 className="text-3xl md:text-5xl font-thin mb-16 text-center text-[var(--foreground)]">PRODUCT</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 mb-12">
           <div className="group">
-            <Link href="/product#lean-designer" className="block mb-4 relative overflow-hidden rounded-lg">
+            <Link href="/product#lean-designer" className="block mb-5 relative overflow-hidden rounded-lg">
               <Image 
                 src="/images/product1.webp" 
                 alt="Lean Designer Product Image"
@@ -191,21 +205,23 @@ export default function Home() {
                 height={450}
                 className="w-full h-auto object-cover aspect-[16/9] transform group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-[var(--foreground)]/20 transition-all duration-300"></div>
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-[var(--foreground)]/20 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                <span className="text-white text-sm border border-white/50 rounded-full px-4 py-1">詳細を見る</span>
+              </div>
             </Link>
-            <h3 className="text-2xl font-thin mb-2 text-[var(--foreground)]">Lean Designer</h3>
-            <p className="text-sm font-light text-[var(--foreground)]/80 mb-4">
+            <h3 className="text-xl md:text-2xl font-light mb-2 text-[var(--foreground)]">Lean Designer</h3>
+            <p className="text-sm font-light text-[var(--foreground)]/70 mb-4 leading-relaxed">
               開発専門のハイエンドUI/UXソリューション。AIがデザイン計画書を生成し、開発プロセスを効率化します。
             </p>
             <Link 
               href="/product#lean-designer"
-              className="inline-flex items-center text-[var(--foreground)]/60 hover:text-[var(--foreground)] transition-colors duration-300 text-sm font-thin"
+              className="inline-flex items-center text-[var(--foreground)]/60 hover:text-[var(--foreground)] transition-colors duration-300 text-sm font-thin group-hover:text-[var(--foreground)]"
             >
-              詳細を見る →
+              詳細を見る <span className="ml-1 transform group-hover:translate-x-1 transition-transform duration-300">→</span>
             </Link>
           </div>
           <div className="group">
-            <Link href="/product#containeer" className="block mb-4 relative overflow-hidden rounded-lg">
+            <Link href="/product#containeer" className="block mb-5 relative overflow-hidden rounded-lg">
               <Image 
                 src="/images/product2.webp" 
                 alt="Containeer Product Image"
@@ -213,67 +229,86 @@ export default function Home() {
                 height={450}
                 className="w-full h-auto object-cover aspect-[16/9] transform group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-[var(--foreground)]/20 transition-all duration-300"></div>
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-[var(--foreground)]/20 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                 <span className="text-white text-sm border border-white/50 rounded-full px-4 py-1">詳細を見る</span>
+              </div>
             </Link>
-            <h3 className="text-2xl font-thin mb-2 text-[var(--foreground)]">Containeer</h3>
-            <p className="text-sm font-light text-[var(--foreground)]/80 mb-4">
+            <h3 className="text-xl md:text-2xl font-light mb-2 text-[var(--foreground)]">Containeer</h3>
+            <p className="text-sm font-light text-[var(--foreground)]/70 mb-4 leading-relaxed">
               バーチャルコンテンツのWEBギャラリーメディア。世界中のXRコンテンツをインタラクティブに体験できます。
             </p>
             <Link 
               href="/product#containeer"
-              className="inline-flex items-center text-[var(--foreground)]/60 hover:text-[var(--foreground)] transition-colors duration-300 text-sm font-thin"
+              className="inline-flex items-center text-[var(--foreground)]/60 hover:text-[var(--foreground)] transition-colors duration-300 text-sm font-thin group-hover:text-[var(--foreground)]"
             >
-              詳細を見る →
+              詳細を見る <span className="ml-1 transform group-hover:translate-x-1 transition-transform duration-300">→</span>
             </Link>
           </div>
         </div>
+        <div className="text-center">
+          <Link 
+            href="/product"
+            className="inline-block text-[var(--foreground)] border border-[var(--foreground)]/30 px-6 py-2 rounded-full hover:bg-[var(--foreground)]/10 transition-colors duration-300 text-sm font-thin"
+          >
+            プロダクト一覧を見る
+          </Link>
+        </div>
       </section>
       
-      <section className="w-full max-w-[1440px] mx-auto px-4 md:px-16 py-24 bg-[var(--foreground)]/5 rounded-b-[40px]">
-        <h2 className="text-3xl md:text-5xl font-thin mb-12 text-center text-[var(--foreground)]">ACHIEVEMENTS</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          <div className="group">
-            <Link href="/achievements/achievement-1" className="block mb-4 relative overflow-hidden rounded-lg">
+      <section className="w-full max-w-[1440px] mx-auto px-4 md:px-16 py-24 bg-[var(--background)]/5 rounded-b-[40px]">
+        <h2 className="text-3xl md:text-5xl font-thin mb-16 text-center text-[var(--foreground)]">ACHIEVEMENTS</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-12 mb-12">
+          {/* Achievement 1 */}
+          <Link href="/achievements/coming-soon" className="group block">
+            <div className="relative w-full aspect-square mb-5 overflow-hidden rounded-lg">
               <Image 
                 src="/images/achievement1.webp" 
                 alt="Achievement 1 Image"
-                width={400}
-                height={400}
-                className="w-full h-auto object-cover aspect-square transform group-hover:scale-105 transition-transform duration-500"
+                fill
+                className="object-cover transform transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 33vw"
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-[var(--foreground)]/20 transition-all duration-300"></div>
-            </Link>
-            <h3 className="text-xl font-thin text-[var(--foreground)]">プロジェクトタイトル1</h3>
-            <p className="text-sm font-light text-[var(--foreground)]/80">カテゴリ</p>
-          </div>
-          <div className="group">
-            <Link href="/achievements/achievement-2" className="block mb-4 relative overflow-hidden rounded-lg">
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-[var(--foreground)]/20 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                <span className="text-white text-sm border border-white/50 rounded-full px-4 py-1">詳細を見る</span>
+              </div>
+            </div>
+            <h3 className="text-xl font-light text-[var(--foreground)] mb-1 group-hover:text-[var(--foreground)]/80 transition-colors">プロジェクトタイトル1</h3>
+            <p className="text-sm font-light text-[var(--foreground)]/70 group-hover:text-[var(--foreground)]/80 transition-colors">カテゴリ</p>
+          </Link>
+          {/* Achievement 2 */}
+          <Link href="/achievements/coming-soon" className="group block">
+            <div className="relative w-full aspect-square mb-5 overflow-hidden rounded-lg">
               <Image 
                 src="/images/achievement2.webp" 
                 alt="Achievement 2 Image"
-                width={400}
-                height={400}
-                className="w-full h-auto object-cover aspect-square transform group-hover:scale-105 transition-transform duration-500"
+                fill
+                className="object-cover transform transition-transform duration-500 group-hover:scale-105"
+                 sizes="(max-width: 768px) 100vw, 33vw"
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-[var(--foreground)]/20 transition-all duration-300"></div>
-            </Link>
-            <h3 className="text-xl font-thin text-[var(--foreground)]">プロジェクトタイトル2</h3>
-            <p className="text-sm font-light text-[var(--foreground)]/80">カテゴリ</p>
-          </div>
-          <div className="group">
-            <Link href="/achievements/achievement-3" className="block mb-4 relative overflow-hidden rounded-lg">
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-[var(--foreground)]/20 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                <span className="text-white text-sm border border-white/50 rounded-full px-4 py-1">詳細を見る</span>
+              </div>
+            </div>
+            <h3 className="text-xl font-light text-[var(--foreground)] mb-1 group-hover:text-[var(--foreground)]/80 transition-colors">プロジェクトタイトル2</h3>
+            <p className="text-sm font-light text-[var(--foreground)]/70 group-hover:text-[var(--foreground)]/80 transition-colors">カテゴリ</p>
+          </Link>
+          {/* Achievement 3 */}
+          <Link href="/achievements/coming-soon" className="group block">
+             <div className="relative w-full aspect-square mb-5 overflow-hidden rounded-lg">
               <Image 
                 src="/images/achievement3.webp" 
                 alt="Achievement 3 Image"
-                width={400}
-                height={400}
-                className="w-full h-auto object-cover aspect-square transform group-hover:scale-105 transition-transform duration-500"
+                fill
+                className="object-cover transform transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 33vw"
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-[var(--foreground)]/20 transition-all duration-300"></div>
-            </Link>
-            <h3 className="text-xl font-thin text-[var(--foreground)]">プロジェクトタイトル3</h3>
-            <p className="text-sm font-light text-[var(--foreground)]/80">カテゴリ</p>
-          </div>
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-[var(--foreground)]/20 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                <span className="text-white text-sm border border-white/50 rounded-full px-4 py-1">詳細を見る</span>
+              </div>
+            </div>
+            <h3 className="text-xl font-light text-[var(--foreground)] mb-1 group-hover:text-[var(--foreground)]/80 transition-colors">プロジェクトタイトル3</h3>
+            <p className="text-sm font-light text-[var(--foreground)]/70 group-hover:text-[var(--foreground)]/80 transition-colors">カテゴリ</p>
+          </Link>
         </div>
         <div className="text-center">
           <Link 
@@ -286,18 +321,23 @@ export default function Home() {
       </section>
       
       <section className="w-full max-w-[1440px] mx-auto px-4 md:px-16 py-24 bg-[var(--background)]">
-        <h2 className="text-3xl md:text-5xl font-thin mb-12 text-center text-[var(--foreground)]">RECRUIT</h2>
-        <div className="text-center">
-          <p className="text-lg md:text-xl font-light leading-relaxed mb-8 text-[var(--foreground)]/80">
-            私たちと一緒に、未来を創造する仲間を募集しています。
-            あなたの情熱とスキルを、プラズミズムで活かしませんか？
-          </p>
-          <Link 
-            href="/recruit"
-            className="inline-block bg-[var(--foreground)] text-[var(--background)] px-8 py-3 rounded-full hover:bg-[var(--foreground)]/80 transition-colors duration-300 text-sm font-thin"
-          >
-            採用情報を見る
-          </Link>
+        <div className="relative bg-[var(--foreground)]/5 rounded-lg p-10 md:p-16 border border-[var(--foreground)]/10 overflow-hidden">
+          <div className="absolute inset-0 opacity-10 z-0">
+              <Image src="/background.png" layout="fill" objectFit="cover" alt="Background texture" />
+          </div>
+          <div className="relative z-10 text-center">
+            <h2 className="text-3xl md:text-5xl font-thin mb-6 text-[var(--foreground)]">RECRUIT</h2>
+            <p className="text-base md:text-lg font-light leading-relaxed mb-10 text-[var(--foreground)]/80 max-w-xl mx-auto">
+              プラズミズムは、想像を超える豊かさを共に創造する仲間を求めています。
+              あなたの情熱とスキルで、未来のデザインを一緒に描きませんか？
+            </p>
+            <Link 
+              href="/recruit"
+              className="inline-block bg-[var(--foreground)] text-[var(--background)] px-8 py-3 rounded-full hover:bg-[#BC2611] hover:scale-105 transition-all duration-300 text-sm font-thin"
+            >
+              採用情報を見る
+            </Link>
+          </div>
         </div>
       </section>
 

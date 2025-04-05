@@ -223,19 +223,29 @@ body::before {
   transition: opacity 0.8s ease-out; /* Match LoadingScreen timeout */
 }
 
-/* Logo switching based on theme - TEMP: Force dark logo */
+/* Logo switching based on theme */
+/* Remove temporary forcing rules */
+/*
 img.logo-dark {
-  display: inline-block !important; /* Always show dark logo */
+  display: inline-block !important; 
 }
 img.logo-white {
-  display: none !important; /* Always hide white logo */
-}
-
-/* Commenting out theme-specific rules for now
-html.light img.logo-dark {
-  display: inline-block; 
-}
-html.light img.logo-white {
-  display: none; 
+  display: none !important; 
 }
 */
+
+/* Default (Dark Theme) */
+img.logo-dark {
+  display: none; /* Hide dark logo in dark theme */
+}
+img.logo-white {
+  display: inline-block; /* Show white logo in dark theme */
+}
+
+/* Light Theme */
+html.light img.logo-dark {
+  display: inline-block; /* Show dark logo in light theme */
+}
+html.light img.logo-white {
+  display: none; /* Hide white logo in light theme */
+}

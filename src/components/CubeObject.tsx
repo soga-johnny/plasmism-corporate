@@ -251,8 +251,8 @@ function Cube({ isMobile }: { isMobile: boolean }) {
     stage3GroupRef.current.visible = showStage3Boxes;
 
     if (showStage3Boxes) {
-      const targetScale = isMobile ? 1.0 : 1.2;
-      const targetSpread = isMobile ? 1.6 : 2;
+      const targetScale = isMobile ? 1.0 : 1.4;
+      const targetSpread = isMobile ? 1.6 : 2.2;
       const appearDelay = 0.2;
       const appearDuration = 0.4;
 
