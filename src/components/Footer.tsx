@@ -126,7 +126,7 @@ export default function Footer() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-1">
               <Link href="/contact" className="inline-block group">
               <div className="bg-[var(--foreground)]/10 hover:bg-[var(--foreground)]/15 transition-all border border-[var(--foreground)]/20 rounded-xl md:px-12 px-8 md:py-20 py-10 w-full">
-                  <h3 className="md:text-4xl text-3xl mb-6 font-thin text-center border-b border-[var(--foreground)]/10 pb-4">お問い合わせ・ご相談</h3>
+                  <h3 className="md:text-4xl text-3xl mb-6 text-center border-b border-[var(--foreground)]/10 pb-4">お問い合わせ・ご相談</h3>
                 <p className="text-sm md:mb-12 mb-6 text-[var(--foreground)]/80">
                   UI/UXデザイン、ブランディング、クラウドインフラなど、あらゆるデジタル課題に対応。
                   初回相談は無料で、お客様の状況に合わせた最適な提案をいたします。
@@ -141,7 +141,7 @@ export default function Footer() {
               
               <Link href="/download" className="inline-block group">
               <div className="bg-[var(--foreground)]/10 hover:bg-[var(--foreground)]/15 transition-all border border-[var(--foreground)]/20 rounded-xl md:px-12 px-8 md:py-20 py-10 w-full">
-                <h3 className="md:text-4xl text-3xl mb-6 font-thin text-center border-b border-[var(--foreground)]/10 pb-4">会社資料ダウンロード</h3>
+                <h3 className="md:text-4xl text-3xl mb-6 text-center border-b border-[var(--foreground)]/10 pb-4">会社資料ダウンロード</h3>
                 <p className="text-sm md:mb-12 mb-6 text-[var(--foreground)]/80">
                   サービス内容、実績事例、アプローチをまとめた資料をご用意。
                   メールアドレスをご登録いただくだけで、すぐにダウンロードいただけます。
@@ -176,7 +176,7 @@ export default function Footer() {
         </div>
         
         <div className="text-center pt-12">
-          <p className="mb-6 md:text-xl text-xs font-thin">
+          <p className="mb-6 md:text-xl text-xs">
             想像もできなかった豊かさを、いつどの瞬間であっても、噛み締めて実感できる、そんな会社。
           </p>
           <div className="mb-20">
@@ -204,7 +204,7 @@ export default function Footer() {
             <div className="text-xs font-extralight">
               <Link href="/privacy" className="hover:text-[var(--foreground)]/70">プライバシーポリシー</Link>
             </div>
-            <div className="text-xs font-thin text-[var(--foreground)]/50">©2024 Plasmism Inc.</div>
+            <div className="text-xs text-[var(--foreground)]/50">©2024 Plasmism Inc.</div>
           </div>
         </div>
       </div>

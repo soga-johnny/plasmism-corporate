@@ -2,10 +2,12 @@ import Image from 'next/image';
 import PageTitle from '@/components/PageTitle'; // TODO: Implement PageTitle component
 import CompanyOverview from '@/components/CompanyOverview'; // TODO: Implement CompanyOverview component
 import Footer from '@/components/Footer'; // TODO: Implement Footer component
+import Header from '@/components/Header';
 
 export default function AboutPage() {
   return (
     <main className="min-h-screen flex flex-col text-[var(--foreground)] md:py-12 pt-2 pb-24">
+        <Header />
       <div className="flex-1 w-full max-w-[1440px] mx-auto px-4 md:px-2 pb-12">
         <PageTitle 
           titleEn="About" 
@@ -19,14 +21,14 @@ export default function AboutPage() {
               <div>
                 <div className="flex space-x-4 mb-8">
                   <div className="border border-[var(--foreground)]/20 bg-[var(--foreground)]/10 rounded-full px-4 py-3">
-                    <h2 className="md:text-md text-xs font-thin">ミッション</h2>
+                    <h2 className="md:text-md text-xs">ミッション</h2>
                   </div>
                   <div className="border border-[var(--foreground)]/10 rounded-full -ml-8 px-4 py-3">
-                    <h2 className="md:text-md text-xs font-thin">存在意義</h2>
+                    <h2 className="md:text-md text-xs">存在意義</h2>
                   </div>
                 </div>
                 <div className="rounded-lg">
-                  <p className="font-thin text-xl md:text-5xl leading-tight">
+                  <p className="text-xl md:text-5xl leading-tight">
                     豊かな毎日を、<br/>
                     コンピューターと情報表現で、<br/>
                     真摯にデザインする。
@@ -50,14 +52,14 @@ export default function AboutPage() {
               <div>
                 <div className="flex space-x-4 mb-8">
                   <div className="border border-[var(--foreground)]/20 bg-[var(--foreground)]/10 rounded-full px-4 py-3">
-                    <h2 className="md:text-md text-xs font-thin">ビジョン</h2>
+                    <h2 className="md:text-md text-xs">ビジョン</h2>
                   </div>
                   <div className="border border-[var(--foreground)]/10 rounded-full -ml-8 px-4 py-3">
-                    <h2 className="md:text-md text-xs font-thin">あるべき目指す世界</h2>
+                    <h2 className="md:text-md text-xs">あるべき目指す世界</h2>
                   </div>
                 </div>
                 <div className="rounded-lg">
-                  <p className="font-thin text-xl md:text-5xl leading-tight">
+                  <p className="text-xl md:text-5xl leading-tight">
                     想像もできなかった豊かさを、<br/>
                     いつどの瞬間であっても、<br/>
                     噛み締めて実感できる、<br/>
@@ -82,49 +84,49 @@ export default function AboutPage() {
               <div>
                 <div className="flex space-x-4 mb-8">
                   <div className="border border-[var(--foreground)]/20 bg-[var(--foreground)]/10 rounded-full px-4 py-3">
-                    <h2 className="md:text-md text-xs font-thin">バリュー</h2>
+                    <h2 className="md:text-md text-xs">バリュー</h2>
                   </div>
                   <div className="border border-[var(--foreground)]/10 rounded-full -ml-8 px-4 py-3">
-                    <h2 className="md:text-md text-xs font-thin">そのために大切にする価値観</h2>
+                    <h2 className="md:text-md text-xs">そのために大切にする価値観</h2>
                   </div>
                 </div>
                 <div className="rounded-lg">
                   <div className="space-y-6">
                     <div className="flex items-center">
-                      <div className="text-lg font-thin text-[var(--foreground)]/50 mr-4">01</div>
-                      <p className="font-thin text-xl md:text-5xl">過去にはどうしても戻れない</p>
+                      <div className="text-lg text-[var(--foreground)]/50 mr-4">01</div>
+                      <p className="text-xl md:text-5xl">過去にはどうしても戻れない</p>
                     </div>
-                    <p className="text-sm font-thin text-[var(--foreground)]/70 mt-2 pl-10">過去の成功や失敗を想っても時間を戻せる方法はない。</p>
+                    <p className="text-sm text-[var(--foreground)]/70 mt-2 pl-10">過去の成功や失敗を想っても時間を戻せる方法はない。</p>
                     <div className="border-t border-[var(--foreground)]/10 pt-6 flex items-center">
-                      <div className="text-lg font-thin text-[var(--foreground)]/50 mr-4">02</div>
-                      <p className="font-thin text-xl md:text-5xl">どこにも敵はいない</p>
+                      <div className="text-lg text-[var(--foreground)]/50 mr-4">02</div>
+                      <p className="text-xl md:text-5xl">どこにも敵はいない</p>
                     </div>
-                    <p className="text-sm font-thin text-[var(--foreground)]/70 mt-2 pl-10">意見が対立しても目指す方向は違わない。</p>
+                    <p className="text-sm text-[var(--foreground)]/70 mt-2 pl-10">意見が対立しても目指す方向は違わない。</p>
                     <div className="border-t border-[var(--foreground)]/10 pt-6 flex items-center">
-                      <div className="text-lg font-thin text-[var(--foreground)]/50 mr-4">03</div>
-                      <p className="font-thin text-xl md:text-5xl">意志は盗まれない</p>
+                      <div className="text-lg text-[var(--foreground)]/50 mr-4">03</div>
+                      <p className="text-xl md:text-5xl">意志は盗まれない</p>
                     </div>
-                    <p className="text-sm font-thin text-[var(--foreground)]/70 mt-2 pl-10">真似られることはあっても自分自身が失うものはない。</p>
+                    <p className="text-sm text-[var(--foreground)]/70 mt-2 pl-10">真似られることはあっても自分自身が失うものはない。</p>
                     <div className="border-t border-[var(--foreground)]/10 pt-6 flex items-center">
-                      <div className="text-lg font-thin text-[var(--foreground)]/50 mr-4">04</div>
-                      <p className="font-thin text-xl md:text-5xl">知識は裏切らない</p>
+                      <div className="text-lg text-[var(--foreground)]/50 mr-4">04</div>
+                      <p className="text-xl md:text-5xl">知識は裏切らない</p>
                     </div>
-                    <p className="text-sm font-thin text-[var(--foreground)]/70 mt-2 pl-10">経験や学びからしか選択肢は生み出せない。</p>
+                    <p className="text-sm text-[var(--foreground)]/70 mt-2 pl-10">経験や学びからしか選択肢は生み出せない。</p>
                     <div className="border-t border-[var(--foreground)]/10 pt-6 flex items-center">
-                      <div className="text-lg font-thin text-[var(--foreground)]/50 mr-4">05</div>
-                      <p className="font-thin text-xl md:text-5xl">ほとんどが伝わらない</p>
+                      <div className="text-lg text-[var(--foreground)]/50 mr-4">05</div>
+                      <p className="text-xl md:text-5xl">ほとんどが伝わらない</p>
                     </div>
-                    <p className="text-sm font-thin text-[var(--foreground)]/70 mt-2 pl-10">相手に伝わっていなければ、自分自身の表現が完璧であることはない。</p>
+                    <p className="text-sm text-[var(--foreground)]/70 mt-2 pl-10">相手に伝わっていなければ、自分自身の表現が完璧であることはない。</p>
                     <div className="border-t border-[var(--foreground)]/10 pt-6 flex items-center">
-                      <div className="text-lg font-thin text-[var(--foreground)]/50 mr-4">06</div>
-                      <p className="font-thin text-xl md:text-5xl">良いものは多くない</p>
+                      <div className="text-lg text-[var(--foreground)]/50 mr-4">06</div>
+                      <p className="text-xl md:text-5xl">良いものは多くない</p>
                     </div>
-                    <p className="text-sm font-thin text-[var(--foreground)]/70 mt-2 pl-10">普段手にしているものが、最適解とは限らない</p>
+                    <p className="text-sm text-[var(--foreground)]/70 mt-2 pl-10">普段手にしているものが、最適解とは限らない</p>
                     <div className="border-t border-[var(--foreground)]/10 pt-6 flex items-center">
-                      <div className="text-lg font-thin text-[var(--foreground)]/50 mr-4">07</div>
-                      <p className="font-thin text-xl md:text-5xl">可能性は尽きない</p>
+                      <div className="text-lg text-[var(--foreground)]/50 mr-4">07</div>
+                      <p className="text-xl md:text-5xl">可能性は尽きない</p>
                     </div>
-                    <p className="text-sm font-thin text-[var(--foreground)]/70 mt-2 pl-10">どんな局面でも、思考の限界は存在ない。</p>
+                    <p className="text-sm text-[var(--foreground)]/70 mt-2 pl-10">どんな局面でも、思考の限界は存在ない。</p>
                   </div>
                 
                 </div>
@@ -146,7 +148,7 @@ export default function AboutPage() {
               <div className="w-full">
                 <div className="flex flex-col">
                   <div className="mb-8 bg-[var(--foreground)]/4 rounded-xl p-6">
-                    <h2 className="border-l-4 border-[var(--foreground)]/30 pl-4 text-xl font-thin text-[var(--foreground)]">ブランドアイデンティティ</h2>
+                    <h2 className="border-l-4 border-[var(--foreground)]/30 pl-4 text-xl text-[var(--foreground)]">ブランドアイデンティティ</h2>
                   </div>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -213,13 +215,13 @@ export default function AboutPage() {
           </section>
           
           <section>
-            <h2 className="md:text-3xl text-2xl font-thin mb-6">ボードメンバー</h2>
+            <h2 className="md:text-3xl text-2xl mb-6">ボードメンバー</h2>
             <div className="p-6 rounded-lg">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="mb-4 border-b border-[var(--foreground)]/10 pb-4">
-                  <h3 className="text-sm font-thin mb-3">CEO</h3>
-                  <p className="text-3xl md:text-4xl font-thin text-[var(--foreground)] mb-1">曽我 ジョニー</p>
-                  <h3 className="text-sm font-thin mb-3">Johnny Soga</h3>
+                  <h3 className="text-sm mb-3">CEO</h3>
+                  <p className="text-3xl md:text-4xl text-[var(--foreground)] mb-1">曽我 ジョニー</p>
+                  <h3 className="text-sm mb-3">Johnny Soga</h3>
                   <p className="text-[var(--foreground)] text-xs md:text-sm font-light leading-relaxed">
                   大阪府生まれ。建設業出身からの独学でイラストレーター / Webデザイナーとして独立。沖縄広告賞にて金賞を受賞。<br/>
                   業務領域を拡大し、複数社スタートアップにてUI/UXデザインを主軸に、XRデザイン・フロントエンドエンジニアリング・Webマーケティング・PdMを経験。合同会社For Twoにて、CDOとしてプロダクトを開発面・戦略面からグロース支援。
@@ -227,9 +229,9 @@ CDOを2年経験の後、より良い顧客体験を追求したく、2024年に
                   </p>
                 </div>
                 <div className="mb-4 border-b border-[var(--foreground)]/10 pb-4">
-                  <h3 className="text-sm font-thin mb-3">COO</h3>
-                  <p className="text-3xl md:text-4xl font-thin text-[var(--foreground)] mb-1">道畑 勝利</p>
-                  <h3 className="text-sm font-thin mb-3">Katsutoshi Michihata</h3>
+                  <h3 className="text-sm mb-3">COO</h3>
+                  <p className="text-3xl md:text-4xl text-[var(--foreground)] mb-1">道畑 勝利</p>
+                  <h3 className="text-sm mb-3">Katsutoshi Michihata</h3>
 
                   <p className="text-[var(--foreground)] text-xs md:text-sm font-light leading-relaxed">
                   高専卒業後、鉄道会社に入社。鉄道会社を退職し、高専専攻科課程を経て、大阪大学大学院工学研究科に進学。博士課程に在学中。<br/>
@@ -238,9 +240,9 @@ CDOを2年経験の後、より良い顧客体験を追求したく、2024年に
                   </p>
                 </div>
                 <div className="mb-4 border-b border-[var(--foreground)]/10 pb-4">
-                  <h3 className="text-sm font-thin mb-3">LEAD DESIGNER</h3>
-                  <p className="text-3xl md:text-4xl font-thin text-[var(--foreground)] mb-1">伊藤 悠希</p>
-                  <h3 className="text-sm font-thin mb-3">Yuki Ito</h3>
+                  <h3 className="text-sm mb-3">LEAD DESIGNER</h3>
+                  <p className="text-3xl md:text-4xl text-[var(--foreground)] mb-1">伊藤 悠希</p>
+                  <h3 className="text-sm mb-3">Yuki Ito</h3>
                   <p className="text-[var(--foreground)] text-xs md:text-sm font-light leading-relaxed">
                   愛媛出身、東京在住。コーヒーが好き。
 新卒で制作会社にデザイナーとして参画し、三菱地所、花王、ドコモなどのナショナルクライアントを中心にデザイン支援をする。<br/>
@@ -250,9 +252,9 @@ CDOを2年経験の後、より良い顧客体験を追求したく、2024年に
                   </p>
                 </div>
                 <div className="mb-4 border-b border-[var(--foreground)]/10 pb-4">
-                  <h3 className="text-sm font-thin mb-3">STRATEGY ADVISOR</h3>
-                  <p className="text-3xl md:text-4xl font-thin text-[var(--foreground)] mb-1">廣政 和也</p>
-                  <h3 className="text-sm font-thin mb-3">Kazuya Hiromasa</h3>
+                  <h3 className="text-sm mb-3">STRATEGY ADVISOR</h3>
+                  <p className="text-3xl md:text-4xl text-[var(--foreground)] mb-1">廣政 和也</p>
+                  <h3 className="text-sm mb-3">Kazuya Hiromasa</h3>
                   <p className="text-[var(--foreground)] text-xs md:text-sm font-light leading-relaxed">
                   三菱電機株式会社に入社後、メルカリ、AIベンチャーなど多岐にわたる業界、業務を経験。ITスタートアップでは創業メンバーとして事業開発を担当、60名のチームのマネジメントも経験。<br/>
                   2024年に株式会社STAR AIにジョイン。新規事業の立ち上げから成長フェーズまで幅広くサポートしてきた経験と知識を活かし、スタートアップ企業のアドバイザーも行なっている。

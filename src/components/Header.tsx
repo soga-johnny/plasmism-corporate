@@ -13,6 +13,7 @@ export default function Header() {
   const [currentDate, setCurrentDate] = useState('')
   const [currentTime, setCurrentTime] = useState('')
   const pathname = usePathname()
+  const [isVisible, setIsVisible] = useState(pathname !== '/') // 初期表示状態
   
   // メニューを開閉する関数
   const toggleMenu = () => setIsMenuOpen(prev => !prev)
@@ -61,13 +62,32 @@ export default function Header() {
       document.body.style.overflow = ''
     }
     
+    // スクロールイベントハンドラ
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setIsVisible(true)
+      } else {
+        setIsVisible(false)
+      }
+    }
+
+    // トップページのみスクロールイベントリスナーを追加
+    if (pathname === '/') {
+      window.addEventListener('scroll', handleScroll)
+    } else {
+      setIsVisible(true) // トップページ以外は常に表示
+    }
+    
     // クリーンアップ
     return () => {
       window.removeEventListener('resize', checkIfMobile)
       clearInterval(interval)
       document.body.style.overflow = ''
+      if (pathname === '/') {
+        window.removeEventListener('scroll', handleScroll)
+      }
     }
-  }, [isMenuOpen])
+  }, [isMenuOpen, pathname]) // pathname を依存配列に追加
   
   // ハイドレーション前は何も表示しない
   if (!mounted) {
@@ -77,7 +97,15 @@ export default function Header() {
   // PCヘッダー
   if (!isMobile) {
     return (
-      <header className="fixed top-0 left-0 right-0 text-[var(--foreground)] py-4 z-40 mix-blend-difference">
+      <motion.header
+        initial={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : -20 }}
+        animate={{
+          opacity: isVisible ? 1 : 0,
+          y: isVisible ? 0 : -20,
+          transition: { duration: 0.8, delay: isVisible ? 0.3 : 0, ease: "easeInOut" }
+        }}
+        className="fixed top-0 left-0 right-0 text-[var(--foreground)] py-4 z-40 mix-blend-difference"
+      >
         <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8 flex items-center justify-between">
           <div className="flex items-center">
             <Link href="/">
@@ -100,14 +128,14 @@ export default function Header() {
           <div className="flex items-center mix-blend-difference">
             <nav>
               <ul className="flex space-x-6 text-sm mr-12">
-                <li><Link href="/" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/' ? 'line-through font-normal' : ''}`}>トップ</Link></li>
-                <li><Link href="/about" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/about' ? 'line-through font-normal' : ''}`}>私たちについて</Link></li>
-                <li><Link href="/feature" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/feature' ? 'line-through font-normal' : ''}`}>特徴</Link></li>
-                <li><Link href="/product" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/product' ? 'line-through font-normal' : ''}`}>プロダクト</Link></li>
-                <li><Link href="/service" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/service' ? 'line-through font-normal' : ''}`}>サービス</Link></li>
-                <li><Link href="/achievements" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/achievements' ? 'line-through font-normal' : ''}`}>実績</Link></li>
-                <li><Link href="/recruit" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/recruit' ? 'line-through font-normal' : ''}`}>採用</Link></li>
-                <li><Link href="/company" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/company' ? 'line-through font-normal' : ''}`}>会社案内</Link></li>
+                <li><Link href="/" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/' ? 'line-through font-bold' : ''}`}>トップ</Link></li>
+                <li><Link href="/about" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/about' ? 'line-through font-bold' : ''}`}>私たちについて</Link></li>
+                <li><Link href="/feature" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/feature' ? 'line-through font-bold' : ''}`}>特徴</Link></li>
+                <li><Link href="/product" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/product' ? 'line-through font-bold' : ''}`}>プロダクト</Link></li>
+                <li><Link href="/service" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/service' ? 'line-through font-bold' : ''}`}>サービス</Link></li>
+                <li><Link href="/achievements" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/achievements' ? 'line-through font-bold' : ''}`}>実績</Link></li>
+                <li><Link href="/recruit" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/recruit' ? 'line-through font-bold' : ''}`}>採用</Link></li>
+                <li><Link href="/company" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/company' ? 'line-through font-bold' : ''}`}>会社案内</Link></li>
               </ul>
             </nav>
             <div className="mr-2 text-right border-r border-[var(--foreground)]/50 pr-4">
@@ -122,7 +150,7 @@ export default function Header() {
             </Link>
           </div>
         </div>
-      </header>
+      </motion.header>
     )
   }
   
@@ -130,14 +158,27 @@ export default function Header() {
   return (
     <>
       {/* モバイル用時計 - 最上部中央配置 */}
-      <div className="fixed top-0.5 left-1/2 transform -translate-x-1/2 z-[40] text-[var(--foreground)] text-center">
+      <motion.div
+        initial={{ opacity: isVisible ? 1 : 0 }}
+        animate={{ opacity: isVisible ? 1 : 0 }}
+        transition={{ duration: 0.5, delay: isVisible ? 0.1 : 0 }}
+        className="fixed top-0.5 left-1/2 transform -translate-x-1/2 z-[40] text-[var(--foreground)] text-center"
+      >
         <div className="text-[8px] font-extralight tracking-wider">{currentDate} {currentTime}</div>
-      </div>
+      </motion.div>
       
       {/* 下部固定メニュー */}
-      <header className="fixed bottom-5 left-1/2 transform -translate-x-1/2 w-1/2 z-[70] flex backdrop-blur-lg mix-blend-difference border border-[var(--foreground)]/40 overflow-hidden rounded-lg">
+      <motion.header
+        initial={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 10 }}
+        animate={{
+          opacity: isVisible ? 1 : 0,
+          y: isVisible ? 0 : 10,
+          transition: { duration: 1.0, delay: isVisible ? 0.1 : 0, ease: "easeInOut" }
+        }}
+        className="fixed bottom-5 left-1/2 transform -translate-x-1/2 w-1/2 z-[70] flex backdrop-blur-lg mix-blend-difference border border-[var(--foreground)]/20 overflow-hidden rounded-lg"
+      >
         <button 
-          className="flex-1 flex items-center justify-center py-4 text-[var(--foreground)] active:scale-95 active:bg-opacity-80 transition-all duration-300 overflow-hidden"
+          className="flex-1 flex items-center justify-center py-4 text-[var(--background)] active:scale-95 active:bg-opacity-80 transition-all duration-300 overflow-hidden"
           style={{ backgroundColor: 'var(--menu-button-bg)' }}
           onClick={toggleMenu}
         >
@@ -149,8 +190,8 @@ export default function Header() {
             >
               <div className="flex items-center">
                 <div className="flex flex-col items-center mr-3">
-                  <div className="w-6 h-[1px] bg-[var(--foreground)] mb-1 transform transition-transform duration-300"></div>
-                  <div className="w-6 h-[1px] bg-[var(--foreground)] transform transition-transform duration-300"></div>
+                  <div className="w-6 h-[1px] bg-[var(--menu-button-text)] mb-1 transform transition-transform duration-300"></div>
+                  <div className="w-6 h-[1px] bg-[var(--menu-button-text)] transform transition-transform duration-300"></div>
                 </div>
                 <span className="text-xs text-[var(--menu-button-text)]">Menu</span>
               </div>
@@ -168,7 +209,7 @@ export default function Header() {
                   viewBox="0 0 24 24" 
                   fill="none" 
                   xmlns="http://www.w3.org/2000/svg"
-                  className="transform rotate-0 transition-transform duration-500"
+                  className="transform rotate-0 transition-transform duration-500 text-[var(--menu-button-text)]"
                 >
                   <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" fill="currentColor" stroke="currentColor" strokeWidth="0.5"/>
                 </svg>
@@ -183,7 +224,7 @@ export default function Header() {
         >
           <span className="text-xs">お問合わせ</span>
         </Link> */}
-      </header>
+      </motion.header>
       
       {/* モバイルメニュー - AnimatePresenceをクライアントサイドでのみレンダリング */}
       <AnimatePresence>

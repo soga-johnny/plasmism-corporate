@@ -1,6 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
 @import "tailwindcss";
 
+/* Custom Font Definition */
+@font-face {
+  font-family: 'EBGaramond';
+  src: url('/EBGaramond-regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Improve font loading performance */
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -41,6 +50,8 @@ body {
   font-family: 'Noto Sans JP', sans-serif; /* Keep google font import */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* テーマ切り替え時のトランジションを追加 */
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
 /* Background image using ::before pseudo-element */
@@ -53,14 +64,15 @@ body::before {
   height: 100%;
   background: url('/background.png') repeat fixed;
   background-size: 320%;
-  opacity: 30%; /* Default opacity */
+  opacity: 1; /* Default opacity (Dark theme) */
   z-index: -1; /* Place behind the body content */
-  transition: opacity 0.3s ease-in-out; /* Smooth transition */
+  /* 既存の opacity トランジションに加えて background-color も追加（テーマによる変化があれば） */
+  transition: opacity 0.5s ease-in-out, background-color 0.5s ease-in-out; /* Smooth transition */
 }
 
 /* Adjust background opacity for light theme */
 .light body::before {
-  opacity: 30%;
+  opacity: 0.3; /* 30% for light theme */
 }
 
 @media (min-width: 768px) {

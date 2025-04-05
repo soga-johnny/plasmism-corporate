@@ -5,7 +5,7 @@ import Link from 'next/link'
 export default function RecruitInfo() {
   return (
     <section className="w-full">
-      <h2 className="text-4xl md:text-5xl font-thin mb-12">採用情報</h2>
+      <h2 className="text-4xl md:text-5xl mb-12">採用情報</h2>
       
       <div className="space-y-10">
         {/* Notionページへの遷移ボタン */}
@@ -17,7 +17,7 @@ export default function RecruitInfo() {
             className="bg-[var(--foreground)]/10 hover:bg-[var(--foreground)]/15 transition-all border border-[var(--foreground)]/20 rounded-xl px-8 py-6 flex flex-col md:flex-row md:justify-between md:items-center w-full"
           >
             <div className="mb-4 md:mb-0">
-              <h3 className="text-2xl md:text-3xl font-thin mb-2">採用情報の詳細</h3>
+              <h3 className="text-2xl md:text-3xl mb-2">採用情報の詳細</h3>
               <p className="text-sm text-[var(--foreground)]/60">採用情報の詳細はNotionページでご確認いただけます</p>
             </div>
             <div className="flex items-center pt-4 md:pt-0 border-t md:border-t-0 border-[var(--foreground)]/10">
@@ -31,7 +31,7 @@ export default function RecruitInfo() {
         
         {/* プラズミズムで働くメリット */}
         <div className="mb-12">
-          <h3 className="text-3xl font-thin mb-8 border-b border-[var(--foreground)]/10 pb-4">プラズミズムで働くメリット</h3>
+          <h3 className="text-3xl mb-8 border-b border-[var(--foreground)]/10 pb-4">プラズミズムで働くメリット</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-[var(--foreground)]/5 rounded-xl p-6 border border-[var(--foreground)]/10">
               <div className="flex items-start mb-4">
@@ -78,7 +78,7 @@ export default function RecruitInfo() {
         
         {/* プラズミズムに向いている方 */}
         <div>
-          <h3 className="text-3xl font-thin mb-8 border-b border-[var(--foreground)]/10 pb-4">プラズミズムに向いている方</h3>
+          <h3 className="text-3xl mb-8 border-b border-[var(--foreground)]/10 pb-4">プラズミズムに向いている方</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-[var(--foreground)]/5 rounded-xl p-6 border border-[var(--foreground)]/10">
               <div className="flex items-start mb-4">

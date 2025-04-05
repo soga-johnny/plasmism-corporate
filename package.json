@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-ses": "^3.777.0",
+    "@heroicons/react": "^2.2.0",
     "@notionhq/client": "^2.3.0",
     "@react-three/drei": "^10.0.5",
     "@react-three/postprocessing": "^3.0.4",

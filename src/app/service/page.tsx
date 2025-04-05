@@ -4,10 +4,11 @@ import Footer from '@/components/Footer';
 import PageTitle from '@/components/PageTitle';
 import Image from 'next/image';
 import Link from 'next/link';
-
+import Header from '@/components/Header';
 export default function ServicePage() {
   return (
     <main className="min-h-screen flex flex-col text-[var(--foreground)] md:py-12 pt-2 pb-24">
+      <Header />
       <div className="flex-1 w-full max-w-[1440px] mx-auto px-4 md:px-2 pb-12">
         <PageTitle 
           titleEn="Service" 
@@ -24,11 +25,11 @@ export default function ServicePage() {
               document.querySelector('#consulting')?.scrollIntoView({ behavior: 'smooth' });
             }}>
               <div className="w-12 md:w-16 text-right pr-4 md:pr-6">
-                <span className="text-lg md:text-2xl font-thin group-hover:text-[var(--foreground)]/90">01</span>
+                <span className="text-lg md:text-2xl group-hover:text-[var(--foreground)]/90">01</span>
               </div>
               <div className="flex-1 flex items-center justify-between">
                 <div>
-                  <h3 className="text-xl md:text-2xl font-thin group-hover:text-[var(--foreground)]/90">Consulting</h3>
+                  <h3 className="text-xl md:text-2xl group-hover:text-[var(--foreground)]/90">Consulting</h3>
                   <p className="text-[var(--foreground)]/60 text-sm md:text-base font-light group-hover:text-[var(--foreground)]/80">事業開発・技術顧問</p>
                 </div>
                 <div className="ml-4 transform group-hover:rotate-270 transition-transform duration-300">
@@ -44,11 +45,11 @@ export default function ServicePage() {
               document.querySelector('#contract-development')?.scrollIntoView({ behavior: 'smooth' });
             }}>
               <div className="w-12 md:w-16 text-right pr-4 md:pr-6">
-                <span className="text-lg md:text-2xl font-thin group-hover:text-[var(--foreground)]/90">02</span>
+                <span className="text-lg md:text-2xl group-hover:text-[var(--foreground)]/90">02</span>
               </div>
               <div className="flex-1 flex items-center justify-between">
                 <div>
-                  <h3 className="text-xl md:text-2xl font-thin group-hover:text-[var(--foreground)]/90">Contract development</h3>
+                  <h3 className="text-xl md:text-2xl group-hover:text-[var(--foreground)]/90">Contract development</h3>
                   <p className="text-[var(--foreground)]/60 text-sm md:text-base font-light group-hover:text-[var(--foreground)]/80">受託開発</p>
                 </div>
                 <div className="ml-4 transform group-hover:rotate-270 transition-transform duration-300">
@@ -64,11 +65,11 @@ export default function ServicePage() {
               document.querySelector('#technology-partnership')?.scrollIntoView({ behavior: 'smooth' });
             }}>
               <div className="w-12 md:w-16 text-right pr-4 md:pr-6">
-                <span className="text-lg md:text-2xl font-thin group-hover:text-[var(--foreground)]/90">03</span>
+                <span className="text-lg md:text-2xl group-hover:text-[var(--foreground)]/90">03</span>
               </div>
               <div className="flex-1 flex items-center justify-between">
                 <div>
-                  <h3 className="text-xl md:text-2xl font-thin group-hover:text-[var(--foreground)]/90">Technology partnership</h3>
+                  <h3 className="text-xl md:text-2xl group-hover:text-[var(--foreground)]/90">Technology partnership</h3>
                   <p className="text-[var(--foreground)]/60 text-sm md:text-base font-light group-hover:text-[var(--foreground)]/80">技術パートナーシップ</p>
                 </div>
                 <div className="ml-4 transform group-hover:rotate-270 transition-transform duration-300">
@@ -86,11 +87,11 @@ export default function ServicePage() {
           <section id="consulting" className="md:pb-20 pb-10 border-b border-[var(--foreground)]/10">
             <div className="flex items-center group md:py-6 py-4 px-4 mb-8 rounded-lg sticky md:top-20 top-4 bg-[var(--background)]/90 border border-[var(--foreground)]/10 z-10 bg-[url('/background.png')] bg-cover bg-center">
               <div className="w-12 md:w-16 text-right pr-4 md:pr-6">
-                <span className="text-lg md:text-2xl font-thin">01</span>
+                <span className="text-lg md:text-2xl">01</span>
               </div>
               <div className="flex-1 flex items-center justify-between">
                 <div>
-                  <h3 className="text-2xl md:text-4xl font-thin mb-2">Consulting</h3>
+                  <h3 className="text-2xl md:text-4xl mb-2">Consulting</h3>
                   <p className="text-[var(--foreground)]/60 text-sm md:text-base font-light">事業開発・技術顧問</p>
                 </div>
               </div>
@@ -98,7 +99,7 @@ export default function ServicePage() {
             
             {/* こんな課題はありませんか？ */}
             <div className="mb-16">
-              <h3 className="text-2xl font-thin mb-6">こんな課題はありませんか？</h3>
+              <h3 className="text-2xl mb-6">こんな課題はありませんか？</h3>
               <div className="bg-[var(--foreground)]/5 rounded-lg border border-[var(--foreground)]/10">
                 <div className="space-y-0">
                   <div className="flex items-start p-4 border-b border-[var(--foreground)]/10">
@@ -163,42 +164,42 @@ export default function ServicePage() {
             
             {/* プラズミズムが提供するソリューション */}
             <div className="mb-16">
-              <h3 className="text-2xl font-thin mb-6">プラズミズムが提供するソリューション</h3>
+              <h3 className="text-2xl mb-6">プラズミズムが提供するソリューション</h3>
               <p className="text-[var(--foreground)]/80 mb-8 font-light text-sm md:text-base">プラズミズムのUI/UXデザインサービスは、準委任契約で提供します。これにより、プロジェクト単位ではなく、継続的な改善に向けたパートナーシップを築くことができます。</p>
               
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
                 <div className="bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
                   <div className="text-center mb-3">
-                    <span className="text-[var(--foreground)]/50 font-thin text-xl">01</span>
+                    <span className="text-[var(--foreground)]/50 text-xl">01</span>
                   </div>
-                  <h4 className="text-center text-lg font-thin mb-4">徹底した<br />ユーザー中心設計</h4>
+                  <h4 className="text-center text-lg mb-4">徹底した<br />ユーザー中心設計</h4>
                   <p className="text-[var(--foreground)]/80 text-xs md:text-sm font-light leading-relaxed">
                     実際のユーザーインタビューやユーザビリティテストを通して、真のニーズを発見。データやリサーチを意思決定により、感覚ではなく事実に基づいたデザインを実現します。
                   </p>
                 </div>
                 <div className="bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
                   <div className="text-center mb-3">
-                    <span className="text-[var(--foreground)]/50 font-thin text-xl">02</span>
+                    <span className="text-[var(--foreground)]/50 text-xl">02</span>
                   </div>
-                  <h4 className="text-center text-lg font-thin mb-4">ビジネス目標と<br />連動したKPI設計</h4>
+                  <h4 className="text-center text-lg mb-4">ビジネス目標と<br />連動したKPI設計</h4>
                   <p className="text-[var(--foreground)]/80 text-xs md:text-sm font-light leading-relaxed">
                     「見た目の良さ」だけでなく、ビジネス成果に直結するKPIを設計し、継続的な測定と改善を行います。コンバージョン率、継続率など、重要な指標の向上にコミットします。
                   </p>
                 </div>
                 <div className="bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
                   <div className="text-center mb-3">
-                    <span className="text-[var(--foreground)]/50 font-thin text-xl">03</span>
+                    <span className="text-[var(--foreground)]/50 text-xl">03</span>
                   </div>
-                  <h4 className="text-center text-lg font-thin mb-4">デザインシステムの<br />構築と運用</h4>
+                  <h4 className="text-center text-lg mb-4">デザインシステムの<br />構築と運用</h4>
                   <p className="text-[var(--foreground)]/80 text-xs md:text-sm font-light leading-relaxed">
                     UIコンポーネントの再利用性を高め、一貫性のあるユーザー体験と効率的な開発、開発スピードの向上と品質の安定化を両立します。
                   </p>
                 </div>
                 <div className="bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
                   <div className="text-center mb-3">
-                    <span className="text-[var(--foreground)]/50 font-thin text-xl">04</span>
+                    <span className="text-[var(--foreground)]/50 text-xl">04</span>
                   </div>
-                  <h4 className="text-center text-lg font-thin mb-4">アジャイルな<br />開発プロセス</h4>
+                  <h4 className="text-center text-lg mb-4">アジャイルな<br />開発プロセス</h4>
                   <p className="text-[var(--foreground)]/80 text-xs md:text-sm font-light leading-relaxed">
                     2週間単位のスプリントで企画・設計・検証のサイクルを高速で回し、リリース後も継続的な価値最大化に取り組みます。
                   </p>
@@ -208,7 +209,7 @@ export default function ServicePage() {
             
             {/* なぜプラズミズムを選ぶべきか */}
             <div className="mb-16">
-              <h3 className="text-2xl font-thin mb-6">なぜプラズミズムを選ぶべきか</h3>
+              <h3 className="text-2xl mb-6">なぜプラズミズムを選ぶべきか</h3>
               <div className="bg-[var(--foreground)]/5 p-8 rounded-lg border border-[var(--foreground)]/10">
                 <ul className="list-disc pl-6 space-y-4 text-sm md:text-base font-light">
                   <li>デザインだけでなく、実装まで一貫して対応できる技術力</li>
@@ -221,7 +222,7 @@ export default function ServicePage() {
             
             {/* 実績 */}
             <div className="mb-16">
-              <h3 className="text-2xl font-thin mb-6">実績</h3>
+              <h3 className="text-2xl mb-6">実績</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="bg-[var(--foreground)]/5 rounded-lg border border-[var(--foreground)]/10 overflow-hidden">
                   <div className="relative w-full aspect-[4/3]">  
@@ -233,7 +234,7 @@ export default function ServicePage() {
                     />
                   </div>
                   <div className="p-6">
-                    <h4 className="text-xl font-thin mb-2 group-hover:text-[var(--foreground)] transition-colors duration-300">NAMINORI</h4>
+                    <h4 className="text-xl mb-2 group-hover:text-[var(--foreground)] transition-colors duration-300">NAMINORI</h4>
                     <p className="text-[var(--foreground)] text-sm font-light mb-4 group-hover:text-[var(--foreground)]/90 transition-colors duration-300">リブランディング/UIデザイン</p>
                     <Link href="/achievements/achievement-1" className="text-[var(--foreground)]/60 hover:text-[var(--foreground)] text-sm group-hover:translate-x-1 transition-all duration-300 inline-flex items-center">
                       詳細を見る <span className="ml-1 transition-transform duration-300 group-hover:translate-x-1">→</span>
@@ -250,7 +251,7 @@ export default function ServicePage() {
                     />
                   </div>
                   <div className="p-6">
-                    <h4 className="text-xl font-thin mb-2 group-hover:text-[var(--foreground)] transition-colors duration-300">NAMINORI</h4>
+                    <h4 className="text-xl mb-2 group-hover:text-[var(--foreground)] transition-colors duration-300">NAMINORI</h4>
                     <p className="text-[var(--foreground)] text-sm font-light mb-4 group-hover:text-[var(--foreground)]/90 transition-colors duration-300">リブランディング/UIデザイン</p>
                     <Link href="/achievements/achievement-2" className="text-[var(--foreground)]/60 hover:text-[var(--foreground)] text-sm group-hover:translate-x-1 transition-all duration-300 inline-flex items-center">
                       詳細を見る <span className="ml-1 transition-transform duration-300 group-hover:translate-x-1">→</span>
@@ -267,38 +268,38 @@ export default function ServicePage() {
             
             {/* よくあるご質問 */}
             <div>
-              <h3 className="text-2xl font-thin mb-6">UXデザインに関するよくある質問</h3>
+              <h3 className="text-2xl mb-6">UXデザインに関するよくある質問</h3>
               <div className="border-t border-[var(--foreground)]/10">
                 <div className="border-b border-[var(--foreground)]/10 py-8">
-                  <h4 className="text-xl font-thin mb-4">Q. 準委任契約での契約は可能ですか？また、具体的にどのような契約形態ですか？</h4>
+                  <h4 className="text-xl mb-4">Q. 準委任契約での契約は可能ですか？また、具体的にどのような契約形態ですか？</h4>
                   <p className="text-[var(--foreground)]/80 text-sm md:text-base font-light leading-relaxed">
                     準委任契約は、特定の成果物ではなく、専門スキルや知見を提供する契約形態です。これにより、プロジェクトの進行に応じて柔軟にスコープを調整でき、変化の早いビジネス環境に適応したサービス提供が可能になります。週3日や週5日など、必要なリソース量に応じた契約が可能です。
                   </p>
                 </div>
                 
                 <div className="border-b border-[var(--foreground)]/10 py-8">
-                  <h4 className="text-xl font-thin mb-4">Q. デザインチームとは何ですか？</h4>
+                  <h4 className="text-xl mb-4">Q. デザインチームとは何ですか？</h4>
                   <p className="text-[var(--foreground)]/80 text-sm md:text-base font-light leading-relaxed">
                     デザインチームとは、プロダクトやサービスの見た目（UI）や使いやすさ（UX）を設計・改善する専門チームです。見た目の美しさだけでなく、ユーザーが迷わず快適に使える体験をつくることを目的としています。役割としては、情報設計や導線設計、画面や操作の設計、体験の向上など、お客さまの課題に合わせて最適なチームを構成します。チームとしてプロジェクトに参画することで、品質の高いソリューションを提供します。
                   </p>
                 </div>
                 
                 <div className="border-b border-[var(--foreground)]/10 py-8">
-                  <h4 className="text-xl font-thin mb-4">Q. プロダクトがまだ構想段階ですが、依頼できますか？</h4>
+                  <h4 className="text-xl mb-4">Q. プロダクトがまだ構想段階ですが、依頼できますか？</h4>
                   <p className="text-[var(--foreground)]/80 text-sm md:text-base font-light leading-relaxed">
                     はい、構想段階からのご相談も歓迎です。むしろ初期段階からUI/UXの専門家が参画することで、ユーザー視点を取り入れたプロダクト設計が可能になり、後々の大幅な改修を防ぐことができます。アイデア検証からプロトタイピング、本開発までシームレスにサポートします。
                   </p>
                 </div>
                 
                 <div className="border-b border-[var(--foreground)]/10 py-8">
-                  <h4 className="text-xl font-thin mb-4">Q. 社内にデザイナーがいる場合でも支援は可能ですか？</h4>
+                  <h4 className="text-xl mb-4">Q. 社内にデザイナーがいる場合でも支援は可能ですか？</h4>
                   <p className="text-[var(--foreground)]/80 text-sm md:text-base font-light leading-relaxed">
                     はい、構想段階からのご相談も歓迎です。むしろ初期段階からUI/UXの専門家が参画することで、ユーザー視点を取り入れたプロダクト設計が可能になり、後々の大幅な改修を防ぐことができます。アイデア検証からプロトタイピング、本開発までシームレスにサポートします。
                   </p>
                 </div>
                 
                 <div className="py-8">
-                  <h4 className="text-xl font-thin mb-4">Q. 開発チームとの連携はどのように行いますか？</h4>
+                  <h4 className="text-xl mb-4">Q. 開発チームとの連携はどのように行いますか？</h4>
                   <p className="text-[var(--foreground)]/80 text-sm md:text-base font-light leading-relaxed">
                     私たちは開発プロセスと密接に連携したデザインワークフローを確立しています。開発チームの使用するツールへの統合、実装を考慮したデザイン提供、技術的制約の理解と解決策の提案など、デザインから開発へのスムーズな橋渡しを重視しています。
                   </p>
@@ -311,11 +312,11 @@ export default function ServicePage() {
           <section id="contract-development" className="md:pb-20 pb-10 border-b border-[var(--foreground)]/10">
             <div className="flex items-center group md:py-6 py-4 px-4 mb-8 rounded-lg sticky md:top-20 top-4 bg-[var(--background)]/90 border border-[var(--foreground)]/10 z-10 bg-[url('/background.png')] bg-cover bg-center">
               <div className="w-12 md:w-16 text-right pr-4 md:pr-6">
-                <span className="text-lg md:text-2xl font-thin">02</span>
+                <span className="text-lg md:text-2xl">02</span>
               </div>
               <div className="flex-1 flex items-center justify-between">
                 <div>
-                  <h3 className="text-2xl md:text-4xl font-thin mb-2">Contract development</h3>
+                  <h3 className="text-2xl md:text-4xl mb-2">Contract development</h3>
                   <p className="text-[var(--foreground)]/60 text-sm md:text-base font-light">受託開発</p>
                 </div>
               </div>
@@ -323,7 +324,7 @@ export default function ServicePage() {
             
             {/* こんな課題はありませんか？ */}
             <div className="mb-16">
-              <h3 className="text-2xl font-thin mb-6">こんな課題はありませんか？</h3>
+              <h3 className="text-2xl mb-6">こんな課題はありませんか？</h3>
               <div className="bg-[var(--foreground)]/5 p-8 rounded-lg border border-[var(--foreground)]/10">
                 <ul className="list-disc pl-6 space-y-4 text-sm md:text-base font-light">
                   <li>企業の強みや価値が顧客に伝わっていない</li>
@@ -336,16 +337,16 @@ export default function ServicePage() {
             
             {/* プラズミズムが提供するソリューション */}
             <div className="mb-16">
-              <h3 className="text-2xl font-thin mb-6">プラズミズムが提供するソリューション</h3>
+              <h3 className="text-2xl mb-6">プラズミズムが提供するソリューション</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="bg-[var(--foreground)]/5 p-8 rounded-lg border border-[var(--foreground)]/10">
-                  <h4 className="text-xl font-thin mb-4">ブランド戦略策定</h4>
+                  <h4 className="text-xl mb-4">ブランド戦略策定</h4>
                   <p className="text-[var(--foreground)]/80 text-sm md:text-base font-light leading-relaxed">
                     企業のビジョン・ミッション・バリューを明確化し、市場調査と競合分析に基づいた独自のブランドポジショニングを確立します。
                   </p>
                 </div>
                 <div className="bg-[var(--foreground)]/5 p-8 rounded-lg border border-[var(--foreground)]/10">
-                  <h4 className="text-xl font-thin mb-4">ビジュアルアイデンティティ構築</h4>
+                  <h4 className="text-xl mb-4">ビジュアルアイデンティティ構築</h4>
                   <p className="text-[var(--foreground)]/80 text-sm md:text-base font-light leading-relaxed">
                     ロゴ、カラーパレット、タイポグラフィなどのビジュアル要素を総合的にデザインし、一貫したブランドイメージを構築します。
                   </p>
@@ -355,7 +356,7 @@ export default function ServicePage() {
             
             {/* なぜプラズミズムを選ぶべきか */}
             <div className="mb-16">
-              <h3 className="text-2xl font-thin mb-6">なぜプラズミズムを選ぶべきか</h3>
+              <h3 className="text-2xl mb-6">なぜプラズミズムを選ぶべきか</h3>
               <div className="bg-[var(--foreground)]/5 p-8 rounded-lg border border-[var(--foreground)]/10">
                 <ul className="list-disc pl-6 space-y-4 text-sm md:text-base font-light">
                   <li>ブランディングとデジタル実装を一貫して行える強み</li>
@@ -368,7 +369,7 @@ export default function ServicePage() {
             
             {/* 実績 */}
             <div className="mb-16">
-              <h3 className="text-2xl font-thin mb-6">実績</h3>
+              <h3 className="text-2xl mb-6">実績</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="bg-white/5 rounded-lg border border-white/10 overflow-hidden">
                   <div className="relative w-full aspect-[4/3]">
@@ -380,7 +381,7 @@ export default function ServicePage() {
                     />
                   </div>
                   <div className="p-6">
-                    <h4 className="text-xl font-thin mb-2">NAMINORI</h4>
+                    <h4 className="text-xl mb-2">NAMINORI</h4>
                     <p className="text-white/80 text-sm font-light mb-4">ブランディング/パッケージデザイン</p>
                     <Link href="/achievements/achievement-2" className="text-white/60 hover:text-white text-sm">
                       詳細を見る →
@@ -397,7 +398,7 @@ export default function ServicePage() {
                     />
                   </div>
                   <div className="p-6">
-                    <h4 className="text-xl font-thin mb-2">NAMINORI</h4>
+                    <h4 className="text-xl mb-2">NAMINORI</h4>
                     <p className="text-white/80 text-sm font-light mb-4">ブランディング/パッケージデザイン</p>
                     <Link href="/achievements/achievement-3" className="text-white/60 hover:text-white text-sm">
                       詳細を見る →
@@ -414,17 +415,17 @@ export default function ServicePage() {
             
             {/* よくあるご質問 */}
             <div>
-              <h3 className="text-2xl font-thin mb-6">コーポレートデザインに関するよくある質問</h3>
+              <h3 className="text-2xl mb-6">コーポレートデザインに関するよくある質問</h3>
               <div className="border-t border-white/10">
                 <div className="border-b border-white/10 py-8">
-                  <h4 className="text-xl font-thin mb-4">Q. ブランディングにはどのくらいの期間がかかりますか？</h4>
+                  <h4 className="text-xl mb-4">Q. ブランディングにはどのくらいの期間がかかりますか？</h4>
                   <p className="text-white/80 text-sm md:text-base font-light leading-relaxed">
                     プロジェクトの規模や範囲によりますが、基本的なブランド戦略とビジュアルアイデンティティの構築には2〜3ヶ月程度かかります。その後の展開や浸透フェーズも含めると、総合的なブランディングは継続的なプロセスとなります。
                   </p>
                 </div>
                 
                 <div className="py-8">
-                  <h4 className="text-xl font-thin mb-4">Q. リブランディングと新規ブランディングの違いは何ですか？</h4>
+                  <h4 className="text-xl mb-4">Q. リブランディングと新規ブランディングの違いは何ですか？</h4>
                   <p className="text-white/80 text-sm md:text-base font-light leading-relaxed">
                     リブランディングは既存のブランドを見直し再構築するプロセスで、新規ブランディングはゼロから構築するプロセスです。プラズミズムではどちらにおいても、現状分析から始め、最適なブランド戦略を提案します。
                   </p>
@@ -437,11 +438,11 @@ export default function ServicePage() {
           <section id="cloud" className="pb-20">
             <div className="flex items-center group md:py-6 py-4 px-4 mb-8 rounded-lg sticky md:top-20 top-4 bg-[#251E1F]/90 border border-white/10 z-10 bg-[url('/background.png')] bg-cover bg-center">
               <div className="w-12 md:w-16 text-right pr-4 md:pr-6">
-                <span className="text-lg md:text-2xl font-thin">03</span>
+                <span className="text-lg md:text-2xl">03</span>
               </div>
               <div className="flex-1 flex items-center justify-between">
                 <div>
-                  <h3 className="text-2xl md:text-4xl font-thin mb-2">アーキテクチャデザイン</h3>
+                  <h3 className="text-2xl md:text-4xl mb-2">アーキテクチャデザイン</h3>
                   <p className="text-white/60 text-sm md:text-base font-light">安定的で拡張性の高い技術基盤の確立</p>
                 </div>
               </div>
@@ -449,7 +450,7 @@ export default function ServicePage() {
             
             {/* こんな課題はありませんか？ */}
             <div className="mb-16">
-              <h3 className="text-2xl font-thin mb-6">こんな課題はありませんか？</h3>
+              <h3 className="text-2xl mb-6">こんな課題はありませんか？</h3>
               <div className="bg-white/5 p-8 rounded-lg border border-white/10">
                 <ul className="list-disc pl-6 space-y-4 text-sm md:text-base font-light">
                   <li>システムの拡張性や柔軟性に課題がある</li>
@@ -462,16 +463,16 @@ export default function ServicePage() {
             
             {/* プラズミズムが提供するソリューション */}
             <div className="mb-16"> 
-              <h3 className="text-2xl font-thin mb-6">プラズミズムが提供するソリューション</h3>
+              <h3 className="text-2xl mb-6">プラズミズムが提供するソリューション</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="bg-white/5 p-8 rounded-lg border border-white/10">
-                  <h4 className="text-xl font-thin mb-4">最適なクラウド設計</h4>
+                  <h4 className="text-xl mb-4">最適なクラウド設計</h4>
                   <p className="text-white/80 text-sm md:text-base font-light leading-relaxed">
                     ビジネスニーズに合わせたクラウドアーキテクチャを設計。スケーラビリティ、セキュリティ、コスト効率を考慮した最適な環境を構築します。
                   </p>
                 </div>
                 <div className="bg-white/5 p-8 rounded-lg border border-white/10">
-                  <h4 className="text-xl font-thin mb-4">自動化とモニタリング</h4>
+                  <h4 className="text-xl mb-4">自動化とモニタリング</h4>
                   <p className="text-white/80 text-sm md:text-base font-light leading-relaxed">
                     インフラストラクチャのコード化（IaC）を導入し、デプロイメントの自動化と継続的なモニタリング体制を構築。安定したシステム運用を実現します。
                   </p>
@@ -481,7 +482,7 @@ export default function ServicePage() {
             
             {/* なぜプラズミズムを選ぶべきか */}
             <div className="mb-16">
-              <h3 className="text-2xl font-thin mb-6">なぜプラズミズムを選ぶべきか</h3>
+              <h3 className="text-2xl mb-6">なぜプラズミズムを選ぶべきか</h3>
               <div className="bg-white/5 p-8 rounded-lg border border-white/10">
                 <ul className="list-disc pl-6 space-y-4 text-sm md:text-base font-light">
                   <li>フロントエンドからインフラまでを一貫して理解した設計</li>
@@ -494,7 +495,7 @@ export default function ServicePage() {
             
             {/* 実績 */}
             <div className="mb-16">
-              <h3 className="text-2xl font-thin mb-6">実績</h3>
+              <h3 className="text-2xl mb-6">実績</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="bg-white/5 rounded-lg border border-white/10 overflow-hidden">
                   <div className="relative w-full aspect-[4/3]">
@@ -506,7 +507,7 @@ export default function ServicePage() {
                     />
                   </div>
                   <div className="p-6">
-                    <h4 className="text-xl font-thin mb-2">NAMINORI</h4>
+                    <h4 className="text-xl mb-2">NAMINORI</h4>
                     <p className="text-white/80 text-sm font-light mb-4">クラウドインフラ構築</p>
                     <Link href="/achievements/achievement-3" className="text-white/60 hover:text-white text-sm">
                       詳細を見る →
@@ -523,7 +524,7 @@ export default function ServicePage() {
                     />
                   </div>
                   <div className="p-6">
-                    <h4 className="text-xl font-thin mb-2">NAMINORI</h4>
+                    <h4 className="text-xl mb-2">NAMINORI</h4>
                     <p className="text-white/80 text-sm font-light mb-4">クラウドインフラ構築</p>
                     <Link href="/achievements/achievement-1" className="text-white/60 hover:text-white text-sm">
                       詳細を見る →
@@ -540,24 +541,24 @@ export default function ServicePage() {
             
             {/* よくあるご質問 */}
             <div>
-              <h3 className="text-2xl font-thin mb-6">アーキテクチャデザインに関するよくある質問</h3>
+              <h3 className="text-2xl mb-6">アーキテクチャデザインに関するよくある質問</h3>
               <div className="border-t border-white/10">
                 <div className="border-b border-white/10 py-8">
-                  <h4 className="text-xl font-thin mb-4">Q. アーキテクチャデザインにはどのくらいの期間がかかりますか？</h4>
+                  <h4 className="text-xl mb-4">Q. アーキテクチャデザインにはどのくらいの期間がかかりますか？</h4>
                   <p className="text-white/80 text-sm md:text-base font-light leading-relaxed">
                     システム規模や複雑さによって異なりますが、標準的には要件定義から詳細設計まで3〜6ヶ月程度を見込んでいます。段階的な設計計画を策定し、ビジネスへの影響を最小限に抑えながら進めます。
                   </p>
                 </div>
                 
                 <div className="border-b border-white/10 py-8">
-                  <h4 className="text-xl font-thin mb-4">Q. セキュリティ対策はどのように行われますか？</h4>
+                  <h4 className="text-xl mb-4">Q. セキュリティ対策はどのように行われますか？</h4>
                   <p className="text-white/80 text-sm md:text-base font-light leading-relaxed">
                     多層防御の考え方に基づき、ネットワークセキュリティ、アクセス制御、暗号化、脆弱性管理など包括的な対策を実施します。定期的なセキュリティ監査やペネトレーションテストも行い、継続的な改善を図ります。
                   </p>
                 </div>
                 
                 <div className="py-8">
-                  <h4 className="text-xl font-thin mb-4">Q. 既存システムとの互換性は担保されますか？</h4>
+                  <h4 className="text-xl mb-4">Q. 既存システムとの互換性は担保されますか？</h4>
                   <p className="text-white/80 text-sm md:text-base font-light leading-relaxed">
                     事前に詳細な互換性評価を行い、必要に応じてアダプターやAPIの開発、データ変換ツールの導入などで互換性を確保します。移行後も安定運用できるよう、十分なテスト期間を設けています。
                   </p>

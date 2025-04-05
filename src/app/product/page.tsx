@@ -1,6 +1,7 @@
 'use client';
 
 import Footer from '@/components/Footer';
+import Header from '@/components/Header';
 import PageTitle from '@/components/PageTitle';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -41,6 +42,7 @@ export default function ProductPage() {
   }, [])
   return (
     <main className="min-h-screen flex flex-col text-[var(--foreground)] md:py-12 pt-2 pb-24">
+      <Header />
     <div className="flex-1 w-full max-w-[1440px] mx-auto px-4 md:px-2 pb-12">
       <PageTitle 
         titleEn="Product" 
@@ -57,11 +59,11 @@ export default function ProductPage() {
             document.querySelector('#lean-designer')?.scrollIntoView({ behavior: 'smooth' });
           }}>
             <div className="w-12 md:w-16 text-right pr-4 md:pr-6">
-              <span className="text-lg md:text-2xl font-thin group-hover:text-[var(--foreground)]/90">01</span>
+              <span className="text-lg md:text-2xl group-hover:text-[var(--foreground)]/90">01</span>
             </div>
             <div className="flex-1 flex items-center justify-between">
               <div>
-                <h3 className="text-xl md:text-2xl font-thin group-hover:text-[var(--foreground)]/90">Lean Designer</h3>
+                <h3 className="text-xl md:text-2xl group-hover:text-[var(--foreground)]/90">Lean Designer</h3>
                 <p className="text-[var(--foreground)]/60 text-sm md:text-base font-light group-hover:text-[var(--foreground)]/80">開発専門のハイエンドUI/UXソリューション</p>
               </div>
               <div className="ml-4 transform group-hover:rotate-270 transition-transform duration-300">
@@ -77,11 +79,11 @@ export default function ProductPage() {
             document.querySelector('#containeer')?.scrollIntoView({ behavior: 'smooth' });
           }}>
             <div className="w-12 md:w-16 text-right pr-4 md:pr-6">
-              <span className="text-lg md:text-2xl font-thin group-hover:text-[var(--foreground)]/90">02</span>
+              <span className="text-lg md:text-2xl group-hover:text-[var(--foreground)]/90">02</span>
             </div>
             <div className="flex-1 flex items-center justify-between">
               <div>
-                <h3 className="text-xl md:text-2xl font-thin group-hover:text-[var(--foreground)]/90">Containeer</h3>
+                <h3 className="text-xl md:text-2xl group-hover:text-[var(--foreground)]/90">Containeer</h3>
                 <p className="text-[var(--foreground)]/60 text-sm md:text-base font-light group-hover:text-[var(--foreground)]/80">バーチャルコンテンツのWEBギャラリーメディア</p>
               </div>
               <div className="ml-4 transform group-hover:rotate-270 transition-transform duration-300">
@@ -100,35 +102,35 @@ export default function ProductPage() {
         <section id="lean-designer" className="md:pb-20 pb-10 border-b border-[var(--foreground)]/10">
           <div className="flex items-center group md:py-6 py-4 px-4 mb-8 rounded-lg sticky md:top-20 top-4 bg-[var(--background)]/90 border border-[var(--foreground)]/10 z-10 bg-[url('/background.png')] bg-cover bg-center">
             <div className="w-12 md:w-16 text-right pr-4 md:pr-6">
-              <span className="text-lg md:text-2xl font-thin">01</span>
+              <span className="text-lg md:text-2xl">01</span>
             </div>
             <div className="flex-1 flex items-center justify-between">
               <div>
-                <h3 className="text-2xl md:text-4xl font-thin mb-2">Lean Designer</h3>
+                <h3 className="text-2xl md:text-4xl mb-2">Lean Designer</h3>
                 <p className="text-[var(--foreground)]/60 text-sm md:text-base font-light">開発専門のハイエンドUI/UXソリューション</p>
               </div>
             </div>
           </div>
         
           <div className="mb-16">
-            <h3 className="text-2xl font-thin mb-6">デザインでかなえるクリティカルな課題解決、スマートな開発体験</h3>
+            <h3 className="text-2xl mb-6">デザインでかなえるクリティカルな課題解決、スマートな開発体験</h3>
             <p className="text-[var(--foreground)]/80 mb-8 font-light text-sm md:text-base">あなたの開発プロジェクトに最適したUI/UXの要件定義をまとめたデザイン計画書をAIを活用して生成</p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               <div className="w-full bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
                 <div className="text-center mb-3">
-                  <span className="text-[var(--foreground)]/50 font-thin text-xl">01</span>
+                  <span className="text-[var(--foreground)]/50 text-xl">01</span>
                 </div>
-                <h4 className="text-center text-lg font-thin mb-4">デザイン計画書の<br />生成</h4>
+                <h4 className="text-center text-lg mb-4">デザイン計画書の<br />生成</h4>
                 <p className="text-[var(--foreground)]/80 text-xs md:text-sm font-light leading-relaxed">
                 お客様の課題を洗い出し、最適なプランを提供するために設計された機能です。現状の課題やニーズを入力するだけで、プロジェクトに必要な要件を記載したデザイン計画書をAIが生成します。
                 </p>
               </div>
               <div className="w-full bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
                 <div className="text-center mb-3">
-                  <span className="text-[var(--foreground)]/50 font-thin text-xl">02</span>
+                  <span className="text-[var(--foreground)]/50 text-xl">02</span>
                 </div>
-                <h4 className="text-center text-lg font-thin mb-4">コンポーネント<br />システム</h4>
+                <h4 className="text-center text-lg mb-4">コンポーネント<br />システム</h4>
                 <p className="text-[var(--foreground)]/80 text-xs md:text-sm font-light leading-relaxed">
                 開発プロジェクトの進行状況やステージをセクションとして分類し、そのセクション内のコンポーネントを必要なものだけご選択いただくことができる仕組みを開発しました。
                 </p>
@@ -168,35 +170,35 @@ export default function ProductPage() {
        <section id="containeer" className="md:pb-20 pb-10 border-b border-[var(--foreground)]/10">
           <div className="flex items-center group md:py-6 py-4 px-4 mb-8 rounded-lg sticky md:top-20 top-4 bg-[var(--background)]/90 border border-[var(--foreground)]/10 z-10 bg-[url('/background.png')] bg-cover bg-center">
             <div className="w-12 md:w-16 text-right pr-4 md:pr-6">
-              <span className="text-lg md:text-2xl font-thin">02</span>
+              <span className="text-lg md:text-2xl">02</span>
             </div>
             <div className="flex-1 flex items-center justify-between">
               <div>
-                <h3 className="text-2xl md:text-4xl font-thin mb-2">Containeer</h3>
+                <h3 className="text-2xl md:text-4xl mb-2">Containeer</h3>
                 <p className="text-[var(--foreground)]/60 text-sm md:text-base font-light">バーチャルコンテンツのWEBギャラリーメディア</p>
               </div>
             </div>
           </div>
         
           <div className="mb-16">
-            <h3 className="text-2xl font-thin mb-6">インスピレーションを全く新しいものにアップデートする</h3>
+            <h3 className="text-2xl mb-6">インスピレーションを全く新しいものにアップデートする</h3>
             <p className="text-[var(--foreground)]/80 mb-8 font-light text-sm md:text-base">世界中からセレクトしたXRのコンテンツをバーチャルギャラリーとして展示するWEBメディアです。</p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               <div className="w-full bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
                 <div className="text-center mb-3">
-                  <span className="text-[var(--foreground)]/50 font-thin text-xl">01</span>
+                  <span className="text-[var(--foreground)]/50 text-xl">01</span>
                 </div>
-                <h4 className="text-center text-lg font-thin mb-4">画面越しに堪能できる<br />インタラクティブコンテンツ</h4>
+                <h4 className="text-center text-lg mb-4">画面越しに堪能できる<br />インタラクティブコンテンツ</h4>
                 <p className="text-[var(--foreground)]/80 text-xs md:text-sm font-light leading-relaxed">
                 従来は難易度の高いインタラクティブなコンテンツをWEB上でも十分に体験できるようにゼロベースでUXを設計し、新しいギャラリーメディアの形を確立しました。
                 </p>
               </div>
               <div className="w-full bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
                 <div className="text-center mb-3">
-                  <span className="text-[var(--foreground)]/50 font-thin text-xl">02</span>
+                  <span className="text-[var(--foreground)]/50 text-xl">02</span>
                 </div>
-                <h4 className="text-center text-lg font-thin mb-4">厳選した<br />セレクション</h4>
+                <h4 className="text-center text-lg mb-4">厳選した<br />セレクション</h4>
                 <p className="text-[var(--foreground)]/80 text-xs md:text-sm font-light leading-relaxed">
                 真摯に作品と向き合わている、デジタルアートにふさわしい作品をセレクトして掲載しています。
                 </p>

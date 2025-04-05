@@ -1,20 +1,22 @@
 "use client"
 
 import Footer from '@/components/Footer';
+import Header from '@/components/Header';
 import Link from 'next/link';
 
 export default function ComingSoon() {
   return (
     <main className="min-h-screen flex flex-col text-[var(--foreground)] md:py-12 pt-2 pb-24">
+      <Header />
       <div className="flex-1 w-full max-w-[1440px] mx-auto px-4 md:px-2 pb-12 flex items-center justify-center">
         <div className="space-y-12 mb-16 md:mx-16 mx-4 pt-10 text-center">
           <section>
             <div className="flex flex-col items-center">
               <div className="rounded-lg">
-                <h1 className="font-thin text-5xl md:text-7xl leading-tight mb-6">
+                <h1 className="text-5xl md:text-7xl leading-tight mb-6">
                   Coming Soon
                 </h1>
-                <h2 className="font-thin text-2xl md:text-4xl leading-tight mb-6">
+                <h2 className="text-2xl md:text-4xl leading-tight mb-6">
                   実績詳細ページ準備中
                 </h2>
                 <p className="text-[var(--foreground)]/80 text-sm md:text-base font-light leading-relaxed mb-12">
