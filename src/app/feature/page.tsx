@@ -30,7 +30,7 @@ export default function FeaturePage() {
                 デザインするための<br/>
                 一貫したプロセス
                 </h2>
-                <p className="text-[var(--foreground)]/80 text-sm md:text-base font-light leading-relaxed">
+                <p className="text-[var(--foreground)]/80 text-sm md:text-base leading-relaxed">
                 プラズミズムでは、4つのプロセス「設計 → 実装 → 検証 → 改良」を
 短いスパンで繰り返し回すことで、
 ソリューションの完成度を高め、
@@ -66,14 +66,14 @@ export default function FeaturePage() {
                   <p className="text-2xl md:text-3xl leading-loose mb-4">
                     生きた戦略の構築
                   </p>
-                  <p className="text-[var(--foreground)]/80 text-sm md:text-base font-light leading-relaxed mb-8">
+                  <p className="text-[var(--foreground)]/80 text-sm md:text-base leading-relaxed mb-8">
                   ビジネス目標や利用環境、制約条件などを整理しながら、課題解決に向けた最適な道筋を組み立てるプロセスです。<br/><br/>
                   具体的に想定されるケースを解体し切った上で、その状況での最適解を組み立てます。<br/><br/>
                   実行可能なスケジュールやシステム構成を導き出し、問題への対処や拡張性の面まで見据えた計画を構築していきます。
                   </p>
                   <div className="bg-[var(--foreground)]/4 rounded-2xl md:py-8 py-4 px-4 border border-[var(--foreground)]/10">
                   <h3 className="text-lg md:text-xl ml-2 mb-4">具体例</h3>
-                    <ul className="list-disc pl-6 space-y-4 text-sm md:text-base font-light">
+                    <ul className="list-disc pl-6 space-y-4 text-sm md:text-base">
                       <li>課題解決の為のストーリーをマッピングし、画面遷移や必要機能を一覧化</li>
                       <li>事業ドメインからオペレーションの課題まで、ステークホルダーとの課題認識一致化</li>
                       <li>求められている機能的な要件とビジネス的な要件を、実現可能性を整理しながら定義化</li>
@@ -118,14 +118,14 @@ export default function FeaturePage() {
                   <p className="text-2xl md:text-3xl leading-loose mb-4">
                     見える形への迅速な変換
                   </p>
-                  <p className="text-[var(--foreground)]/80 text-sm md:text-base font-light leading-relaxed mb-8">
+                  <p className="text-[var(--foreground)]/80 text-sm md:text-base leading-relaxed mb-8">
                   設計で描いた戦略を実際に検証可能な見える形に変換するプロセスです。<br/><br/>
                   これに特化して連携されたチームワークで、アクションプランを“機能”や“デザイン”として具現化していきます。<br/><br/>
                   素早く、しかし丁寧に作り上げることで、質の良いフィードバックをいち早くいただけるように体制準備をしながら、的確にアウトプットしていきます。
                   </p>
                   <div className="bg-[var(--foreground)]/4 rounded-2xl md:py-8 py-4 px-4 border border-[var(--foreground)]/10">
                   <h3 className="text-lg md:text-xl ml-2 mb-4">具体例</h3>
-                    <ul className="list-disc pl-6 space-y-4 text-sm md:text-base font-light">
+                    <ul className="list-disc pl-6 space-y-4 text-sm md:text-base">
                       <li>クリエイティブツールを活用しての詳細画面のビジュアライズやプロトタイプの作成</li>
                       <li>ロゴ・キービジュアルのムードボードやデザインサンプルを実制作、ステークホルダーに展開</li>
                       <li>要件に基づいたクラウド環境構築、ミニマムスケールでの技術検証、クライアントサイド実装</li>
@@ -170,14 +170,14 @@ export default function FeaturePage() {
                   <p className="text-2xl md:text-3xl leading-loose mb-4">
                     事実との整合性のある照合
                   </p>
-                  <p className="text-[var(--foreground)]/80 text-sm md:text-base font-light leading-relaxed mb-8">
+                  <p className="text-[var(--foreground)]/80 text-sm md:text-base leading-relaxed mb-8">
                   仮説と検証リストを元に、ユーザーや関係者が実際にどう動くかを観察して測定するプロセスです。<br/><br/>
                   定量的に測定可能な指標を元に、明確に検証可能なボリュームに切り出して想定通りに機能している部分と変更を要する部分を精査。<br/><br/>
                   測定した内容は再現性を持ってドキュメンテーションし、次の改良ステップに役立つ確かなエビデンスを積み上げます。
                   </p>
                   <div className="bg-[var(--foreground)]/4 rounded-2xl md:py-8 py-4 px-4 border border-[var(--foreground)]/10">
                   <h3 className="text-lg md:text-xl ml-2 mb-4">具体例</h3>
-                    <ul className="list-disc pl-6 space-y-4 text-sm md:text-base font-light">
+                    <ul className="list-disc pl-6 space-y-4 text-sm md:text-base">
                       <li>ユーザビリティテスト（ヒューリスティック評価／ユーザーインタビューなど）</li>
                       <li>サイト運用データからの離脱率や滞在時間のモニタリング</li>
                       <li>エラーログやセキュリティスキャンの監査</li>
@@ -266,37 +266,37 @@ export default function FeaturePage() {
            <div className="md:py-20 py-10 border-b border-[var(--foreground)]/10">
               <h3 className="md:text-4xl text-2xl md:mb-12 mb-6">UXデザインの場合</h3>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
-                <div className="flex flex-col bg-[var(--foreground)]/5 p-10 rounded-lg border border-[var(--foreground)]/10">
+                <div className="flex flex-col bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
                   <div className="text-sm text-[var(--foreground)]/70 mb-2 text-center">01 設計</div>
                   <h4 className="md:text-2xl text-xl mb-3 text-center">ユーザー調査と分析</h4>
-                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base font-light text-[var(--foreground)]/80">
+                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base text-[var(--foreground)]/80">
                     <li>行動分析とリサーチ</li>
                     <li>ペルソナ設計</li>
                     <li>ユーザーインタビュー</li>
                   </ul>
                 </div>
-                <div className="flex flex-col bg-[var(--foreground)]/5 p-10 rounded-lg border border-[var(--foreground)]/10">
+                <div className="flex flex-col bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
                   <div className="text-sm text-[var(--foreground)]/70 mb-2 text-center">02 実装</div>
                   <h4 className="md:text-2xl text-xl mb-3 text-center">プロトタイピング</h4>
-                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base font-light text-[var(--foreground)]/80">
+                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base text-[var(--foreground)]/80">
                     <li>情報アーキテクチャ設計</li>
                     <li>ワイヤーフレーム作成</li>
                     <li>インタラクション設計</li>
                   </ul>
                 </div>
-                <div className="flex flex-col bg-[var(--foreground)]/5 p-10 rounded-lg border border-[var(--foreground)]/10">
+                <div className="flex flex-col bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
                   <div className="text-sm text-[var(--foreground)]/70 mb-2 text-center">03 検証</div>
                   <h4 className="md:text-2xl text-xl mb-3 text-center">ユーザビリティテスト</h4>
-                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base font-light text-[var(--foreground)]/80">
+                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base text-[var(--foreground)]/80">
                     <li>ヒューリスティック評価</li>
                     <li>ユーザーインタビュー</li>
                     <li>ユーザーストーリーマッピング</li>
                   </ul>
                 </div>
-                  <div className="flex flex-col bg-[var(--foreground)]/5 p-10 rounded-lg border border-[var(--foreground)]/10">
+                  <div className="flex flex-col bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
                   <div className="text-sm text-[var(--foreground)]/70 mb-2 text-center">04 改良</div>
                   <h4 className="md:text-2xl text-xl mb-3 text-center">フィードバック収集</h4>
-                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base font-light text-[var(--foreground)]/80">
+                    <ul className="list-disc pl-6 space-y-2 text-sm md:text-base text-[var(--foreground)]/80">
                     <li>レビュードキュメンテーション</li>
                     <li>イシュー整理</li>
                     <li>スプリントコンセプトブラッシュアップ</li>
@@ -309,37 +309,37 @@ export default function FeaturePage() {
            <div className="md:py-20 py-10 border-b border-[var(--foreground)]/10">
               <h3 className="md:text-4xl text-2xl md:mb-12 mb-6">コーポレートデザインの場合</h3>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
-                <div className="flex flex-col bg-[var(--foreground)]/5 p-10 rounded-lg border border-[var(--foreground)]/10">
+                <div className="flex flex-col bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
                   <div className="text-sm text-[var(--foreground)]/70 mb-2 text-center">01 設計</div>
                   <h4 className="md:text-2xl text-xl mb-3 text-center">ブランド戦略構築</h4>
-                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base font-light text-[var(--foreground)]/80">
+                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base text-[var(--foreground)]/80">
                     <li>企業価値とビジョン明確化</li>
                     <li>市場調査・競合分析</li>
                     <li>ブランドポジショニング</li>
                   </ul>
                 </div>
-                <div className="flex flex-col bg-[var(--foreground)]/5 p-10 rounded-lg border border-[var(--foreground)]/10">
+                <div className="flex flex-col bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
                   <div className="text-sm text-[var(--foreground)]/70 mb-2 text-center">02 実装</div>
                   <h4 className="md:text-2xl text-xl mb-3 text-center">アイデンティティ構築</h4>
-                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base font-light text-[var(--foreground)]/80">
+                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base text-[var(--foreground)]/80">
                     <li>ブランドコンセプト策定</li>
                     <li>ロゴ・ビジュアルコンセプトドラフト作成</li>
                     <li>タッチポイントマッピング</li>
                   </ul>
                 </div>
-                <div className="flex flex-col bg-[var(--foreground)]/5 p-10 rounded-lg border border-[var(--foreground)]/10">
+                <div className="flex flex-col bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
                   <div className="text-sm text-[var(--foreground)]/70 mb-2 text-center">03 検証</div>
                   <h4 className="md:text-2xl text-xl mb-3 text-center">ユーザーインタビュー</h4>
-                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base font-light text-[var(--foreground)]/80">
+                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base text-[var(--foreground)]/80">
                     <li>ブランドコンセプトの検証</li>
                     <li>ブランドコンセプトのフィードバック収集</li>
                     <li>ブランドコンセプトのブラッシュアップ</li>
                   </ul>
                 </div>
-                <div className="flex flex-col bg-[var(--foreground)]/5 p-10 rounded-lg border border-[var(--foreground)]/10">
+                <div className="flex flex-col bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
                   <div className="text-sm text-[var(--foreground)]/70 mb-2 text-center">04 改良</div>
                   <h4 className="md:text-2xl text-xl mb-3 text-center">浸透と維持</h4>
-                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base font-light text-[var(--foreground)]/80">
+                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base text-[var(--foreground)]/80">
                     <li>社内外へのブランド教育</li>
                     <li>一貫性のあるブランド体験提供</li>
                     <li>認知度向上の施策実施</li>
@@ -352,37 +352,37 @@ export default function FeaturePage() {
                <div className="md:py-20 py-10 border-b border-[var(--foreground)]/10">
               <h3 className="md:text-4xl text-2xl md:mb-12 mb-6">アーキテクチャデザインの場合</h3>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
-                <div className="flex flex-col bg-[var(--foreground)]/5 p-10 rounded-lg border border-[var(--foreground)]/10">
+                <div className="flex flex-col bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
                   <div className="text-sm text-[var(--foreground)]/70 mb-2 text-center">01 設計</div>
                   <h4 className="md:text-2xl text-xl mb-3 text-center">要件定義と設計</h4>
-                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base font-light text-[var(--foreground)]/80">
+                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base text-[var(--foreground)]/80">
                     <li>ビジネス要件の把握</li>
                     <li>安全性と拡張性の設計</li>
                     <li>コスト分析と最適化計画</li>
                   </ul>
                 </div>
-                <div className="flex flex-col bg-[var(--foreground)]/5 p-10 rounded-lg border border-[var(--foreground)]/10">
+                <div className="flex flex-col bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
                   <div className="text-sm text-[var(--foreground)]/70 mb-2 text-center">02 実装</div>
                   <h4 className="md:text-2xl text-xl mb-3 text-center">環境構築</h4>
-                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base font-light text-[var(--foreground)]/80">
+                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base text-[var(--foreground)]/80">
                     <li>クラウドプラットフォーム選定</li>
                     <li>システムアーキテクチャ設計</li>
                     <li>ネットワークとセキュリティ設定</li>
                   </ul>
                 </div>
-                <div className="flex flex-col bg-[var(--foreground)]/5 p-10 rounded-lg border border-[var(--foreground)]/10">
+                <div className="flex flex-col bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
                   <div className="text-sm text-[var(--foreground)]/70 mb-2 text-center">03 検証</div>
                   <h4 className="md:text-2xl text-xl mb-3 text-center">実装とテスト</h4>
-                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base font-light text-[var(--foreground)]/80">
+                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base text-[var(--foreground)]/80">
                     <li>インフラのコード化(IaC)</li>
                     <li>自動化パイプライン構築</li>
                     <li>パフォーマンスと負荷テスト</li>
                   </ul>
                 </div>
-                <div className="flex flex-col bg-[var(--foreground)]/5 p-10 rounded-lg border border-[var(--foreground)]/10">
+                <div className="flex flex-col bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
                   <div className="text-sm text-[var(--foreground)]/70 mb-2 text-center">04 改良</div>
                   <h4 className="md:text-2xl text-xl mb-3 text-center">運用と最適化</h4>
-                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base font-light text-[var(--foreground)]/80">
+                  <ul className="list-disc pl-6 space-y-2 text-sm md:text-base text-[var(--foreground)]/80">
                     <li>モニタリングと監視体制</li>
                     <li>コスト管理とリソース最適化</li>
                     <li>継続的な改善とスケーリング</li>

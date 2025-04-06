@@ -5,7 +5,6 @@ import Header from '@/components/Header';
 import PageTitle from '@/components/PageTitle';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
 // import { Metadata } from 'next';
 
 // export const metadata: Metadata = {
@@ -14,32 +13,6 @@ import { useState, useEffect } from 'react';
 // };
 
 export default function ProductPage() {
-  const [leanDesignerImage, setLeanDesignerImage] = useState<string | null>(null)
-  const [containeerImage, setContaineerImage] = useState<string | null>(null)
-
-  useEffect(() => {
-    const fetchOgImages = async () => {
-      try {
-        // Lean DesignerのOGP画像を取得
-        const leanDesignerResponse = await fetch(`/api/og?url=${encodeURIComponent('https://lean-designer.tech')}`)
-        const leanDesignerData = await leanDesignerResponse.json()
-        if (leanDesignerData.ogImage) {
-          setLeanDesignerImage(leanDesignerData.ogImage)
-        }
-
-        // ContaineerのOGP画像を取得
-        const containeerResponse = await fetch(`/api/og?url=${encodeURIComponent('https://containeer.vercel.app')}`)
-        const containeerData = await containeerResponse.json()
-        if (containeerData.ogImage) {
-          setContaineerImage(containeerData.ogImage)
-        }
-      } catch (error) {
-        console.error('Failed to fetch OGP images:', error)
-      }
-    }
-
-    fetchOgImages()
-  }, [])
   return (
     <main className="min-h-screen flex flex-col text-[var(--foreground)] md:py-12 pt-2 pb-24">
       <Header />
@@ -47,48 +20,48 @@ export default function ProductPage() {
       <PageTitle 
         titleEn="Product" 
         titleJa="プロダクト" 
-        description="プラズミズムが提供するプロダクトについてご紹介します。" 
+        description="ソリッドベンチャーとして他事業との有機的な連携" 
       />
       
       <div className="mb-16 md:mx-16 mx-4">
-        <p className="text-[var(--foreground)]/80 mb-10 font-light">確実な市場理解のあるセグメントで、サービスとのエコシステムを大切にしたプロダクトデザインを徹底しています。</p>
+        <p className="text-[var(--foreground)]/80 mb-10">確実な市場理解のあるセグメントで、サービスとのエコシステムを大切にしたプロダクトデザインを徹底しています。</p>
         
         <div className="space-y-4">
-          <a href="#lean-designer" className="flex items-center group border-b border-[var(--foreground)]/10 pb-4 hover:bg-[var(--foreground)]/10 hover:border-[var(--foreground)]/20 transition-all duration-300 rounded-lg p-4" onClick={(e) => {
+          <a href="#lean-designer" className="flex items-center group border-b border-[var(--foreground)]/10 pb-4 hover:bg-[var(--foreground)]/10 hover:border-[var(--background)]/20 transition-all duration-300 rounded-lg md:p-4 p-2" onClick={(e) => {
             e.preventDefault();
             document.querySelector('#lean-designer')?.scrollIntoView({ behavior: 'smooth' });
           }}>
-            <div className="w-12 md:w-16 text-right pr-4 md:pr-6">
-              <span className="text-lg md:text-2xl group-hover:text-[var(--foreground)]/90">01</span>
-            </div>
+                <div className="w-3 h-12 bg-[var(--foreground)] rounded-full flex items-center justify-center md:mr-4 mr-3 py-8 px-3">
+                  <span className="text-[var(--background)] text-sm">1</span>
+                </div>
             <div className="flex-1 flex items-center justify-between">
               <div>
                 <h3 className="text-xl md:text-2xl group-hover:text-[var(--foreground)]/90">Lean Designer</h3>
-                <p className="text-[var(--foreground)]/60 text-sm md:text-base font-light group-hover:text-[var(--foreground)]/80">開発専門のハイエンドUI/UXソリューション</p>
+                <p className="text-[var(--foreground)]/60 text-sm md:text-base group-hover:text-[var(--foreground)]/80">開発専門のハイエンドUI/UXソリューション</p>
               </div>
-              <div className="ml-4 transform group-hover:rotate-270 transition-transform duration-300">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M7 10l5 5 5-5z" fill="currentColor"/>
+              <div className="ml-2 transform group-hover:rotate-270 transition-transform duration-300">
+                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                 </svg>
               </div>
             </div>
           </a>
           
-          <a href="#containeer" className="flex items-center group border-b border-[var(--foreground)]/10 pb-4 hover:bg-[var(--foreground)]/10 hover:border-[var(--foreground)]/20 transition-all duration-300 rounded-lg p-4" onClick={(e) => {
+          <a href="#containeer" className="flex items-center group border-b border-[var(--foreground)]/10 pb-4 hover:bg-[var(--foreground)]/10 hover:border-[var(--background)]/20 transition-all duration-300 rounded-lg md:p-4 p-2" onClick={(e) => {
             e.preventDefault();
             document.querySelector('#containeer')?.scrollIntoView({ behavior: 'smooth' });
           }}>
-            <div className="w-12 md:w-16 text-right pr-4 md:pr-6">
-              <span className="text-lg md:text-2xl group-hover:text-[var(--foreground)]/90">02</span>
-            </div>
+                  <div className="w-3 h-12 bg-[var(--foreground)] rounded-full flex items-center justify-center md:mr-4 mr-3 py-8 px-3">
+                  <span className="text-[var(--background)] text-sm">2</span>
+                </div>
             <div className="flex-1 flex items-center justify-between">
               <div>
                 <h3 className="text-xl md:text-2xl group-hover:text-[var(--foreground)]/90">Containeer</h3>
-                <p className="text-[var(--foreground)]/60 text-sm md:text-base font-light group-hover:text-[var(--foreground)]/80">バーチャルコンテンツのWEBギャラリーメディア</p>
+                <p className="text-[var(--foreground)]/60 text-sm md:text-base group-hover:text-[var(--foreground)]/80">バーチャルコンテンツのWEBギャラリーメディア</p>
               </div>
-              <div className="ml-4 transform group-hover:rotate-270 transition-transform duration-300">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M7 10l5 5 5-5z" fill="currentColor"/>
+              <div className="ml-2 transform group-hover:rotate-270 transition-transform duration-300">
+                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                 </svg>
               </div>
             </div>
@@ -99,22 +72,25 @@ export default function ProductPage() {
 
       <div className="space-y-24 mb-16 md:mx-16 mx-4 pt-10">
         {/* Lean Designer */}
-        <section id="lean-designer" className="md:pb-20 pb-10 border-b border-[var(--foreground)]/10">
-          <div className="flex items-center group md:py-6 py-4 px-4 mb-8 rounded-lg sticky md:top-20 top-4 bg-[var(--background)]/90 border border-[var(--foreground)]/10 z-10 bg-[url('/background.png')] bg-cover bg-center">
-            <div className="w-12 md:w-16 text-right pr-4 md:pr-6">
-              <span className="text-lg md:text-2xl">01</span>
-            </div>
-            <div className="flex-1 flex items-center justify-between">
-              <div>
-                <h3 className="text-2xl md:text-4xl mb-2">Lean Designer</h3>
-                <p className="text-[var(--foreground)]/60 text-sm md:text-base font-light">開発専門のハイエンドUI/UXソリューション</p>
+        <section id="lean-designer" className="md:pb-20 pb-10">
+          <div className="relative group md:py-6 py-4 md:px-4 px-3 mb-8 rounded-lg sticky md:top-20 top-4 bg-[var(--background)] border border-[var(--foreground)]/40 z-10 overflow-hidden">
+            <div className="absolute inset-0 bg-[url('/background.png')] bg-cover bg-center opacity-30 z-0"></div>
+            <div className="relative z-10 flex items-center w-full">
+            <div className="w-3 h-12 bg-[var(--foreground)] rounded-full flex items-center justify-center md:mr-4 mr-3 py-8 px-3">
+                  <span className="text-[var(--background)] text-sm">1</span>
+                </div>
+              <div className="flex-1 flex items-center justify-between">
+                <div>
+                  <h3 className="text-2xl md:text-4xl mb-2">Lean Designer</h3>
+                  <p className="text-[var(--foreground)]/60 text-sm md:text-base">開発専門のハイエンドUI/UXソリューション</p>
+                </div>
               </div>
             </div>
           </div>
         
           <div className="mb-16">
             <h3 className="text-2xl mb-6">デザインでかなえるクリティカルな課題解決、スマートな開発体験</h3>
-            <p className="text-[var(--foreground)]/80 mb-8 font-light text-sm md:text-base">あなたの開発プロジェクトに最適したUI/UXの要件定義をまとめたデザイン計画書をAIを活用して生成</p>
+            <p className="text-[var(--foreground)]/80 mb-8 text-sm md:text-base">あなたの開発プロジェクトに最適したUI/UXの要件定義をまとめたデザイン計画書をAIを活用して生成</p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               <div className="w-full bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
@@ -122,7 +98,7 @@ export default function ProductPage() {
                   <span className="text-[var(--foreground)]/50 text-xl">01</span>
                 </div>
                 <h4 className="text-center text-lg mb-4">デザイン計画書の<br />生成</h4>
-                <p className="text-[var(--foreground)]/80 text-xs md:text-sm font-light leading-relaxed">
+                <p className="text-[var(--foreground)]/80 text-xs md:text-sm leading-relaxed">
                 お客様の課題を洗い出し、最適なプランを提供するために設計された機能です。現状の課題やニーズを入力するだけで、プロジェクトに必要な要件を記載したデザイン計画書をAIが生成します。
                 </p>
               </div>
@@ -131,7 +107,7 @@ export default function ProductPage() {
                   <span className="text-[var(--foreground)]/50 text-xl">02</span>
                 </div>
                 <h4 className="text-center text-lg mb-4">コンポーネント<br />システム</h4>
-                <p className="text-[var(--foreground)]/80 text-xs md:text-sm font-light leading-relaxed">
+                <p className="text-[var(--foreground)]/80 text-xs md:text-sm leading-relaxed">
                 開発プロジェクトの進行状況やステージをセクションとして分類し、そのセクション内のコンポーネントを必要なものだけご選択いただくことができる仕組みを開発しました。
                 </p>
               </div>
@@ -147,7 +123,7 @@ export default function ProductPage() {
               >
                 <div className="relative w-full aspect-[16/9] overflow-hidden">
                   <Image
-                    src={leanDesignerImage || '/sample1.png'}
+                    src={'/lean-designer.jpg'}
                     alt="Lean Designer"
                     fill
                     className="object-cover transform group-hover:scale-105 transition-transform duration-500"
@@ -155,7 +131,7 @@ export default function ProductPage() {
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-[var(--foreground)]/20 transition-all duration-300"></div>
                 </div>
                 <div className="md:p-6 p-4 flex justify-end items-center">
-                  <div className="flex items-center text-[var(--foreground)]/60 text-sm font-light group-hover:text-[var(--foreground)] transition-colors">
+                  <div className="flex items-center text-[var(--foreground)]/60 text-sm group-hover:text-[var(--foreground)] transition-colors">
                     詳細を見る
                     <svg className="w-4 h-4 ml-2 transform translate-x-0 group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -168,21 +144,24 @@ export default function ProductPage() {
         
        {/* Containeer */}
        <section id="containeer" className="md:pb-20 pb-10 border-b border-[var(--foreground)]/10">
-          <div className="flex items-center group md:py-6 py-4 px-4 mb-8 rounded-lg sticky md:top-20 top-4 bg-[var(--background)]/90 border border-[var(--foreground)]/10 z-10 bg-[url('/background.png')] bg-cover bg-center">
-            <div className="w-12 md:w-16 text-right pr-4 md:pr-6">
-              <span className="text-lg md:text-2xl">02</span>
-            </div>
-            <div className="flex-1 flex items-center justify-between">
-              <div>
-                <h3 className="text-2xl md:text-4xl mb-2">Containeer</h3>
-                <p className="text-[var(--foreground)]/60 text-sm md:text-base font-light">バーチャルコンテンツのWEBギャラリーメディア</p>
+       <div className="relative group md:py-6 py-4 md:px-4 px-3 mb-8 rounded-lg sticky md:top-20 top-4 bg-[var(--background)] border border-[var(--foreground)]/40 z-10 overflow-hidden">
+            <div className="absolute inset-0 bg-[url('/background.png')] bg-cover bg-center opacity-30 z-0"></div>
+            <div className="relative z-10 flex items-center w-full">
+            <div className="w-3 h-12 bg-[var(--foreground)] rounded-full flex items-center justify-center md:mr-4 mr-3 py-8 px-3">
+                  <span className="text-[var(--background)] text-sm">2</span>
+                </div>
+              <div className="flex-1 flex items-center justify-between">
+                <div>
+                  <h3 className="text-2xl md:text-4xl mb-2">Containeer</h3>
+                  <p className="text-[var(--foreground)]/60 text-sm md:text-base">バーチャルコンテンツのWEBギャラリーメディア</p>
+                </div>
               </div>
             </div>
           </div>
         
           <div className="mb-16">
             <h3 className="text-2xl mb-6">インスピレーションを全く新しいものにアップデートする</h3>
-            <p className="text-[var(--foreground)]/80 mb-8 font-light text-sm md:text-base">世界中からセレクトしたXRのコンテンツをバーチャルギャラリーとして展示するWEBメディアです。</p>
+            <p className="text-[var(--foreground)]/80 mb-8 text-sm md:text-base">世界中からセレクトしたXRのコンテンツをバーチャルギャラリーとして展示するWEBメディアです。</p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               <div className="w-full bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
@@ -190,7 +169,7 @@ export default function ProductPage() {
                   <span className="text-[var(--foreground)]/50 text-xl">01</span>
                 </div>
                 <h4 className="text-center text-lg mb-4">画面越しに堪能できる<br />インタラクティブコンテンツ</h4>
-                <p className="text-[var(--foreground)]/80 text-xs md:text-sm font-light leading-relaxed">
+                <p className="text-[var(--foreground)]/80 text-xs md:text-sm leading-relaxed">
                 従来は難易度の高いインタラクティブなコンテンツをWEB上でも十分に体験できるようにゼロベースでUXを設計し、新しいギャラリーメディアの形を確立しました。
                 </p>
               </div>
@@ -199,7 +178,7 @@ export default function ProductPage() {
                   <span className="text-[var(--foreground)]/50 text-xl">02</span>
                 </div>
                 <h4 className="text-center text-lg mb-4">厳選した<br />セレクション</h4>
-                <p className="text-[var(--foreground)]/80 text-xs md:text-sm font-light leading-relaxed">
+                <p className="text-[var(--foreground)]/80 text-xs md:text-sm leading-relaxed">
                 真摯に作品と向き合わている、デジタルアートにふさわしい作品をセレクトして掲載しています。
                 </p>
               </div>
@@ -215,7 +194,7 @@ export default function ProductPage() {
               >
                 <div className="relative w-full aspect-[16/9] overflow-hidden">
                   <Image
-                    src={containeerImage || '/sample2.png'}
+                    src={'/containeer.jpg'}
                     alt="Containeer"
                     fill
                     className="object-cover transform group-hover:scale-105 transition-transform duration-500"
@@ -223,7 +202,7 @@ export default function ProductPage() {
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-[var(--foreground)]/20 transition-all duration-300"></div>
                 </div>
                 <div className="md:p-6 p-4 flex justify-end items-center">
-                  <div className="flex items-center text-[var(--foreground)]/60 text-sm font-light group-hover:text-[var(--foreground)] transition-colors">
+                  <div className="flex items-center text-[var(--foreground)]/60 text-sm group-hover:text-[var(--foreground)] transition-colors">
                     詳細を見る
                     <svg className="w-4 h-4 ml-2 transform translate-x-0 group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M5 12h14M12 5l7 7-7 7"/>

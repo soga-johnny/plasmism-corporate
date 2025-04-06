@@ -19,7 +19,7 @@ export default function NotFound() {
                 <h2 className="text-3xl md:text-5xl leading-tight mb-6">
                   ページが見つかりませんでした
                 </h2>
-                <p className="text-gray-700 text-sm md:text-base font-light leading-relaxed mb-12">
+                <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-12">
                   お探しのページは移動または削除された可能性があります
                 </p>
                 <Link

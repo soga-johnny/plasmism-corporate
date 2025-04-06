@@ -18,7 +18,7 @@ export default function AboutPage() {
         <PageTitle 
           titleEn="About" 
           titleJa="私たちについて" 
-          description="プラズミズムは、最適解の設計・実装・検証・改良をコンピューターと情報表現でデザインする会社です。" 
+          description="最適解の設計・実装・検証・改良をコンピューターと情報表現でデザインする会社" 
         />
         
         <div className="space-y-12 mb-16 md:mx-16 mx-4">

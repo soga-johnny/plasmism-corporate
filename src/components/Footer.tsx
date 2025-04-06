@@ -60,7 +60,7 @@ export default function Footer() {
   useEffect(() => {
     // クライアントサイドでのみ実行
     const isMobile = window.innerWidth <= 768;
-    const thresholdValue = isMobile ? 0.3 : 0.6; // モバイルなら0.4、PCなら0.6
+    const thresholdValue = isMobile ? 0.3 : 0.7; // モバイルなら0.4、PCなら0.6
 
     if (process.env.NODE_ENV === 'development') {
       console.log(`Setting threshold based on screen width. isMobile: ${isMobile}, threshold: ${thresholdValue}`);
@@ -227,7 +227,7 @@ export default function Footer() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
           <div>
-            <h4 className="text-sm font-semibold mb-4 text-[var(--foreground)]/80">Plasmism</h4>
+            <h4 className="text-sm mb-4 text-[var(--foreground)]/70">About us</h4>
             <ul className="space-y-3">
               <li><Link href="/about" className="hover:text-[var(--foreground)]/70 transition-colors text-base font-light">私たちについて</Link></li>
               <li><Link href="/feature" className="hover:text-[var(--foreground)]/70 transition-colors text-base font-light">特徴</Link></li>
@@ -235,7 +235,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="text-sm font-semibold mb-4 text-[var(--foreground)]/80">Service & Product</h4>
+            <h4 className="text-sm mb-4 text-[var(--foreground)]/70">Service and Product</h4>
             <ul className="space-y-3">
               <li><Link href="/service" className="hover:text-[var(--foreground)]/70 transition-colors text-base font-light">サービス</Link></li>
               <li><Link href="/product" className="hover:text-[var(--foreground)]/70 transition-colors text-base font-light">プロダクト</Link></li>
@@ -243,7 +243,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="text-sm font-semibold mb-4 text-[var(--foreground)]/80">Support</h4>
+            <h4 className="text-sm mb-4 text-[var(--foreground)]/70">Support</h4>
             <ul className="space-y-3">
               <li><Link href="/contact" className="hover:text-[var(--foreground)]/70 transition-colors text-base font-light">お問い合わせ</Link></li>
               <li><Link href="/download" className="hover:text-[var(--foreground)]/70 transition-colors text-base font-light">資料ダウンロード</Link></li>
@@ -251,7 +251,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="text-sm font-semibold mb-4 text-[var(--foreground)]/80">Career</h4>
+            <h4 className="text-sm mb-4 text-[var(--foreground)]/70">Recruit</h4>
             <ul className="space-y-3">
               <li><Link href="/recruit" className="hover:text-[var(--foreground)]/70 transition-colors text-base font-light">採用情報</Link></li>
             </ul>
