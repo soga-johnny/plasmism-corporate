@@ -13,7 +13,6 @@ export default function Header() {
   const [currentDate, setCurrentDate] = useState('')
   const [currentTime, setCurrentTime] = useState('')
   const pathname = usePathname()
-  const [isVisible, setIsVisible] = useState(pathname !== '/') // 初期表示状態
   
   // メニューを開閉する関数
   const toggleMenu = () => setIsMenuOpen(prev => !prev)
@@ -62,32 +61,13 @@ export default function Header() {
       document.body.style.overflow = ''
     }
     
-    // スクロールイベントハンドラ
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsVisible(true)
-      } else {
-        setIsVisible(false)
-      }
-    }
-
-    // トップページのみスクロールイベントリスナーを追加
-    if (pathname === '/') {
-      window.addEventListener('scroll', handleScroll)
-    } else {
-      setIsVisible(true) // トップページ以外は常に表示
-    }
-    
     // クリーンアップ
     return () => {
       window.removeEventListener('resize', checkIfMobile)
       clearInterval(interval)
       document.body.style.overflow = ''
-      if (pathname === '/') {
-        window.removeEventListener('scroll', handleScroll)
-      }
     }
-  }, [isMenuOpen, pathname]) // pathname を依存配列に追加
+  }, [isMenuOpen, pathname])
   
   // ハイドレーション前は何も表示しない
   if (!mounted) {
@@ -98,11 +78,11 @@ export default function Header() {
   if (!isMobile) {
     return (
       <motion.header
-        initial={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : -20 }}
+        initial={{ opacity: 0, y: -20 }}
         animate={{
-          opacity: isVisible ? 1 : 0,
-          y: isVisible ? 0 : -20,
-          transition: { duration: 0.8, delay: isVisible ? 0.3 : 0, ease: "easeInOut" }
+          opacity: 1,
+          y: 0,
+          transition: { duration: 0.7, delay: 0.6, ease: "easeOut" }
         }}
         className="fixed top-0 left-0 right-0 text-[var(--foreground)] py-4 z-40 mix-blend-difference"
       >
@@ -161,9 +141,11 @@ export default function Header() {
     <>
       {/* モバイル用時計 - 最上部中央配置 */}
       <motion.div
-        initial={{ opacity: isVisible ? 1 : 0 }}
-        animate={{ opacity: isVisible ? 1 : 0 }}
-        transition={{ duration: 0.5, delay: isVisible ? 0.1 : 0 }}
+        initial={{ opacity: 0 }}
+        animate={{ 
+          opacity: 1,
+          transition: { duration: 0.5, delay: 0.2, ease: "easeOut" }
+        }}
         className="fixed top-0.5 left-1/2 transform -translate-x-1/2 z-[40] text-[var(--foreground)] text-center"
       >
         <div className="text-[8px] font-extralight tracking-wider">{currentDate} {currentTime}</div>
@@ -171,11 +153,11 @@ export default function Header() {
       
       {/* 下部固定メニュー */}
       <motion.header
-        initial={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 10 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={{
-          opacity: isVisible ? 1 : 0,
-          y: isVisible ? 0 : 10,
-          transition: { duration: 1.0, delay: isVisible ? 0.1 : 0, ease: "easeInOut" }
+          opacity: 1,
+          y: 0,
+          transition: { duration: 0.7, delay: 0.6, ease: "easeOut" }
         }}
         className="fixed bottom-5 left-1/2 transform -translate-x-1/2 w-1/2 z-[70] flex backdrop-blur-lg mix-blend-difference overflow-hidden rounded-lg"
       >

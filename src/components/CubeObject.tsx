@@ -3,13 +3,30 @@
 import { Canvas, RootState, useFrame } from '@react-three/fiber'
 import { RoundedBox, Environment, useProgress } from '@react-three/drei'
 import { EffectComposer, Noise } from '@react-three/postprocessing'
-import { Suspense, useRef, useEffect, useState, startTransition, useMemo } from 'react'
+import { Suspense, useRef, useEffect, useState, useMemo } from 'react'
 import { useScroll, motion } from 'framer-motion'
 import { MeshPhysicalMaterial, Mesh, Color, WebGLRenderer, MeshStandardMaterial, Vector3, Group, InstancedMesh, Euler, Object3D } from 'three'
 import { useLoadingStore } from './LoadingScreen'
 import { MathUtils } from 'three'
 import { useMotionValueEvent, motionValue, useTransform, animate } from "framer-motion";
 import { RoundedBoxGeometry } from "three/examples/jsm/geometries/RoundedBoxGeometry.js";
+
+// SceneUpdater コンポーネントを定義
+function SceneUpdater() {
+  const { progress } = useProgress();
+  const setStoreProgress = useLoadingStore((state) => state.setProgress);
+
+  useEffect(() => {
+    const currentStoreProgress = useLoadingStore.getState().progress;
+    // 実際の進捗がストアより進んでいる場合のみ更新
+    if (progress > currentStoreProgress) {
+      setStoreProgress(progress);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [progress]); // setStoreProgressは含めない
+
+  return null; // 何もレンダリングしない
+}
 
 // スクロール進行度を正規化するヘルパー関数
 const normalizeProgress = (progress: number, start: number, end: number) => {
@@ -544,7 +561,10 @@ function Scene({ isMobile }: { isMobile: boolean }) {
     <>
       <ambientLight intensity={2} />
       <directionalLight position={[10, 10, 5]} intensity={2} />
-      <Cube isMobile={isMobile} />
+      <Suspense fallback={null}>
+        <Cube isMobile={isMobile} />
+        <SceneUpdater />
+      </Suspense>
       <Environment preset="sunset" />
       <EffectComposer>
         <Noise opacity={0.1} />
@@ -562,30 +582,22 @@ export default function CubeInteractive() {
   });
   const [isMounted, setIsMounted] = useState(false)
 
-  // ブラー値を管理する motionValue を作成 (初期値 20px)
   const blurAmount = motionValue(20);
-
-  // motionValue を filter 文字列に変換する
   const filterStyle = useTransform(blurAmount, value => `blur(${value}px)`);
 
-  const { progress } = useProgress()
-  const { setProgress } = useLoadingStore()
   const { scrollYProgress } = useScroll();
 
   useEffect(() => {
     setIsMounted(true)
   }, [])
 
-  // isMounted が true になったら初期ブラー解除アニメーションを開始
   useEffect(() => {
     if (isMounted) {
-      // motionValue を 0 にアニメーションさせる
       const controls = animate(blurAmount, 0, {
         duration: 2.0,
         ease: "easeOut",
         delay: 0.5
       });
-      // コンポーネントアンマウント時にアニメーションをクリーンアップ
       return controls.stop;
     }
   }, [isMounted, blurAmount]);
@@ -607,35 +619,21 @@ export default function CubeInteractive() {
     return () => window.removeEventListener('resize', updateSettings)
   }, [isMounted, isMobile])
 
-  useEffect(() => {
-    if (!isMounted) return
-
-    startTransition(() => {
-      setProgress(progress);
-    });
-
-  }, [progress, isMounted, setProgress])
-
-  // スクロール位置に応じて motionValue を更新
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     const currentProgress = latest;
-    // isMobile に応じてステージ境界値を計算 (Cube コンポーネントと同じロジック)
     const factor = isMobile ? 2 / 3 : 1;
     const s2End = DEFAULT_STAGE2_END * factor;
     const tDuration = DEFAULT_TRANSITION_DURATION * factor;
     const s2TransitionStart = s2End - tDuration / 3.5;
     const s3TransitionEnd = s2End + tDuration / 3.5;
-
-    const blurStart = s2TransitionStart - 0.02; // isMobile に応じた境界値を使用
-    const blurEnd = s3TransitionEnd + 0.02; // isMobile に応じた境界値を使用
-    const maxBlur = 20; // スクロール時の最大ブラー
-
+    const blurStart = s2TransitionStart - 0.02;
+    const blurEnd = s3TransitionEnd + 0.02;
+    const maxBlur = 20;
     let newBlur = 0;
     if (currentProgress > blurStart && currentProgress < blurEnd) {
       const normalizedProgress = (currentProgress - blurStart) / (blurEnd - blurStart);
       newBlur = Math.sin(normalizedProgress * Math.PI) * maxBlur;
     }
-    // motionValue を直接更新
     blurAmount.set(newBlur);
   });
 
@@ -647,19 +645,15 @@ export default function CubeInteractive() {
       initial={{
         opacity: 0,
         y: -500,
-        // filter は style で管理するため initial から削除
       }}
       animate={{
         opacity: 1,
         y: 0,
-        // filter は style で管理するため animate から削除
       }}
       transition={{
         opacity: { duration: 1.5, ease: "easeOut", delay: 0.2 },
         y: { duration: 1.5, ease: "easeOut", delay: 0.2 },
-        // filter の transition は useEffect の animate で制御
       }}
-      // style で filter を motionValue から適用
       style={{ filter: filterStyle, willChange: 'filter' }}
     >
       <Canvas
@@ -674,12 +668,10 @@ export default function CubeInteractive() {
           gl.setPixelRatio(Math.min(window.devicePixelRatio, 2))
           gl.outputColorSpace = 'srgb'
         }}
-        dpr={Math.min(window.devicePixelRatio, 1.5)} // Dynamically set DPR capped at 1.5
+        dpr={Math.min(window.devicePixelRatio, 1.5)}
         style={{ pointerEvents: 'none' }}
       >
-        <Suspense fallback={null}>
-          <Scene isMobile={isMobile} />
-        </Suspense>
+        <Scene isMobile={isMobile} />
       </Canvas>
     </motion.div>
   )

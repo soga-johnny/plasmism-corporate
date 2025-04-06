@@ -1,11 +1,29 @@
 "use client"
 
 import { Canvas, useFrame, RootState } from '@react-three/fiber'
-import { Environment } from '@react-three/drei'
+import { Environment, useProgress } from '@react-three/drei'
 import { EffectComposer, Noise } from '@react-three/postprocessing'
-import { Suspense, useRef } from 'react'
+import { Suspense, useRef, useEffect } from 'react'
 import { MeshStandardMaterial, WebGLRenderer, Group, InstancedMesh, Euler, Object3D, Vector3 } from 'three'
 import { RoundedBoxGeometry } from "three/examples/jsm/geometries/RoundedBoxGeometry.js"
+import { useLoadingStore } from './LoadingScreen'
+
+// SceneUpdater コンポーネントを定義
+function SceneUpdater() {
+  const { progress } = useProgress();
+  const setStoreProgress = useLoadingStore((state) => state.setProgress);
+
+  useEffect(() => {
+    const currentStoreProgress = useLoadingStore.getState().progress;
+    // 実際の進捗がストアより進んでいる場合のみ更新
+    if (progress > currentStoreProgress) {
+      setStoreProgress(progress);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [progress]); // setStoreProgressは含めない
+
+  return null; // 何もレンダリングしない
+}
 
 // ステージ3のキューブのサイズと設定
 const NUM_INSTANCES = 4; // 4つのキューブ
@@ -182,6 +200,7 @@ export default function FeatureScene() {
         <EffectComposer>
           <Noise opacity={0.15} />
         </EffectComposer>
+        <SceneUpdater />
       </Suspense>
     </Canvas>
   );

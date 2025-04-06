@@ -218,7 +218,10 @@ const CustomCursor: React.FC<CustomCursorProps> = ({ className }) => {
       {isTransitioning ? (
         // 遷移中の表示
         <div
-          className={`text-xs bg-[var(--background)] ${transitionState === 'ready' ? 'text-[#00E7A2]' : 'text-[#FFB800]'} px-2 py-1 rounded-lg whitespace-nowrap custom-cursor-info cursor-transition-state backdrop-blur-sm border border-[var(--foreground)]/10 ${isMobile ? 'mobile-transition-state' : ''}`}
+          className={`text-xs bg-[var(--background)] px-2 py-1 rounded-lg whitespace-nowrap custom-cursor-info cursor-transition-state backdrop-blur-sm border border-[var(--foreground)]/10 ${isMobile ? 'mobile-transition-state' : ''}`}
+          style={{
+            color: transitionState === 'ready' ? 'var(--cursor-ready-color)' : 'var(--cursor-compiling-color)',
+          }}
         >
           <span className="transition-opacity duration-300">
             {transitionState === 'compiling' ? 'Compiling...' : 'Ready'}
@@ -227,9 +230,13 @@ const CustomCursor: React.FC<CustomCursorProps> = ({ className }) => {
       ) : (
         // 通常の表示（モバイルでは表示されない）
         <div
-          className={`text-xs bg-[var(--background)] ${isClickable ? 'text-[#EC5D49]' : 'text-[var(--foreground)]'} px-2 py-1 rounded-lg whitespace-nowrap custom-cursor-info backdrop-blur-sm border border-[var(--foreground)]/10`}
+          className={`text-xs bg-[var(--background)] px-2 py-1 rounded-lg whitespace-nowrap custom-cursor-info backdrop-blur-sm`}
           style={{
-            transition: 'color 0.3s ease, background-color 0.3s ease, transform 0.3s ease',
+            color: isClickable ? 'var(--cursor-clickable-color)' : 'var(--foreground)',
+            borderColor: isClickable ? 'var(--cursor-clickable-color)' : 'var(--cursor-border-color)',
+            borderWidth: '1px',
+            borderStyle: 'solid',
+            transition: 'color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease, transform 0.3s ease',
           }}
         >
           <span className="opacity-70">return (</span><br/>

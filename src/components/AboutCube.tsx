@@ -1,10 +1,28 @@
 "use client"
 
 import { Canvas, useFrame, RootState } from '@react-three/fiber'
-import { RoundedBox, Environment } from '@react-three/drei'
+import { RoundedBox, Environment, useProgress } from '@react-three/drei'
 import { EffectComposer, Noise } from '@react-three/postprocessing'
-import { Suspense, useRef } from 'react'
+import { Suspense, useRef, useEffect } from 'react'
 import { MeshPhysicalMaterial, Mesh, Color, WebGLRenderer } from 'three'
+import { useLoadingStore } from './LoadingScreen';
+
+// SceneUpdater コンポーネントを定義
+function SceneUpdater() {
+  const { progress } = useProgress();
+  const setStoreProgress = useLoadingStore((state) => state.setProgress);
+
+  useEffect(() => {
+    const currentStoreProgress = useLoadingStore.getState().progress;
+    // 実際の進捗がストアより進んでいる場合のみ更新
+    if (progress > currentStoreProgress) {
+      setStoreProgress(progress);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [progress]); // setStoreProgressは含めない
+
+  return null; // 何もレンダリングしない
+}
 
 // ステージ2相当のマテリアルを定義
 const stage2Material = new MeshPhysicalMaterial({
@@ -89,6 +107,7 @@ export default function AboutScene() {
         <EffectComposer>
           <Noise opacity={0.15} /> 
         </EffectComposer>
+        <SceneUpdater />
       </Suspense>
     </Canvas>
   )

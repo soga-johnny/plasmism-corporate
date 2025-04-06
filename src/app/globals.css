@@ -18,20 +18,30 @@
   /* Default: Light Theme */
   --background: #251E1F; /* Dark Brownish Gray */
   --foreground: #FFFFFF; /* White */
+  --foreground-rgb: 255, 255, 255;
   --menu-button-bg: var(--foreground);
   --menu-button-text: var(--background);
   --card-foreground: #FFFFFF;
   --card-background: rgba(255, 255, 255, 0.05);
   /* Add other theme variables if needed */
+  --cursor-compiling-color: #FFB800; /* Original Orange for Dark Theme */
+  --cursor-ready-color: #00E7A2;    /* Original Green for Dark Theme */
+  --cursor-clickable-color: #EC5D49; /* Red for clickable elements */
+  --cursor-border-color: rgba(var(--foreground-rgb), 0.1); /* Default border with opacity */
 }
 
 .light {
   /* Light Theme */
   --background: #FFFFFF; /* White */
   --foreground: #4D4345; /* Dark Brownish Gray */
+  --foreground-rgb: 77, 67, 69;
   --menu-button-bg: var(--background);
   --menu-button-text: var(--foreground);
   /* Add other light theme variables if needed */
+  --cursor-compiling-color: #E6A200; /* Darker Orange for Light Theme */
+  --cursor-ready-color: #00C48A;    /* Darker Green for Light Theme */
+  --cursor-clickable-color: #EC5D49; /* Red for clickable elements */
+  --cursor-border-color: rgba(var(--foreground-rgb), 0.1); /* Default border with opacity */
 }
 
 .light body {
@@ -63,7 +73,7 @@ body::before {
   width: 100%;
   height: 100%;
   background: url('/background.png') repeat fixed;
-  background-size: 320%; /* Changed from 320% */
+  background-size: 200%; /* Changed from 320% */
   opacity: 1; /* Default opacity (Dark theme) */
   z-index: -1; /* Place behind the body content */
   /* 既存の opacity トランジションに加えて background-color も追加（テーマによる変化があれば） */

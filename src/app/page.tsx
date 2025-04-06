@@ -54,7 +54,7 @@ export default function Home() {
         <div className="absolute top-0 w-full h-screen mix-blend-color-dodge flex items-center justify-center text-center px-4">
             <div>
               <Image src="/logo-dark.svg" width={1080} height={360} alt="Logo" className="w-[400px] md:w-[1080px] text-center mb-4" />
-              <p className="absolute bottom-4 left-0 right-0 text-center text-xs md:text-sm text-[var(--foreground)]">
+              <p className="absolute bottom-4 left-0 right-0 text-center text-xs md:mb-0 mb-12 md:text-sm text-[var(--foreground)]">
                 Scroll Down
               </p>
             </div>

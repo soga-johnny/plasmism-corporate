@@ -41,15 +41,15 @@ export default function RecruitPage() {
                       alt="プラズミズムロゴ"
                       width={300}
                       height={300}
-                      className="hidden dark:block w-auto h-auto"
+                      className="w-auto h-auto"
                     />
-                    <Image 
+                    {/* <Image 
                       src="/logo-white.svg"
                       alt="プラズミズムロゴ"
                       width={300}
                       height={300}
                       className="block dark:hidden w-auto h-auto"
-                    />
+                    /> */}
                 </div>
               </div>
           </section>
