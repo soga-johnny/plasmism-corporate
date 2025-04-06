@@ -12,7 +12,7 @@ export default function CompanyPage() {
         <PageTitle 
           titleEn="Company" 
           titleJa="会社案内" 
-          description="プラズミズムの会社概要と採用情報についてご案内します。" 
+          description="デジタル上の位置情報" 
         />
         
         <div className="space-y-12 mb-16 md:mx-16 mx-4 pt-10">

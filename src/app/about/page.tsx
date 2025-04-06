@@ -2,26 +2,46 @@ import PageTitle from '@/components/PageTitle'; // TODO: Implement PageTitle com
 import CompanyOverview from '@/components/CompanyOverview'; // TODO: Implement CompanyOverview component
 import Footer from '@/components/Footer'; // TODO: Implement Footer component
 import Header from '@/components/Header';
-import AboutScene from '@/components/AboutCube'; // 新しいコンポーネントをインポート
+import AboutScene from '@/components/AboutCube'; 
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen flex flex-col text-[var(--foreground)] md:py-12 pt-2 pb-24 relative">
+    <main className="min-h-screen flex flex-col text-[var(--foreground)] md:py-12 pt-2 pb-24 relative font-medium">
             <Header />
-      {/* 背景用の AboutScene を追加 */}
-      
-      <section className="relative">
-      <div className="sticky top-0 inset-0 z-[-10] h-screen -mb-[100vh] w-full">
-        <AboutScene />
-      </div>
-      <div className="flex-1 w-full max-w-[1440px] mx-auto px-4 md:px-2 pb-12 relative z-10"> {/* コンテンツが前面に来るように z-10 を追加 */}
-        <PageTitle 
+      <div className="flex-1 w-full max-w-[1440px] mx-auto px-4 md:px-2 pb-12 relative z-10"> 
+          <PageTitle 
           titleEn="About" 
           titleJa="私たちについて" 
           description="最適解の設計・実装・検証・改良をコンピューターと情報表現でデザインする会社" 
         />
-        
-        <div className="space-y-12 mb-16 md:mx-16 mx-4">
+
+      <div className="md:space-y-12 space-y-6 md:px-16 px-4 pt-10">
+      
+      <section className="relative md:mb-20 mb-10">
+      <div className="sticky top-0 inset-0 z-[-10] h-screen -mb-[100vh] w-screen left-0 right-0 -mx-[calc(50vw-50%)]">
+        <AboutScene />
+      </div>
+
+      <section className="border-b border-[var(--foreground)]/10 md:pb-40 pb-12 md:pt-32 pt-0">
+          <div className="flex flex-col items-center text-center">
+              <div className="rounded-lg md:max-w-[860px]">
+                <h2 className="text-3xl md:text-7xl leading-tight md:mb-12 mb-4">
+                デジタルとの共存を<br/>
+                自律的なシステムで<br/>
+                徹底的に追求
+                </h2>
+                <p className="text-[var(--foreground)]/80 text-sm md:text-base leading-relaxed">
+                プラズミズムでは、豊かな毎日をデザインするための
+                7つの価値観を柱に、課題解決に真摯に向き合う文化を大切にしています。
+                「可能性は尽きない」という信念のもと、
+                ベクトルの分散しない事業活動を心がけています。
+                </p>
+              </div>
+          </div>
+        </section>
+
+
+        {/* <div className="md:space-y-12 space-y-6 mb-16 md:mx-16 mx-4"> */}
           <section className="border-b border-[var(--foreground)]/10 py-10 md:py-20">
             <div className="flex flex-col md:flex-row justify-between">
               <div>
@@ -148,11 +168,12 @@ export default function AboutPage() {
               </div> */}
             </div>
           </section>
+          {/* </div>
           </div>
-          </div>
+          </section> */}
           </section>
   
-          <div className="flex-1 w-full max-w-[1440px] mx-auto px-4 md:px-2 pb-12 relative z-10"> {/* コンテンツが前面に来るように z-10 を追加 */}
+          {/* <div className="flex-1 w-full max-w-[1440px] mx-auto px-4 md:px-2 pb-12 relative z-10">  */}
 
           {/* <section className="pb-10 bg-[var(--background)] rounded-3xl md:p-20 p-6 border border-[var(--foreground)]/10 mb-20">
             <div className="flex flex-col md:flex-row justify-between">
@@ -345,7 +366,7 @@ CDOを2年経験の後、より良い顧客体験を追求したく、2024年に
           <div className="flex-1 w-full max-w-[1440px] mx-auto px-4 md:px-2 pb-12 relative z-10"> {/* コンテンツが前面に来るように z-10 を追加 */}
             <CompanyOverview />
           </div>
-      {/* </div> */}
+      </div>
       
       <Footer />
     </main>

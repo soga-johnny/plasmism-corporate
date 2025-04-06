@@ -5,7 +5,7 @@ import Link from 'next/link'
 export default function RecruitInfo() {
   return (
     <section className="w-full">
-      <h2 className="text-4xl md:text-5xl mb-12">採用情報</h2>
+      <h2 className="text-2xl md:text-4xl mb-12">採用情報</h2>
       
       <div className="space-y-10">
         {/* Notionページへの遷移ボタン */}
@@ -31,7 +31,7 @@ export default function RecruitInfo() {
         
         {/* プラズミズムで働くメリット */}
         <div className="mb-12">
-          <h3 className="text-3xl mb-8 border-b border-[var(--foreground)]/10 pb-4">プラズミズムで働くメリット</h3>
+          <h3 className="md:text-3xl text-2xl mb-8 border-b border-[var(--foreground)]/10 pb-4">プラズミズムで働くメリット</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-[var(--foreground)]/5 rounded-xl p-6 border border-[var(--foreground)]/10">
               <div className="flex items-start mb-4">
@@ -78,7 +78,7 @@ export default function RecruitInfo() {
         
         {/* プラズミズムに向いている方 */}
         <div>
-          <h3 className="text-3xl mb-8 border-b border-[var(--foreground)]/10 pb-4">プラズミズムに向いている方</h3>
+          <h3 className="md:text-3xl text-2xl mb-8 border-b border-[var(--foreground)]/10 pb-4">プラズミズムに向いている方</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-[var(--foreground)]/5 rounded-xl p-6 border border-[var(--foreground)]/10">
               <div className="flex items-start mb-4">

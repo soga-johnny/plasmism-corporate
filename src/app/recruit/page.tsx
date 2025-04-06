@@ -11,45 +11,52 @@ export default function RecruitPage() {
         <PageTitle 
           titleEn="Recruit" 
           titleJa="採用情報" 
-          description="プラズミズムでは、共に革新的なデジタル体験を創造する仲間を募集しています。" 
+          description="尽きない探究と革新の瞬間を共有" 
         />
         
         <div className="space-y-12 mb-16 md:mx-16 mx-4 pt-10">
           {/* 採用情報ヘッダーセクション */}
           <section className="border-b border-[var(--foreground)]/10 pb-20">
-            <div className="flex flex-col md:flex-row justify-between">
-              <div>
-                <div className="flex space-x-4 mb-8">
-                  <div className="border border-[var(--foreground)]/20 bg-[var(--foreground)]/10 rounded-full px-4 py-3">
-                    <h2 className="text-md">採用情報</h2>
-                  </div>
-                  <div className="border border-[var(--foreground)]/10 rounded-full -ml-8 px-4 py-3">
-                    <h2 className="text-md">キャリア</h2>
-                  </div>
+            <div className="flex flex-col md:flex-row justify-between items-center">
+                <div>
+                    <div className="flex space-x-4 mb-8">
+                      <div className="border border-[var(--foreground)]/20 bg-[var(--foreground)]/10 rounded-full px-4 py-3">
+                        <h2 className="md:text-md text-xs">ミッション</h2>
+                      </div>
+                      <div className="border border-[var(--foreground)]/10 rounded-full -ml-8 px-4 py-3">
+                        <h2 className="md:text-md text-xs">存在意義</h2>
+                      </div>
+                    </div>
+                    <div className="rounded-lg">
+                      <p className="text-2xl md:text-5xl leading-tight tracking-tighter">
+                        豊かな毎日を、<br/>
+                        コンピューターと情報表現で、<br/>
+                        真摯にデザインする。
+                      </p>
+                    </div>
                 </div>
-                <div className="rounded-lg">
-                  <p className="text-3xl md:text-5xl leading-tight">
-                    想像もできなかった豊かさを<br/>
-                    一緒に創造する<br/>
-                    仲間を募集しています
-                  </p>
+                <div className="mt-8 md:mt-16 md:ml-8 flex items-center justify-center">
+                    <Image 
+                      src="/logo-dark.svg"
+                      alt="プラズミズムロゴ"
+                      width={300}
+                      height={300}
+                      className="hidden dark:block w-auto h-auto"
+                    />
+                    <Image 
+                      src="/logo-white.svg"
+                      alt="プラズミズムロゴ"
+                      width={300}
+                      height={300}
+                      className="block dark:hidden w-auto h-auto"
+                    />
                 </div>
               </div>
-              <div className="mt-8 md:mt-2 md:ml-2 w-full md:w-auto">
-                <Image 
-                  src="/sample1.png"
-                  alt="Recruit Image"
-                  width={300}
-                  height={300}
-                  className="rounded-lg object-cover aspect-square w-full md:w-[300px]"
-                />
-              </div>
-            </div>
           </section>
           
           {/* 私たちの働き方 */}
           <section className="pb-20">
-            <h2 className="text-4xl md:text-5xl mb-12">私たちの働き方</h2>
+            <h2 className="text-2xl md:text-4xl mb-12">私たちの働き方</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
               <div className="bg-[var(--foreground)]/5 rounded-xl p-8 border border-[var(--foreground)]/10">
                 <h3 className="text-2xl mb-4">リモートワーク</h3>

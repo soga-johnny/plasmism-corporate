@@ -13,8 +13,8 @@ const breadcrumbMap: { [key: string]: { label: string; parent?: string } } = {
   '/feature': { label: '特徴', parent: '/' },
   '/product': { label: 'プロダクト', parent: '/' },
   '/service': { label: 'サービス', parent: '/' },
-  '/achievements': { label: '実績', parent: '/' },
-  '/achievements/[id]': { label: '', parent: '/achievements' },
+  // '/achievements': { label: '実績', parent: '/' },
+  // '/achievements/[id]': { label: '', parent: '/achievements' },
   '/recruit': { label: '採用', parent: '/' },
   '/company': { label: '会社案内', parent: '/' },
   '/contact': { label: 'お問い合わせ', parent: '/' },
@@ -166,7 +166,7 @@ export default function Footer() {
   }, [pathname, isContactPage, isDownloadPage, shouldShowContactSection])
   
   return (
-    <footer ref={footerRef} className="text-[var(--foreground)] font-extralight pt-12 pb-4 transition-colors duration-300">
+    <footer ref={footerRef} className="text-[var(--foreground)] pt-12 pb-4 transition-colors duration-300">
       <div className="w-full max-w-[1440px] mx-auto px-6 md:px-12">
         {/* パンくずリスト */}
         <div className="border-y border-[var(--foreground)]/10 py-6 my-8">
@@ -239,7 +239,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li><Link href="/service" className="hover:text-[var(--foreground)]/70 transition-colors text-base font-light">サービス</Link></li>
               <li><Link href="/product" className="hover:text-[var(--foreground)]/70 transition-colors text-base font-light">プロダクト</Link></li>
-               <li><Link href="/achievements" className="hover:text-[var(--foreground)]/70 transition-colors text-base font-light">実績</Link></li>
+               {/* <li><Link href="/achievements" className="hover:text-[var(--foreground)]/70 transition-colors text-base font-light">実績</Link></li> */}
             </ul>
           </div>
           <div>

@@ -35,7 +35,7 @@ const stage2Material = new MeshPhysicalMaterial({
 
 function AboutCubeMesh() {
   const meshRef = useRef<Mesh>(null)
-  const fixedScale = 1.6; // ステージ2の中間スケール（PC基準）
+  const fixedScale = 1.5; // ステージ2の中間スケール（PC基準）
 
   useFrame((state: RootState, delta: number) => {
     if (!meshRef.current) return
@@ -55,7 +55,7 @@ function AboutCubeMesh() {
         smoothness={2}
         ref={meshRef}
         scale={[fixedScale, fixedScale, fixedScale]} // 固定スケール
-        position={[1.2, 0.1, 0]} // 右にずらす (0,0,0 から変更)
+        position={[1.5, 0.1, 0]} // 右にずらす (0,0,0 から変更)
         material={stage2Material} // ステージ2のマテリアルを適用
     />
   )
@@ -87,7 +87,7 @@ export default function AboutScene() {
         <AboutCubeMesh />
         <Environment preset="sunset" />
         <EffectComposer>
-          <Noise opacity={0.1} /> 
+          <Noise opacity={0.15} /> 
         </EffectComposer>
       </Suspense>
     </Canvas>

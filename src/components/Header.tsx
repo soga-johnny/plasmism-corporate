@@ -135,7 +135,7 @@ export default function Header() {
                 <li><Link href="/feature" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/feature' ? 'line-through font-bold' : ''}`}>特徴</Link></li>
                 <li><Link href="/product" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/product' ? 'line-through font-bold' : ''}`}>プロダクト</Link></li>
                 <li><Link href="/service" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/service' ? 'line-through font-bold' : ''}`}>サービス</Link></li>
-                <li><Link href="/achievements" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/achievements' ? 'line-through font-bold' : ''}`}>実績</Link></li>
+                {/* <li><Link href="/achievements" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/achievements' ? 'line-through font-bold' : ''}`}>実績</Link></li> */}
                 <li><Link href="/recruit" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/recruit' ? 'line-through font-bold' : ''}`}>採用</Link></li>
                 <li><Link href="/company" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/company' ? 'line-through font-bold' : ''}`}>会社案内</Link></li>
               </ul>
@@ -144,11 +144,11 @@ export default function Header() {
               <div className="text-sm font-extralight">{currentDate}</div>
               <div className="text-md font-extralight">{currentTime}</div>
             </div>
-            <Link href="/contact" className="bg-[var(--background)] hover:bg-[#BC2611] hover:scale-105 hover:text-[var(--foreground)] transition-all duration-300 text-[var(--foreground)] rounded-md py-3 px-4 mx-2 flex items-center text-sm border border-[var(--foreground)]/20">
-              お問い合わせ <span className="ml-2 border-l border-[var(--foreground)]/50 pl-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
+            <Link href="/contact" className="bg-[var(--foreground)] hover:bg-[#BC2611] hover:scale-105 hover:text-[var(--background)] transition-all duration-300 text-[var(--background)] rounded-md py-3 px-4 mx-2 flex items-center text-sm border border-[var(--foreground)]/20">
+              お問い合わせ <span className="ml-2 border-l border-[var(--background)]/50 pl-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
             </Link>
-            <Link href="/download" className="bg-[var(--background)] hover:bg-[#BC2611] hover:scale-105 hover:text-[var(--foreground)] transition-all duration-300 text-[var(--foreground)] rounded-md py-3 px-4 flex items-center text-sm border border-[var(--foreground)]/20">
-              資料DL <span className="ml-2 border-l border-[var(--foreground)]/50 pl-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
+            <Link href="/download" className="bg-[var(--foreground)] hover:bg-[#BC2611] hover:scale-105 hover:text-[var(--background)] transition-all duration-300 text-[var(--background)] rounded-md py-3 px-4 flex items-center text-sm border border-[var(--foreground)]/20">
+              資料DL <span className="ml-2 border-l border-[var(--background)]/50 pl-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
             </Link>
           </div>
         </div>
@@ -292,7 +292,7 @@ export default function Header() {
                       { path: "/feature", label: "特徴" },
                       { path: "/product", label: "プロダクト" },
                       { path: "/service", label: "サービス" },
-                      { path: "/achievements", label: "実績" },
+                      // { path: "/achievements", label: "実績" },
                       { path: "/recruit", label: "採用" },
                       { path: "/company", label: "会社案内" }
                     ].map((item, index) => (

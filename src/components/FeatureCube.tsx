@@ -3,7 +3,7 @@
 import { Canvas, useFrame, RootState } from '@react-three/fiber'
 import { Environment } from '@react-three/drei'
 import { EffectComposer, Noise } from '@react-three/postprocessing'
-import { Suspense, useRef, useState, useEffect } from 'react'
+import { Suspense, useRef } from 'react'
 import { MeshStandardMaterial, WebGLRenderer, Group, InstancedMesh, Euler, Object3D, Vector3 } from 'three'
 import { RoundedBoxGeometry } from "three/examples/jsm/geometries/RoundedBoxGeometry.js"
 
@@ -67,12 +67,18 @@ function FeatureCubeMesh() {
     groupRef.current.rotation.x += delta * groupRotationSpeed * 0.6;
     groupRef.current.rotation.z += delta * groupRotationSpeed * 0.3;
     
-    // 右側に配置 (PC用)
-    groupRef.current.position.x = 2;
-    
-    // PC用サイズ
-    const groupScale = 0.8;
-    groupRef.current.scale.set(groupScale, groupScale, groupScale);
+    // モバイルとPCで位置とサイズを調整
+    if (state.size.width <= 768) {
+      // モバイル用 - 右寄りに表示し、サイズを大きく
+      groupRef.current.position.x = 1.5;
+      const mobileGroupScale = 0.8;
+      groupRef.current.scale.set(mobileGroupScale, mobileGroupScale, mobileGroupScale);
+    } else {
+      // PC用
+      groupRef.current.position.x = 2.5;
+      const groupScale = 1;
+      groupRef.current.scale.set(groupScale, groupScale, groupScale);
+    }
 
     // 浮遊アニメーションの設定
     const floatSpeed = 2;
@@ -129,29 +135,26 @@ function FeatureCubeMesh() {
 }
 
 export default function FeatureScene() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  // 画面サイズ監視
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
+  // 未使用の変数を削除
+  
+  // 画面サイズ監視部分も削除
+  // useEffect(() => {
+  //   const checkMobile = () => {
+  //     setIsMobile(window.innerWidth <= 768);
+  //   };
     
-    // 初期チェック
-    checkMobile();
+  //   // 初期チェック
+  //   checkMobile();
     
-    // リサイズイベント監視
-    window.addEventListener('resize', checkMobile);
+  //   // リサイズイベント監視
+  //   window.addEventListener('resize', checkMobile);
     
-    // クリーンアップ
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+  //   // クリーンアップ
+  //   return () => window.removeEventListener('resize', checkMobile);
+  // }, []);
 
-  // モバイルの場合は何もレンダリングしない
-  if (isMobile) {
-    return null;
-  }
-
+  // モバイルでも表示するように条件分岐を削除
+  
   const cameraPosition: [number, number, number] = [0, 0, 10];
   const cameraFov = 50;
 

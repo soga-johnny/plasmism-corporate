@@ -18,13 +18,13 @@ export default function FeaturePage() {
       <div className="space-y-12 md:px-16 px-4 pt-10">
 
       <section className="relative md:mb-20 mb-10">
-        <div className="sticky top-0 inset-0 z-[-10] h-screen -mb-[100vh] w-full">
+      <div className="sticky top-0 inset-0 z-[-10] h-screen -mb-[100vh] w-screen left-0 right-0 -mx-[calc(50vw-50%)]">
           <FeatureScene />
         </div>
 
       <section className="border-b border-[var(--foreground)]/10 md:pb-40 pb-12 md:pt-32 pt-0">
           <div className="flex flex-col items-center text-center">
-              <div className="rounded-lg md:max-w-[800px]">
+              <div className="rounded-lg md:max-w-[860px]">
                 <h2 className="text-3xl md:text-7xl leading-tight md:mb-12 mb-4">
                 磨き上げた最適解を<br/>
                 デザインするための<br/>
@@ -39,6 +39,7 @@ export default function FeaturePage() {
               </div>
           </div>
         </section>
+        
         {/* 1-1 設計セクション */}
         <section className="border-b border-[var(--foreground)]/10 md:pt-40 pt-20 md:pb-20 pb-10 relative overflow-visible overflow-x-hidden">
           {/* 背景テキスト */}
