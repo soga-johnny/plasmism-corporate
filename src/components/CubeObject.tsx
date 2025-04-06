@@ -37,8 +37,8 @@ const normalizeProgress = (progress: number, start: number, end: number) => {
 };
 
 // デフォルトの3段階の境界 (PC向け)
-const DEFAULT_STAGE1_END = 0.15;
-const DEFAULT_STAGE2_END = 0.42;
+const DEFAULT_STAGE1_END = 0.1;
+const DEFAULT_STAGE2_END = 0.3;
 const DEFAULT_TRANSITION_DURATION = 0.25;
 
 const NUM_INSTANCES = 4; // 3段階目のキューブの数
@@ -96,7 +96,7 @@ function Cube({ isMobile }: { isMobile: boolean }) {
     thickness: 0.3,
     specularIntensity: 0.1,
     specularColor: 0xff3366,
-    envMapIntensity: 1,
+    envMapIntensity: 0.2,
     reflectivity: 1,
     depthWrite: true,
     depthTest: true,
@@ -189,7 +189,7 @@ function Cube({ isMobile }: { isMobile: boolean }) {
 
     // --- Handle Initial State Explicitly (progress === 0) ---
     if (progress === 0) {
-        const initialScaleValue = isMobile ? 1.2 : 1.6;
+        const initialScaleValue = isMobile ? 1.1 : 1.6;
         if (meshRef.current.scale.x !== initialScaleValue) {
             meshRef.current.scale.set(initialScaleValue, initialScaleValue, initialScaleValue);
         }
@@ -219,9 +219,9 @@ function Cube({ isMobile }: { isMobile: boolean }) {
       const baseRotationSpeed = 0.3;
 
       // --- Scale, Position, Material Logic ---
-      const initialScale = isMobile ? 1.2 : 1.6
-      const midScale = isMobile ? 1 : 1.3
-      const targetRightShift = isMobile ? 2 : (initialScale - midScale) * 4
+      const initialScale = isMobile ? 1.1 : 1.6
+      const midScale = isMobile ? 1.2 : 1.5
+      const targetRightShift = isMobile ? 1 : 2.4 // PC時の右移動量を固定値に変更 (例: 2.4)
       const targetY = isMobile ? 1.5 : 0
 
       let currentScale: number;
@@ -230,28 +230,38 @@ function Cube({ isMobile }: { isMobile: boolean }) {
       let currentOpacity: number;
 
       const initialEmissiveIntensity = 0.0;
-      const stage2EmissiveIntensity = 0.1;
+      const stage2EmissiveIntensity = 0.5;
 
       let needsMaterialUpdate = false; // Flag to track if material needs update
 
-      if (progress <= stage1End) {
-        // Stage 1: Keep initial visual state
-        currentScale = initialScale;
-        currentX = 0;
-        currentY = 0;
-        currentOpacity = reflectiveMaterial.opacity;
+      // Calculate movement progress (0 to stage1End)
+      const t_move = normalizeProgress(progress, 0, stage1End);
+      currentX = MathUtils.lerp(0, targetRightShift, t_move);
 
-        // Reset material properties to initial state if needed
-        // (Add checks similar to stage 2 if properties might change elsewhere)
-        if (material.opacity !== currentOpacity) { material.opacity = currentOpacity; needsMaterialUpdate = true; }
-        if (material.emissiveIntensity !== initialEmissiveIntensity) { material.emissiveIntensity = initialEmissiveIntensity; needsMaterialUpdate = true; }
+      if (progress <= stage1End) {
+        // Stage 1: Lerp scale and Y position based on t_move
+        currentScale = MathUtils.lerp(initialScale, midScale, t_move); // Scale changes during stage 1
+        currentY = MathUtils.lerp(0, targetY, t_move); // Y position changes during stage 1
+        // Ensure opacity stays at the initial value during stage 1
+        currentOpacity = reflectiveMaterial.opacity;
+        if (material.opacity !== currentOpacity) {
+            material.opacity = currentOpacity;
+            needsMaterialUpdate = true;
+        }
+        // Ensure other essential properties from reflectiveMaterial are initially set or maintained if necessary
+        // For simplicity now, we only explicitly manage opacity here,
+        // assuming other reflectiveMaterial properties are correctly initialized
+        // and stage 2 lerping will handle the transitions properly.
+        // We removed the explicit resets for other props from the previous edit.
 
       } else if (progress < stage2TransitionStart) {
-        // Stage 2: Lerp based on t2
-        currentScale = MathUtils.lerp(initialScale, midScale, t2);
-        currentX = MathUtils.lerp(0, targetRightShift, t2);
-        currentY = MathUtils.lerp(0, targetY, t2);
-        currentOpacity = MathUtils.lerp(reflectiveMaterial.opacity, 0.7, t2);
+        // Stage 2: Keep final scale, X, and Y from stage 1. Lerp material properties based on t2.
+        currentScale = midScale; // Already reached midScale at stage1End
+        currentY = targetY;      // Already reached targetY at stage1End
+        // currentX is already set to targetRightShift as t_move is 1 here
+        // Opacity remains 0.7 throughout stage 2 (lerp from 0.7 to 0.7)
+        currentOpacity = MathUtils.lerp(reflectiveMaterial.opacity, 0.7, t2); // t2 goes 0 to 1
+        if (material.opacity !== currentOpacity) { material.opacity = currentOpacity; needsMaterialUpdate = true; } // Apply lerped opacity
 
         // Lerp material properties based on t2 - with update checks
         const targetTransmission = MathUtils.lerp(reflectiveMaterial.transmission, 2.2, t2);
@@ -296,23 +306,29 @@ function Cube({ isMobile }: { isMobile: boolean }) {
         if (material.depthWrite !== true) { material.depthWrite = true; needsMaterialUpdate = true; }
         if (material.depthTest !== true) { material.depthTest = true; needsMaterialUpdate = true; }
 
-        const targetSide = t2 > 0.5 ? 2 : 0;
+        const targetSide = t2 > 0.5 ? 2 : 0; // 2 is DoubleSide, 0 is FrontSide
         if (material.side !== targetSide) { material.side = targetSide; needsMaterialUpdate = true; }
 
         const targetToneMapped = t2 > 0.5 ? false : true;
         if (material.toneMapped !== targetToneMapped) { material.toneMapped = targetToneMapped; needsMaterialUpdate = true; }
 
-        if (material.opacity !== currentOpacity) { material.opacity = currentOpacity; needsMaterialUpdate = true; }
+        // Opacity update handled above
 
       } else { // Transitioning out (progress >= stage2TransitionStart)
-        currentScale = MathUtils.lerp(midScale, 0.001, t_transition);
-        currentOpacity = MathUtils.lerp(1.0, 0, t_transition); // Fade out completely
+        // Keep the final position and stage 2 material base properties, lerp scale & opacity out
         currentX = targetRightShift;
         currentY = targetY;
-        // Keep stage 2 emissive intensity during fade out?
+
+        currentScale = MathUtils.lerp(midScale, 0.001, t_transition);
+        // Ensure opacity starts from the value at the beginning of the transition (0.7 from stage 2)
+        const stage2Opacity = 0.7; // Assuming stage 2 target opacity is 0.7
+        currentOpacity = MathUtils.lerp(stage2Opacity, 0, t_transition); // Fade out from stage 2 opacity
+
+        // Reset or keep material properties during fade-out? Example: keep emissive
         if (material.emissiveIntensity !== stage2EmissiveIntensity) { material.emissiveIntensity = stage2EmissiveIntensity; needsMaterialUpdate = true; }
         // Update opacity
         if (material.opacity !== currentOpacity) { material.opacity = currentOpacity; needsMaterialUpdate = true; }
+        // Optionally reset other material props to avoid visual glitches if needed
       }
 
       // Apply calculated scale, position
@@ -565,7 +581,7 @@ function Scene({ isMobile }: { isMobile: boolean }) {
         <Cube isMobile={isMobile} />
         <SceneUpdater />
       </Suspense>
-      <Environment preset="sunset" />
+      <Environment preset="forest" />
       <EffectComposer>
         <Noise opacity={0.1} />
       </EffectComposer>

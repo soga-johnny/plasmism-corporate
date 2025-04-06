@@ -24,15 +24,15 @@ export default function AboutPage() {
 
       <section className="border-b border-[var(--foreground)]/10 md:pb-40 pb-12 md:pt-32 pt-0">
           <div className="flex flex-col items-center text-center">
-              <div className="rounded-lg md:max-w-[860px]">
+              <div className="rounded-lg md:max-w-[780px]">
                 <h2 className="text-3xl md:text-7xl leading-tight md:mb-12 mb-4">
                 デジタルとの共存を<br/>
                 自律的なシステムで<br/>
                 徹底的に追求
                 </h2>
-                <p className="text-[var(--foreground)]/80 text-sm md:text-base leading-relaxed">
+                <p className="text-[var(--foreground)] text-sm md:text-base leading-relaxed">
                 プラズミズムでは、豊かな毎日をデザインするための
-                7つの価値観を柱に、課題解決に真摯に向き合う文化を大切にしています。
+                7つの価値観を柱に、課題解決に真摯に向き合う文化を大切にしています。<br/><br/>
                 「可能性は尽きない」という信念のもと、
                 ベクトルの分散しない事業活動を心がけています。
                 </p>

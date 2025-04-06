@@ -109,25 +109,25 @@ export default function Header() {
           </div>
           <div className="flex items-center mix-blend-difference">
             <nav>
-              <ul className="flex space-x-6 text-sm mr-12">
-                <li><Link href="/" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/' ? 'line-through font-bold' : ''}`}>トップ</Link></li>
-                <li><Link href="/about" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/about' ? 'line-through font-bold' : ''}`}>私たちについて</Link></li>
-                <li><Link href="/feature" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/feature' ? 'line-through font-bold' : ''}`}>特徴</Link></li>
-                <li><Link href="/product" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/product' ? 'line-through font-bold' : ''}`}>プロダクト</Link></li>
-                <li><Link href="/service" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/service' ? 'line-through font-bold' : ''}`}>サービス</Link></li>
+              <ul className="flex space-x-6 text-sm mr-12 font-semibold">
+                <li><Link href="/" className={`hover:font-bold hover:text-[#BC2611] transition-all duration-300 ${pathname === '/' ? 'border-b-2 border-[var(--foreground)] pb-1' : ''}`}>トップ</Link></li>
+                <li><Link href="/about" className={`hover:font-bold hover:text-[#BC2611] transition-all duration-300 ${pathname === '/about' ? 'border-b-2 border-[var(--foreground)] pb-1' : ''}`}>私たちについて</Link></li>
+                <li><Link href="/feature" className={`hover:font-bold hover:text-[#BC2611] transition-all duration-300 ${pathname === '/feature' ? 'border-b-2 border-[var(--foreground)] pb-1' : ''}`}>特徴</Link></li>
+                <li><Link href="/product" className={`hover:font-bold hover:text-[#BC2611] transition-all duration-300 ${pathname === '/product' ? 'border-b-2 border-[var(--foreground)] pb-1' : ''}`}>プロダクト</Link></li>
+                <li><Link href="/service" className={`hover:font-bold hover:text-[#BC2611] transition-all duration-300 ${pathname === '/service' ? 'border-b-2 border-[var(--foreground)] pb-1' : ''}`}>サービス</Link></li>
                 {/* <li><Link href="/achievements" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/achievements' ? 'line-through font-bold' : ''}`}>実績</Link></li> */}
-                <li><Link href="/recruit" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/recruit' ? 'line-through font-bold' : ''}`}>採用</Link></li>
-                <li><Link href="/company" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/company' ? 'line-through font-bold' : ''}`}>会社案内</Link></li>
+                <li><Link href="/recruit" className={`hover:font-bold hover:text-[#BC2611] transition-all duration-300 ${pathname === '/recruit' ? 'border-b-2 border-[var(--foreground)] pb-1' : ''}`}>採用</Link></li>
+                <li><Link href="/company" className={`hover:font-bold hover:text-[#BC2611] transition-all duration-300 ${pathname === '/company' ? 'border-b-2 border-[var(--foreground)] pb-1' : ''}`}>会社案内</Link></li>
               </ul>
             </nav>
-            <div className="mr-2 text-right border-r border-[var(--foreground)]/50 pr-4">
-              <div className="text-sm font-extralight">{currentDate}</div>
-              <div className="text-md font-extralight">{currentTime}</div>
+            <div className="mr-2 font-semibold border-r border-[var(--foreground)]/50 pr-4 text-right flex flex-col items-end">
+              <div className="-mb-1 text-xs">{currentDate}</div>
+              <div className="text-sm">{currentTime}</div>
             </div>
-            <Link href="/contact" className="bg-[var(--foreground)] hover:bg-[#BC2611] hover:scale-105 hover:text-[var(--background)] transition-all duration-300 text-[var(--background)] rounded-md py-3 px-4 mx-2 flex items-center text-sm border border-[var(--foreground)]/20">
+            <Link href="/contact" className="bg-[var(--foreground)] hover:bg-[#BC2611] hover:scale-105 hover:text-[var(--background)] transition-all duration-300 text-[var(--background)] rounded-md py-2 px-4 mx-2 flex items-center text-sm border border-[var(--foreground)]/20">
               お問い合わせ <span className="ml-2 border-l border-[var(--background)]/50 pl-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
             </Link>
-            <Link href="/download" className="bg-[var(--foreground)] hover:bg-[#BC2611] hover:scale-105 hover:text-[var(--background)] transition-all duration-300 text-[var(--background)] rounded-md py-3 px-4 flex items-center text-sm border border-[var(--foreground)]/20">
+            <Link href="/download" className="bg-[var(--foreground)] hover:bg-[#BC2611] hover:scale-105 hover:text-[var(--background)] transition-all duration-300 text-[var(--background)] rounded-md py-2 px-4 flex items-center text-sm border border-[var(--foreground)]/20">
               資料DL <span className="ml-2 border-l border-[var(--background)]/50 pl-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
             </Link>
           </div>
@@ -159,10 +159,10 @@ export default function Header() {
           y: 0,
           transition: { duration: 0.7, delay: 0.6, ease: "easeOut" }
         }}
-        className="fixed bottom-5 left-1/2 transform -translate-x-1/2 w-1/2 z-[70] flex backdrop-blur-lg mix-blend-difference overflow-hidden rounded-lg"
+        className="fixed bottom-6 left-1/2 transform -translate-x-1/2 w-1/2 z-[70] flex backdrop-blur-lg mix-blend-difference overflow-hidden rounded-lg"
       >
         <button 
-          className="flex-1 flex items-center justify-center py-4 text-[var(--foreground)] active:scale-95 active:bg-opacity-80 transition-all duration-300 overflow-hidden"
+          className="flex-1 flex items-center justify-center py-3 text-[var(--foreground)] active:scale-95 active:bg-opacity-80 transition-all duration-300 overflow-hidden"
           style={{ backgroundColor: isMenuOpen ? 'var(--background)' : 'var(--foreground)' }}
           onClick={toggleMenu}
         >
@@ -174,8 +174,8 @@ export default function Header() {
             >
               <div className="flex items-center">
                 <div className="flex flex-col items-center mr-3">
-                  <div className="w-6 h-[1px] bg-[var(--background)] mb-1 transform transition-transform duration-300"></div>
-                  <div className="w-6 h-[1px] bg-[var(--background)] transform transition-transform duration-300"></div>
+                  <div className="w-4 h-[1px] bg-[var(--background)] mb-1 transform transition-transform duration-300"></div>
+                  <div className="w-4 h-[1px] bg-[var(--background)] transform transition-transform duration-300"></div>
                 </div>
                 <span className="text-xs text-[var(--background)]">Menu</span>
               </div>
@@ -293,7 +293,7 @@ export default function Header() {
                       >
                         <Link 
                           href={item.path} 
-                          className={`block py-3 px-8 text-md font-extralight hover:bg-[var(--foreground)]/10 transition-colors duration-200 ${pathname === item.path ? 'line-through font-normal' : ''}`}
+                          className={`block py-3 px-8 text-md hover:bg-[var(--foreground)]/10 transition-colors duration-200 ${pathname === item.path ? 'font-semibold' : ''}`}
                           onClick={closeMenu}
                         >
                           {item.label}

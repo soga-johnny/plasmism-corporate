@@ -14,7 +14,7 @@ const PageTitle: React.FC<PageTitleProps> = ({ titleEn, titleJa, description }) 
       <p className="text-md mb-2 font-serif text-[var(--foreground)]">● {titleEn}</p>
       <h1 className="md:text-4xl text-2xl mb-2 md:mb-4 text-[var(--foreground)]">{titleJa}</h1>
       {description && (
-        <p className="mb-8 md:text-sm text-xs text-[var(--foreground)]/80">{description}</p>
+        <p className="mb-8 md:text-sm text-xs text-[var(--foreground)]">{description}</p>
       )}
     </div>
   )

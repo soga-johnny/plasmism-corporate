@@ -24,16 +24,16 @@ export default function FeaturePage() {
 
       <section className="border-b border-[var(--foreground)]/10 md:pb-40 pb-12 md:pt-32 pt-0">
           <div className="flex flex-col items-center text-center">
-              <div className="rounded-lg md:max-w-[860px]">
+              <div className="rounded-lg md:max-w-[780px]">
                 <h2 className="text-3xl md:text-7xl leading-tight md:mb-12 mb-4">
                 磨き上げた最適解を<br/>
                 デザインするための<br/>
                 一貫したプロセス
                 </h2>
-                <p className="text-[var(--foreground)]/80 text-sm md:text-base leading-relaxed">
+                <p className="text-[var(--foreground)] text-sm md:text-base leading-relaxed">
                 プラズミズムでは、4つのプロセス「設計 → 実装 → 検証 → 改良」を
-短いスパンで繰り返し回すことで、
-ソリューションの完成度を高め、
+短いスパンで繰り返し回すことを重視します。<br/><br/>
+軌道の修正がしやすく効率的に完成度を高められ、
 事業に最大限の貢献ができると提案しています。
                 </p>
               </div>
