@@ -312,12 +312,12 @@ CDOを2年経験の後、より良い顧客体験を追求したく、2024年に
                   </p>
                 </div>
                 <div className="mb-4 border-b border-[var(--foreground)]/10 pb-4">
-                  <h3 className="text-sm mb-3">STRATEGY ADVISOR</h3>
-                  <p className="text-xl md:text-2xl text-[var(--foreground)] mb-1">廣政 和也</p>
-                  <h3 className="text-sm mb-3">Kazuya Hiromasa</h3>
+                  <h3 className="text-sm mb-3">BRAND DESIGNER</h3>
+                  <p className="text-xl md:text-2xl text-[var(--foreground)] mb-1">河合 美幸</p>
+                  <h3 className="text-sm mb-3">Miyuki Kawai</h3>
                   <p className="text-[var(--foreground)] text-xs md:text-sm font-light leading-relaxed">
-                  三菱電機株式会社に入社後、メルカリ、AIベンチャーなど多岐にわたる業界、業務を経験。ITスタートアップでは創業メンバーとして事業開発を担当、60名のチームのマネジメントも経験。<br/>
-                  2024年に株式会社STAR AIにジョイン。新規事業の立ち上げから成長フェーズまで幅広くサポートしてきた経験と知識を活かし、スタートアップ企業のアドバイザーも行なっている。
+                  東京生まれ。好きな物は駄菓子。幼稚園教諭二種免許・保育士資格取得後、都内の保育所等で保育士として8年従事。<br/>
+                  現在は子育て支援事業所の運営メンバーとして働く傍ら、フリーランスのwebデザイナーとして活動中。
                   </p>
                 </div>
                 <div className="mb-4 border-b border-[var(--foreground)]/10 pb-4">

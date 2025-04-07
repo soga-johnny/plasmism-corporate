@@ -34,19 +34,19 @@ export default function ContactPage() {
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
-    /* // SES API未実装のためコメントアウト
+    // SES API未実装のためコメントアウト -> コメント解除
     try {
-      // const response = await fetch('/api/contact', { // ここでAPIルートを呼び出す
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify(formData),
-      // });
+      const response = await fetch('/api/contact', { // ここでAPIルートを呼び出す
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-      // // aws-ses.ts のダミー関数を直接呼ぶ（一時的な代替）
+      // // aws-ses.ts のダミー関数を直接呼ぶ（一時的な代替）-> 削除
       // await sendContactEmail(formData);
-      // const response = { ok: true }; // ダミーレスポンス
+      // const response = { ok: true }; // ダミーレスポンス -> 削除
 
       if (response.ok) {
         setSubmitStatus('success');
@@ -54,13 +54,17 @@ export default function ContactPage() {
           name: '',
           email: '',
           company: '',
+          url: '', // urlとpurposeを追加
+          purpose: '',
           message: '',
           contact_type: '',
         });
         setCharCount(0);
       } else {
-        // const errorData = await response.json();
+        // const errorData = await response.json(); // エラーハンドリングを強化
         // console.error('Submission failed:', errorData);
+        const errorData = await response.json().catch(() => ({ message: 'Unknown error' })); // レスポンスボディがない場合のエラーを防ぐ
+        console.error('Submission failed:', errorData.message || response.statusText);
         setSubmitStatus('error');
       }
     } catch (error) {
@@ -69,9 +73,8 @@ export default function ContactPage() {
     } finally {
       setIsSubmitting(false);
     }
-    */
     
-    // コメントアウト中の代替処理（何もしない）
+    /* // コメントアウト中の代替処理（何もしない）-> 削除
     console.log("Form submission is currently disabled.", formData);
     // 仮で成功したことにする（開発用）
     await new Promise(resolve => setTimeout(resolve, 1000)); 
@@ -87,6 +90,7 @@ export default function ContactPage() {
       contact_type: '',
     });
     setCharCount(0);
+    */
 
   };
 

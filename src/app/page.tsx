@@ -63,9 +63,9 @@ export default function Home() {
         <div className="relative z-10">
           <div
             ref={aboutSectionRef}
-            className="w-full max-w-[1440px] md:mt-40 md:mb-40 mt-40 mb-12 mx-auto px-6 md:px-16 flex flex-col justify-center pt-64 md:pb-24 pb-2 bg-background"
+            className="w-full max-w-[1440px] md:mt-40 md:mb-40 mt-40 mb-12 mx-auto px-6 md:px-16 flex flex-col justify-center md:pt-80 pt-80 d:pb-24 pb-2 bg-background"
           >
-            <section className="md:pb-screen pb-screen md:mb-[120vh] mb-[180vh] w-full">
+            <section className="md:pb-screen pb-screen md:mb-[120vh] mb-[160vh] w-full">
             <ScrollingTitle text="OUR VISION" />
             <div className="flex flex-col md:flex-row justify-between">
               <div className="md:w-1/2">
@@ -291,11 +291,11 @@ export default function Home() {
              </div>
             </Link>
         </div>
-        <div className="w-full flex justify-center text-center mt-8">
+        {/* <div className="w-full flex justify-center text-center mt-8">
         <Link href="/feature" className="w-1/2 bg-[var(--background)] hover:bg-[#BC2611] hover:scale-105 hover:text-[var(--background)] transition-all duration-300 text-[var(--foreground)] rounded-md py-3 px-4 flex items-center justify-between text-sm border border-[var(--foreground)]/40">
               サービス一覧 <span className="ml-2 border-l border-[var(--foreground)]/50 hover:border-[var(--background)] pl-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
             </Link>
-        </div>
+        </div> */}
       </section>
 
       {/* RECRUIT Section (Adjusted Height) */}

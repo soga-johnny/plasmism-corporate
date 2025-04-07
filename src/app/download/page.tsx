@@ -5,12 +5,85 @@ import Header from '@/components/Header';
 import PageTitle from '@/components/PageTitle';
 import { useState } from 'react';
 
+// フォームデータの型を定義
+interface DownloadFormData {
+  company: string;
+  name: string;
+  email: string;
+  phone: string; // 電話番号も必須ではなくても空文字で初期化
+  document_type: string;
+  industry: string;
+  message: string;
+}
+
 export default function DownloadPage() {
   const [charCount, setCharCount] = useState(0);
-  
+  // フォームデータの状態を追加
+  const [formData, setFormData] = useState<DownloadFormData>({
+    company: '',
+    name: '',
+    email: '',
+    phone: '',
+    document_type: '',
+    industry: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+
   const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setCharCount(e.target.value.length);
+    // 備考(message)の更新も formData に含める
+    setFormData(prev => ({ ...prev, message: e.target.value }));
   };
+
+  // Input, Select の変更ハンドラを追加
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({ ...prev, [id]: value }));
+  };
+
+  // フォーム送信ハンドラを追加
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const response = await fetch('/api/download', { // APIルートを呼び出す
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({ // フォームをリセット
+          company: '',
+          name: '',
+          email: '',
+          phone: '',
+          document_type: '',
+          industry: '',
+          message: ''
+        });
+        setCharCount(0);
+      } else {
+        const errorData = await response.json().catch(() => ({ message: 'Unknown error' }));
+        console.error('Download submission failed:', errorData.message || response.statusText);
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error('Download submission error:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
 
   return (
     <main className="min-h-screen flex flex-col text-[var(--foreground)] md:py-12 pt-2 pb-24">
@@ -25,7 +98,7 @@ export default function DownloadPage() {
         <p className="max-w-[720px] mx-auto mb-8 font-extralight text-sm md:text-base">資料ダウンロード後、担当者から追加情報のご案内をさせていただく場合があります。</p>
         
         <div className="space-y-8 mb-16 max-w-[720px] mx-auto pt-10">
-          <form className="space-y-12">
+          <form className="space-y-12" onSubmit={handleSubmit}>
             <div className="space-y-1">
               <label htmlFor="company" className="block text-sm">
                 会社名<span className="text-xs ml-1">*</span>
@@ -36,6 +109,8 @@ export default function DownloadPage() {
                 placeholder="例) Plasmism株式会社"
                 className="w-full bg-[var(--foreground)]/10 border border-[var(--foreground)]/20 rounded-md py-8 px-3 text-[var(--foreground)] placeholder-[var(--foreground)]/30"
                 required
+                value={formData.company}
+                onChange={handleInputChange}
               />
             </div>
             
@@ -49,6 +124,8 @@ export default function DownloadPage() {
                 placeholder="例) 山田 太郎"
                 className="w-full bg-[var(--foreground)]/10 border border-[var(--foreground)]/20 rounded-md py-8 px-3 text-[var(--foreground)] placeholder-[var(--foreground)]/30"
                 required
+                value={formData.name}
+                onChange={handleInputChange}
               />
             </div>
             
@@ -62,6 +139,8 @@ export default function DownloadPage() {
                 placeholder="例) example@plasmism.com"
                 className="w-full bg-[var(--foreground)]/10 border border-[var(--foreground)]/20 rounded-md py-8 px-3 text-[var(--foreground)] placeholder-[var(--foreground)]/30"
                 required
+                value={formData.email}
+                onChange={handleInputChange}
               />
             </div>
             
@@ -74,6 +153,8 @@ export default function DownloadPage() {
                 id="phone"
                 placeholder="例) 03-1234-5678"
                 className="w-full bg-[var(--foreground)]/10 border border-[var(--foreground)]/20 rounded-md py-8 px-3 text-[var(--foreground)] placeholder-[var(--foreground)]/30"
+                value={formData.phone}
+                onChange={handleInputChange}
               />
             </div>
             
@@ -86,7 +167,8 @@ export default function DownloadPage() {
                   id="document_type"
                   className="appearance-none w-full bg-[var(--foreground)]/10 border border-[var(--foreground)]/20 rounded-md py-8 px-3 text-[var(--foreground)] pr-10"
                   required
-                  defaultValue=""
+                  value={formData.document_type}
+                  onChange={handleInputChange}
                 >
                   <option value="" disabled>ダウンロードする資料を選択してください</option>
                   <option value="company">会社概要</option>
@@ -111,7 +193,8 @@ export default function DownloadPage() {
                   id="industry"
                   className="appearance-none w-full bg-[var(--foreground)]/10 border border-[var(--foreground)]/20 rounded-md py-8 px-3 text-[var(--foreground)] pr-10"
                   required
-                  defaultValue=""
+                  value={formData.industry}
+                  onChange={handleInputChange}
                 >
                   <option value="" disabled>業種を選択してください</option>
                   <option value="it">IT・通信</option>
@@ -140,6 +223,7 @@ export default function DownloadPage() {
                 className="w-full bg-[var(--foreground)]/10 border border-[var(--foreground)]/20 rounded-md py-8 px-3 text-[var(--foreground)] placeholder-[var(--foreground)]/30 resize-none"
                 maxLength={2000}
                 onChange={handleTextChange}
+                value={formData.message}
               ></textarea>
               <div className="text-right text-sm text-[var(--foreground)]/50">
                 {charCount} / 2000
@@ -150,14 +234,24 @@ export default function DownloadPage() {
               <button
                 type="submit"
                 className="w-full bg-[#BC2611] hover:bg-[#a01f1f] transition-colors text-white font-light rounded-md py-4 flex items-center justify-center group"
+                disabled={isSubmitting}
               >
-                <span>資料をダウンロード</span>
-                <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                </svg>
+                <span>{isSubmitting ? '送信中...' : '資料ダウンロードを申請する'}</span>
+                {!isSubmitting && (
+                  <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
+                )}
               </button>
             </div>
             
+            {submitStatus === 'success' && (
+              <p className="mt-4 text-green-500">資料ダウンロード申請ありがとうございます。ご入力いただいたメールアドレス宛に、担当者より資料を送付させていただきます。</p>
+            )}
+            {submitStatus === 'error' && (
+              <p className="mt-4 text-red-500">送信に失敗しました。しばらくしてから再度お試しいただくか、別の方法でお問い合わせください。</p>
+            )}
+
             <div className="text-sm text-center text-[var(--foreground)]/70 pt-4">
               送信ボタンをクリックすることで、<span className="underline">プライバシーポリシー</span>に同意したものとみなされます。
             </div>
