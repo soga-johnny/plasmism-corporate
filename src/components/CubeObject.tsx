@@ -64,7 +64,7 @@ function Cube({ isMobile }: { isMobile: boolean }) {
 
   // isMobile に応じてステージ境界値を計算
   const { stage1End, /* stage2End, */ stage2TransitionStart, stage3TransitionEnd } = useMemo(() => {
-    const factor = isMobile ? 2 / 3 : 1;
+    const factor = isMobile ? 0.85 : 1;
     const s1End = DEFAULT_STAGE1_END * factor;
     const s2End = DEFAULT_STAGE2_END * factor;
     const tDuration = DEFAULT_TRANSITION_DURATION * factor;
@@ -799,7 +799,7 @@ export default function CubeInteractive() {
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     const currentProgress = latest;
-    const factor = isMobile ? 2 / 3 : 1;
+    const factor = isMobile ? 0.85 : 1;
 
     const tDuration = DEFAULT_TRANSITION_DURATION * factor;
     const transitionWidth = tDuration / 3.5;

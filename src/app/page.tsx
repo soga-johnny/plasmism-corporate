@@ -66,7 +66,7 @@ export default function Home() {
             ref={aboutSectionRef}
             className="w-full max-w-[1440px] md:mt-40 md:mb-40 mt-40 mb-12 mx-auto px-6 md:px-16 flex flex-col justify-center md:pt-80 pt-80 pb-2 bg-background"
           >
-            <section className="md:pb-screen pb-screen md:mb-[120vh] mb-[90vh] w-full">
+            <section className="md:pb-screen pb-screen md:mb-[120vh] mb-[140vh] w-full">
             <ScrollingTitle text="OUR VISION" />
             <div className="flex flex-col md:flex-row justify-between">
               <div className="md:w-1/2">
