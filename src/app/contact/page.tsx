@@ -259,7 +259,7 @@ export default function ContactPage() {
             )}
             
             <div className="text-sm text-center text-[var(--foreground)]/70 pt-4">
-              メールを送信した場合、<span className="underline">プライバシーポリシー</span>について同意したものとみなされます。
+              メールを送信した場合、<a href="/privacy" className="underline hover:text-[var(--foreground)]">プライバシーポリシー</a>について同意したものとみなされます。
             </div>
           </form>
         </div>

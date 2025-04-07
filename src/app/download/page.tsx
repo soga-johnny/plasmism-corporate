@@ -253,7 +253,7 @@ export default function DownloadPage() {
             )}
 
             <div className="text-sm text-center text-[var(--foreground)]/70 pt-4">
-              送信ボタンをクリックすることで、<span className="underline">プライバシーポリシー</span>に同意したものとみなされます。
+            メールを送信した場合、<a href="/privacy" className="underline hover:text-[var(--foreground)]">プライバシーポリシー</a>について同意したものとみなされます。
             </div>
           </form>
         </div>
