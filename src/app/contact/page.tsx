@@ -104,7 +104,7 @@ export default function ContactPage() {
           description="制作のご相談・お問い合わせは、必要事項をご入力の上ご連絡ください。2〜3営業日以内に担当者がメールで返信します。" 
         />
         <p className="max-w-[720px] mx-auto mb-8 font-extralight text-sm md:text-base">営業・セールスその他の方は、<a href="https://forms.gle/Znqu5mha2zg1J4ds8" target="_blank" rel="noopener noreferrer" className="underline hover:opacity-70 transition-opacity">採用・協業用フォーム</a>をご利用ください。</p>
-        <p className="max-w-[720px] mx-auto mb-8 font-extralight text-sm md:text-base">※は必須項目です。</p>
+        <p className="max-w-[720px] mx-auto mb-8 font-extralight text-sm md:text-base"><span className="text-sm ml-1">*</span>は必須項目です。</p>
 
         <div className="space-y-8 mb-16 max-w-[720px] mx-auto pt-10">
           <form className="space-y-12" onSubmit={handleSubmit}>

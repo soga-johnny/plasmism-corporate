@@ -81,8 +81,7 @@ export default function Home() {
                   <p className="text-xl md:text-4xl leading-tight font-light">
                   想像もできなかった豊かさを、<br/>
                   いつどの瞬間であっても、<br/>
-                  噛み締めて実感できる、
-                  そんな世界。<br/>
+                  噛み締めて実感できる、そんな世界。<br/>
                   </p>
                 </div>
                 <p className="md:w-full text-[var(--foreground)] text-sm md:text-base font-light leading-relaxed mb-20">
@@ -109,8 +108,8 @@ export default function Home() {
                 </div>
                 <div className="md:w-full rounded-lg border-b border-[var(--foreground)]/10 pb-10 mb-10">
                   <p className="text-xl md:text-4xl leading-tight font-light">
-                  磨き上げた最適解を
-                  デザインするための
+                  磨き上げた最適解を<br/>
+                  デザインするための<br/>
                   一貫したプロセス
                   </p>
                 </div>

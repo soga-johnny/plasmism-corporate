@@ -282,7 +282,7 @@ export default function Footer() {
                     </Link>
                 </div>
                 <div className="text-xs text-[var(--foreground)]/60 text-center w-full md:pb-0 pb-16">
-                    ©2025 Plasmism Inc. All Rights Reserved.
+                    ©2025 Plasmism Inc.
                 </div>
             </div>
         </div>

@@ -242,7 +242,7 @@ export default function Header() {
               }}
             >
               {/* ロゴ */}
-              <div className="px-8 pt-4">
+              {/* <div className="px-8 pt-4">
                 <Link href="/" onClick={closeMenu} className="mix-blend-normal">
                   <Image 
                     src="/logo-white.svg" 
@@ -261,7 +261,7 @@ export default function Header() {
                     className="h-3 w-auto logo-dark" 
                   />
                 </Link>
-              </div>
+              </div> */}
               
               {/* スクロール可能なコンテンツエリア */}
               <div className="flex-1 overflow-y-auto py-6">
@@ -314,13 +314,13 @@ export default function Header() {
                         }
                       }}
                     >
-                      <Link 
+                      {/* <Link 
                         href="/download" 
                         className="bg-[var(--foreground)] hover:bg-[#BC2611] hover:scale-105 hover:text-[var(--background)] transition-all duration-300 text-[var(--background)] rounded-md py-3 px-4 flex items-center justify-between text-sm w-full"
                         onClick={closeMenu}
                       >
                         資料ダウンロード <span className="border-l border-[var(--background)]/50 pl-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
-                      </Link>
+                      </Link> */}
                     </motion.div>
                     
                     <motion.div
@@ -355,13 +355,13 @@ export default function Header() {
                       }
                     }}
                   >
-                    <Link 
+                    {/* <Link 
                       href="/privacy" 
                       className="text-sm font-extralight hover:opacity-70 transition-opacity"
                       onClick={closeMenu}
                     >
                       プライバシーポリシー
-                    </Link>
+                    </Link> */}
                   </motion.div>
                 </nav>
               </div>
