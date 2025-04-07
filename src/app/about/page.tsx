@@ -269,7 +269,7 @@ export default function AboutPage() {
             </div>
           </section> */}
 
-<section className="pb-10 bg-[var(--background)] rounded-3xl md:p-20 p-6 border border-[var(--foreground)]/10 mb-20 md:mb-40">
+<section className="pb-10 bg-[var(--background)] border border-[var(--foreground)]/10 rounded-3xl md:p-20 p-6 mb-20 md:mb-40">
             <div className="flex flex-col md:flex-row justify-between">
               <div className="w-full">
                 <div className="flex flex-col">

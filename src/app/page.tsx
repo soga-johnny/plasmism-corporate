@@ -8,6 +8,7 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import { useRef, useEffect } from 'react';
 import ScrollingTitle from '@/components/ScrollingTitle';
+import { motion } from "framer-motion";
 
 export default function Home() {
   const aboutSectionRef = useRef<HTMLDivElement>(null);
@@ -47,7 +48,7 @@ export default function Home() {
   return (
     <main className="flex flex-col text-[var(--foreground)] md:pb-12">
       <Header />
-      <section className="relative w-full mb-24">
+      <section className="relative w-full mb-40">
         <div className="sticky top-0 h-screen z-0 mb-48 will-change-transform transition-all duration-1000 ease-out">
           <CubeInteractive />
         </div>
@@ -136,7 +137,13 @@ export default function Home() {
       
       
       {/* PRODUCT Section (Moved Up & Adjusted Height) */}
-      <section className="w-full max-w-[1440px] mx-auto px-6 md:px-16 flex flex-col justify-center py-16 md:py-24 rounded-xl">
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.4, ease: "easeOut", delay: 0.3 }}
+        className="w-full max-w-[1440px] mx-auto px-6 md:px-16 flex flex-col justify-center py-8 md:py-24 rounded-xl"
+      >
          {/* PageTitle style title */}
          <div className="mb-12 md:mb-16 border-b border-[var(--foreground)]/10 pb-4 md:pb-6">
           <p className="text-md mb-2 font-serif text-[var(--foreground)]">● Product</p>
@@ -144,7 +151,7 @@ export default function Home() {
            <p className="mt-2 md:text-sm text-xs text-[var(--foreground)]/80">ソリッドベンチャーとして他事業との有機的な連携</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 md:gap-x-16 gap-y-16 mb-12 md:mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 md:gap-x-16 gap-y-2 mb-12 md:mb-16">
           {/* Product Item 1 */}
           <div className="group flex flex-col">
           <div className="flex items-center mb-8">
@@ -215,11 +222,17 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </section>
+      </motion.section>
 
        {/* SERVICE Section (Moved Down & Adjusted Height) */}
       {/* Added a subtle background pattern class placeholder: 'bg-dots-pattern' */}
-      <section className="w-full max-w-[1440px] mx-auto px-6 md:px-16 flex flex-col justify-center py-16 md:py-24 bg-[var(--background)] relative isolate md:rounded-2xl rounded-xl">
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.4, ease: "easeOut", delay: 0.3 }}
+        className="w-full max-w-[1440px] mx-auto px-6 md:px-16 flex flex-col justify-center py-8 md:py-12 bg-[var(--background)] border border-[var(--foreground)]/10 relative isolate md:rounded-2xl rounded-2xl"
+      >
         {/* Placeholder for a subtle background pattern/texture */}
         {/* <div className="absolute inset-0 -z-10 bg-dots-pattern opacity-5"></div> */}
 
@@ -230,7 +243,7 @@ export default function Home() {
           <p className="mt-2 md:text-sm text-xs text-[var(--foreground)]/80">相乗的な最適解の徹底的な追求</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-12 md:mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-1 mb-4 md:mb-8">
           {/* Service Item 1 - Added Icon */}
           <Link href="/service#ux-design" className="group flex flex-col p-8 bg-[var(--foreground)]/5 rounded-xl border border-[var(--foreground)]/10 hover:border-[var(--foreground)]/40 hover:bg-[var(--foreground)]/10 transition-all duration-300">
             <div className="flex justify-start items-center mb-6">
@@ -293,10 +306,16 @@ export default function Home() {
               サービス一覧 <span className="ml-2 border-l border-[var(--foreground)]/50 hover:border-[var(--background)] pl-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
             </Link>
         </div> */}
-      </section>
+      </motion.section>
 
       {/* RECRUIT Section (Adjusted Height) */}
-       <section className="w-full max-w-[1440px] mx-auto px-4 md:px-16 flex flex-col justify-center py-16 md:py-24">
+       <motion.section
+         initial={{ opacity: 0, y: 50 }}
+         whileInView={{ opacity: 1, y: 0 }}
+         viewport={{ once: true, amount: 0.3 }}
+         transition={{ duration: 0.4, ease: "easeOut", delay: 0.3 }}
+         className="w-full max-w-[1440px] mx-auto px-4 md:px-16 flex flex-col justify-center py-16 md:py-24"
+       >
           {/* PageTitle style title */}
          <div className="mb-12 md:mb-16 border-b border-[var(--foreground)]/10 pb-4 md:pb-6">
             <p className="text-md mb-2 font-serif text-[var(--foreground)]">● Recruit</p>
@@ -311,7 +330,7 @@ export default function Home() {
             href="https://same-ranunculus-85c.notion.site/Plasmism-1bf43fbe1206801bb0efd6d37bf01449" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="bg-[var(--foreground)]/10 hover:bg-[var(--foreground)]/15 transition-all border border-[var(--foreground)]/20 rounded-xl px-8 py-6 flex flex-col md:flex-row md:justify-between md:items-center w-full"
+            className="bg-[var(--foreground)]/10 hover:bg-[var(--foreground)]/15 transition-all border border-[var(--foreground)]/20 rounded-xl px-8 md:py-32 py-24 flex flex-col md:flex-row md:justify-between md:items-center w-full"
           >
             <div className="mb-4 md:mb-0">
               <h3 className="text-2xl md:text-3xl mb-2">採用情報の詳細</h3>
@@ -326,7 +345,7 @@ export default function Home() {
           </Link>
         </div>
       </div>
-        </section>
+        </motion.section>
 
       <Footer />
     </main>
