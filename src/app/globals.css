@@ -50,6 +50,7 @@
 
 html {
   scroll-behavior: smooth;
+  font-family: 'Noto Sans JP', sans-serif; /* Set base font here */
 }
 
 body {
@@ -57,7 +58,6 @@ body {
   z-index: 1; /* Added to ensure content is above ::before */
   background-color: var(--background);
   color: var(--foreground);
-  font-family: 'Noto Sans JP', sans-serif; /* Keep google font import */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* テーマ切り替え時のトランジションを追加 */

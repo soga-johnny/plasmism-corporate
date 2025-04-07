@@ -194,9 +194,9 @@ export default function Footer() {
           {shouldShowContactSection && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-1">
               <Link href="/contact" className="inline-block group">
-                <div className="bg-[var(--foreground)]/10 hover:bg-[var(--foreground)]/15 transition-all border border-[var(--foreground)]/20 rounded-xl md:px-12 px-8 md:py-20 py-10 w-full">
+                <div className="bg-[var(--foreground)]/10 hover:bg-[var(--foreground)]/15 transition-all border border-[var(--foreground)]/20 rounded-xl md:px-20 px-8 md:py-20 py-10 w-full">
                   <h3 className="md:text-4xl text-2xl mb-6 text-center border-b border-[var(--foreground)]/10 pb-4">お問い合わせ・ご相談</h3>
-                  <p className="text-sm md:mb-12 mb-6 text-[var(--foreground)]/80">
+                  <p className="text-base md:mb-12 mb-6 text-[var(--foreground)]/80">
                     UXデザイン、コーポレートデザイン、アーキテクチャデザインなど、課題に真摯に向き合って対応。
                     初回相談は無料で、お客様の状況に合わせた最適な提案をいたします。
                   </p>
@@ -209,11 +209,11 @@ export default function Footer() {
               </Link>
 
               <Link href="/download" className="inline-block group">
-                <div className="bg-[var(--foreground)]/10 hover:bg-[var(--foreground)]/15 transition-all border border-[var(--foreground)]/20 rounded-xl md:px-12 px-8 md:py-20 py-10 w-full">
+                <div className="bg-[var(--foreground)]/10 hover:bg-[var(--foreground)]/15 transition-all border border-[var(--foreground)]/20 rounded-xl md:px-20 px-8 md:py-20 py-10 w-full">
                   <h3 className="md:text-4xl text-2xl mb-6 text-center border-b border-[var(--foreground)]/10 pb-4">会社資料ダウンロード</h3>
-                  <p className="text-sm md:mb-12 mb-6 text-[var(--foreground)]/80">
-                    サービス内容、実績事例、アプローチをまとめた資料をご用意。
-                    メールアドレスをご登録いただくだけで、すぐにダウンロードいただけます。
+                  <p className="text-base md:mb-12 mb-6 text-[var(--foreground)]/80">
+                    サービスの具体的な内容や、実績事例、アプローチをまとめた資料をご用意。
+                    メールアドレスをご入力いただくだけで、すぐに担当からダウンロードリンクを送付します。
                   </p>
                   <div className="flex justify-center">
                     <svg className="w-14 h-14 transition-transform duration-500 group-hover:rotate-[360deg]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.5">
@@ -247,7 +247,6 @@ export default function Footer() {
             <ul className="space-y-3">
               <li><Link href="/contact" className="hover:text-[var(--foreground)]/70 transition-colors text-base font-light">お問い合わせ</Link></li>
               <li><Link href="/download" className="hover:text-[var(--foreground)]/70 transition-colors text-base font-light">資料ダウンロード</Link></li>
-              <li><Link href="/privacy" className="hover:text-[var(--foreground)]/70 transition-colors text-base font-light">プライバシーポリシー</Link></li>
             </ul>
           </div>
           <div>
@@ -281,8 +280,13 @@ export default function Footer() {
                       />
                     </Link>
                 </div>
-                <div className="text-xs text-[var(--foreground)]/60 text-center w-full md:pb-0 pb-16">
-                    ©2025 Plasmism Inc.
+                <div className="w-full flex justify-between items-center md:pb-0 pb-16">
+                <Link href="/privacy" className="hover:text-[var(--foreground)]/70 transition-colors md:text-sm text-xs font-light">
+                プライバシーポリシー
+                </Link>
+                    <div className="md:text-sm text-xs text-[var(--foreground)]/60">
+                        ©2025 Plasmism Inc.
+                    </div>
                 </div>
             </div>
         </div>

@@ -328,7 +328,7 @@ function Cube({ isMobile }: { isMobile: boolean }) {
           const initialScale = isMobile ? 1.1 : 1.6;
           const midScale = isMobile ? 1.2 : 1.5;
           const targetRightShift = isMobile ? 1 : 2.4;
-          const targetY = isMobile ? 1.5 : 0;
+          const targetY = isMobile ? 1.0 : 0; // Adjusted mobile Y from 1.5 to 1.3
 
           let currentScale: number;
           let currentX: number;
@@ -343,7 +343,7 @@ function Cube({ isMobile }: { isMobile: boolean }) {
 
           // --- Material Logic (based on t_material) ---
           const initialEmissiveIntensity = 0.0;
-          const stage2EmissiveIntensity = 0.5;
+          const stage2EmissiveIntensity = 0.3;
           let needsMaterialUpdate = false;
 
           if (progress < newMaterialTransitionStart) {
@@ -372,10 +372,10 @@ function Cube({ isMobile }: { isMobile: boolean }) {
               currentOpacity = MathUtils.lerp(reflectiveMaterial.opacity, 0.7, t_material);
               if (material.opacity !== currentOpacity) { material.opacity = currentOpacity; needsMaterialUpdate = true; }
 
-              const targetTransmission = MathUtils.lerp(reflectiveMaterial.transmission, 2.2, t_material);
+              const targetTransmission = MathUtils.lerp(reflectiveMaterial.transmission, 2.5, t_material);
               if (material.transmission !== targetTransmission) { material.transmission = targetTransmission; needsMaterialUpdate = true; }
 
-              const targetMetalness = MathUtils.lerp(reflectiveMaterial.metalness, 0.9, t_material);
+              const targetMetalness = MathUtils.lerp(reflectiveMaterial.metalness, 0.8, t_material);
               if (material.metalness !== targetMetalness) { material.metalness = targetMetalness; needsMaterialUpdate = true; }
 
               const targetRoughness = MathUtils.lerp(reflectiveMaterial.roughness, 0, t_material);
@@ -387,7 +387,7 @@ function Cube({ isMobile }: { isMobile: boolean }) {
               const targetReflectivity = MathUtils.lerp(reflectiveMaterial.reflectivity, 0.99, t_material);
               if (material.reflectivity !== targetReflectivity) { material.reflectivity = targetReflectivity; needsMaterialUpdate = true; }
 
-              const targetIor = MathUtils.lerp(reflectiveMaterial.ior, 2.5, t_material);
+              const targetIor = MathUtils.lerp(reflectiveMaterial.ior, 2.3, t_material);
               if (material.ior !== targetIor) { material.ior = targetIor; needsMaterialUpdate = true; }
 
               const targetThickness = MathUtils.lerp(reflectiveMaterial.thickness, 0.5, t_material);
@@ -398,10 +398,10 @@ function Cube({ isMobile }: { isMobile: boolean }) {
               const targetAttenuationColor = new Color().setRGB(dummyVec.x, dummyVec.y, dummyVec.z);
               if (!material.attenuationColor.equals(targetAttenuationColor)) { material.attenuationColor.copy(targetAttenuationColor); needsMaterialUpdate = true; }
 
-              const targetAttenuationDistance = MathUtils.lerp(0.0, 0.7, t_material);
+              const targetAttenuationDistance = MathUtils.lerp(0.0, 0.5, t_material);
               if (material.attenuationDistance !== targetAttenuationDistance) { material.attenuationDistance = targetAttenuationDistance; needsMaterialUpdate = true; }
 
-              const targetSpecularIntensity = MathUtils.lerp(reflectiveMaterial.specularIntensity, 2.0, t_material);
+              const targetSpecularIntensity = MathUtils.lerp(reflectiveMaterial.specularIntensity, 2.5, t_material);
               if (material.specularIntensity !== targetSpecularIntensity) { material.specularIntensity = targetSpecularIntensity; needsMaterialUpdate = true; }
 
               const targetEmissiveScalar = MathUtils.lerp(initialEmissiveIntensity, stage2EmissiveIntensity, t_material);
@@ -410,6 +410,14 @@ function Cube({ isMobile }: { isMobile: boolean }) {
 
               const targetEmissiveIntensity = MathUtils.lerp(initialEmissiveIntensity, stage2EmissiveIntensity, t_material);
               if (material.emissiveIntensity !== targetEmissiveIntensity) { material.emissiveIntensity = targetEmissiveIntensity; needsMaterialUpdate = true; }
+
+              // Add Sheen transition
+              const targetSheen = MathUtils.lerp(reflectiveMaterial.sheen, 1.2, t_material);
+              if (material.sheen !== targetSheen) { material.sheen = targetSheen; needsMaterialUpdate = true; }
+              if (targetSheen > 0 && !material.sheenColor.equals(reflectiveMaterial.sheenColor)) {
+                material.sheenColor.copy(reflectiveMaterial.sheenColor);
+                needsMaterialUpdate = true;
+              }
 
               if (material.depthWrite !== true) { material.depthWrite = true; needsMaterialUpdate = true; }
               if (material.depthTest !== true) { material.depthTest = true; needsMaterialUpdate = true; }
@@ -422,25 +430,30 @@ function Cube({ isMobile }: { isMobile: boolean }) {
 
           } else if (progress < s2TransitionStart) {
               // After material transition, before stage 3 transition: Use fully transitioned stage 2 material
-              currentOpacity = 0.7; // Stage 2 target opacity
+              currentOpacity = 0.5;
               if (material.opacity !== currentOpacity) { material.opacity = currentOpacity; needsMaterialUpdate = true; }
-              if (material.transmission !== 2.2) { material.transmission = 2.2; needsMaterialUpdate = true; }
-              if (material.metalness !== 0.9) { material.metalness = 0.9; needsMaterialUpdate = true; }
+              if (material.transmission !== 2.5) { material.transmission = 2.5; needsMaterialUpdate = true; }
+              if (material.metalness !== 0.8) { material.metalness = 0.8; needsMaterialUpdate = true; }
               if (material.roughness !== 0) { material.roughness = 0; needsMaterialUpdate = true; }
               if (material.envMapIntensity !== -0.5) { material.envMapIntensity = -0.5; needsMaterialUpdate = true; }
               if (material.reflectivity !== 0.99) { material.reflectivity = 0.99; needsMaterialUpdate = true; }
-              if (material.ior !== 2.5) { material.ior = 2.5; needsMaterialUpdate = true; }
+              if (material.ior !== 2.3) { material.ior = 2.3; needsMaterialUpdate = true; }
               if (material.thickness !== 0.5) { material.thickness = 0.5; needsMaterialUpdate = true; }
               const finalAttenuationColor = new Color(1,1,1);
               if (!material.attenuationColor.equals(finalAttenuationColor)) { material.attenuationColor.copy(finalAttenuationColor); needsMaterialUpdate = true; }
-              if (material.attenuationDistance !== 0.7) { material.attenuationDistance = 0.7; needsMaterialUpdate = true; }
-              if (material.specularIntensity !== 2.0) { material.specularIntensity = 2.0; needsMaterialUpdate = true; }
+              if (material.attenuationDistance !== 0.5) { material.attenuationDistance = 0.5; needsMaterialUpdate = true; }
+              if (material.specularIntensity !== 2.5) { material.specularIntensity = 2.5; needsMaterialUpdate = true; }
               const finalEmissiveColor = new Color().setScalar(stage2EmissiveIntensity);
               if (!material.emissive.equals(finalEmissiveColor)) { material.emissive.copy(finalEmissiveColor); needsMaterialUpdate = true; }
               if (material.emissiveIntensity !== stage2EmissiveIntensity) { material.emissiveIntensity = stage2EmissiveIntensity; needsMaterialUpdate = true; }
+              if (material.sheen !== 1.2) { material.sheen = 1.2; needsMaterialUpdate = true; }
+              if (material.sheen > 0 && !material.sheenColor.equals(reflectiveMaterial.sheenColor)) {
+                material.sheenColor.copy(reflectiveMaterial.sheenColor);
+                needsMaterialUpdate = true;
+              }
               if (material.depthWrite !== true) { material.depthWrite = true; needsMaterialUpdate = true; }
               if (material.depthTest !== true) { material.depthTest = true; needsMaterialUpdate = true; }
-              if (material.side !== DoubleSide) { material.side = DoubleSide; needsMaterialUpdate = true; } // Use constant
+              if (material.side !== DoubleSide) { material.side = DoubleSide; needsMaterialUpdate = true; }
               if (material.toneMapped !== false) { material.toneMapped = false; needsMaterialUpdate = true; }
 
           } else { // Transitioning out to stage 3 (progress >= s2TransitionStart)
@@ -450,7 +463,7 @@ function Cube({ isMobile }: { isMobile: boolean }) {
               currentY = targetY;
               currentScale = MathUtils.lerp(midScale, 0.001, t_stage3_transition);
 
-              const stage2Opacity = 0.7;
+              const stage2Opacity = 0.5; // Adjusted final opacity before fade
               currentOpacity = MathUtils.lerp(stage2Opacity, 0, t_stage3_transition); // Fade out
 
               // Keep emissive from stage 2 during fade-out
@@ -552,7 +565,7 @@ function Cube({ isMobile }: { isMobile: boolean }) {
         // Calculate the group's start position based on single cube's final position
         const startPos = dummyVec; // Reuse dummy vector
         const finalX = isMobile ? 1 : 2.4; // Should match targetRightShift
-        const finalY = isMobile ? 1.5 : 0; // Should match targetY
+        const finalY = isMobile ? 1.0 : 0; // Adjusted mobile Y from 1.5 to 1.3
         startPos.set(finalX, finalY, 0);
         stage3GroupRef.current.position.copy(startPos);
 

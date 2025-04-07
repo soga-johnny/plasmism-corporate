@@ -45,10 +45,10 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="flex flex-col text-[var(--foreground)]">
+    <main className="flex flex-col text-[var(--foreground)] md:pb-12">
       <Header />
-      <section className="relative w-full mb-80">
-        <div className="sticky top-0 h-screen z-0 mb-48">
+      <section className="relative w-full mb-24">
+        <div className="sticky top-0 h-screen z-0 mb-48 will-change-transform transition-all duration-1000 ease-out">
           <CubeInteractive />
         </div>
         <div className="absolute top-0 w-full h-screen mix-blend-color-dodge flex items-center justify-center text-center px-4">
@@ -63,9 +63,9 @@ export default function Home() {
         <div className="relative z-10">
           <div
             ref={aboutSectionRef}
-            className="w-full max-w-[1440px] md:mt-40 md:mb-40 mt-40 mb-12 mx-auto px-6 md:px-16 flex flex-col justify-center md:pt-80 pt-80 d:pb-24 pb-2 bg-background"
+            className="w-full max-w-[1440px] md:mt-40 md:mb-40 mt-40 mb-12 mx-auto px-6 md:px-16 flex flex-col justify-center md:pt-80 pt-80 pb-2 bg-background"
           >
-            <section className="md:pb-screen pb-screen md:mb-[120vh] mb-[160vh] w-full">
+            <section className="md:pb-screen pb-screen md:mb-[120vh] mb-[90vh] w-full">
             <ScrollingTitle text="OUR VISION" />
             <div className="flex flex-col md:flex-row justify-between">
               <div className="md:w-1/2">
@@ -108,9 +108,7 @@ export default function Home() {
                 </div>
                 <div className="md:w-full rounded-lg border-b border-[var(--foreground)]/10 pb-10 mb-10">
                   <p className="text-xl md:text-4xl leading-tight font-light">
-                  磨き上げた最適解を<br/>
-                  デザインするための<br/>
-                  一貫したプロセス
+                  磨き上げた最適解をデザイン<br/>するための一貫したプロセス
                   </p>
                 </div>
                 <p className="md:w-full text-[var(--foreground)] text-sm md:text-base font-light leading-relaxed mb-20">
@@ -306,7 +304,6 @@ export default function Home() {
              <p className="mt-2 md:text-sm text-xs text-[var(--foreground)]/80">尽きない探究と革新の瞬間を共有</p>
          </div>
 
-         <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-[var(--foreground)]/10 rounded-full filter blur-3xl opacity-50 animate-pulse-slow-reverse"></div>
          <div className="space-y-10">
         {/* Notionページへの遷移ボタン */}
         <div className="mb-12">
@@ -327,100 +324,6 @@ export default function Home() {
               </svg>
             </div>
           </Link>
-        </div>
-        
-        {/* プラズミズムで働くメリット */}
-        <div className="mb-12">
-          <h3 className="md:text-3xl text-2xl mb-8 border-b border-[var(--foreground)]/10 pb-4">プラズミズムで働くメリット</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-[var(--foreground)]/5 rounded-xl p-6 border border-[var(--foreground)]/10">
-              <div className="flex items-start mb-4">
-                <div className="bg-[var(--foreground)]/10 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3">
-                  <span className="text-sm">01</span>
-                </div>
-                <p className="text-sm text-[var(--foreground)]/80 leading-relaxed">
-                  クライアントと直接対話しながら少人数でプロジェクトを進めるため、個人の貢献度が高く、スキルの成長スピードが速いです。
-                </p>
-              </div>
-            </div>
-            <div className="bg-[var(--foreground)]/5 rounded-xl p-6 border border-[var(--foreground)]/10">
-              <div className="flex items-start mb-4">
-                <div className="bg-[var(--foreground)]/10 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3">
-                  <span className="text-sm">02</span>
-                </div>
-                <p className="text-sm text-[var(--foreground)]/80 leading-relaxed">
-                  限られたリソースで効率的に成果を出すスタートアップならではの環境で、コミュニケーション能力、交渉力、問題解決力、判断力、計画力などの実践的なスキルが身につきます。
-                </p>
-              </div>
-            </div>
-            <div className="bg-[var(--foreground)]/5 rounded-xl p-6 border border-[var(--foreground)]/10">
-              <div className="flex items-start mb-4">
-                <div className="bg-[var(--foreground)]/10 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3">
-                  <span className="text-sm">03</span>
-                </div>
-                <p className="text-sm text-[var(--foreground)]/80 leading-relaxed">
-                  無駄な会議や単純作業を極力減らし、スキル向上につながる業務に時間を使えるよう工夫しています。
-                </p>
-              </div>
-            </div>
-            <div className="bg-[var(--foreground)]/5 rounded-xl p-6 border border-[var(--foreground)]/10">
-              <div className="flex items-start mb-4">
-                <div className="bg-[var(--foreground)]/10 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3">
-                  <span className="text-sm">04</span>
-                </div>
-                <p className="text-sm text-[var(--foreground)]/80 leading-relaxed">
-                  質の高い制作実績を重視する文化があり、会社で働きながら個人のポートフォリオも充実させることができます。
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        {/* プラズミズムに向いている方 */}
-        <div>
-          <h3 className="md:text-3xl text-2xl mb-8 border-b border-[var(--foreground)]/10 pb-4">プラズミズムに向いている方</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-[var(--foreground)]/5 rounded-xl p-6 border border-[var(--foreground)]/10">
-              <div className="flex items-start mb-4">
-                <div className="bg-[var(--foreground)]/10 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3">
-                  <span className="text-sm">01</span>
-                </div>
-                <p className="text-sm text-[var(--foreground)]/80 leading-relaxed">
-                  デザインや実装だけでなく、要件ヒアリングや課題整理、提案など上流工程にも積極的に携わりたい方。
-                </p>
-              </div>
-            </div>
-            <div className="bg-[var(--foreground)]/5 rounded-xl p-6 border border-[var(--foreground)]/10">
-              <div className="flex items-start mb-4">
-                <div className="bg-[var(--foreground)]/10 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3">
-                  <span className="text-sm">02</span>
-                </div>
-                <p className="text-sm text-[var(--foreground)]/80 leading-relaxed">
-                  ルーティンワークではなく、常に新しい挑戦ができる環境でスキルを伸ばしていきたい方。
-                </p>
-              </div>
-            </div>
-            <div className="bg-[var(--foreground)]/5 rounded-xl p-6 border border-[var(--foreground)]/10">
-              <div className="flex items-start mb-4">
-                <div className="bg-[var(--foreground)]/10 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3">
-                  <span className="text-sm">03</span>
-                </div>
-                <p className="text-sm text-[var(--foreground)]/80 leading-relaxed">
-                  革新的なWeb表現や最新技術の探求に情熱を持つクリエイティブな方。
-                </p>
-              </div>
-            </div>
-            <div className="bg-[var(--foreground)]/5 rounded-xl p-6 border border-[var(--foreground)]/10">
-              <div className="flex items-start mb-4">
-                <div className="bg-[var(--foreground)]/10 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3">
-                  <span className="text-sm">04</span>
-                </div>
-                <p className="text-sm text-[var(--foreground)]/80 leading-relaxed">
-                  クライアントの期待に応えるだけでなく、自分自身が誇りを持てる作品づくりにこだわりたい方。
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
         </section>

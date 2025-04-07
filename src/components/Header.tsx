@@ -218,7 +218,7 @@ export default function Header() {
             />
             
             <motion.div
-              className="fixed inset-x-4 bottom-16 h-[78vh] bg-[var(--background)] border border-[var(--foreground)]/10 rounded-lg overflow-hidden z-[70] flex flex-col"
+              className="fixed inset-x-4 bottom-16 bg-[var(--background)] border border-[var(--foreground)]/10 rounded-lg z-[70] flex flex-col"
               initial={{ opacity: 0, scale: 0.95, filter: "blur(8px)" }}
               animate={{ 
                 opacity: 1, 
@@ -242,14 +242,14 @@ export default function Header() {
               }}
             >
               {/* ロゴ */}
-              {/* <div className="px-8 pt-4">
+              <div className="px-8 pt-4">
                 <Link href="/" onClick={closeMenu} className="mix-blend-normal">
                   <Image 
                     src="/logo-white.svg" 
                     alt="Plasmism" 
                     width={100}
                     height={20}
-                    className="h-3 w-auto logo-white" 
+                    className="h-4 w-auto logo-white" 
                   />
                 </Link>
                 <Link href="/" onClick={closeMenu} className="mix-blend-normal">
@@ -258,16 +258,16 @@ export default function Header() {
                     alt="Plasmism" 
                     width={100}
                     height={20}
-                    className="h-3 w-auto logo-dark" 
+                    className="h-4 w-auto logo-dark" 
                   />
                 </Link>
-              </div> */}
+              </div>
               
               {/* スクロール可能なコンテンツエリア */}
-              <div className="flex-1 overflow-y-auto py-6">
+              <div className="flex-1 py-3">
                 {/* メニュー項目アニメーション */}
                 <nav className="flex flex-col justify-start">
-                  <ul className="text-left mx-8 py-1 space-y-0 border-t border-[var(--foreground)]/10">
+                  <ul className="text-left py-1 space-y-0">
                     {[
                       { path: "/", label: "トップ" },
                       { path: "/about", label: "私たちについて" },
@@ -280,7 +280,7 @@ export default function Header() {
                     ].map((item, index) => (
                       <motion.li 
                         key={item.path}
-                        className="border-b border-[var(--foreground)]/10"
+                        className="mx-8 border-b border-[var(--foreground)]/10"
                         initial={{ opacity: 0, x: -10 }}
                         animate={{ 
                           opacity: 1, 
@@ -293,7 +293,7 @@ export default function Header() {
                       >
                         <Link 
                           href={item.path} 
-                          className={`block py-3 px-8 text-md hover:bg-[var(--foreground)]/10 transition-colors duration-200 ${pathname === item.path ? 'font-semibold' : ''}`}
+                          className={`block py-3 text-sm hover:bg-[var(--foreground)]/10 transition-colors duration-200 ${pathname === item.path ? 'font-semibold' : ''}`}
                           onClick={closeMenu}
                         >
                           {item.label}
@@ -302,7 +302,7 @@ export default function Header() {
                     ))}
                   </ul>
                   
-                  <div className="mt-6 px-8 space-y-4">
+                  <div className="mt-2 px-8 space-y-3">
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ 
@@ -345,7 +345,7 @@ export default function Header() {
                   </div>
                   
                   <motion.div 
-                    className="mt-auto mb-4 px-8 py-4"
+                    className="mt-auto px-8 py-2"
                     initial={{ opacity: 0 }}
                     animate={{ 
                       opacity: 1,

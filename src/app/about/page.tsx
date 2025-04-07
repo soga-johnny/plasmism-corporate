@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen flex flex-col text-[var(--foreground)] md:py-12 pt-2 pb-24 relative font-medium">
+    <main className="min-h-screen flex flex-col text-[var(--foreground)] md:py-12 pt-2 relative">
             <Header />
       <div className="flex-1 w-full max-w-[1440px] mx-auto px-4 md:px-2 pb-12 relative z-10"> 
           <PageTitle 
@@ -145,37 +145,37 @@ export default function AboutPage() {
                       <div className="text-lg text-[var(--foreground)]/50 mr-4">1</div>
                       <p className="text-2xl md:text-5xl">過去には戻れない</p>
                     </div>
-                    <p className="text-sm text-[var(--foreground)]/70 mt-2 pl-10">全ての生物が、今この瞬間から抜け出すことはできない。</p>
+                    <p className="text-base text-[var(--foreground)]/70 mt-2 pl-6">全ての生物が、今この瞬間から抜け出すことはできない。</p>
                     <div className="border-t border-[var(--foreground)]/10 pt-6 flex items-center">
                       <div className="text-lg text-[var(--foreground)]/50 mr-4">2</div>
                       <p className="text-2xl md:text-5xl">どこにも敵はいない</p>
                     </div>
-                    <p className="text-sm text-[var(--foreground)]/70 mt-2 pl-10">すべては関係性によるもので、敵というものは存在しない。</p>
+                    <p className="text-base text-[var(--foreground)]/70 mt-2 pl-6">すべては関係性によるもので、敵というものは存在しない。</p>
                     <div className="border-t border-[var(--foreground)]/10 pt-6 flex items-center">
                       <div className="text-lg text-[var(--foreground)]/50 mr-4">3</div>
                       <p className="text-2xl md:text-5xl">意志は盗まれない</p>
                     </div>
-                    <p className="text-sm text-[var(--foreground)]/70 mt-2 pl-10">他者がどのような手段を用いようとも、意志を奪うことはできない。</p>
+                    <p className="text-base text-[var(--foreground)]/70 mt-2 pl-6">他者がどのような手段を用いようとも、意志を奪うことはできない。</p>
                     <div className="border-t border-[var(--foreground)]/10 pt-6 flex items-center">
                       <div className="text-lg text-[var(--foreground)]/50 mr-4">4</div>
                       <p className="text-2xl md:text-5xl">知識は裏切らない</p>
                     </div>
-                    <p className="text-sm text-[var(--foreground)]/70 mt-2 pl-10">使い続けられる選択肢は、経験や学びからしか生み出されない。</p>
+                    <p className="text-base text-[var(--foreground)]/70 mt-2 pl-6">使い続けられる選択肢は、経験や学びからしか生み出されない。</p>
                     <div className="border-t border-[var(--foreground)]/10 pt-6 flex items-center">
                       <div className="text-lg text-[var(--foreground)]/50 mr-4">5</div>
                       <p className="text-2xl md:text-5xl">ほとんどが伝わらない</p>
                     </div>
-                    <p className="text-sm text-[var(--foreground)]/70 mt-2 pl-10">意思疎通が最も難しいものであることは、これまでもこれからも変わらない。</p>
+                    <p className="text-base text-[var(--foreground)]/70 mt-2 pl-6">意思疎通が最も難しいものであることは、これまでもこれからも変わらない。</p>
                     <div className="border-t border-[var(--foreground)]/10 pt-6 flex items-center">
                       <div className="text-lg text-[var(--foreground)]/50 mr-4">6</div>
                       <p className="text-2xl md:text-5xl">良いものは多くない</p>
                     </div>
-                    <p className="text-sm text-[var(--foreground)]/70 mt-2 pl-10">有り余る選択肢の中で、良いと言い切れるものはごく僅かしかない。</p>
+                    <p className="text-base text-[var(--foreground)]/70 mt-2 pl-6">有り余る選択肢の中で、良いと言い切れるものはごく僅かしかない。</p>
                     <div className="border-t border-[var(--foreground)]/10 pt-6 flex items-center">
                       <div className="text-lg text-[var(--foreground)]/50 mr-4">7</div>
                       <p className="text-2xl md:text-5xl">可能性は尽きない</p>
                     </div>
-                    <p className="text-sm text-[var(--foreground)]/70 mt-2 pl-10">どのような状況であっても、考え抜くことに限界は存在しない。</p>
+                    <p className="text-base text-[var(--foreground)]/70 mt-2 pl-6">どのような状況であっても、考え抜くことに限界は存在しない。</p>
                   </div>
                 
                 </div>
@@ -278,7 +278,7 @@ export default function AboutPage() {
                   </div>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="mb-4 border-b border-[var(--foreground)]/10 pb-4">
+                <div className="mb-4 border-b border-[var(--foreground)]/10 pb-8">
                   <h3 className="text-sm mb-3">CEO</h3>
                   <p className="text-xl md:text-2xl text-[var(--foreground)] mb-1">曽我 ジョニー</p>
                   <h3 className="text-sm mb-3">Johnny Soga</h3>
@@ -288,7 +288,7 @@ export default function AboutPage() {
 CDOを2年経験の後、より良い顧客体験を追求したく、2024年にPlasmism株式会社を設立。
                   </p>
                 </div>
-                <div className="mb-4 border-b border-[var(--foreground)]/10 pb-4">
+                <div className="mb-4 border-b border-[var(--foreground)]/10 pb-8">
                   <h3 className="text-sm mb-3">COO</h3>
                   <p className="text-xl md:text-2xl text-[var(--foreground)] mb-1">道畑 勝利</p>
                   <h3 className="text-sm mb-3">Katsutoshi Michihata</h3>
@@ -301,7 +301,7 @@ CDOを2年経験の後、より良い顧客体験を追求したく、2024年に
 大阪大学発のベンチャー企業でWebサービス設計、スタートアップ企業でマーケティングも経験。
                   </p>
                 </div>
-                <div className="mb-4 border-b border-[var(--foreground)]/10 pb-4">
+                <div className="mb-4 border-b border-[var(--foreground)]/10 pb-8">
                   <h3 className="text-sm mb-3">LEAD DESIGNER</h3>
                   <p className="text-xl md:text-2xl text-[var(--foreground)] mb-1">伊藤 悠希</p>
                   <h3 className="text-sm mb-3">Yuki Ito</h3>
@@ -313,7 +313,7 @@ CDOを2年経験の後、より良い顧客体験を追求したく、2024年に
 デザインの定義が拡張され、曖昧な今、肩書を越境した働き方を楽しんでいる。
                   </p>
                 </div>
-                <div className="mb-4 border-b border-[var(--foreground)]/10 pb-4">
+                <div className="mb-4 border-b border-[var(--foreground)]/10 pb-8">
                   <h3 className="text-sm mb-3">BRAND DESIGNER</h3>
                   <p className="text-xl md:text-2xl text-[var(--foreground)] mb-1">猿田 博毅</p>
                   <h3 className="text-sm mb-3">Hiroki Saruta</h3>
@@ -323,7 +323,7 @@ CDOを2年経験の後、より良い顧客体験を追求したく、2024年に
 現在はUIデザイナーとして働きつつ、フリーランスでグラフィックとWebデザイナーとしても活動中。
                   </p>
                 </div>
-                <div className="mb-4 border-b border-[var(--foreground)]/10 pb-4">
+                <div className="mb-4 border-b border-[var(--foreground)]/10 pb-8">
                   <h3 className="text-sm mb-3">BRAND DESIGNER</h3>
                   <p className="text-xl md:text-2xl text-[var(--foreground)] mb-1">増田 愛弓</p>
                   <h3 className="text-sm mb-3">Ayumi Masuda</h3>
@@ -333,7 +333,7 @@ CDOを2年経験の後、より良い顧客体験を追求したく、2024年に
 現在はデザイナーとしてSNS広告やDTPデザイン、LP等の制作を行なっている。
                   </p>
                 </div>
-                <div className="mb-4 border-b border-[var(--foreground)]/10 pb-4">
+                <div className="mb-4 border-b border-[var(--foreground)]/10 pb-8">
                   <h3 className="text-sm mb-3">BRAND DESIGNER</h3>
                   <p className="text-xl md:text-2xl text-[var(--foreground)] mb-1">河合 美幸</p>
                   <h3 className="text-sm mb-3">Miyuki Kawai</h3>
@@ -342,7 +342,7 @@ CDOを2年経験の後、より良い顧客体験を追求したく、2024年に
                   現在は子育て支援事業所の運営メンバーとして働く傍ら、フリーランスのwebデザイナーとして活動中。
                   </p>
                 </div>
-                <div className="mb-4 border-b border-[var(--foreground)]/10 pb-4">
+                <div className="mb-4 pb-4">
                   <h3 className="text-sm mb-3">STRATEGY ADVISOR</h3>
                   <p className="text-xl md:text-2xl text-[var(--foreground)] mb-1">廣政 和也</p>
                   <h3 className="text-sm mb-3">Kazuya Hiromasa</h3>
@@ -408,7 +408,7 @@ CDOを2年経験の後、より良い顧客体験を追求したく、2024年に
           </section> */}
           </div>
           
-          <div className="flex-1 w-full max-w-[1440px] mx-auto px-4 md:px-2 pb-12 relative z-10"> {/* コンテンツが前面に来るように z-10 を追加 */}
+          <div className="w-full md:px-16 px-4 mx-auto px-4 md:px-2 md:pb-12 pb-6 relative z-10"> {/* コンテンツが前面に来るように z-10 を追加 */}
             <CompanyOverview />
           </div>
       </div>

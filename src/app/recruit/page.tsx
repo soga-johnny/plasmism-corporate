@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 
 export default function RecruitPage() {
   return (
-    <main className="min-h-screen flex flex-col text-[var(--foreground)] md:py-12 pt-2 pb-24">
+    <main className="min-h-screen flex flex-col text-[var(--foreground)] md:py-12 pt-2">
       <Header />
       <div className="flex-1 w-full max-w-[1440px] mx-auto px-4 md:px-2 pb-12">
         <PageTitle 

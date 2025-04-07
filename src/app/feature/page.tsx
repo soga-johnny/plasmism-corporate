@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 
 export default function FeaturePage() {
   return (
-    <main className="min-h-screen flex flex-col text-[var(--foreground)] md:py-12 pt-2 pb-24 font-medium">
+    <main className="min-h-screen flex flex-col text-[var(--foreground)] md:py-12 pt-2">
       <Header />
     <div className="flex-1 w-full max-w-[1440px] mx-auto px-4 md:px-2 pb-12">
       <PageTitle 
@@ -275,7 +275,7 @@ export default function FeaturePage() {
         </section>
         </section>
 
-        <section className="pb-10 bg-[var(--background)] rounded-3xl md:p-20 p-6 border border-[var(--foreground)]/10 mb-20 md:mb-40">
+        <section className="pb-10 bg-[var(--background)] rounded-3xl md:p-20 p-6 border border-[var(--foreground)]/10 mb-2 md:mb-20">
             <div className="flex flex-col md:flex-row justify-between">
               <div className="w-full">
                 <div className="flex flex-col">
@@ -287,7 +287,7 @@ export default function FeaturePage() {
                   </p>
                   
            {/* UIUXデザインの場合 */}
-           <div className="md:py-20 py-10 border-b border-[var(--foreground)]/10">
+           <div className="py-10 border-b border-[var(--foreground)]/10">
               <h3 className="md:text-4xl text-2xl md:mb-12 mb-6">UXデザインの場合</h3>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
                 <div className="flex flex-col bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
@@ -330,7 +330,7 @@ export default function FeaturePage() {
             </div>
 
            {/* コーポレートブランディングの場合 */}
-           <div className="md:py-20 py-10 border-b border-[var(--foreground)]/10">
+           <div className="py-10 border-b border-[var(--foreground)]/10">
               <h3 className="md:text-4xl text-2xl md:mb-12 mb-6">コーポレートデザインの場合</h3>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
                 <div className="flex flex-col bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
@@ -373,7 +373,7 @@ export default function FeaturePage() {
             </div>
 
                {/* クラウドインフラ構築の場合 */}
-               <div className="md:py-20 py-10 border-b border-[var(--foreground)]/10">
+               <div className="pt-10">
               <h3 className="md:text-4xl text-2xl md:mb-12 mb-6">アーキテクチャデザインの場合</h3>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
                 <div className="flex flex-col bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
