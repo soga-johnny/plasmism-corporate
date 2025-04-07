@@ -30,8 +30,8 @@ export default function ScrollingTitle({ text }: ScrollingTitleProps) {
       }}
     >
       <motion.p 
-        style={{ x, fontFamily: 'EBGaramond' }}
-        className="absolute whitespace-nowrap text-[120px] md:text-[300px] text-[var(--foreground)]/10 tracking-wider select-none -z-50"
+        style={{ x }}
+        className="absolute whitespace-nowrap text-[120px] md:text-[300px] text-[var(--foreground)]/10 tracking-wider select-none -z-50 font-serif"
       >
        {text} {/* 受け取った text を表示 */}
       </motion.p>
