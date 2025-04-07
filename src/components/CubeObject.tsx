@@ -732,7 +732,9 @@ export default function CubeInteractive() {
       if (typeof window === 'undefined') return false;
       return window.innerWidth <= 768;
   });
-  const [isMounted, setIsMounted] = useState(false)
+  const [isMounted, setIsMounted] = useState(false);
+  const { isLoading } = useLoadingStore();
+  const [canStartCubeAnimation, setCanStartCubeAnimation] = useState(false);
 
   const blurAmount = motionValue(20);
   const filterStyle = useTransform(blurAmount, value => `blur(${value}px)`);
@@ -740,8 +742,19 @@ export default function CubeInteractive() {
   const { scrollYProgress } = useScroll();
 
   useEffect(() => {
-    setIsMounted(true)
-  }, [])
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isLoading && isMounted) {
+      const timer = setTimeout(() => {
+        setCanStartCubeAnimation(true);
+      }, 200);
+      return () => clearTimeout(timer);
+    } else {
+      setCanStartCubeAnimation(false);
+    }
+  }, [isLoading, isMounted]);
 
   useEffect(() => {
     if (isMounted) {
@@ -771,7 +784,6 @@ export default function CubeInteractive() {
     return () => window.removeEventListener('resize', updateSettings)
   }, [isMounted, isMobile])
 
-  // Blur calculation remains the same (applies to both transitions)
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     const currentProgress = latest;
     const factor = isMobile ? 2 / 3 : 1;
@@ -806,7 +818,7 @@ export default function CubeInteractive() {
     blurAmount.set(newBlur);
   });
 
-  if (!isMounted) return null
+  if (!isMounted) return null;
 
   return (
     <motion.div
@@ -815,13 +827,16 @@ export default function CubeInteractive() {
         opacity: 0,
         y: -500,
       }}
-      animate={{
+      animate={canStartCubeAnimation ? {
         opacity: 1,
         y: 0,
-      }}
-      transition={{
-        opacity: { duration: 1.5, ease: "easeOut", delay: 0.2 },
-        y: { duration: 1.5, ease: "easeOut", delay: 0.2 },
+        transition: {
+          opacity: { duration: 1.5, ease: "easeOut", delay: 0.2 },
+          y: { duration: 1.5, ease: "easeOut", delay: 0.2 },
+        }
+      } : {
+        opacity: 0,
+        y: -500,
       }}
       style={{ filter: filterStyle, willChange: 'filter' }}
     >
