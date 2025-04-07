@@ -179,17 +179,8 @@ function Cube({ isMobile }: { isMobile: boolean }) {
 
     // isMobileに応じた境界値を使用 (再計算して明確化)
     const s1End = stage1End; // Use pre-calculated value from useMemo
-    // const s2End = stage2End; // Removed unused variable - Use pre-calculated value from useMemo <-- useFrame内での参照も削除
     const s2TransitionStart = stage2TransitionStart; // Start of fade-out / stage 3 transition-in
     const s3TransitionEnd = stage3TransitionEnd; // End of fade-out / stage 3 transition-in
-
-    // === New Material Transition Timing === // This whole block will be replaced
-    // const materialTransitionDuration = s2TransitionStart - s1End; 
-    // const newMaterialTransitionEnd = s1End; 
-    // const newMaterialTransitionStart = s1End - materialTransitionDuration; 
-    // const actualMaterialTransitionStart = Math.max(0, newMaterialTransitionStart);
-    // const t_material = normalizeProgress(progress, actualMaterialTransitionStart, newMaterialTransitionEnd);
-    // === End New Timing ===
 
     // === New Slower Material Transition Timing ===
     const originalMaterialTransitionDuration = s2TransitionStart - s1End;
@@ -221,236 +212,322 @@ function Cube({ isMobile }: { isMobile: boolean }) {
       }
     }
 
-    // --- Handle Initial State Explicitly (progress === 0) --- (Simplified)
-    if (progress === 0) {
-        const initialScaleValue = isMobile ? 1.1 : 1.6;
-        if (meshRef.current.scale.x !== initialScaleValue) {
-            meshRef.current.scale.set(initialScaleValue, initialScaleValue, initialScaleValue);
-        }
-        meshRef.current.position.set(0, 0, 0);
-        meshRef.current.visible = true;
-        const baseRotationSpeed = 0.3;
-        meshRef.current.rotation.x += delta * baseRotationSpeed * 0.7;
-        meshRef.current.rotation.y += delta * baseRotationSpeed;
-        meshRef.current.rotation.z += delta * baseRotationSpeed * 0.5;
-        // Scroll rotation only at the very beginning
-        const t1_for_scroll = normalizeProgress(progress, 0, newMaterialTransitionStart * 0.5); // Limit scroll rotation effect early
-        const initialProgressFactor = Math.sin(t1_for_scroll * Math.PI / 2);
-        const scrollRotationX = initialProgressFactor * 0.2;
-        const scrollRotationY = t1_for_scroll * Math.PI;
-        const scrollRotationZ = initialProgressFactor * 0.1;
-        meshRef.current.rotation.x += scrollRotationX * delta * 2;
-        meshRef.current.rotation.y += scrollRotationY * delta * 2;
-        meshRef.current.rotation.z += scrollRotationZ * delta * 2;
-        // Ensure instanced mesh is hidden at start
-        if (instancedMeshRef.current.visible) instancedMeshRef.current.visible = false;
-        // Ensure material is reflectiveMaterial state at start
-        const material = meshRef.current.material as MeshPhysicalMaterial;
-        let needsMaterialUpdate = false;
-         if (material.transmission !== reflectiveMaterial.transmission) { material.transmission = reflectiveMaterial.transmission; needsMaterialUpdate = true; }
-         if (material.metalness !== reflectiveMaterial.metalness) { material.metalness = reflectiveMaterial.metalness; needsMaterialUpdate = true; }
-         if (material.roughness !== reflectiveMaterial.roughness) { material.roughness = reflectiveMaterial.roughness; needsMaterialUpdate = true; }
-         // ... (add resets for other relevant reflectiveMaterial props if needed)
-         if (material.opacity !== reflectiveMaterial.opacity) { material.opacity = reflectiveMaterial.opacity; needsMaterialUpdate = true;}
-         if (material.side !== FrontSide) { material.side = FrontSide; needsMaterialUpdate = true; }
-         if (material.toneMapped !== true) { material.toneMapped = true; needsMaterialUpdate = true; }
-         if (needsMaterialUpdate) material.needsUpdate = true;
-        return; // Exit early for progress 0
+    // --- Initial State Handling with Smooth Transition ---
+    // Define a small threshold to blend initial state (progress = 0) with early scrolling
+    const initialStateThreshold = 0.003; // Adjust this value to control the blend range
+    const isInInitialBlendRange = progress <= initialStateThreshold;
+    
+    // Factor to blend between initial and scrolled state (0 = initial state, 1 = fully scrolled)
+    const initialBlendFactor = isInInitialBlendRange 
+      ? progress / initialStateThreshold // Linear blend within threshold
+      : 1; // Fully scrolled if beyond threshold
+    
+    if (isInInitialBlendRange) {
+      // In the initial blend range (smoothly transition from initial state)
+      const material = meshRef.current.material as MeshPhysicalMaterial;
+      let needsMaterialUpdate = false;
+      
+      // Initial scale value - constant regardless of scroll position
+      const initialScaleValue = isMobile ? 1.1 : 1.6;
+      
+      // Calculate the target scale based on early scroll progress
+      const earlyTargetScale = MathUtils.lerp(
+        initialScaleValue, 
+        isMobile ? 1.15 : 1.65, // Slightly larger than initial, smaller than midScale
+        t_move * 5 // Accelerate early movement
+      );
+      
+      // Blend between fixed initial value and scrolled value
+      const currentScale = MathUtils.lerp(
+        initialScaleValue,
+        earlyTargetScale,
+        initialBlendFactor
+      );
+      
+      // Position - smoothly move from center origin
+      const earlyX = MathUtils.lerp(0, isMobile ? 0.2 : 0.4, t_move * 5);
+      const earlyY = MathUtils.lerp(0, isMobile ? 0.3 : 0.2, t_move * 5);
+      
+      const currentX = MathUtils.lerp(0, earlyX, initialBlendFactor);
+      const currentY = MathUtils.lerp(0, earlyY, initialBlendFactor);
+      
+      // Apply calculated scale and position
+      meshRef.current.scale.set(currentScale, currentScale, currentScale);
+      meshRef.current.position.set(currentX, currentY, 0);
+      
+      // Always ensure cube is visible at startup
+      if (!meshRef.current.visible) meshRef.current.visible = true;
+      
+      // Base rotation speed - constant
+      const baseRotationSpeed = 0.3;
+      
+      // Apply continuous rotation with slight acceleration based on scroll
+      meshRef.current.rotation.x += delta * baseRotationSpeed * 0.7;
+      meshRef.current.rotation.y += delta * baseRotationSpeed;
+      meshRef.current.rotation.z += delta * baseRotationSpeed * 0.5;
+      
+      // Additional rotation based on scroll - more pronounced as we scroll
+      const t1_for_scroll = normalizeProgress(progress, 0, newMaterialTransitionStart * 0.5);
+      const scrollFactor = Math.sin(t1_for_scroll * Math.PI / 2) * initialBlendFactor;
+      
+      const scrollRotationX = scrollFactor * 0.2;
+      const scrollRotationY = t1_for_scroll * Math.PI * initialBlendFactor;
+      const scrollRotationZ = scrollFactor * 0.1;
+      
+      meshRef.current.rotation.x += scrollRotationX * delta * 2;
+      meshRef.current.rotation.y += scrollRotationY * delta * 2;
+      meshRef.current.rotation.z += scrollRotationZ * delta * 2;
+      
+      // Ensure instanced mesh is hidden at start
+      if (instancedMeshRef.current.visible) instancedMeshRef.current.visible = false;
+      
+      // Ensure material properties match reflectiveMaterial at start
+      // Blend toward early material transition as we scroll
+      if (progress < 0.001) {
+        // At true zero, reset to exact defaults
+        if (material.transmission !== reflectiveMaterial.transmission) { material.transmission = reflectiveMaterial.transmission; needsMaterialUpdate = true; }
+        if (material.metalness !== reflectiveMaterial.metalness) { material.metalness = reflectiveMaterial.metalness; needsMaterialUpdate = true; }
+        if (material.roughness !== reflectiveMaterial.roughness) { material.roughness = reflectiveMaterial.roughness; needsMaterialUpdate = true; }
+        if (material.envMapIntensity !== reflectiveMaterial.envMapIntensity) { material.envMapIntensity = reflectiveMaterial.envMapIntensity; needsMaterialUpdate = true; }
+        if (material.reflectivity !== reflectiveMaterial.reflectivity) { material.reflectivity = reflectiveMaterial.reflectivity; needsMaterialUpdate = true; }
+        if (material.ior !== reflectiveMaterial.ior) { material.ior = reflectiveMaterial.ior; needsMaterialUpdate = true; }
+        if (material.thickness !== reflectiveMaterial.thickness) { material.thickness = reflectiveMaterial.thickness; needsMaterialUpdate = true; }
+        if (!material.attenuationColor.equals(reflectiveMaterial.attenuationColor)) { material.attenuationColor.copy(reflectiveMaterial.attenuationColor); needsMaterialUpdate = true; }
+        if (material.opacity !== reflectiveMaterial.opacity) { material.opacity = reflectiveMaterial.opacity; needsMaterialUpdate = true; }
+        if (material.side !== FrontSide) { material.side = FrontSide; needsMaterialUpdate = true; }
+        if (material.toneMapped !== true) { material.toneMapped = true; needsMaterialUpdate = true; }
+        
+        const emissiveCheckColor = new Color().setScalar(0);
+        if (!material.emissive.equals(emissiveCheckColor)) { material.emissive.copy(emissiveCheckColor); needsMaterialUpdate = true; }
+        if (material.emissiveIntensity !== 0) { material.emissiveIntensity = 0; needsMaterialUpdate = true; }
+      }
+      
+      if (needsMaterialUpdate) {
+        material.needsUpdate = true;
+      }
+      
+      // Process the rest of the animation frame if we're not at absolute zero
+      if (progress > 0) {
+        // Continue with normal stage logic (will be weighted by initialBlendFactor)
+      } else {
+        // At absolute zero, we've done all our work
+        return;
+      }
     }
-    // --- End Initial State Handling ---
+    // --- End of Initial State Handling with Smooth Transition ---
 
     // --- Stage 1 & 2 (+ Transition out): Single RoundedBox Logic ---
-    meshRef.current.visible = progress < s3TransitionEnd; // Visible until end of stage 3 transition
-    if (meshRef.current.visible) {
-        const material = meshRef.current.material as MeshPhysicalMaterial;
-        const baseRotationSpeed = 0.3;
+    // Only update if not in absolute initial state (progress === 0)
+    if (progress > 0) {
+      meshRef.current.visible = progress < s3TransitionEnd; // Visible until end of stage 3 transition
+      if (meshRef.current.visible) {
+          const material = meshRef.current.material as MeshPhysicalMaterial;
+          // const baseRotationSpeed = 0.3; // Removed unused declaration
 
-        // --- Scale, Position Logic (based on t_move) ---
-        const initialScale = isMobile ? 1.1 : 1.6;
-        const midScale = isMobile ? 1.2 : 1.5;
-        const targetRightShift = isMobile ? 1 : 2.4;
-        const targetY = isMobile ? 1.5 : 0;
+          // --- Scale, Position Logic (based on t_move) ---
+          const initialScale = isMobile ? 1.1 : 1.6;
+          const midScale = isMobile ? 1.2 : 1.5;
+          const targetRightShift = isMobile ? 1 : 2.4;
+          const targetY = isMobile ? 1.5 : 0;
 
-        let currentScale: number;
-        let currentX: number;
-        let currentY: number;
-        let currentOpacity: number = reflectiveMaterial.opacity; // Default opacity
+          let currentScale: number;
+          let currentX: number;
+          let currentY: number;
+          let currentOpacity: number = reflectiveMaterial.opacity; // Default opacity
 
-        // Calculate scale/position based purely on t_move (progress 0 to s1End)
-        // This lerp happens regardless of material transition state up to s1End
-        currentScale = MathUtils.lerp(initialScale, midScale, t_move);
-        currentX = MathUtils.lerp(0, targetRightShift, t_move);
-        currentY = MathUtils.lerp(0, targetY, t_move);
+          // Calculate scale/position based purely on t_move (progress 0 to s1End)
+          // This lerp happens regardless of material transition state up to s1End
+          currentScale = MathUtils.lerp(initialScale, midScale, t_move);
+          currentX = MathUtils.lerp(0, targetRightShift, t_move);
+          currentY = MathUtils.lerp(0, targetY, t_move);
 
-        // --- Material Logic (based on t_material) ---
-        const initialEmissiveIntensity = 0.0;
-        const stage2EmissiveIntensity = 0.5;
-        let needsMaterialUpdate = false;
+          // --- Material Logic (based on t_material) ---
+          const initialEmissiveIntensity = 0.0;
+          const stage2EmissiveIntensity = 0.5;
+          let needsMaterialUpdate = false;
 
-        if (progress < newMaterialTransitionStart) {
-            // Before material transition: Use reflectiveMaterial defaults
-            // Reset properties if they were changed (ensure clean state)
-            if (material.transmission !== reflectiveMaterial.transmission) { material.transmission = reflectiveMaterial.transmission; needsMaterialUpdate = true; }
-            if (material.metalness !== reflectiveMaterial.metalness) { material.metalness = reflectiveMaterial.metalness; needsMaterialUpdate = true; }
-            if (material.roughness !== reflectiveMaterial.roughness) { material.roughness = reflectiveMaterial.roughness; needsMaterialUpdate = true; }
-            if (material.envMapIntensity !== reflectiveMaterial.envMapIntensity) { material.envMapIntensity = reflectiveMaterial.envMapIntensity; needsMaterialUpdate = true; }
-            if (material.reflectivity !== reflectiveMaterial.reflectivity) { material.reflectivity = reflectiveMaterial.reflectivity; needsMaterialUpdate = true; }
-            if (material.ior !== reflectiveMaterial.ior) { material.ior = reflectiveMaterial.ior; needsMaterialUpdate = true; }
-            if (material.thickness !== reflectiveMaterial.thickness) { material.thickness = reflectiveMaterial.thickness; needsMaterialUpdate = true; }
-            if (!material.attenuationColor.equals(reflectiveMaterial.attenuationColor)) { material.attenuationColor.copy(reflectiveMaterial.attenuationColor); needsMaterialUpdate = true; }
-            const initialAttenuationDistance = 0.0; // Assuming this is the base value before stage 2 lerp
-            if (material.attenuationDistance !== initialAttenuationDistance) { material.attenuationDistance = initialAttenuationDistance; needsMaterialUpdate = true; }
-            if (material.specularIntensity !== reflectiveMaterial.specularIntensity) { material.specularIntensity = reflectiveMaterial.specularIntensity; needsMaterialUpdate = true; }
-            const emissiveCheckColor = new Color().setScalar(initialEmissiveIntensity);
-            if (!material.emissive.equals(emissiveCheckColor)) { material.emissive.copy(emissiveCheckColor); needsMaterialUpdate = true; }
-            if (material.emissiveIntensity !== initialEmissiveIntensity) { material.emissiveIntensity = initialEmissiveIntensity; needsMaterialUpdate = true; }
-            if (material.opacity !== reflectiveMaterial.opacity) { material.opacity = reflectiveMaterial.opacity; needsMaterialUpdate = true;} // Keep base opacity
-            if (material.side !== FrontSide) { material.side = FrontSide; needsMaterialUpdate = true; } // Use FrontSide constant
-            if (material.toneMapped !== true) { material.toneMapped = true; needsMaterialUpdate = true; }
+          if (progress < newMaterialTransitionStart) {
+              // Before material transition: Use reflectiveMaterial defaults
+              // Reset properties if they were changed (ensure clean state)
+              if (material.transmission !== reflectiveMaterial.transmission) { material.transmission = reflectiveMaterial.transmission; needsMaterialUpdate = true; }
+              if (material.metalness !== reflectiveMaterial.metalness) { material.metalness = reflectiveMaterial.metalness; needsMaterialUpdate = true; }
+              if (material.roughness !== reflectiveMaterial.roughness) { material.roughness = reflectiveMaterial.roughness; needsMaterialUpdate = true; }
+              if (material.envMapIntensity !== reflectiveMaterial.envMapIntensity) { material.envMapIntensity = reflectiveMaterial.envMapIntensity; needsMaterialUpdate = true; }
+              if (material.reflectivity !== reflectiveMaterial.reflectivity) { material.reflectivity = reflectiveMaterial.reflectivity; needsMaterialUpdate = true; }
+              if (material.ior !== reflectiveMaterial.ior) { material.ior = reflectiveMaterial.ior; needsMaterialUpdate = true; }
+              if (material.thickness !== reflectiveMaterial.thickness) { material.thickness = reflectiveMaterial.thickness; needsMaterialUpdate = true; }
+              if (!material.attenuationColor.equals(reflectiveMaterial.attenuationColor)) { material.attenuationColor.copy(reflectiveMaterial.attenuationColor); needsMaterialUpdate = true; }
+              const initialAttenuationDistance = 0.0; // Assuming this is the base value before stage 2 lerp
+              if (material.attenuationDistance !== initialAttenuationDistance) { material.attenuationDistance = initialAttenuationDistance; needsMaterialUpdate = true; }
+              if (material.specularIntensity !== reflectiveMaterial.specularIntensity) { material.specularIntensity = reflectiveMaterial.specularIntensity; needsMaterialUpdate = true; }
+              const emissiveCheckColor = new Color().setScalar(initialEmissiveIntensity);
+              if (!material.emissive.equals(emissiveCheckColor)) { material.emissive.copy(emissiveCheckColor); needsMaterialUpdate = true; }
+              if (material.emissiveIntensity !== initialEmissiveIntensity) { material.emissiveIntensity = initialEmissiveIntensity; needsMaterialUpdate = true; }
+              if (material.opacity !== reflectiveMaterial.opacity) { material.opacity = reflectiveMaterial.opacity; needsMaterialUpdate = true;} // Keep base opacity
+              if (material.side !== FrontSide) { material.side = FrontSide; needsMaterialUpdate = true; } // Use FrontSide constant
+              if (material.toneMapped !== true) { material.toneMapped = true; needsMaterialUpdate = true; }
 
-        } else if (progress <= actualMaterialTransitionEnd) { // Use actualMaterialTransitionEnd
-            // During material transition: Lerp properties based on t_material
-            currentOpacity = MathUtils.lerp(reflectiveMaterial.opacity, 0.7, t_material);
-            if (material.opacity !== currentOpacity) { material.opacity = currentOpacity; needsMaterialUpdate = true; }
+          } else if (progress <= actualMaterialTransitionEnd) { // Use actualMaterialTransitionEnd
+              // During material transition: Lerp properties based on t_material
+              currentOpacity = MathUtils.lerp(reflectiveMaterial.opacity, 0.7, t_material);
+              if (material.opacity !== currentOpacity) { material.opacity = currentOpacity; needsMaterialUpdate = true; }
 
-            const targetTransmission = MathUtils.lerp(reflectiveMaterial.transmission, 2.2, t_material);
-            if (material.transmission !== targetTransmission) { material.transmission = targetTransmission; needsMaterialUpdate = true; }
+              const targetTransmission = MathUtils.lerp(reflectiveMaterial.transmission, 2.2, t_material);
+              if (material.transmission !== targetTransmission) { material.transmission = targetTransmission; needsMaterialUpdate = true; }
 
-            const targetMetalness = MathUtils.lerp(reflectiveMaterial.metalness, 0.9, t_material);
-            if (material.metalness !== targetMetalness) { material.metalness = targetMetalness; needsMaterialUpdate = true; }
+              const targetMetalness = MathUtils.lerp(reflectiveMaterial.metalness, 0.9, t_material);
+              if (material.metalness !== targetMetalness) { material.metalness = targetMetalness; needsMaterialUpdate = true; }
 
-            const targetRoughness = MathUtils.lerp(reflectiveMaterial.roughness, 0, t_material);
-            if (material.roughness !== targetRoughness) { material.roughness = targetRoughness; needsMaterialUpdate = true; }
+              const targetRoughness = MathUtils.lerp(reflectiveMaterial.roughness, 0, t_material);
+              if (material.roughness !== targetRoughness) { material.roughness = targetRoughness; needsMaterialUpdate = true; }
 
-            const targetEnvMapIntensity = MathUtils.lerp(reflectiveMaterial.envMapIntensity, -0.5, t_material);
-            if (material.envMapIntensity !== targetEnvMapIntensity) { material.envMapIntensity = targetEnvMapIntensity; needsMaterialUpdate = true; }
+              const targetEnvMapIntensity = MathUtils.lerp(reflectiveMaterial.envMapIntensity, -0.5, t_material);
+              if (material.envMapIntensity !== targetEnvMapIntensity) { material.envMapIntensity = targetEnvMapIntensity; needsMaterialUpdate = true; }
 
-            const targetReflectivity = MathUtils.lerp(reflectiveMaterial.reflectivity, 0.99, t_material);
-            if (material.reflectivity !== targetReflectivity) { material.reflectivity = targetReflectivity; needsMaterialUpdate = true; }
+              const targetReflectivity = MathUtils.lerp(reflectiveMaterial.reflectivity, 0.99, t_material);
+              if (material.reflectivity !== targetReflectivity) { material.reflectivity = targetReflectivity; needsMaterialUpdate = true; }
 
-            const targetIor = MathUtils.lerp(reflectiveMaterial.ior, 2.5, t_material);
-            if (material.ior !== targetIor) { material.ior = targetIor; needsMaterialUpdate = true; }
+              const targetIor = MathUtils.lerp(reflectiveMaterial.ior, 2.5, t_material);
+              if (material.ior !== targetIor) { material.ior = targetIor; needsMaterialUpdate = true; }
 
-            const targetThickness = MathUtils.lerp(reflectiveMaterial.thickness, 0.5, t_material);
-            if (material.thickness !== targetThickness) { material.thickness = targetThickness; needsMaterialUpdate = true; }
+              const targetThickness = MathUtils.lerp(reflectiveMaterial.thickness, 0.5, t_material);
+              if (material.thickness !== targetThickness) { material.thickness = targetThickness; needsMaterialUpdate = true; }
 
-            dummyVec.set(reflectiveMaterial.attenuationColor.r, reflectiveMaterial.attenuationColor.g, reflectiveMaterial.attenuationColor.b);
-            dummyVec.lerp(new Vector3(1,1,1), t_material); // Lerp towards white
-            const targetAttenuationColor = new Color().setRGB(dummyVec.x, dummyVec.y, dummyVec.z);
-            if (!material.attenuationColor.equals(targetAttenuationColor)) { material.attenuationColor.copy(targetAttenuationColor); needsMaterialUpdate = true; }
+              dummyVec.set(reflectiveMaterial.attenuationColor.r, reflectiveMaterial.attenuationColor.g, reflectiveMaterial.attenuationColor.b);
+              dummyVec.lerp(new Vector3(1,1,1), t_material); // Lerp towards white
+              const targetAttenuationColor = new Color().setRGB(dummyVec.x, dummyVec.y, dummyVec.z);
+              if (!material.attenuationColor.equals(targetAttenuationColor)) { material.attenuationColor.copy(targetAttenuationColor); needsMaterialUpdate = true; }
 
-            const targetAttenuationDistance = MathUtils.lerp(0.0, 0.7, t_material);
-            if (material.attenuationDistance !== targetAttenuationDistance) { material.attenuationDistance = targetAttenuationDistance; needsMaterialUpdate = true; }
+              const targetAttenuationDistance = MathUtils.lerp(0.0, 0.7, t_material);
+              if (material.attenuationDistance !== targetAttenuationDistance) { material.attenuationDistance = targetAttenuationDistance; needsMaterialUpdate = true; }
 
-            const targetSpecularIntensity = MathUtils.lerp(reflectiveMaterial.specularIntensity, 2.0, t_material);
-            if (material.specularIntensity !== targetSpecularIntensity) { material.specularIntensity = targetSpecularIntensity; needsMaterialUpdate = true; }
+              const targetSpecularIntensity = MathUtils.lerp(reflectiveMaterial.specularIntensity, 2.0, t_material);
+              if (material.specularIntensity !== targetSpecularIntensity) { material.specularIntensity = targetSpecularIntensity; needsMaterialUpdate = true; }
 
-            const targetEmissiveScalar = MathUtils.lerp(initialEmissiveIntensity, stage2EmissiveIntensity, t_material);
-            const targetEmissiveColor = new Color().setScalar(targetEmissiveScalar);
-            if (!material.emissive.equals(targetEmissiveColor)) { material.emissive.copy(targetEmissiveColor); needsMaterialUpdate = true; }
+              const targetEmissiveScalar = MathUtils.lerp(initialEmissiveIntensity, stage2EmissiveIntensity, t_material);
+              const targetEmissiveColor = new Color().setScalar(targetEmissiveScalar);
+              if (!material.emissive.equals(targetEmissiveColor)) { material.emissive.copy(targetEmissiveColor); needsMaterialUpdate = true; }
 
-            const targetEmissiveIntensity = MathUtils.lerp(initialEmissiveIntensity, stage2EmissiveIntensity, t_material);
-            if (material.emissiveIntensity !== targetEmissiveIntensity) { material.emissiveIntensity = targetEmissiveIntensity; needsMaterialUpdate = true; }
+              const targetEmissiveIntensity = MathUtils.lerp(initialEmissiveIntensity, stage2EmissiveIntensity, t_material);
+              if (material.emissiveIntensity !== targetEmissiveIntensity) { material.emissiveIntensity = targetEmissiveIntensity; needsMaterialUpdate = true; }
 
-            if (material.depthWrite !== true) { material.depthWrite = true; needsMaterialUpdate = true; }
-            if (material.depthTest !== true) { material.depthTest = true; needsMaterialUpdate = true; }
+              if (material.depthWrite !== true) { material.depthWrite = true; needsMaterialUpdate = true; }
+              if (material.depthTest !== true) { material.depthTest = true; needsMaterialUpdate = true; }
 
-            const targetSide = t_material > 0.5 ? DoubleSide : FrontSide; // Use constants
-            if (material.side !== targetSide) { material.side = targetSide; needsMaterialUpdate = true; }
+              const targetSide = t_material > 0.5 ? DoubleSide : FrontSide; // Use constants
+              if (material.side !== targetSide) { material.side = targetSide; needsMaterialUpdate = true; }
 
-            const targetToneMapped = t_material > 0.5 ? false : true;
-            if (material.toneMapped !== targetToneMapped) { material.toneMapped = targetToneMapped; needsMaterialUpdate = true; }
+              const targetToneMapped = t_material > 0.5 ? false : true;
+              if (material.toneMapped !== targetToneMapped) { material.toneMapped = targetToneMapped; needsMaterialUpdate = true; }
 
-        } else if (progress < s2TransitionStart) {
-            // After material transition, before stage 3 transition: Use fully transitioned stage 2 material
-            currentOpacity = 0.7; // Stage 2 target opacity
-            if (material.opacity !== currentOpacity) { material.opacity = currentOpacity; needsMaterialUpdate = true; }
-            if (material.transmission !== 2.2) { material.transmission = 2.2; needsMaterialUpdate = true; }
-            if (material.metalness !== 0.9) { material.metalness = 0.9; needsMaterialUpdate = true; }
-            if (material.roughness !== 0) { material.roughness = 0; needsMaterialUpdate = true; }
-            if (material.envMapIntensity !== -0.5) { material.envMapIntensity = -0.5; needsMaterialUpdate = true; }
-            if (material.reflectivity !== 0.99) { material.reflectivity = 0.99; needsMaterialUpdate = true; }
-            if (material.ior !== 2.5) { material.ior = 2.5; needsMaterialUpdate = true; }
-            if (material.thickness !== 0.5) { material.thickness = 0.5; needsMaterialUpdate = true; }
-            const finalAttenuationColor = new Color(1,1,1);
-            if (!material.attenuationColor.equals(finalAttenuationColor)) { material.attenuationColor.copy(finalAttenuationColor); needsMaterialUpdate = true; }
-            if (material.attenuationDistance !== 0.7) { material.attenuationDistance = 0.7; needsMaterialUpdate = true; }
-            if (material.specularIntensity !== 2.0) { material.specularIntensity = 2.0; needsMaterialUpdate = true; }
-            const finalEmissiveColor = new Color().setScalar(stage2EmissiveIntensity);
-            if (!material.emissive.equals(finalEmissiveColor)) { material.emissive.copy(finalEmissiveColor); needsMaterialUpdate = true; }
-            if (material.emissiveIntensity !== stage2EmissiveIntensity) { material.emissiveIntensity = stage2EmissiveIntensity; needsMaterialUpdate = true; }
-            if (material.depthWrite !== true) { material.depthWrite = true; needsMaterialUpdate = true; }
-            if (material.depthTest !== true) { material.depthTest = true; needsMaterialUpdate = true; }
-            if (material.side !== DoubleSide) { material.side = DoubleSide; needsMaterialUpdate = true; } // Use constant
-            if (material.toneMapped !== false) { material.toneMapped = false; needsMaterialUpdate = true; }
+          } else if (progress < s2TransitionStart) {
+              // After material transition, before stage 3 transition: Use fully transitioned stage 2 material
+              currentOpacity = 0.7; // Stage 2 target opacity
+              if (material.opacity !== currentOpacity) { material.opacity = currentOpacity; needsMaterialUpdate = true; }
+              if (material.transmission !== 2.2) { material.transmission = 2.2; needsMaterialUpdate = true; }
+              if (material.metalness !== 0.9) { material.metalness = 0.9; needsMaterialUpdate = true; }
+              if (material.roughness !== 0) { material.roughness = 0; needsMaterialUpdate = true; }
+              if (material.envMapIntensity !== -0.5) { material.envMapIntensity = -0.5; needsMaterialUpdate = true; }
+              if (material.reflectivity !== 0.99) { material.reflectivity = 0.99; needsMaterialUpdate = true; }
+              if (material.ior !== 2.5) { material.ior = 2.5; needsMaterialUpdate = true; }
+              if (material.thickness !== 0.5) { material.thickness = 0.5; needsMaterialUpdate = true; }
+              const finalAttenuationColor = new Color(1,1,1);
+              if (!material.attenuationColor.equals(finalAttenuationColor)) { material.attenuationColor.copy(finalAttenuationColor); needsMaterialUpdate = true; }
+              if (material.attenuationDistance !== 0.7) { material.attenuationDistance = 0.7; needsMaterialUpdate = true; }
+              if (material.specularIntensity !== 2.0) { material.specularIntensity = 2.0; needsMaterialUpdate = true; }
+              const finalEmissiveColor = new Color().setScalar(stage2EmissiveIntensity);
+              if (!material.emissive.equals(finalEmissiveColor)) { material.emissive.copy(finalEmissiveColor); needsMaterialUpdate = true; }
+              if (material.emissiveIntensity !== stage2EmissiveIntensity) { material.emissiveIntensity = stage2EmissiveIntensity; needsMaterialUpdate = true; }
+              if (material.depthWrite !== true) { material.depthWrite = true; needsMaterialUpdate = true; }
+              if (material.depthTest !== true) { material.depthTest = true; needsMaterialUpdate = true; }
+              if (material.side !== DoubleSide) { material.side = DoubleSide; needsMaterialUpdate = true; } // Use constant
+              if (material.toneMapped !== false) { material.toneMapped = false; needsMaterialUpdate = true; }
 
-        } else { // Transitioning out to stage 3 (progress >= s2TransitionStart)
-            // Lerp scale & opacity out based on t_stage3_transition
-            // Keep final X, Y position from s1End
-            currentX = targetRightShift;
-            currentY = targetY;
-            currentScale = MathUtils.lerp(midScale, 0.001, t_stage3_transition);
+          } else { // Transitioning out to stage 3 (progress >= s2TransitionStart)
+              // Lerp scale & opacity out based on t_stage3_transition
+              // Keep final X, Y position from s1End
+              currentX = targetRightShift;
+              currentY = targetY;
+              currentScale = MathUtils.lerp(midScale, 0.001, t_stage3_transition);
 
-            const stage2Opacity = 0.7;
-            currentOpacity = MathUtils.lerp(stage2Opacity, 0, t_stage3_transition); // Fade out
+              const stage2Opacity = 0.7;
+              currentOpacity = MathUtils.lerp(stage2Opacity, 0, t_stage3_transition); // Fade out
 
-            // Keep emissive from stage 2 during fade-out
-            if (material.emissiveIntensity !== stage2EmissiveIntensity) { material.emissiveIntensity = stage2EmissiveIntensity; needsMaterialUpdate = true; }
-            if (material.opacity !== currentOpacity) { material.opacity = currentOpacity; needsMaterialUpdate = true; }
+              // Keep emissive from stage 2 during fade-out
+              if (material.emissiveIntensity !== stage2EmissiveIntensity) { material.emissiveIntensity = stage2EmissiveIntensity; needsMaterialUpdate = true; }
+              if (material.opacity !== currentOpacity) { material.opacity = currentOpacity; needsMaterialUpdate = true; }
 
-            // Keep final stage 2 state for other props during fade
-            if (material.side !== DoubleSide) { material.side = DoubleSide; needsMaterialUpdate = true; }
-            if (material.toneMapped !== false) { material.toneMapped = false; needsMaterialUpdate = true; }
-        }
+              // Keep final stage 2 state for other props during fade
+              if (material.side !== DoubleSide) { material.side = DoubleSide; needsMaterialUpdate = true; }
+              if (material.toneMapped !== false) { material.toneMapped = false; needsMaterialUpdate = true; }
+          }
 
-        // Apply calculated scale, position
-        meshRef.current.scale.set(currentScale, currentScale, currentScale);
-        meshRef.current.position.set(currentX, currentY, 0);
+          // Apply calculated scale, position - 
+          // Don't apply if in initial blend range (already handled above)
+          if (!isInInitialBlendRange) {
+            meshRef.current.scale.set(currentScale, currentScale, currentScale);
+            meshRef.current.position.set(currentX, currentY, 0);
+          }
 
-        if (needsMaterialUpdate) {
-            material.needsUpdate = true;
-        }
+          if (needsMaterialUpdate) {
+              material.needsUpdate = true;
+          }
 
-        // --- Rotation Logic (Adjusted for new material timing) ---
-        let rotationMultiplier = 1.0;
-        let additionalRotationSpeed = 0;
+          // --- Rotation Logic (Adjusted for new material timing) ---
+          // Don't apply if in initial blend range (already handled above)
+          if (!isInInitialBlendRange) {
+            const baseRotationSpeed = 0.3; // 基本の回転速度
+            let currentRotationSpeed = baseRotationSpeed; // 現在のフレームでの回転速度
 
-        if (progress >= s2TransitionStart) { // Stage 3 transition (fade out)
-            const transitionProgress = t_stage3_transition;
-            rotationMultiplier = Math.max(0, 1.0 - transitionProgress * 1.5);
-            additionalRotationSpeed = Math.sin(transitionProgress * Math.PI) * 2.5;
-        } else if (progress > actualMaterialTransitionEnd) { // Check against the actual end
-             // After material transition, before stage 3
-             rotationMultiplier = 1.2; // Slightly faster after material transition
-        } else if (progress > newMaterialTransitionStart) { // During material transition
-             rotationMultiplier = MathUtils.lerp(1.0, 1.2, t_material); // Smoothly increase speed
-        } else { // Before material transition
-            rotationMultiplier = 1.0;
-        }
+            if (progress >= s2TransitionStart) { // Stage 3 transition (fade out)
+                // ステージ3移行中の回転ロジック（既存のまま）
+                const transitionProgress = t_stage3_transition;
+                const rotationMultiplier = Math.max(0, 1.0 - transitionProgress * 1.5);
+                const additionalRotationSpeed = Math.sin(transitionProgress * Math.PI) * 2.5;
+                currentRotationSpeed = baseRotationSpeed * rotationMultiplier + additionalRotationSpeed;
 
-        if (rotationMultiplier > 0.01 || additionalRotationSpeed > 0.01) {
-             const currentRotationSpeed = baseRotationSpeed * rotationMultiplier + additionalRotationSpeed;
-             meshRef.current.rotation.x += delta * currentRotationSpeed * 0.7;
-             meshRef.current.rotation.y += delta * currentRotationSpeed;
-             meshRef.current.rotation.z += delta * currentRotationSpeed * 0.5;
-        }
+            } else if (progress > newMaterialTransitionStart && progress <= actualMaterialTransitionEnd) { // During material transition (Stage 1 -> 2)
+                // マテリアル移行中の回転ロジック
+                // t_material は 0 -> 1 に変化する
+                // sinカーブを使って中間地点(0.5)で最大になるような係数を計算 (0 -> 1 -> 0)
+                const transitionMidpointFactor = Math.sin(t_material * Math.PI);
+                // ピーク時の速度倍率（例: 1.8倍速く） - この値を調整して速度変化の度合いを変更
+                const peakSpeedMultiplier = 1.8;
+                // 基本速度からの追加速度分を計算
+                const additionalSpeedFactor = (peakSpeedMultiplier - 1.0) * transitionMidpointFactor;
+                // 現在の速度 = 基本速度 * (1 + 追加速度係数)
+                currentRotationSpeed = baseRotationSpeed * (1.0 + additionalSpeedFactor);
 
-        // Scroll influence on rotation (fades out as material transition completes)
-        const scrollInfluence = 1.0 - MathUtils.smoothstep(t_material, 0, 1); // Influence decreases during material transition
-        if (scrollInfluence > 0.001 && progress < actualMaterialTransitionEnd) { // Check against actual end
-            // Normalize scroll effect based on pre-transition phase only
-            const t_scroll_norm = normalizeProgress(progress, 0, newMaterialTransitionStart); // Use new start
-            const initialProgressFactor = Math.sin(t_scroll_norm * Math.PI / 2);
-            const scrollRotationX = initialProgressFactor * 0.2;
-            const scrollRotationY = t_scroll_norm * Math.PI;
-            const scrollRotationZ = initialProgressFactor * 0.1;
-            meshRef.current.rotation.x += scrollRotationX * delta * 2 * scrollInfluence;
-            meshRef.current.rotation.y += scrollRotationY * delta * 2 * scrollInfluence;
-            meshRef.current.rotation.z += scrollRotationZ * delta * 2 * scrollInfluence;
-        }
-        // --- End Rotation Logic ---
-    } // End if (meshRef.current.visible)
+            } else {
+                // マテリアル移行前、または移行後でステージ3移行前
+                // 基本速度を維持
+                currentRotationSpeed = baseRotationSpeed;
+            }
 
+            // 計算された回転速度を適用 (非常に遅い場合は適用しない)
+            if (currentRotationSpeed > 0.001 * baseRotationSpeed) {
+                meshRef.current.rotation.x += delta * currentRotationSpeed * 0.7;
+                meshRef.current.rotation.y += delta * currentRotationSpeed;
+                meshRef.current.rotation.z += delta * currentRotationSpeed * 0.5;
+            }
+
+            // Scroll influence logic remains the same (スクロールによる追加回転)
+            const scrollInfluence = 1.0 - MathUtils.smoothstep(t_material, 0, 1); // Influence decreases during material transition
+            if (scrollInfluence > 0.001 && progress < actualMaterialTransitionEnd) { // Check against actual end
+                // Normalize scroll effect based on pre-transition phase only
+                const t_scroll_norm = normalizeProgress(progress, 0, newMaterialTransitionStart); // Use new start
+                const initialProgressFactor = Math.sin(t_scroll_norm * Math.PI / 2);
+                const scrollRotationX = initialProgressFactor * 0.2;
+                const scrollRotationY = t_scroll_norm * Math.PI;
+                const scrollRotationZ = initialProgressFactor * 0.1;
+                meshRef.current.rotation.x += scrollRotationX * delta * 2 * scrollInfluence;
+                meshRef.current.rotation.y += scrollRotationY * delta * 2 * scrollInfluence;
+                meshRef.current.rotation.z += scrollRotationZ * delta * 2 * scrollInfluence;
+            }
+          }
+          // --- End Rotation Logic ---
+      } // End if (meshRef.current.visible)
+    }
 
     // --- Stage 3 (+ Transition in): instancedMesh Logic ---
     const showStage3 = progress > s2TransitionStart; // Stage 3 starts when single cube starts fading
