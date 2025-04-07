@@ -5,12 +5,29 @@ import Header from '@/components/Header';
 import PageTitle from '@/components/PageTitle';
 import Image from 'next/image';
 import Link from 'next/link';
-// import { Metadata } from 'next';
+import { Metadata } from 'next';
 
-// export const metadata: Metadata = {
-//   title: 'プロダクト | プラズミズム',
-//   description: 'プラズミズムのプロダクトです。',
-// };
+export const metadata: Metadata = {
+  title: "プロダクト",
+  description: "プラズミズムが開発・提供するプロダクトをご紹介します。ソリッドベンチャーとして他事業との有機的な連携を重視しています。Lean DesignerやContaineerなど。",
+  openGraph: {
+    title: "プロダクト",
+    description: "プラズミズムが開発・提供するプロダクトをご紹介します。ソリッドベンチャーとして他事業との有機的な連携を重視しています。Lean DesignerやContaineerなど。",
+    images: [
+      {
+        url: '/ogp.png',
+        width: 1200,
+        height: 630,
+        alt: 'Plasmism OGP Image',
+      },
+    ],
+  },
+  twitter: {
+    title: "プロダクト",
+    description: "プラズミズムが開発・提供するプロダクトをご紹介します。ソリッドベンチャーとして他事業との有機的な連携を重視しています。Lean DesignerやContaineerなど。",
+    images: ['/ogp.png'],
+  },
+};
 
 export default function ProductPage() {
   return (
@@ -31,8 +48,8 @@ export default function ProductPage() {
             e.preventDefault();
             document.querySelector('#lean-designer')?.scrollIntoView({ behavior: 'smooth' });
           }}>
-                <div className="w-3 h-12 bg-[var(--foreground)] rounded-full flex items-center justify-center md:mr-4 mr-3 py-8 px-3">
-                  <span className="text-[var(--background)] text-sm">1</span>
+                <div className="w-3 h-12 bg-[var(--background)] border border-[var(--foreground)] rounded-full flex items-center justify-center md:mr-4 mr-3 py-8 px-3">
+                  <span className="text-[var(--foreground)] text-sm">1</span>
                 </div>
             <div className="flex-1 flex items-center justify-between">
               <div>
@@ -51,8 +68,8 @@ export default function ProductPage() {
             e.preventDefault();
             document.querySelector('#containeer')?.scrollIntoView({ behavior: 'smooth' });
           }}>
-                  <div className="w-3 h-12 bg-[var(--foreground)] rounded-full flex items-center justify-center md:mr-4 mr-3 py-8 px-3">
-                  <span className="text-[var(--background)] text-sm">2</span>
+                  <div className="w-3 h-12 bg-[var(--background)] border border-[var(--foreground)] rounded-full flex items-center justify-center md:mr-4 mr-3 py-8 px-3">
+                  <span className="text-[var(--foreground)] text-sm">2</span>
                 </div>
             <div className="flex-1 flex items-center justify-between">
               <div>
@@ -74,10 +91,10 @@ export default function ProductPage() {
         {/* Lean Designer */}
         <section id="lean-designer" className="md:pb-20 pb-10">
           <div className="relative group md:py-6 py-4 md:px-4 px-3 mb-8 rounded-lg sticky md:top-20 top-4 bg-[var(--background)] border border-[var(--foreground)]/40 z-10 overflow-hidden">
-            <div className="absolute inset-0 bg-[url('/background.png')] bg-cover bg-center opacity-30 z-0"></div>
+            <div className="absolute inset-0 bg-[var(--background)] z-0"></div>
             <div className="relative z-10 flex items-center w-full">
-            <div className="w-3 h-12 bg-[var(--foreground)] rounded-full flex items-center justify-center md:mr-4 mr-3 py-8 px-3">
-                  <span className="text-[var(--background)] text-sm">1</span>
+            <div className="w-3 h-12 bg-[var(--background)] border border-[var(--foreground)] rounded-full flex items-center justify-center md:mr-4 mr-3 py-8 px-3">
+                  <span className="text-[var(--foreground)] text-sm">1</span>
                 </div>
               <div className="flex-1 flex items-center justify-between">
                 <div>
@@ -145,10 +162,10 @@ export default function ProductPage() {
        {/* Containeer */}
        <section id="containeer" className="md:pb-20 pb-10 border-b border-[var(--foreground)]/10">
        <div className="relative group md:py-6 py-4 md:px-4 px-3 mb-8 rounded-lg sticky md:top-20 top-4 bg-[var(--background)] border border-[var(--foreground)]/40 z-10 overflow-hidden">
-            <div className="absolute inset-0 bg-[url('/background.png')] bg-cover bg-center opacity-30 z-0"></div>
+            <div className="absolute inset-0 bg-[var(--background)] z-0"></div>
             <div className="relative z-10 flex items-center w-full">
-            <div className="w-3 h-12 bg-[var(--foreground)] rounded-full flex items-center justify-center md:mr-4 mr-3 py-8 px-3">
-                  <span className="text-[var(--background)] text-sm">2</span>
+            <div className="w-3 h-12 bg-[var(--background)] border border-[var(--foreground)] rounded-full flex items-center justify-center md:mr-4 mr-3 py-8 px-3">
+                  <span className="text-[var(--foreground)] text-sm">2</span>
                 </div>
               <div className="flex-1 flex items-center justify-between">
                 <div>

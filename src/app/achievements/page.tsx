@@ -4,10 +4,29 @@ import Image from 'next/image';
 import Link from 'next/link';
 // import { getAllAchievements } from '../../lib/notion'; // 未使用のためコメントアウト
 import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
+import { Metadata } from 'next';
+import Header from '@/components/Header';
 
-export const metadata = {
-  title: '実績一覧 | プラズミズム',
-  description: 'プラズミズムの実績一覧です。',
+export const metadata: Metadata = {
+  title: "実績紹介",
+  description: "プラズミズムがこれまでに手がけたデザインプロジェクトや実績をご紹介します。具体的な事例をご覧ください。",
+  openGraph: {
+    title: "実績紹介",
+    description: "プラズミズムがこれまでに手がけたデザインプロジェクトや実績をご紹介します。具体的な事例をご覧ください。",
+    images: [
+      {
+        url: '/ogp.png',
+        width: 1200,
+        height: 630,
+        alt: 'Plasmism OGP Image',
+      },
+    ],
+  },
+  twitter: {
+    title: "実績紹介",
+    description: "プラズミズムがこれまでに手がけたデザインプロジェクトや実績をご紹介します。具体的な事例をご覧ください。",
+    images: ['/ogp.png'],
+  },
 };
 
 export default async function AchievementsPage() {

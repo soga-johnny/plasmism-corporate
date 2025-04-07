@@ -1,8 +1,31 @@
+import { Metadata } from 'next';
 import PageTitle from '@/components/PageTitle'; // TODO: Implement PageTitle component
 import CompanyOverview from '@/components/CompanyOverview'; // TODO: Implement CompanyOverview component
 import Footer from '@/components/Footer'; // TODO: Implement Footer component
 import Header from '@/components/Header';
 import AboutScene from '@/components/AboutCube'; 
+
+export const metadata: Metadata = {
+  title: "私たちについて",
+  description: "プラズミズムは、最適解の設計・実装・検証・改良をコンピューターと情報表現でデザインする会社です。会社概要、ビジョン、ミッション、メンバーをご紹介します。",
+  openGraph: {
+    title: "私たちについて",
+    description: "プラズミズムは、最適解の設計・実装・検証・改良をコンピューターと情報表現でデザインする会社です。会社概要、ビジョン、ミッション、メンバーをご紹介します。",
+    images: [
+      {
+        url: '/ogp.png',
+        width: 1200,
+        height: 630,
+        alt: 'Plasmism OGP Image',
+      },
+    ],
+  },
+  twitter: {
+    title: "私たちについて",
+    description: "プラズミズムは、最適解の設計・実装・検証・改良をコンピューターと情報表現でデザインする会社です。会社概要、ビジョン、ミッション、メンバーをご紹介します。",
+    images: ['/ogp.png'],
+  },
+};
 
 export default function AboutPage() {
   return (

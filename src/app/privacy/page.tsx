@@ -1,6 +1,30 @@
+import { Metadata } from 'next';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import PageTitle from '@/components/PageTitle';
+
+export const metadata: Metadata = {
+  title: "プライバシーポリシー",
+  description: "プラズミズムの個人情報保護方針（プライバシーポリシー）です。お客様の個人情報に関する当社の取り組みについて記載しています。",
+  openGraph: {
+    title: "プライバシーポリシー",
+    description: "プラズミズムの個人情報保護方針（プライバシーポリシー）です。お客様の個人情報に関する当社の取り組みについて記載しています。",
+    images: [
+      {
+        url: '/ogp.png',
+        width: 1200,
+        height: 630,
+        alt: 'Plasmism OGP Image',
+      },
+    ],
+  },
+  twitter: {
+    title: "プライバシーポリシー",
+    description: "プラズミズムの個人情報保護方針（プライバシーポリシー）です。お客様の個人情報に関する当社の取り組みについて記載しています。",
+    images: ['/ogp.png'],
+  },
+};
+
 export default function PrivacyPage() {
   return (
     <main className="min-h-screen flex flex-col text-[var(--foreground)] md:py-12 pt-2 pb-24">

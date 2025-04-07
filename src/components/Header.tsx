@@ -109,7 +109,7 @@ export default function Header() {
           </div>
           <div className="flex items-center mix-blend-difference">
             <nav>
-              <ul className="flex space-x-6 text-sm mr-12 font-semibold">
+              <ul className="flex space-x-6 text-sm mr-12">
                 <li><Link href="/" className={`hover:font-bold hover:text-[#BC2611] transition-all duration-300 ${pathname === '/' ? 'border-b-2 border-[var(--foreground)] pb-1' : ''}`}>トップ</Link></li>
                 <li><Link href="/about" className={`hover:font-bold hover:text-[#BC2611] transition-all duration-300 ${pathname === '/about' ? 'border-b-2 border-[var(--foreground)] pb-1' : ''}`}>私たちについて</Link></li>
                 <li><Link href="/feature" className={`hover:font-bold hover:text-[#BC2611] transition-all duration-300 ${pathname === '/feature' ? 'border-b-2 border-[var(--foreground)] pb-1' : ''}`}>特徴</Link></li>
@@ -120,9 +120,9 @@ export default function Header() {
                 <li><Link href="/company" className={`hover:font-bold hover:text-[#BC2611] transition-all duration-300 ${pathname === '/company' ? 'border-b-2 border-[var(--foreground)] pb-1' : ''}`}>会社案内</Link></li>
               </ul>
             </nav>
-            <div className="mr-2 font-semibold border-r border-[var(--foreground)]/50 pr-4 text-right flex flex-col items-end">
+            <div className="mr-2 border-r border-[var(--foreground)]/50 pr-4 text-right flex flex-col items-end">
               <div className="-mb-1 text-xs">{currentDate}</div>
-              <div className="text-sm">{currentTime}</div>
+              <div className="text-base">{currentTime}</div>
             </div>
             <Link href="/contact" className="bg-[var(--foreground)] hover:bg-[#BC2611] hover:scale-105 hover:text-[var(--background)] transition-all duration-300 text-[var(--background)] rounded-md py-2 px-4 mx-2 flex items-center text-sm border border-[var(--foreground)]/20">
               お問い合わせ <span className="ml-2 border-l border-[var(--background)]/50 pl-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
@@ -159,10 +159,10 @@ export default function Header() {
           y: 0,
           transition: { duration: 0.7, delay: 0.6, ease: "easeOut" }
         }}
-        className="fixed bottom-6 left-1/2 transform -translate-x-1/2 w-1/2 z-[70] flex backdrop-blur-lg mix-blend-difference overflow-hidden rounded-lg"
+        className="fixed bottom-5 left-1/2 transform -translate-x-1/2 w-1/2 z-[70] flex backdrop-blur-lg mix-blend-difference overflow-hidden rounded-lg"
       >
         <button 
-          className="flex-1 flex items-center justify-center py-3 text-[var(--foreground)] active:scale-95 active:bg-opacity-80 transition-all duration-300 overflow-hidden"
+          className="flex-1 flex items-center justify-center py-4 text-[var(--foreground)] active:scale-95 active:bg-opacity-80 transition-all duration-300 overflow-hidden"
           style={{ backgroundColor: isMenuOpen ? 'var(--background)' : 'var(--foreground)' }}
           onClick={toggleMenu}
         >

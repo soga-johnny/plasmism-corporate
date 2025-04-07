@@ -8,6 +8,26 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import { useRef, useEffect } from 'react';
 import ScrollingTitle from '@/components/ScrollingTitle';
+import { Metadata } from 'next';
+
+// メタデータをエクスポート
+export const metadata: Metadata = {
+  // title: "トップページ", // layout.tsxのdefaultを使用するためコメントアウト
+  // description: "トップページのディスクリプション", // layout.tsxのdescriptionを使用するためコメントアウト
+  openGraph: {
+    images: [
+      {
+        url: '/ogp.png',
+        width: 1200,
+        height: 630,
+        alt: 'Plasmism OGP Image',
+      },
+    ],
+  },
+  twitter: {
+    images: ['/ogp.png'],
+  }
+};
 
 export default function Home() {
   const aboutSectionRef = useRef<HTMLDivElement>(null);
@@ -139,10 +159,10 @@ export default function Home() {
       
       
       {/* PRODUCT Section (Moved Up & Adjusted Height) */}
-      <section className="w-full max-w-[1440px] mx-auto px-4 md:px-16 flex flex-col justify-center py-16 md:py-24 bg-[var(--background)] rounded-xl">
+      <section className="w-full max-w-[1440px] mx-auto px-6 md:px-16 flex flex-col justify-center py-16 md:py-24 rounded-xl">
          {/* PageTitle style title */}
          <div className="mb-12 md:mb-16 border-b border-[var(--foreground)]/10 pb-4 md:pb-6">
-          <p className="text-md mb-2 font-serif text-[var(--foreground)]">● PRODUCT</p>
+          <p className="text-md mb-2 font-serif text-[var(--foreground)]">● Product</p>
           <h2 className="md:text-4xl text-2xl text-[var(--foreground)]">プロダクト</h2>
            <p className="mt-2 md:text-sm text-xs text-[var(--foreground)]/80">ソリッドベンチャーとして他事業との有機的な連携</p>
         </div>
@@ -150,7 +170,19 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 md:gap-x-16 gap-y-16 mb-12 md:mb-16">
           {/* Product Item 1 */}
           <div className="group flex flex-col">
-            <Link href="/product#lean-designer" className="block mb-6 relative overflow-hidden rounded-xl border border-[var(--foreground)]/10 shadow-sm hover:shadow-xl transition-all duration-300">
+          <div className="flex items-center mb-8">
+          <div className="w-3 h-12 bg-[var(--background)] border border-[var(--foreground)] rounded-full flex items-center justify-center md:mr-4 mr-3 py-8 px-3">
+                  <span className="text-[var(--foreground)] text-sm">1</span>
+                </div>
+            <div>
+             <h3 className="text-2xl md:text-4xl mb-2 text-[var(--foreground)] group-hover:text-[var(--foreground)]/90 transition-colors">Lean Designer</h3>
+            <p className="text-sm text-[var(--foreground)] leading-relaxed">
+              開発専門のハイエンドUI/UXソリューション
+            </p>
+            </div>
+            </div>
+            <Link href="/product#lean-designer" className="block mb-6 relative overflow-hidden rounded-xl border border-[var(--foreground)]/10 hover:border-[var(--foreground)]/40 transition-all duration-300">
+            <div className="relative w-full aspect-[16/9] overflow-hidden">
               <Image
                 src="/lean-designer.jpg"
                 alt="Lean Designer Product Image"
@@ -158,25 +190,34 @@ export default function Home() {
                 height={450}
                 className="w-full h-auto object-cover aspect-[16/9] transform group-hover:scale-105 group-hover:brightness-105 transition-all duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-5 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex justify-end">
-                 <span className="text-white text-xs md:text-sm border border-white/60 rounded-full px-4 py-1.5 backdrop-blur-md bg-black/50 shadow-md">詳細を見る</span>
-              </div>
-            </Link>
-             <h3 className="text-xl md:text-2xl font-light mb-3 text-[var(--foreground)] group-hover:text-[var(--foreground)]/90 transition-colors">Lean Designer</h3>
-            <p className="text-sm font-light text-[var(--foreground)]/70 mb-4 leading-relaxed">
-              開発専門のハイエンドUI/UXソリューション。AIを活用したデザイン計画書生成機能と、柔軟なコンポーネントシステムで、複雑な要件定義から実装までの開発プロセス全体を効率化し、高品質なプロダクト開発を力強く支援します。
-            </p>
-            <Link
-              href="/product#lean-designer"
-              className="inline-flex items-center text-[var(--foreground)]/60 hover:text-[var(--foreground)] transition-colors duration-300 text-sm font-thin group mt-auto hover:underline underline-offset-4"
-            >
-              Webサイトを見る <span className="ml-1 transform group-hover:translate-x-1 transition-transform duration-300">→</span>
+                       <div className="absolute inset-0 bg-black/0 group-hover:bg-[var(--foreground)]/20 transition-all duration-300"></div>
+                       </div>
+                         <div className="md:p-6 p-4 flex justify-end items-center">
+                  <div className="flex items-center text-[var(--foreground)]/80 text-sm group-hover:text-[var(--foreground)] transition-colors">
+                    詳細を見る
+                    <svg className="w-4 h-4 ml-2 transform translate-x-0 group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </div>
+                </div>
             </Link>
           </div>
           {/* Product Item 2 */}
            <div className="group flex flex-col">
-            <Link href="/product#containeer" className="block mb-6 relative overflow-hidden rounded-xl border border-[var(--foreground)]/10 shadow-sm hover:shadow-xl transition-all duration-300">
+            {/* Added title block similar to Product 1 */}
+            <div className="flex items-center mb-8">
+             <div className="w-3 h-12 bg-[var(--background)] border border-[var(--foreground)] rounded-full flex items-center justify-center md:mr-4 mr-3 py-8 px-3">
+               <span className="text-[var(--foreground)] text-sm">2</span>
+             </div>
+             <div>
+               <h3 className="text-2xl md:text-4xl mb-2 text-[var(--foreground)] group-hover:text-[var(--foreground)]/90 transition-colors mt-1">Containeer</h3>
+               <p className="text-sm text-[var(--foreground)] leading-relaxed">
+                 バーチャルコンテンツのWEBギャラリーメディア
+               </p>
+             </div>
+            </div>
+            <Link href="/product#containeer" className="block mb-6 relative overflow-hidden rounded-xl border border-[var(--foreground)]/10 hover:border-[var(--foreground)]/40 transition-all duration-300">
+            <div className="relative w-full aspect-[16/9] overflow-hidden">
               <Image
                 src="/containeer.jpg"
                 alt="Containeer Product Image"
@@ -184,148 +225,225 @@ export default function Home() {
                 height={450}
                 className="w-full h-auto object-cover aspect-[16/9] transform group-hover:scale-105 group-hover:brightness-105 transition-all duration-500"
               />
-               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-5 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 flex justify-end">
-                 <span className="text-white text-xs md:text-sm border border-white/60 rounded-full px-4 py-1.5 backdrop-blur-md bg-black/50 shadow-md">詳細を見る</span>
-              </div>
-            </Link>
-            <h3 className="text-xl md:text-2xl font-light mb-3 text-[var(--foreground)] group-hover:text-[var(--foreground)]/90 transition-colors">Containeer</h3>
-            <p className="text-sm font-light text-[var(--foreground)]/70 mb-4 leading-relaxed">
-              世界中から厳選されたXRコンテンツを展示するバーチャルギャラリーWEBメディア。従来の枠を超えたインタラクティブな体験を通じて、デジタルアートや空間デザインの新たなインスピレーションと出会う場を提供します。
-            </p>
-            <Link
-              href="/product#containeer"
-               className="inline-flex items-center text-[var(--foreground)]/60 hover:text-[var(--foreground)] transition-colors duration-300 text-sm font-thin group mt-auto hover:underline underline-offset-4"
-            >
-              Webサイトを見る <span className="ml-1 transform group-hover:translate-x-1 transition-transform duration-300">→</span>
+                           <div className="absolute inset-0 bg-black/0 group-hover:bg-[var(--foreground)]/20 transition-all duration-300"></div>
+                           </div>
+                              <div className="md:p-6 p-4 flex justify-end items-center">
+                  <div className="flex items-center text-[var(--foreground)]/80 text-sm group-hover:text-[var(--foreground)] transition-colors">
+                    詳細を見る
+                    <svg className="w-4 h-4 ml-2 transform translate-x-0 group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </div>
+                </div>
             </Link>
           </div>
-        </div>
-        <div className="text-center mt-8">
-          <Link
-            href="/product"
-             className="inline-flex items-center text-[var(--foreground)] border border-[var(--foreground)]/30 px-8 py-3 rounded-full hover:bg-[var(--foreground)]/10 transition-all duration-300 text-sm font-thin group hover:border-[var(--foreground)]/50 hover:shadow-md"
-          >
-            プロダクト一覧を見る
-             <span className="ml-2 transform group-hover:translate-x-1 transition-transform duration-300">→</span>
-          </Link>
         </div>
       </section>
 
        {/* SERVICE Section (Moved Down & Adjusted Height) */}
       {/* Added a subtle background pattern class placeholder: 'bg-dots-pattern' */}
-      <section className="w-full max-w-[1440px] mx-auto px-4 md:px-16 flex flex-col justify-center py-16 md:py-24 bg-[var(--background)] relative isolate">
+      <section className="w-full max-w-[1440px] mx-auto px-6 md:px-16 flex flex-col justify-center py-16 md:py-24 bg-[var(--background)] relative isolate md:rounded-2xl rounded-xl">
         {/* Placeholder for a subtle background pattern/texture */}
         {/* <div className="absolute inset-0 -z-10 bg-dots-pattern opacity-5"></div> */}
 
         {/* PageTitle style title */}
         <div className="mb-12 md:mb-16 border-b border-[var(--foreground)]/10 pb-4 md:pb-6">
-          <p className="text-md mb-2 font-serif text-[var(--foreground)]">● SERVICE</p>
+          <p className="text-md mb-2 font-serif text-[var(--foreground)]">● Service</p>
           <h2 className="md:text-4xl text-2xl text-[var(--foreground)]">サービス</h2>
           <p className="mt-2 md:text-sm text-xs text-[var(--foreground)]/80">相乗的な最適解の徹底的な追求</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-12 md:mb-16">
           {/* Service Item 1 - Added Icon */}
-          <Link href="/service#ux-design" className="group flex flex-col p-8 bg-[var(--foreground)]/5 rounded-xl border border-[var(--foreground)]/10 hover:border-[var(--foreground)]/40 hover:bg-[var(--foreground)]/10 transition-all duration-300 hover:shadow-lg">
-            <div className="flex justify-between items-start mb-4">
-              <div className="flex items-baseline">
-                <span className="text-4xl md:text-5xl text-[var(--foreground)]/30 mr-3 font-thin">01</span>
-                <h3 className="text-xl md:text-2xl font-light group-hover:text-[var(--foreground)]/90 transition-colors mt-1">UXデザイン</h3>
-              </div>
-              {/* Icon Placeholder */}
-               <svg className="w-6 h-6 text-[var(--foreground)]/30 group-hover:text-[var(--foreground)]/50 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" /></svg>
+          <Link href="/service#ux-design" className="group flex flex-col p-8 bg-[var(--foreground)]/5 rounded-xl border border-[var(--foreground)]/10 hover:border-[var(--foreground)]/40 hover:bg-[var(--foreground)]/10 transition-all duration-300">
+            <div className="flex justify-start items-center mb-6">
+                <svg className="w-8 h-8 text-[var(--foreground)] mr-2 mt-2 group-hover:text-[var(--foreground)]/50 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" /></svg>
+
+                <h3 className="text-xl md:text-2xl group-hover:text-[var(--foreground)]/90 transition-colors mt-1">UXデザイン</h3>
             </div>
             <p className="text-[var(--foreground)]/70 text-sm md:text-base font-light mb-6 group-hover:text-[var(--foreground)]/80 transition-colors leading-relaxed">
               ユーザーリサーチとデータ分析に基づき、直感的で使いやすいインターフェースと最適なユーザー体験を設計。ビジネス成果に直結する価値を創出します。
             </p>
-            <div className="flex justify-end items-center mt-auto opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all duration-300">
-              <span className="text-xs mr-2 text-[var(--foreground)]/60 group-hover:text-[var(--foreground)]/70">詳細を見る</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[var(--foreground)]/70 group-hover:text-[var(--foreground)]">
-                <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
+              <div className="flex justify-end items-center mt-auto">
+                <span className="text-xs mr-2 text-[var(--foreground)]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">詳細を見る</span>
+                {/* Footer's rotating arrow SVG, adjusted size */}
+                <svg className="w-8 h-8 text-[var(--foreground)]/70 group-hover:text-[var(--foreground)] transition-transform duration-500 group-hover:rotate-[360deg]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.5">
+                   <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+             </div>
           </Link>
-          {/* Service Item 2 - Added Icon */}
-           <Link href="/service#corporate-design" className="group flex flex-col p-8 bg-[var(--foreground)]/5 rounded-xl border border-[var(--foreground)]/10 hover:border-[var(--foreground)]/40 hover:bg-[var(--foreground)]/10 transition-all duration-300 hover:shadow-lg">
-             <div className="flex justify-between items-start mb-4">
-              <div className="flex items-baseline">
-                <span className="text-4xl md:text-5xl text-[var(--foreground)]/30 mr-3 font-thin">02</span>
-                <h3 className="text-xl md:text-2xl font-light group-hover:text-[var(--foreground)]/90 transition-colors mt-1">コーポレートデザイン</h3>
-              </div>
-              {/* Icon Placeholder */}
-              <svg className="w-6 h-6 text-[var(--foreground)]/30 group-hover:text-[var(--foreground)]/50 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21M3 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21M21 21v-3.375c0-.621-.504-1.125-1.125-1.125h-3.75c-.621 0-1.125.504-1.125 1.125V21" /></svg>
-            </div>
-            <p className="text-[var(--foreground)]/70 text-sm md:text-base font-light mb-6 group-hover:text-[var(--foreground)]/80 transition-colors leading-relaxed">
-              企業の理念や価値観を反映したロゴ、ビジュアルアイデンティティを構築。あらゆる顧客接点で一貫したブランドイメージを確立し、企業価値を高めます。
-            </p>
-            <div className="flex justify-end items-center mt-auto opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all duration-300">
-               <span className="text-xs mr-2 text-[var(--foreground)]/60 group-hover:text-[var(--foreground)]/70">詳細を見る</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[var(--foreground)]/70 group-hover:text-[var(--foreground)]">
-                <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
-          </Link>
-          {/* Service Item 3 - Added Icon */}
-           <Link href="/service#architecture-design" className="group flex flex-col p-8 bg-[var(--foreground)]/5 rounded-xl border border-[var(--foreground)]/10 hover:border-[var(--foreground)]/40 hover:bg-[var(--foreground)]/10 transition-all duration-300 hover:shadow-lg">
-            <div className="flex justify-between items-start mb-4">
-              <div className="flex items-baseline">
-                 <span className="text-4xl md:text-5xl text-[var(--foreground)]/30 mr-3 font-thin">03</span>
-                <h3 className="text-xl md:text-2xl font-light group-hover:text-[var(--foreground)]/90 transition-colors mt-1">アーキテクチャデザイン</h3>
-              </div>
-               {/* Icon Placeholder */}
-              <svg className="w-6 h-6 text-[var(--foreground)]/30 group-hover:text-[var(--foreground)]/50 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" /></svg>
-            </div>
-            <p className="text-[var(--foreground)]/70 text-sm md:text-base font-light mb-6 group-hover:text-[var(--foreground)]/80 transition-colors leading-relaxed">
-              スケーラビリティ、セキュリティ、コスト効率を考慮し、ビジネスの成長を支える持続可能なシステム基盤を設計。将来の変化にも柔軟に対応します。
-            </p>
-             <div className="flex justify-end items-center mt-auto opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all duration-300">
-               <span className="text-xs mr-2 text-[var(--foreground)]/60 group-hover:text-[var(--foreground)]/70">詳細を見る</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[var(--foreground)]/70 group-hover:text-[var(--foreground)]">
-                <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
-          </Link>
+          {/* Service Item 2 - Apply Layout & Hover changes */}
+           <Link href="/service#corporate-design" className="group flex flex-col p-8 bg-[var(--foreground)]/5 rounded-xl border border-[var(--foreground)]/10 hover:border-[var(--foreground)]/40 hover:bg-[var(--foreground)]/10 transition-all duration-300">
+             {/* Layout adjusted to match UX Design item */}
+             <div className="flex justify-start items-center mb-6">
+                 <svg className="w-8 h-8 text-[var(--foreground)] mr-2 mt-2 group-hover:text-[var(--foreground)]/50 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21M3 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21M21 21v-3.375c0-.621-.504-1.125-1.125-1.125h-3.75c-.621 0-1.125.504-1.125 1.125V21" /></svg>
+                 <h3 className="text-xl md:text-2xl group-hover:text-[var(--foreground)]/90 transition-colors mt-1">コーポレートデザイン</h3>
+             </div>
+             <p className="text-[var(--foreground)]/70 text-sm md:text-base font-light mb-6 group-hover:text-[var(--foreground)]/80 transition-colors leading-relaxed">
+               企業の理念や価値観を反映したロゴ、ビジュアルアイデンティティを構築。あらゆる顧客接点で一貫したブランドイメージを確立し、企業価値を高めます。
+             </p>
+             {/* Adjusted hover effect: Text fades in, arrow rotates */}
+             <div className="flex justify-end items-center mt-auto">
+                <span className="text-xs mr-2 text-[var(--foreground)]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">詳細を見る</span>
+                {/* Footer's rotating arrow SVG, adjusted size */}
+                <svg className="w-8 h-8 text-[var(--foreground)]/70 group-hover:text-[var(--foreground)] transition-transform duration-500 group-hover:rotate-[360deg]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.5">
+                   <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+             </div>
+           </Link>
+           {/* Service Item 3 - Apply Layout & Hover changes */}
+            <Link href="/service#architecture-design" className="group flex flex-col p-8 bg-[var(--foreground)]/5 rounded-xl border border-[var(--foreground)]/10 hover:border-[var(--foreground)]/40 hover:bg-[var(--foreground)]/10 transition-all duration-300">
+             {/* Layout adjusted to match UX Design item */}
+             <div className="flex justify-start items-center mb-6">
+                 <svg className="w-8 h-8 text-[var(--foreground)] mr-2 mt-2 group-hover:text-[var(--foreground)]/50 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1"><path strokeLinecap="round" strokeLinejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" /></svg>
+                 <h3 className="text-xl md:text-2xl group-hover:text-[var(--foreground)]/90 transition-colors mt-1">アーキテクチャデザイン</h3>
+             </div>
+             <p className="text-[var(--foreground)]/70 text-sm md:text-base font-light mb-6 group-hover:text-[var(--foreground)]/80 transition-colors leading-relaxed">
+               スケーラビリティ、セキュリティ、コスト効率を考慮し、ビジネスの成長を支える持続可能なシステム基盤を設計。将来の変化にも柔軟に対応します。
+             </p>
+              {/* Adjusted hover effect: Text fades in, arrow rotates */}
+             <div className="flex justify-end items-center mt-auto">
+                <span className="text-xs mr-2 text-[var(--foreground)]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300">詳細を見る</span>
+                {/* Footer's rotating arrow SVG, adjusted size */}
+                <svg className="w-8 h-8 text-[var(--foreground)]/70 group-hover:text-[var(--foreground)] transition-transform duration-500 group-hover:rotate-[360deg]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.5">
+                   <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+             </div>
+            </Link>
         </div>
-        <div className="text-center mt-8">
-          <Link
-            href="/service"
-            className="inline-flex items-center text-[var(--foreground)] border border-[var(--foreground)]/30 px-8 py-3 rounded-full hover:bg-[var(--foreground)]/10 transition-all duration-300 text-sm font-thin group hover:border-[var(--foreground)]/50 hover:shadow-md"
-          >
-            サービス一覧を見る
-            <span className="ml-2 transform group-hover:translate-x-1 transition-transform duration-300">→</span>
-          </Link>
+        <div className="w-full flex justify-center text-center mt-8">
+        <Link href="/feature" className="w-1/2 bg-[var(--background)] hover:bg-[#BC2611] hover:scale-105 hover:text-[var(--background)] transition-all duration-300 text-[var(--foreground)] rounded-md py-3 px-4 flex items-center justify-between text-sm border border-[var(--foreground)]/40">
+              サービス一覧 <span className="ml-2 border-l border-[var(--foreground)]/50 hover:border-[var(--background)] pl-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
+            </Link>
         </div>
       </section>
 
       {/* RECRUIT Section (Adjusted Height) */}
-       <section className="w-full max-w-[1440px] mx-auto px-4 md:px-16 flex flex-col justify-center py-16 md:py-24 bg-[var(--background)]">
+       <section className="w-full max-w-[1440px] mx-auto px-4 md:px-16 flex flex-col justify-center py-16 md:py-24">
           {/* PageTitle style title */}
          <div className="mb-12 md:mb-16 border-b border-[var(--foreground)]/10 pb-4 md:pb-6">
-            <p className="text-md mb-2 font-serif text-[var(--foreground)]">● RECRUIT</p>
+            <p className="text-md mb-2 font-serif text-[var(--foreground)]">● Recruit</p>
             <h2 className="md:text-4xl text-2xl text-[var(--foreground)]">採用情報</h2>
              <p className="mt-2 md:text-sm text-xs text-[var(--foreground)]/80">尽きない探究と革新の瞬間を共有</p>
          </div>
 
          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-[var(--foreground)]/10 rounded-full filter blur-3xl opacity-50 animate-pulse-slow-reverse"></div>
-          <div className="relative flex-grow flex items-center justify-center bg-gradient-to-br from-[var(--foreground)]/5 via-transparent to-[var(--foreground)]/5 rounded-2xl p-10 md:p-16 border border-[var(--foreground)]/10 overflow-hidden shadow-inner shadow-[var(--foreground)]/5">
-            <div className="absolute inset-0 opacity-[0.07] z-0 mix-blend-overlay">
-              <Image src="/background.png" layout="fill" objectFit="cover" alt="Background texture" className="scale-150 blur-lg"/>
+         <div className="space-y-10">
+        {/* Notionページへの遷移ボタン */}
+        <div className="mb-12">
+          <Link 
+            href="https://same-ranunculus-85c.notion.site/Plasmism-1bf43fbe1206801bb0efd6d37bf01449" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="bg-[var(--foreground)]/10 hover:bg-[var(--foreground)]/15 transition-all border border-[var(--foreground)]/20 rounded-xl px-8 py-6 flex flex-col md:flex-row md:justify-between md:items-center w-full"
+          >
+            <div className="mb-4 md:mb-0">
+              <h3 className="text-2xl md:text-3xl mb-2">採用情報の詳細</h3>
+              <p className="text-sm text-[var(--foreground)]/60">採用情報の詳細はNotionページでご確認いただけます</p>
             </div>
-            <div className="relative z-10 text-center flex flex-col items-center">
-              <p className="text-lg md:text-xl font-light leading-relaxed md:leading-loose mb-12 text-[var(--foreground)]/90 max-w-3xl mx-auto">
-                「豊かな毎日を、コンピューターと情報表現で、真摯にデザインする」<br className="hidden md:block" />
-                このミッションに共感し、想像を超える豊かさを共に創造する仲間を求めています。<br />
-                あなたの情熱とスキルで、未来のデザインを一緒に描きませんか？
-              </p>
-              <Link
-                href="/recruit"
-                className="inline-block bg-[var(--foreground)] text-[var(--background)] px-12 py-4 rounded-full hover:bg-[#BC2611] hover:scale-[1.03] transition-all duration-300 text-base font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#BC2611]"
-              >
-                採用情報を見る
-              </Link>
+            <div className="flex items-center pt-4 md:pt-0 border-t md:border-t-0 border-[var(--foreground)]/10">
+              <span className="mr-2 text-[var(--foreground)]/60">詳細を見る</span>
+              <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M13 5l7 7-7 7M5 12h15" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+          </Link>
+        </div>
+        
+        {/* プラズミズムで働くメリット */}
+        <div className="mb-12">
+          <h3 className="md:text-3xl text-2xl mb-8 border-b border-[var(--foreground)]/10 pb-4">プラズミズムで働くメリット</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-[var(--foreground)]/5 rounded-xl p-6 border border-[var(--foreground)]/10">
+              <div className="flex items-start mb-4">
+                <div className="bg-[var(--foreground)]/10 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3">
+                  <span className="text-sm">01</span>
+                </div>
+                <p className="text-sm text-[var(--foreground)]/80 leading-relaxed">
+                  クライアントと直接対話しながら少人数でプロジェクトを進めるため、個人の貢献度が高く、スキルの成長スピードが速いです。
+                </p>
+              </div>
+            </div>
+            <div className="bg-[var(--foreground)]/5 rounded-xl p-6 border border-[var(--foreground)]/10">
+              <div className="flex items-start mb-4">
+                <div className="bg-[var(--foreground)]/10 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3">
+                  <span className="text-sm">02</span>
+                </div>
+                <p className="text-sm text-[var(--foreground)]/80 leading-relaxed">
+                  限られたリソースで効率的に成果を出すスタートアップならではの環境で、コミュニケーション能力、交渉力、問題解決力、判断力、計画力などの実践的なスキルが身につきます。
+                </p>
+              </div>
+            </div>
+            <div className="bg-[var(--foreground)]/5 rounded-xl p-6 border border-[var(--foreground)]/10">
+              <div className="flex items-start mb-4">
+                <div className="bg-[var(--foreground)]/10 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3">
+                  <span className="text-sm">03</span>
+                </div>
+                <p className="text-sm text-[var(--foreground)]/80 leading-relaxed">
+                  無駄な会議や単純作業を極力減らし、スキル向上につながる業務に時間を使えるよう工夫しています。
+                </p>
+              </div>
+            </div>
+            <div className="bg-[var(--foreground)]/5 rounded-xl p-6 border border-[var(--foreground)]/10">
+              <div className="flex items-start mb-4">
+                <div className="bg-[var(--foreground)]/10 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3">
+                  <span className="text-sm">04</span>
+                </div>
+                <p className="text-sm text-[var(--foreground)]/80 leading-relaxed">
+                  質の高い制作実績を重視する文化があり、会社で働きながら個人のポートフォリオも充実させることができます。
+                </p>
+              </div>
             </div>
           </div>
+        </div>
+        
+        {/* プラズミズムに向いている方 */}
+        <div>
+          <h3 className="md:text-3xl text-2xl mb-8 border-b border-[var(--foreground)]/10 pb-4">プラズミズムに向いている方</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-[var(--foreground)]/5 rounded-xl p-6 border border-[var(--foreground)]/10">
+              <div className="flex items-start mb-4">
+                <div className="bg-[var(--foreground)]/10 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3">
+                  <span className="text-sm">01</span>
+                </div>
+                <p className="text-sm text-[var(--foreground)]/80 leading-relaxed">
+                  デザインや実装だけでなく、要件ヒアリングや課題整理、提案など上流工程にも積極的に携わりたい方。
+                </p>
+              </div>
+            </div>
+            <div className="bg-[var(--foreground)]/5 rounded-xl p-6 border border-[var(--foreground)]/10">
+              <div className="flex items-start mb-4">
+                <div className="bg-[var(--foreground)]/10 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3">
+                  <span className="text-sm">02</span>
+                </div>
+                <p className="text-sm text-[var(--foreground)]/80 leading-relaxed">
+                  ルーティンワークではなく、常に新しい挑戦ができる環境でスキルを伸ばしていきたい方。
+                </p>
+              </div>
+            </div>
+            <div className="bg-[var(--foreground)]/5 rounded-xl p-6 border border-[var(--foreground)]/10">
+              <div className="flex items-start mb-4">
+                <div className="bg-[var(--foreground)]/10 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3">
+                  <span className="text-sm">03</span>
+                </div>
+                <p className="text-sm text-[var(--foreground)]/80 leading-relaxed">
+                  革新的なWeb表現や最新技術の探求に情熱を持つクリエイティブな方。
+                </p>
+              </div>
+            </div>
+            <div className="bg-[var(--foreground)]/5 rounded-xl p-6 border border-[var(--foreground)]/10">
+              <div className="flex items-start mb-4">
+                <div className="bg-[var(--foreground)]/10 rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 mr-3">
+                  <span className="text-sm">04</span>
+                </div>
+                <p className="text-sm text-[var(--foreground)]/80 leading-relaxed">
+                  クライアントの期待に応えるだけでなく、自分自身が誇りを持てる作品づくりにこだわりたい方。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
         </section>
 
       <Footer />

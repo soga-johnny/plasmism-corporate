@@ -1,8 +1,31 @@
+import { Metadata } from 'next';
 import Footer from '@/components/Footer';
 import PageTitle from '@/components/PageTitle';
 import Header from '@/components/Header';
 import FeatureScene from '@/components/FeatureCube';
 import ScrollingTitle from '@/components/ScrollingTitle';
+
+export const metadata: Metadata = {
+  title: "私たちの特徴",
+  description: "プラズミズム独自の強みや特徴について解説します。少数精鋭だからこそ実現する、再現性のある戦略的アプローチをご覧ください。",
+  openGraph: {
+    title: "私たちの特徴",
+    description: "プラズミズム独自の強みや特徴について解説します。少数精鋭だからこそ実現する、再現性のある戦略的アプローチをご覧ください。",
+    images: [
+      {
+        url: '/ogp.png',
+        width: 1200,
+        height: 630,
+        alt: 'Plasmism OGP Image',
+      },
+    ],
+  },
+  twitter: {
+    title: "私たちの特徴",
+    description: "プラズミズム独自の強みや特徴について解説します。少数精鋭だからこそ実現する、再現性のある戦略的アプローチをご覧ください。",
+    images: ['/ogp.png'],
+  },
+};
 
 export default function FeaturePage() {
   return (
@@ -121,7 +144,7 @@ export default function FeaturePage() {
                   </p>
                   <p className="text-[var(--foreground)]/80 text-sm md:text-base leading-relaxed mb-8">
                   設計で描いた戦略を実際に検証可能な見える形に変換するプロセスです。<br/><br/>
-                  これに特化して連携されたチームワークで、アクションプランを“機能”や“デザイン”として具現化していきます。<br/><br/>
+                  これに特化して連携されたチームワークで、アクションプランを"機能"や"デザイン"として具現化していきます。<br/><br/>
                   素早く、しかし丁寧に作り上げることで、質の良いフィードバックをいち早くいただけるように体制準備をしながら、的確にアウトプットしていきます。
                   </p>
                   <div className="bg-[var(--foreground)]/4 rounded-2xl md:py-8 py-4 px-4 border border-[var(--foreground)]/10">

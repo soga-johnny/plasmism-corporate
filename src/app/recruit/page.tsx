@@ -3,6 +3,30 @@ import PageTitle from '@/components/PageTitle';
 import RecruitInfo from '@/components/RecruitInfo';
 import Image from 'next/image';
 import Header from '@/components/Header';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "採用情報",
+  description: "プラズミズムでは新しい仲間を募集しています。尽きない探究と革新の瞬間を共有しませんか？募集職種や応募方法はこちらをご覧ください。",
+  openGraph: {
+    title: "採用情報",
+    description: "プラズミズムでは新しい仲間を募集しています。尽きない探究と革新の瞬間を共有しませんか？募集職種や応募方法はこちらをご覧ください。",
+    images: [
+      {
+        url: '/ogp.png',
+        width: 1200,
+        height: 630,
+        alt: 'Plasmism OGP Image',
+      },
+    ],
+  },
+  twitter: {
+    title: "採用情報",
+    description: "プラズミズムでは新しい仲間を募集しています。尽きない探究と革新の瞬間を共有しませんか？募集職種や応募方法はこちらをご覧ください。",
+    images: ['/ogp.png'],
+  },
+};
+
 export default function RecruitPage() {
   return (
     <main className="min-h-screen flex flex-col text-[var(--foreground)] md:py-12 pt-2 pb-24">

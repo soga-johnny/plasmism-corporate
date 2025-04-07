@@ -4,6 +4,30 @@ import PageTitle from '@/components/PageTitle';
 // import Image from 'next/image';
 import RecruitInfo from '@/components/RecruitInfo';
 import Header from '@/components/Header';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "会社概要",
+  description: "プラズミズムの基本的な会社情報（所在地、設立年月日、代表者など）と、私たちのデジタル上の拠点についてご案内します。",
+  openGraph: {
+    title: "会社概要",
+    description: "プラズミズムの基本的な会社情報（所在地、設立年月日、代表者など）と、私たちのデジタル上の拠点についてご案内します。",
+    images: [
+      {
+        url: '/ogp.png',
+        width: 1200,
+        height: 630,
+        alt: 'Plasmism OGP Image',
+      },
+    ],
+  },
+  twitter: {
+    title: "会社概要",
+    description: "プラズミズムの基本的な会社情報（所在地、設立年月日、代表者など）と、私たちのデジタル上の拠点についてご案内します。",
+    images: ['/ogp.png'],
+  },
+};
+
 export default function CompanyPage() {
   return (
     <main className="min-h-screen flex flex-col text-[var(--foreground)] md:py-12 pt-2 pb-24">
