@@ -141,7 +141,7 @@ export default function Home() {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.4, ease: "easeOut", delay: 0.3 }}
+        transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
         className="w-full max-w-[1440px] mx-auto px-6 md:px-16 flex flex-col justify-center py-8 md:py-24 rounded-xl"
       >
          {/* PageTitle style title */}
@@ -230,7 +230,7 @@ export default function Home() {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.4, ease: "easeOut", delay: 0.3 }}
+        transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
         className="w-full max-w-[1440px] mx-auto px-6 md:px-16 flex flex-col justify-center py-8 md:py-12 bg-[var(--background)] border border-[var(--foreground)]/10 relative isolate md:rounded-2xl rounded-2xl"
       >
         {/* Placeholder for a subtle background pattern/texture */}
@@ -313,7 +313,7 @@ export default function Home() {
          initial={{ opacity: 0, y: 50 }}
          whileInView={{ opacity: 1, y: 0 }}
          viewport={{ once: true, amount: 0.3 }}
-         transition={{ duration: 0.4, ease: "easeOut", delay: 0.3 }}
+         transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
          className="w-full max-w-[1440px] mx-auto px-4 md:px-16 flex flex-col justify-center py-16 md:py-24"
        >
           {/* PageTitle style title */}

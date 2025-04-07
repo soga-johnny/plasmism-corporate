@@ -242,14 +242,14 @@ export default function Header() {
               }}
             >
               {/* ロゴ */}
-              <div className="px-8 pt-4">
+              <div className="px-8 pt-5">
                 <Link href="/" onClick={closeMenu} className="mix-blend-normal">
                   <Image 
                     src="/logo-white.svg" 
                     alt="Plasmism" 
                     width={100}
                     height={20}
-                    className="h-4 w-auto logo-white" 
+                    className="h-5 w-auto logo-white" 
                   />
                 </Link>
                 <Link href="/" onClick={closeMenu} className="mix-blend-normal">
@@ -258,7 +258,7 @@ export default function Header() {
                     alt="Plasmism" 
                     width={100}
                     height={20}
-                    className="h-4 w-auto logo-dark" 
+                    className="h-5 w-auto logo-dark" 
                   />
                 </Link>
               </div>
