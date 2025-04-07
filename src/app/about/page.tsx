@@ -294,9 +294,11 @@ CDOを2年経験の後、より良い顧客体験を追求したく、2024年に
                   <h3 className="text-sm mb-3">Katsutoshi Michihata</h3>
 
                   <p className="text-[var(--foreground)] text-xs md:text-sm font-light leading-relaxed">
-                  高専卒業後、鉄道会社に入社。鉄道会社を退職し、高専専攻科課程を経て、大阪大学大学院工学研究科に進学。博士課程に在学中。<br/>
-鉄道会社では、画像診断を用いた基礎研究に従事し、全社規模での研究発表会にて賞を受賞。並行して新入社員・出向社員教育やシステム管理業務にも従事。研究活動では、燃料電池をテーマにした研究活動で国際学会も経験。<br/>
-現在は、これまでの経歴を生かしたキャリア教育をテーマに研究中。学外プロジェクトとして、B級品黒枝豆を活用し、商品開発・販売・海外マーケティングを経験。また、CO2の削減をテーマにしたビジネスアイデアコンテストで最優秀賞を受賞。大阪大学発のベンチャー企業でインターン生としてWebサービス設計を1年半経験。
+                  大阪生まれ。高専卒業後、鉄道会社に入社。その後、鉄道会社を退職し、高専専攻科を経て大阪大学工学研究科に進学。博士課程に在学中。<br/>
+鉄道会社では、画像診断を用いた基礎研究、システム管理業務、社員教育に従事。
+研究では、燃料電池からキャリア教育と自然科学から社会科学まで幅広く活動中。
+また、丹波篠山市のB級品黒枝豆を用いた商品開発を行い、海外マーケティングを経験。
+大阪大学発のベンチャー企業でWebサービス設計、スタートアップ企業でマーケティングも経験。
                   </p>
                 </div>
                 <div className="mb-4 border-b border-[var(--foreground)]/10 pb-4">
@@ -309,6 +311,26 @@ CDOを2年経験の後、より良い顧客体験を追求したく、2024年に
 以降同業種で数社経験し、Web、App、SaaS、のUI、VIデザインを幅広く経験。7名のクリエイティブチームを束ねるリードデザイナーとして、Design Opsにも力を入れる。<br/>
 現在は屋号「aaam」で独立して活動しながら、Plasmismにてデザインリードを務める。<br/>
 デザインの定義が拡張され、曖昧な今、肩書を越境した働き方を楽しんでいる。
+                  </p>
+                </div>
+                <div className="mb-4 border-b border-[var(--foreground)]/10 pb-4">
+                  <h3 className="text-sm mb-3">BRAND DESIGNER</h3>
+                  <p className="text-xl md:text-2xl text-[var(--foreground)] mb-1">猿田 博毅</p>
+                  <h3 className="text-sm mb-3">Hiroki Saruta</h3>
+                  <p className="text-[var(--foreground)] text-xs md:text-sm font-light leading-relaxed">
+                  山梨出身、好きなものはアニメ、車、スポーツ。東京の専門学校でグラフィックデザインを学ぶ。<br/>
+新卒で制作会社にてデザイナーとして、医療、音楽、飲食など多岐にわたる業界でのクリエイティブを経験。
+現在はUIデザイナーとして働きつつ、フリーランスでグラフィックとWebデザイナーとしても活動中。
+                  </p>
+                </div>
+                <div className="mb-4 border-b border-[var(--foreground)]/10 pb-4">
+                  <h3 className="text-sm mb-3">BRAND DESIGNER</h3>
+                  <p className="text-xl md:text-2xl text-[var(--foreground)] mb-1">増田 愛弓</p>
+                  <h3 className="text-sm mb-3">Ayumi Masuda</h3>
+                  <p className="text-[var(--foreground)] text-xs md:text-sm font-light leading-relaxed">
+                  神奈川県出身／東京都在住。
+新卒でイッセイミヤケグループに入社後、IT企業に転職。<br/>Webマーケター・ディレクターとして各種コンバージョンを測定しながらモバイルコンテンツの企画・運用を担当。その後リクルート（出向）ではWebプランナーとしてユーザーヒアリングやマッピング等の業務に携わる。
+現在はデザイナーとしてSNS広告やDTPデザイン、LP等の制作を行なっている。
                   </p>
                 </div>
                 <div className="mb-4 border-b border-[var(--foreground)]/10 pb-4">

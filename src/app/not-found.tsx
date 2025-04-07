@@ -5,18 +5,18 @@ import Link from 'next/link'
 import Header from '@/components/Header'
 export default function NotFound() {
   return (
-    <main className="min-h-screen flex flex-col text-gray-900 bg-white md:py-12 pt-2 pb-24">
+    <main className="min-h-screen flex flex-col md:py-12 pt-2 pb-24">
       <Header />
       <div className="flex-1 w-full max-w-[1440px] mx-auto px-4 md:px-2 pb-12">
         <div className="space-y-12 mb-16 md:mx-16 mx-4 pt-10">
           {/* 404エラーセクション */}
-          <section className="border-b border-gray-200 pb-20">
+          <section className="h-[70vh] flex flex-col items-center justify-center border-b border-gray-200 pb-20">
             <div className="flex flex-col items-center text-center">
               <div className="rounded-lg">
-                <h1 className="text-7xl md:text-9xl leading-tight mb-6">
+                <h1 className="text-4xl md:text-5xl leading-tight mb-6">
                   404
                 </h1>
-                <h2 className="text-3xl md:text-5xl leading-tight mb-6">
+                <h2 className="text-xl md:text-2xl leading-tight mb-6">
                   ページが見つかりませんでした
                 </h2>
                 <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-12">
