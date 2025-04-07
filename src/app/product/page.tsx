@@ -5,29 +5,6 @@ import Header from '@/components/Header';
 import PageTitle from '@/components/PageTitle';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: "プロダクト",
-  description: "プラズミズムが開発・提供するプロダクトをご紹介します。ソリッドベンチャーとして他事業との有機的な連携を重視しています。Lean DesignerやContaineerなど。",
-  openGraph: {
-    title: "プロダクト",
-    description: "プラズミズムが開発・提供するプロダクトをご紹介します。ソリッドベンチャーとして他事業との有機的な連携を重視しています。Lean DesignerやContaineerなど。",
-    images: [
-      {
-        url: '/ogp.png',
-        width: 1200,
-        height: 630,
-        alt: 'Plasmism OGP Image',
-      },
-    ],
-  },
-  twitter: {
-    title: "プロダクト",
-    description: "プラズミズムが開発・提供するプロダクトをご紹介します。ソリッドベンチャーとして他事業との有機的な連携を重視しています。Lean DesignerやContaineerなど。",
-    images: ['/ogp.png'],
-  },
-};
 
 export default function ProductPage() {
   return (

@@ -5,7 +5,7 @@ import Link from 'next/link';
 // import { getAllAchievements } from '../../lib/notion'; // 未使用のためコメントアウト
 import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 import { Metadata } from 'next';
-import Header from '@/components/Header';
+// import Header from '@/components/Header'; // 未使用のため削除
 
 export const metadata: Metadata = {
   title: "実績紹介",

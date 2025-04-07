@@ -4,29 +4,6 @@ import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import PageTitle from '@/components/PageTitle';
 import { useState } from 'react';
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: "資料ダウンロード",
-  description: "プラズミズムの会社案内やサービスに関する資料をダウンロードいただけます。必要事項をご入力の上、送信ボタンをクリックしてください。",
-  openGraph: {
-    title: "資料ダウンロード",
-    description: "プラズミズムの会社案内やサービスに関する資料をダウンロードいただけます。必要事項をご入力の上、送信ボタンをクリックしてください。",
-    images: [
-      {
-        url: '/ogp.png',
-        width: 1200,
-        height: 630,
-        alt: 'Plasmism OGP Image',
-      },
-    ],
-  },
-  twitter: {
-    title: "資料ダウンロード",
-    description: "プラズミズムの会社案内やサービスに関する資料をダウンロードいただけます。必要事項をご入力の上、送信ボタンをクリックしてください。",
-    images: ['/ogp.png'],
-  },
-};
 
 export default function DownloadPage() {
   const [charCount, setCharCount] = useState(0);

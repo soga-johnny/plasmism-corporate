@@ -4,29 +4,6 @@ import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import PageTitle from '@/components/PageTitle';
 import { useState } from 'react';
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: "お問い合わせ",
-  description: "プラズミズムへの制作のご相談・お問い合わせはこちらから。必要事項をご入力の上ご連絡ください。担当者が2〜3営業日以内にメールで返信します。",
-  openGraph: {
-    title: "お問い合わせ",
-    description: "プラズミズムへの制作のご相談・お問い合わせはこちらから。必要事項をご入力の上ご連絡ください。担当者が2〜3営業日以内にメールで返信します。",
-    images: [
-      {
-        url: '/ogp.png',
-        width: 1200,
-        height: 630,
-        alt: 'Plasmism OGP Image',
-      },
-    ],
-  },
-  twitter: {
-    title: "お問い合わせ",
-    description: "プラズミズムへの制作のご相談・お問い合わせはこちらから。必要事項をご入力の上ご連絡ください。担当者が2〜3営業日以内にメールで返信します。",
-    images: ['/ogp.png'],
-  },
-};
 
 export default function ContactPage() {
   const [charCount, setCharCount] = useState(0);

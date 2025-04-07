@@ -1,31 +1,8 @@
 "use client";
 
-import { Metadata } from 'next';
 import Footer from '@/components/Footer';
 import PageTitle from '@/components/PageTitle';
 import Header from '@/components/Header';
-
-export const metadata: Metadata = {
-  title: "サービス",
-  description: "プラズミズムが提供するサービスについてご紹介します。相乗的な最適解の徹底的な追求を目指し、UXデザイン、UIデザイン、開発、コンサルティングなどを提供します。",
-  openGraph: {
-    title: "サービス",
-    description: "プラズミズムが提供するサービスについてご紹介します。相乗的な最適解の徹底的な追求を目指し、UXデザイン、UIデザイン、開発、コンサルティングなどを提供します。",
-    images: [
-      {
-        url: '/ogp.png',
-        width: 1200,
-        height: 630,
-        alt: 'Plasmism OGP Image',
-      },
-    ],
-  },
-  twitter: {
-    title: "サービス",
-    description: "プラズミズムが提供するサービスについてご紹介します。相乗的な最適解の徹底的な追求を目指し、UXデザイン、UIデザイン、開発、コンサルティングなどを提供します。",
-    images: ['/ogp.png'],
-  },
-};
 
 export default function ServicePage() {
   return (

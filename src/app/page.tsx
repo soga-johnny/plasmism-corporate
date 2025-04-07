@@ -8,26 +8,6 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import { useRef, useEffect } from 'react';
 import ScrollingTitle from '@/components/ScrollingTitle';
-import { Metadata } from 'next';
-
-// メタデータをエクスポート
-export const metadata: Metadata = {
-  // title: "トップページ", // layout.tsxのdefaultを使用するためコメントアウト
-  // description: "トップページのディスクリプション", // layout.tsxのdescriptionを使用するためコメントアウト
-  openGraph: {
-    images: [
-      {
-        url: '/ogp.png',
-        width: 1200,
-        height: 630,
-        alt: 'Plasmism OGP Image',
-      },
-    ],
-  },
-  twitter: {
-    images: ['/ogp.png'],
-  }
-};
 
 export default function Home() {
   const aboutSectionRef = useRef<HTMLDivElement>(null);

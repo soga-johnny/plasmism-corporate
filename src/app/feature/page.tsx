@@ -144,7 +144,7 @@ export default function FeaturePage() {
                   </p>
                   <p className="text-[var(--foreground)]/80 text-sm md:text-base leading-relaxed mb-8">
                   設計で描いた戦略を実際に検証可能な見える形に変換するプロセスです。<br/><br/>
-                  これに特化して連携されたチームワークで、アクションプランを"機能"や"デザイン"として具現化していきます。<br/><br/>
+                  これに特化して連携されたチームワークで、アクションプランを&quot;機能&quot;や&quot;デザイン&quot;として具現化していきます。<br/><br/>
                   素早く、しかし丁寧に作り上げることで、質の良いフィードバックをいち早くいただけるように体制準備をしながら、的確にアウトプットしていきます。
                   </p>
                   <div className="bg-[var(--foreground)]/4 rounded-2xl md:py-8 py-4 px-4 border border-[var(--foreground)]/10">
