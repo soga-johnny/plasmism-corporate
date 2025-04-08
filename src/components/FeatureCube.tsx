@@ -47,7 +47,7 @@ const metalMaterial = new MeshStandardMaterial({
   roughness: 0.1,
   envMapIntensity: 1,
   transparent: true,
-  opacity: 0.1,
+  opacity: 0.02,
 });
 
 function FeatureCubeMesh() {
@@ -198,7 +198,7 @@ export default function FeatureScene() {
         <FeatureCubeMesh />
         <Environment preset="dawn" />
         <EffectComposer>
-          <Noise opacity={0.15} />
+          <Noise opacity={0.2} />
         </EffectComposer>
         <SceneUpdater />
       </Suspense>

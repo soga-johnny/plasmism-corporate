@@ -43,7 +43,7 @@ const stage2Material = new MeshPhysicalMaterial({
   attenuationColor: new Color(0xffffff), // ステージ2の目標値
   attenuationDistance: 0.7, // ステージ2の目標値
   transparent: true,
-  opacity: 0.08, // ステージ2の目標値 (不透明)
+  opacity: 0.02, // ステージ2の目標値 (不透明)
   emissive: new Color(0x000000).setScalar(0.1), // ステージ2の放射
   emissiveIntensity: 0.1, // ステージ2の放射強度
   side: 2, // THREE.BackSide (ステージ2後半相当)
@@ -105,7 +105,7 @@ export default function AboutScene() {
         <AboutCubeMesh />
         <Environment preset="dawn" />
         <EffectComposer>
-          <Noise opacity={0.15} /> 
+          <Noise opacity={0.2} /> 
         </EffectComposer>
         <SceneUpdater />
       </Suspense>

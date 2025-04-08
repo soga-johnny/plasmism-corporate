@@ -732,7 +732,7 @@ function Scene({ isMobile }: { isMobile: boolean }) {
       </Suspense>
       <Environment preset="dawn" /> {/* Keep dawn as per previous adjustment? Or revert? Let's keep dawn for now */}
       <EffectComposer>
-        <Noise opacity={0.1} />
+        <Noise opacity={0.15} />
       </EffectComposer>
     </>
   )
