@@ -289,8 +289,8 @@ export default function FeaturePage() {
            {/* UIUXデザインの場合 */}
            <div className="py-10 border-b border-[var(--foreground)]/10">
               <h3 className="md:text-4xl text-2xl md:mb-12 mb-6">UXデザインの場合</h3>
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
-                <div className="flex flex-col bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                <div className="flex flex-col items-center bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
                   <div className="text-sm text-[var(--foreground)]/70 mb-2 text-center">01 設計</div>
                   <h4 className="md:text-2xl text-xl mb-3 text-center">ユーザー調査と分析</h4>
                   <ul className="list-disc pl-6 space-y-2 text-sm md:text-base text-[var(--foreground)]/80">
@@ -299,7 +299,7 @@ export default function FeaturePage() {
                     <li>ユーザーインタビュー</li>
                   </ul>
                 </div>
-                <div className="flex flex-col bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
+                <div className="flex flex-col items-center bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
                   <div className="text-sm text-[var(--foreground)]/70 mb-2 text-center">02 実装</div>
                   <h4 className="md:text-2xl text-xl mb-3 text-center">プロトタイピング</h4>
                   <ul className="list-disc pl-6 space-y-2 text-sm md:text-base text-[var(--foreground)]/80">
@@ -308,7 +308,7 @@ export default function FeaturePage() {
                     <li>インタラクション設計</li>
                   </ul>
                 </div>
-                <div className="flex flex-col bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
+                <div className="flex flex-col items-center bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
                   <div className="text-sm text-[var(--foreground)]/70 mb-2 text-center">03 検証</div>
                   <h4 className="md:text-2xl text-xl mb-3 text-center">ユーザビリティテスト</h4>
                   <ul className="list-disc pl-6 space-y-2 text-sm md:text-base text-[var(--foreground)]/80">
@@ -317,7 +317,7 @@ export default function FeaturePage() {
                     <li>ユーザーストーリーマッピング</li>
                   </ul>
                 </div>
-                  <div className="flex flex-col bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
+                  <div className="flex flex-col items-center bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
                   <div className="text-sm text-[var(--foreground)]/70 mb-2 text-center">04 改良</div>
                   <h4 className="md:text-2xl text-xl mb-3 text-center">フィードバック収集</h4>
                     <ul className="list-disc pl-6 space-y-2 text-sm md:text-base text-[var(--foreground)]/80">
@@ -332,8 +332,8 @@ export default function FeaturePage() {
            {/* コーポレートブランディングの場合 */}
            <div className="py-10 border-b border-[var(--foreground)]/10">
               <h3 className="md:text-4xl text-2xl md:mb-12 mb-6">コーポレートデザインの場合</h3>
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
-                <div className="flex flex-col bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                <div className="flex flex-col items-center bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
                   <div className="text-sm text-[var(--foreground)]/70 mb-2 text-center">01 設計</div>
                   <h4 className="md:text-2xl text-xl mb-3 text-center">ブランド戦略構築</h4>
                   <ul className="list-disc pl-6 space-y-2 text-sm md:text-base text-[var(--foreground)]/80">
@@ -342,7 +342,7 @@ export default function FeaturePage() {
                     <li>ブランドポジショニング</li>
                   </ul>
                 </div>
-                <div className="flex flex-col bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
+                <div className="flex flex-col items-center bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
                   <div className="text-sm text-[var(--foreground)]/70 mb-2 text-center">02 実装</div>
                   <h4 className="md:text-2xl text-xl mb-3 text-center">アイデンティティ構築</h4>
                   <ul className="list-disc pl-6 space-y-2 text-sm md:text-base text-[var(--foreground)]/80">
@@ -351,7 +351,7 @@ export default function FeaturePage() {
                     <li>タッチポイントマッピング</li>
                   </ul>
                 </div>
-                <div className="flex flex-col bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
+                <div className="flex flex-col items-center bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
                   <div className="text-sm text-[var(--foreground)]/70 mb-2 text-center">03 検証</div>
                   <h4 className="md:text-2xl text-xl mb-3 text-center">ユーザーインタビュー</h4>
                   <ul className="list-disc pl-6 space-y-2 text-sm md:text-base text-[var(--foreground)]/80">
@@ -360,7 +360,7 @@ export default function FeaturePage() {
                     <li>ブランドコンセプトのブラッシュアップ</li>
                   </ul>
                 </div>
-                <div className="flex flex-col bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
+                <div className="flex flex-col items-center bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
                   <div className="text-sm text-[var(--foreground)]/70 mb-2 text-center">04 改良</div>
                   <h4 className="md:text-2xl text-xl mb-3 text-center">浸透と維持</h4>
                   <ul className="list-disc pl-6 space-y-2 text-sm md:text-base text-[var(--foreground)]/80">
@@ -375,8 +375,8 @@ export default function FeaturePage() {
                {/* クラウドインフラ構築の場合 */}
                <div className="pt-10">
               <h3 className="md:text-4xl text-2xl md:mb-12 mb-6">アーキテクチャデザインの場合</h3>
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
-                <div className="flex flex-col bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                <div className="flex flex-col items-center bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
                   <div className="text-sm text-[var(--foreground)]/70 mb-2 text-center">01 設計</div>
                   <h4 className="md:text-2xl text-xl mb-3 text-center">要件定義と設計</h4>
                   <ul className="list-disc pl-6 space-y-2 text-sm md:text-base text-[var(--foreground)]/80">
@@ -385,7 +385,7 @@ export default function FeaturePage() {
                     <li>コスト分析と最適化計画</li>
                   </ul>
                 </div>
-                <div className="flex flex-col bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
+                <div className="flex flex-col items-center bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
                   <div className="text-sm text-[var(--foreground)]/70 mb-2 text-center">02 実装</div>
                   <h4 className="md:text-2xl text-xl mb-3 text-center">環境構築</h4>
                   <ul className="list-disc pl-6 space-y-2 text-sm md:text-base text-[var(--foreground)]/80">
@@ -394,7 +394,7 @@ export default function FeaturePage() {
                     <li>ネットワークとセキュリティ設定</li>
                   </ul>
                 </div>
-                <div className="flex flex-col bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
+                <div className="flex flex-col items-center bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
                   <div className="text-sm text-[var(--foreground)]/70 mb-2 text-center">03 検証</div>
                   <h4 className="md:text-2xl text-xl mb-3 text-center">実装とテスト</h4>
                   <ul className="list-disc pl-6 space-y-2 text-sm md:text-base text-[var(--foreground)]/80">
@@ -403,7 +403,7 @@ export default function FeaturePage() {
                     <li>パフォーマンスと負荷テスト</li>
                   </ul>
                 </div>
-                <div className="flex flex-col bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
+                <div className="flex flex-col items-center bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
                   <div className="text-sm text-[var(--foreground)]/70 mb-2 text-center">04 改良</div>
                   <h4 className="md:text-2xl text-xl mb-3 text-center">運用と最適化</h4>
                   <ul className="list-disc pl-6 space-y-2 text-sm md:text-base text-[var(--foreground)]/80">

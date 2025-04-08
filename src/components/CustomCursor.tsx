@@ -26,7 +26,7 @@ const CustomCursor: React.FC<CustomCursorProps> = ({ className }) => {
   // モバイル判定
   useEffect(() => {
     const checkMobile = () => {
-      const isMobileDevice = window.matchMedia('(max-width: 768px), (pointer: coarse)').matches;
+      const isMobileDevice = window.matchMedia('(max-width: 1080px), (pointer: coarse)').matches;
       setIsMobile(isMobileDevice);
     };
 

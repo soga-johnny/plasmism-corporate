@@ -59,7 +59,7 @@ export default function Footer() {
   // フッターの表示状態に応じてテーマを切り替える (IntersectionObserver)
   useEffect(() => {
     // クライアントサイドでのみ実行
-    const isMobile = window.innerWidth <= 768;
+    const isMobile = window.innerWidth <= 1080;
     const thresholdValue = isMobile ? 0.3 : 0.7; // モバイルなら0.4、PCなら0.6
 
     if (process.env.NODE_ENV === 'development') {

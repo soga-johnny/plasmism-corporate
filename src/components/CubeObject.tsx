@@ -743,7 +743,7 @@ export default function CubeInteractive() {
   const [cameraFov, setCameraFov] = useState(50)
   const [isMobile, setIsMobile] = useState(() => {
       if (typeof window === 'undefined') return false;
-      return window.innerWidth <= 768;
+      return window.innerWidth <= 1080;
   });
   const [isMounted, setIsMounted] = useState(false);
   const { isLoading } = useLoadingStore();
@@ -784,7 +784,7 @@ export default function CubeInteractive() {
     if (!isMounted || typeof window === 'undefined') return
 
     const updateSettings = () => {
-      const mobile = window.innerWidth <= 768
+      const mobile = window.innerWidth <= 1080
       if (mobile !== isMobile) {
         setIsMobile(mobile)
         setCameraPosition([0, 0, mobile ? 9 : 8])

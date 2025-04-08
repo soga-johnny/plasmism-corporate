@@ -93,7 +93,7 @@ export default async function AchievementsPage() {
                         alt={title}
                         fill
                         className="object-cover transform transition-transform duration-500 group-hover:scale-105"
-                        sizes="(max-width: 768px) 100vw, 50vw"
+                        sizes="(max-width: 1080px) 100vw, 50vw"
                       />
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-[var(--foreground)]/20 transition-all duration-300"></div>
                     </div>

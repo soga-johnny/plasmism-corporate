@@ -85,7 +85,7 @@ body::before {
   opacity: 0.3; /* 30% for light theme */
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1080px) {
   body {
     /* background-size moved to body::before */
   }
@@ -203,7 +203,7 @@ body::before {
 }
 
 /* Mobile Specific Styles (Max width or coarse pointer) */
-@media (max-width: 768px), (pointer: coarse) {
+@media (max-width: 1080px), (pointer: coarse) {
   .mobile-transition-state {
     font-size: 12px;
     padding: 4px 10px;

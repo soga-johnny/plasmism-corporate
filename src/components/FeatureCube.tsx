@@ -86,7 +86,7 @@ function FeatureCubeMesh() {
     groupRef.current.rotation.z += delta * groupRotationSpeed * 0.3;
     
     // モバイルとPCで位置とサイズを調整
-    if (state.size.width <= 768) {
+    if (state.size.width <= 1080) {
       // モバイル用 - 右寄りに表示し、サイズを大きく
       groupRef.current.position.x = 1.5;
       const mobileGroupScale = 0.8;
@@ -158,7 +158,7 @@ export default function FeatureScene() {
   // 画面サイズ監視部分も削除
   // useEffect(() => {
   //   const checkMobile = () => {
-  //     setIsMobile(window.innerWidth <= 768);
+  //     setIsMobile(window.innerWidth <= 1080);
   //   };
     
   //   // 初期チェック
