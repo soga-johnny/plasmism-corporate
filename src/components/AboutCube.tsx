@@ -43,7 +43,7 @@ const stage2Material = new MeshPhysicalMaterial({
   attenuationColor: new Color(0xffffff), // ステージ2の目標値
   attenuationDistance: 0.7, // ステージ2の目標値
   transparent: true,
-  opacity: 0.02, // ステージ2の目標値 (不透明)
+  opacity: 0.06, // ステージ2の目標値 (不透明)
   emissive: new Color(0x000000).setScalar(0.1), // ステージ2の放射
   emissiveIntensity: 0.1, // ステージ2の放射強度
   side: 2, // THREE.BackSide (ステージ2後半相当)
@@ -96,7 +96,7 @@ export default function AboutScene() {
         gl.setPixelRatio(Math.min(window.devicePixelRatio, 2))
         gl.outputColorSpace = 'srgb'
       }}
-      dpr={[0.6, 0.8]}
+      dpr={[0.8, 0.8]}
       style={{ pointerEvents: 'none' }} // Canvas 自体は操作不可に
     >
       <Suspense fallback={null}>

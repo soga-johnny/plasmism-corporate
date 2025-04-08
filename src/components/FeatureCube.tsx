@@ -47,7 +47,7 @@ const metalMaterial = new MeshStandardMaterial({
   roughness: 0.1,
   envMapIntensity: 1,
   transparent: true,
-  opacity: 0.02,
+  opacity: 0.05,
 });
 
 function FeatureCubeMesh() {
@@ -189,7 +189,7 @@ export default function FeatureScene() {
         gl.setPixelRatio(Math.min(window.devicePixelRatio, 2))
         gl.outputColorSpace = 'srgb'
       }}
-      dpr={[0.4, 0.8]}
+      dpr={[0.6, 0.8]}
       style={{ pointerEvents: 'none' }} // Canvas 自体は操作不可に
     >
       <Suspense fallback={null}>
