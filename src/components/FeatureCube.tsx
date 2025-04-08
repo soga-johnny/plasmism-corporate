@@ -198,7 +198,7 @@ export default function FeatureScene() {
         <FeatureCubeMesh />
         <Environment preset="dawn" />
         <EffectComposer>
-          <Noise opacity={0.2} />
+          <Noise opacity={0.15} />
         </EffectComposer>
         <SceneUpdater />
       </Suspense>

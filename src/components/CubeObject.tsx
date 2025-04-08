@@ -807,16 +807,16 @@ export default function CubeInteractive() {
     const s1End = DEFAULT_STAGE1_END * factor;
     const transition1Start = s1End - (transitionWidth / 2);
     const transition1End = s1End + (transitionWidth / 2);
-    const blurStart1 = transition1Start - 0.02;
+    const blurStart1 = transition1Start - 0.05;
     const blurEnd1 = transition1End + 0.02;
 
     const s2End = DEFAULT_STAGE2_END * factor;
     const s2TransitionStart = s2End - (transitionWidth / 2);
     const s3TransitionEnd = s2End + (transitionWidth / 2);
     const blurStart2 = s2TransitionStart - 0.02;
-    const blurEnd2 = s3TransitionEnd + 0.02;
+    const blurEnd2 = s3TransitionEnd + 0.1;
 
-    const maxBlur = 20;
+    const maxBlur = 22;
     let newBlur = 0;
 
     if (currentProgress > blurStart1 && currentProgress < blurEnd1) {
