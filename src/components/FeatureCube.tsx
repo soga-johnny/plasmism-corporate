@@ -47,7 +47,7 @@ const metalMaterial = new MeshStandardMaterial({
   roughness: 0.1,
   envMapIntensity: 1,
   transparent: true,
-  opacity: 0.07,
+  opacity: 0.09,
 });
 
 function FeatureCubeMesh() {
