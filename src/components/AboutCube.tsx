@@ -103,7 +103,7 @@ export default function AboutScene() {
         <ambientLight intensity={1.5} />
         {/* <directionalLight position={[5, 5, 5]} intensity={1} /> */}
         <AboutCubeMesh />
-        <Environment preset="sunset" />
+        <Environment preset="dawn" />
         <EffectComposer>
           <Noise opacity={0.15} /> 
         </EffectComposer>
