@@ -4,7 +4,6 @@ import CompanyOverview from '@/components/CompanyOverview';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import AboutScene from '@/components/AboutCube';
-import Image from 'next/image';
 import AboutBrandIdentitySection from '@/components/AboutBrandIdentitySection';
 
 export const metadata: Metadata = {

@@ -132,14 +132,14 @@ export default function Header() {
           <div className="flex items-center mix-blend-difference">
             <nav>
               <ul className="flex space-x-5 text-sm mr-8">
-                <li><Link href="/" className={`hover:font-bold hover:text-[#BC2611] transition-all duration-300 ${pathname === '/' ? 'border-b-2 border-[var(--foreground)] pb-1' : ''}`}>トップ</Link></li>
-                <li><Link href="/about" className={`hover:font-bold hover:text-[#BC2611] transition-all duration-300 ${pathname === '/about' ? 'border-b-2 border-[var(--foreground)] pb-1' : ''}`}>私たちについて</Link></li>
-                <li><Link href="/feature" className={`hover:font-bold hover:text-[#BC2611] transition-all duration-300 ${pathname === '/feature' ? 'border-b-2 border-[var(--foreground)] pb-1' : ''}`}>特徴</Link></li>
-                <li><Link href="/product" className={`hover:font-bold hover:text-[#BC2611] transition-all duration-300 ${pathname === '/product' ? 'border-b-2 border-[var(--foreground)] pb-1' : ''}`}>プロダクト</Link></li>
-                <li><Link href="/service" className={`hover:font-bold hover:text-[#BC2611] transition-all duration-300 ${pathname === '/service' ? 'border-b-2 border-[var(--foreground)] pb-1' : ''}`}>サービス</Link></li>
+                <li><Link href="/" className={`hover:font-bold hover:text-[#BC2611] transition-all duration-300 ${pathname === '/' ? 'font-semibold border-b-2 border-[var(--foreground)] pb-1' : ''}`}>トップ</Link></li>
+                <li><Link href="/about" className={`hover:font-bold hover:text-[#BC2611] transition-all duration-300 ${pathname === '/about' ? 'font-semibold border-b-2 border-[var(--foreground)] pb-1' : ''}`}>私たちについて</Link></li>
+                <li><Link href="/feature" className={`hover:font-bold hover:text-[#BC2611] transition-all duration-300 ${pathname === '/feature' ? 'font-semibold border-b-2 border-[var(--foreground)] pb-1' : ''}`}>特徴</Link></li>
+                <li><Link href="/product" className={`hover:font-bold hover:text-[#BC2611] transition-all duration-300 ${pathname === '/product' ? 'font-semibold border-b-2 border-[var(--foreground)] pb-1' : ''}`}>プロダクト</Link></li>
+                <li><Link href="/service" className={`hover:font-bold hover:text-[#BC2611] transition-all duration-300 ${pathname === '/service' ? 'font-semibold border-b-2 border-[var(--foreground)] pb-1' : ''}`}>サービス</Link></li>
                 {/* <li><Link href="/achievements" className={`hover:font-bold hover:translate-y-[-2px] transition-all duration-300 ${pathname === '/achievements' ? 'line-through font-bold' : ''}`}>実績</Link></li> */}
-                <li><Link href="/recruit" className={`hover:font-bold hover:text-[#BC2611] transition-all duration-300 ${pathname === '/recruit' ? 'border-b-2 border-[var(--foreground)] pb-1' : ''}`}>採用</Link></li>
-                <li><Link href="/company" className={`hover:font-bold hover:text-[#BC2611] transition-all duration-300 ${pathname === '/company' ? 'border-b-2 border-[var(--foreground)] pb-1' : ''}`}>会社案内</Link></li>
+                <li><Link href="/recruit" className={`hover:font-bold hover:text-[#BC2611] transition-all duration-300 ${pathname === '/recruit' ? 'font-semibold border-b-2 border-[var(--foreground)] pb-1' : ''}`}>採用</Link></li>
+                <li><Link href="/company" className={`hover:font-bold hover:text-[#BC2611] transition-all duration-300 ${pathname === '/company' ? 'font-semibold border-b-2 border-[var(--foreground)] pb-1' : ''}`}>会社案内</Link></li>
               </ul>
             </nav>
             <div className="mr-2 border-r border-[var(--foreground)]/50 pr-3 text-right flex flex-col items-end">
