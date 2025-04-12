@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useLoadingStore } from './LoadingScreen'
 
 export default function Header() {
   const [mounted, setMounted] = useState(false)
@@ -13,6 +14,8 @@ export default function Header() {
   const [currentDate, setCurrentDate] = useState('')
   const [currentTime, setCurrentTime] = useState('')
   const pathname = usePathname()
+  const { isLoading } = useLoadingStore()
+  const [canStartAnimation, setCanStartAnimation] = useState(false)
   
   // メニューを開閉する関数
   const toggleMenu = () => setIsMenuOpen(prev => !prev)
@@ -69,6 +72,21 @@ export default function Header() {
     }
   }, [isMenuOpen, pathname])
   
+  // --- ローディング完了後にアニメーションを開始するロジック ---
+  useEffect(() => {
+    // isLoading が false になった後、少し遅延させてアニメーションを開始
+    if (!isLoading) {
+      const timer = setTimeout(() => {
+        setCanStartAnimation(true)
+      }, 100) // LayoutProvider と同じ遅延時間
+      return () => clearTimeout(timer)
+    } else {
+      // ローディング中はアニメーションをリセット（オプション）
+      setCanStartAnimation(false)
+    }
+  }, [isLoading])
+  // -------------------------------------------------------
+  
   // ハイドレーション前は何も表示しない
   if (!mounted) {
     return null
@@ -79,14 +97,18 @@ export default function Header() {
     return (
       <motion.header
         initial={{ opacity: 0, y: -20 }}
-        animate={{
-          opacity: 1,
-          y: 0,
-          transition: { duration: 0.7, delay: 0.6, ease: "easeOut" }
-        }}
+        animate={
+          canStartAnimation
+            ? {
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.7, delay: 0.6, ease: "easeOut" }
+              }
+            : { opacity: 0, y: -20 } // canStartAnimationがfalseの間は初期状態を維持
+        }
         className="fixed top-0 left-0 right-0 text-[var(--foreground)] py-4 z-40 mix-blend-difference"
       >
-        <div className="w-full max-w-[1440px] mx-auto px-4 md:px-8 flex items-center justify-between">
+        <div className="w-full mx-auto px-4 md:px-8 flex items-center justify-between">
           <div className="flex items-center">
             <Link href="/" className="mix-blend-normal">
               <Image 
@@ -142,10 +164,14 @@ export default function Header() {
       {/* モバイル用時計 - 最上部中央配置 */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ 
-          opacity: 1,
-          transition: { duration: 0.5, delay: 0.2, ease: "easeOut" }
-        }}
+        animate={
+          canStartAnimation
+            ? {
+                opacity: 1,
+                transition: { duration: 0.5, delay: 0.2, ease: "easeOut" }
+              }
+            : { opacity: 0 } // canStartAnimationがfalseの間は初期状態を維持
+        }
         className="fixed top-0.5 left-1/2 transform -translate-x-1/2 z-[40] text-[var(--foreground)] text-center"
       >
         <div className="text-[8px] font-extralight tracking-wider">{currentDate} {currentTime}</div>
@@ -154,15 +180,19 @@ export default function Header() {
       {/* 下部固定メニュー */}
       <motion.header
         initial={{ opacity: 0, y: 20 }}
-        animate={{
-          opacity: 1,
-          y: 0,
-          transition: { duration: 0.7, delay: 0.6, ease: "easeOut" }
-        }}
+        animate={
+          canStartAnimation
+            ? {
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.7, delay: 0.7, ease: "easeOut" }
+              }
+            : { opacity: 0, y: 20 } // canStartAnimationがfalseの間は初期状態を維持
+        }
         className="fixed bottom-5 left-1/2 transform -translate-x-1/2 w-1/2 z-[70] flex backdrop-blur-lg mix-blend-difference overflow-hidden rounded-lg"
       >
         <button 
-          className="flex-1 flex items-center justify-center py-4 text-[var(--foreground)] active:scale-95 active:bg-opacity-80 transition-all duration-300 overflow-hidden"
+          className="flex-1 flex items-center justify-center py-4 text-[var(--foreground)] active:scale-95 active:bg-opacity-80 transition-all duration-300 overflow-hidden rounded-lg"
           style={{ backgroundColor: isMenuOpen ? 'var(--background)' : 'var(--foreground)' }}
           onClick={toggleMenu}
         >

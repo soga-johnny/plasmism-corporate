@@ -6,12 +6,28 @@ import CubeInteractive from '@/components/CubeObject';
 import Image from 'next/image';
 import Link from 'next/link';
 import Header from '@/components/Header';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import ScrollingTitle from '@/components/ScrollingTitle';
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function Home() {
   const aboutSectionRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll();
+  const [isMobile, setIsMobile] = useState(false);
+
+  const checkDeviceSize = () => {
+    setIsMobile(window.innerWidth < 768);
+  };
+
+  useEffect(() => {
+    checkDeviceSize();
+    window.addEventListener('resize', checkDeviceSize);
+
+    return () => window.removeEventListener('resize', checkDeviceSize);
+  }, []);
+
+  const opacityRange = isMobile ? [0, 0.05] : [0, 0.07];
+  const opacity = useTransform(scrollYProgress, opacityRange, [1, 0]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -52,14 +68,17 @@ export default function Home() {
         <div className="sticky top-0 h-screen z-0 mb-48 will-change-transform transition-all duration-1000 ease-out">
           <CubeInteractive />
         </div>
-        <div className="absolute top-0 w-full h-screen mix-blend-color-dodge flex items-center justify-center text-center px-4">
+        <motion.div
+          className="absolute top-0 w-full h-screen mix-blend-color-dodge flex items-center justify-center text-center px-4"
+          style={{ opacity }}
+        >
             <div>
               <Image src="/logo-dark.svg" width={1080} height={360} alt="Logo" className="w-[400px] md:w-[1080px] text-center mb-4" />
-              <p className="absolute bottom-4 left-0 right-0 text-center text-xs md:mb-0 mb-12 md:text-sm text-[var(--foreground)]">
+              <p className="absolute md:bottom-8 bottom-26 left-0 right-0 text-center text-xs mb-0 md:text-sm text-[var(--foreground)]">
                 Scroll Down
               </p>
             </div>
-          </div>
+          </motion.div>
 
         <div className="relative z-10">
           <div
@@ -145,82 +164,88 @@ export default function Home() {
         className="w-full max-w-[1440px] mx-auto px-6 md:px-16 flex flex-col justify-center py-8 md:py-24 rounded-xl"
       >
          {/* PageTitle style title */}
-         <div className="mb-12 md:mb-16 border-b border-[var(--foreground)]/10 pb-4 md:pb-6">
+         <div className="mb-12 md:mb-16 pb-4 md:pb-6">
           <p className="text-md mb-2 font-serif text-[var(--foreground)]">● Product</p>
           <h2 className="md:text-4xl text-2xl text-[var(--foreground)]">プロダクト</h2>
            <p className="mt-2 md:text-sm text-xs text-[var(--foreground)]/80">ソリッドベンチャーとして他事業との有機的な連携</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 md:gap-x-16 gap-y-2 mb-12 md:mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 md:gap-x-16 gap-y-8 md:gap-y-12 mb-12 md:mb-16">
           {/* Product Item 1 */}
-          <div className="group flex flex-col">
-          <div className="flex items-center mb-8">
-          <div className="w-3 h-12 bg-[var(--background)] border border-[var(--foreground)] rounded-full flex items-center justify-center md:mr-4 mr-3 py-8 px-3">
-                  <span className="text-[var(--foreground)] text-sm">1</span>
+          <div className='relative p-8 bg-[#F6F4F5] border-b border-r border-[#E2DFE0] rounded-3xl hover:bg-[var(--foreground)]/10 hover:border-[var(--foreground)]/20 transition-all duration-300'>
+          {/* Number Pill */}
+            <div className="absolute top-4 left-12 text-white z-10">
+              <div className="w-3 h-12 bg-[var(--foreground)] rounded-full flex items-center justify-center md:mr-4 mr-3 py-8 px-3">
+                  <span className="text-[var(--background)] text-sm">1</span>
                 </div>
-            <div>
-             <h3 className="text-2xl md:text-4xl mb-2 text-[var(--foreground)] group-hover:text-[var(--foreground)]/90 transition-colors">Lean Designer</h3>
-            <p className="text-sm text-[var(--foreground)] leading-relaxed">
-              開発専門のハイエンドUI/UXソリューション
-            </p>
             </div>
-            </div>
-            <Link href="/product#lean-designer" className="block mb-6 relative overflow-hidden rounded-xl border border-[var(--foreground)]/10 hover:border-[var(--foreground)]/40 transition-all duration-300">
-            <div className="relative w-full aspect-[16/9] overflow-hidden">
+          <Link href="/product#lean-designer" className="group block relative rounded-xl border border-[var(--foreground)]/10 hover:border-[var(--foreground)]/40 transition-all duration-300 aspect-[16/9]">
+            {/* Image */}
+            <div className="relative w-full h-full overflow-hidden rounded-t-xl">
               <Image
                 src="/lean-designer.jpg"
                 alt="Lean Designer Product Image"
-                width={800}
-                height={450}
-                className="w-full h-auto object-cover aspect-[16/9] transform group-hover:scale-105 group-hover:brightness-105 transition-all duration-500"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover transform group-hover:scale-105 transition-transform duration-500"
               />
-                       <div className="absolute inset-0 bg-black/0 group-hover:bg-[var(--foreground)]/20 transition-all duration-300"></div>
-                       </div>
-                         <div className="md:p-6 p-4 flex justify-end items-center">
-                  <div className="flex items-center text-[var(--foreground)]/80 text-sm group-hover:text-[var(--foreground)] transition-colors">
-                    詳細を見る
-                    <svg className="w-4 h-4 ml-2 transform translate-x-0 group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                  </div>
-                </div>
-            </Link>
-          </div>
-          {/* Product Item 2 */}
-           <div className="group flex flex-col">
-            {/* Added title block similar to Product 1 */}
-            <div className="flex items-center mb-8">
-             <div className="w-3 h-12 bg-[var(--background)] border border-[var(--foreground)] rounded-full flex items-center justify-center md:mr-4 mr-3 py-8 px-3">
-               <span className="text-[var(--foreground)] text-sm">2</span>
-             </div>
-             <div>
-               <h3 className="text-2xl md:text-4xl mb-2 text-[var(--foreground)] group-hover:text-[var(--foreground)]/90 transition-colors mt-1">Containeer</h3>
-               <p className="text-sm text-[var(--foreground)] leading-relaxed">
-                 バーチャルコンテンツのWEBギャラリーメディア
-               </p>
-             </div>
             </div>
-            <Link href="/product#containeer" className="block mb-6 relative overflow-hidden rounded-xl border border-[var(--foreground)]/10 hover:border-[var(--foreground)]/40 transition-all duration-300">
-            <div className="relative w-full aspect-[16/9] overflow-hidden">
-              <Image
-                src="/containeer.jpg"
-                alt="Containeer Product Image"
-                width={800}
-                height={450}
-                className="w-full h-auto object-cover aspect-[16/9] transform group-hover:scale-105 group-hover:brightness-105 transition-all duration-500"
-              />
-                           <div className="absolute inset-0 bg-black/0 group-hover:bg-[var(--foreground)]/20 transition-all duration-300"></div>
-                           </div>
-                              <div className="md:p-6 p-4 flex justify-end items-center">
-                  <div className="flex items-center text-[var(--foreground)]/80 text-sm group-hover:text-[var(--foreground)] transition-colors">
-                    詳細を見る
-                    <svg className="w-4 h-4 ml-2 transform translate-x-0 group-hover:translate-x-1 transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M5 12h14M12 5l7 7-7 7"/>
+            {/* Bottom Content */}
+            <div className="p-4 md:p-6 bg-[#2B2325] backdrop-blur-sm text-white flex justify-between items-center rounded-b-xl">
+              <div>
+                <h4 className="text-lg md:text-xl font-medium mb-1">Lean Designer</h4>
+                <p className="text-xs md:text-sm text-white/70">開発専門のハイエンドUI/UXソリューション</p>
+              </div>
+              {/* Arrow */}
+              <div className="flex justify-center">
+                    <svg className="w-10 h-10 transition-transform duration-500 group-hover:rotate-[360deg]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.5">
+                      <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
                   </div>
-                </div>
+            </div>
             </Link>
           </div>
+          
+
+          {/* Product Item 2 */}
+          <Link href="/product#containeer" className="group block relative overflow-hidden rounded-xl border border-[var(--foreground)]/10 hover:border-[var(--foreground)]/40 transition-all duration-300 aspect-[16/9]">
+            {/* Image */}
+            <Image
+              src="/containeer.jpg" // Ensure this image exists and path is correct
+              alt="Containeer Product Image"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover transform group-hover:scale-105 transition-transform duration-500"
+            />
+            {/* Overlay */}
+            {/* Making the overlay solid black for Containeer */}
+            <div className="absolute inset-0 bg-black/80 flex items-center justify-center">
+                {/* Centered Text "Containeer" with a small white square above */}
+                 <div className="text-center">
+                    <div className="w-4 h-4 bg-white mb-4 mx-auto"></div>
+                    <h3 className="text-white text-3xl md:text-5xl font-medium tracking-wider">Containeer</h3>
+                 </div>
+            </div>
+            {/* Top Left Number Pill */}
+            <div className="absolute top-0 left-0 p-6 md:p-8 text-white z-10">
+                <div className="absolute -top-1 -left-1 w-8 h-10 bg-gray-800/80 backdrop-blur-sm rounded-br-lg rounded-tl-xl flex items-center justify-center border-b border-r border-white/10">
+                    <span className="text-white text-xs font-medium">2</span>
+                </div>
+            </div>
+            {/* Bottom Content */}
+            <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 bg-gradient-to-t from-neutral-900/90 via-neutral-900/80 to-neutral-900/70 backdrop-blur-sm text-white flex justify-between items-center z-10">
+              <div>
+                  <h4 className="text-lg md:text-xl font-medium mb-1">Containeer</h4>
+                  <p className="text-xs md:text-sm text-white/70">バーチャルコンテンツのWEBギャラリーメディア</p>
+              </div>
+              {/* Arrow */}
+              <div className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center transform transition-transform duration-300 group-hover:translate-x-1 group-hover:bg-white/10">
+                 <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                 </svg>
+              </div>
+            </div>
+          </Link>
         </div>
       </motion.section>
 

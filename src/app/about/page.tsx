@@ -1,9 +1,11 @@
 import { Metadata } from 'next';
-import PageTitle from '@/components/PageTitle'; // TODO: Implement PageTitle component
-import CompanyOverview from '@/components/CompanyOverview'; // TODO: Implement CompanyOverview component
-import Footer from '@/components/Footer'; // TODO: Implement Footer component
+import PageTitle from '@/components/PageTitle';
+import CompanyOverview from '@/components/CompanyOverview';
+import Footer from '@/components/Footer';
 import Header from '@/components/Header';
-import AboutScene from '@/components/AboutCube'; 
+import AboutScene from '@/components/AboutCube';
+import Image from 'next/image';
+import AboutBrandIdentitySection from '@/components/AboutBrandIdentitySection';
 
 export const metadata: Metadata = {
   title: "私たちについて",
@@ -198,84 +200,13 @@ export default function AboutPage() {
   
           {/* <div className="flex-1 w-full max-w-[1440px] mx-auto px-4 md:px-2 pb-12 relative z-10">  */}
 
-          {/* <section className="pb-10 bg-[var(--background)] rounded-3xl md:p-20 p-6 border border-[var(--foreground)]/10 mb-20">
-            <div className="flex flex-col md:flex-row justify-between">
-              <div className="w-full">
-                <div className="flex flex-col">
-                  <div className="mb-8 bg-[var(--foreground)]/4 rounded-xl p-6">
-                    <h2 className="border-l-4 border-[var(--foreground)]/30 pl-4 text-xl text-[var(--foreground)]">ブランドアイデンティティ</h2>
-                  </div>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="flex flex-col">
-                      <div className="bg-[var(--background)] rounded-lg overflow-hidden mb-3">
-                        <Image 
-                          src="/sample2.png"
-                          alt="企業ロゴ"
-                          width={500}
-                          height={300}
-                          className="w-full md:h-[360px] h-[240px] object-cover"
-                        />
-                      </div>
-                      <p className="text-md text-[var(--foreground)]/60">企業ロゴ</p>
-                    </div>
-                    
-                    <div className="flex flex-col">
-                      <div className="bg-[var(--background)] rounded-lg overflow-hidden mb-3">
-                        <Image 
-                          src="/sample2.png"
-                          alt="書体"
-                          width={500}
-                          height={300}
-                          className="w-full md:h-[360px] h-[240px] object-cover"
-                        />
-                      </div>
-                      <p className="text-md text-[var(--foreground)]/60">書体</p>
-                    </div>
-                    
-                    <div className="flex flex-col">
-                      <div className="bg-[var(--background)] rounded-lg overflow-hidden mb-3">
-                        <Image 
-                          src="/sample2.png"
-                          alt="ブランドカラー"
-                          width={500}
-                          height={300}
-                          className="w-full md:h-[360px] h-[240px] object-cover"
-                        />
-                      </div>
-                      <p className="text-md text-[var(--foreground)]/60">ブランドカラー</p>
-                    </div>
-                    
-                    <div className="flex flex-col">
-                      <div className="bg-[var(--background)] rounded-lg overflow-hidden mb-3">
-                        <Image 
-                          src="/sample2.png"
-                          alt="リブランディングに込めた想い"
-                          width={500}
-                          height={300}
-                          className="w-full md:h-[360px] h-[240px] object-cover"
-                        />
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <p className="text-md text-[var(--foreground)]/60">リブランディングに込めた想い</p>
-                        <svg className="w-6 h-6 text-[var(--foreground)]/60" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section> */}
+          <AboutBrandIdentitySection />
 
-<section className="pb-10 bg-[var(--background)] border border-[var(--foreground)]/10 rounded-3xl md:p-20 p-6 mb-20 md:mb-40">
+<section className="mb-20 md:mb-40">
             <div className="flex flex-col md:flex-row justify-between">
               <div className="w-full">
                 <div className="flex flex-col">
-                  <div className="mb-8 bg-[var(--foreground)]/4 rounded-xl p-4">
-                    <h2 className="border-l-4 border-[var(--foreground)]/30 md:pl-4 pl-2 md:text-xl text-base text-[var(--foreground)]">ボードメンバー</h2>
-                  </div>
+                  <h2 className="text-2xl md:text-4xl mb-12">ボードメンバー</h2>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="mb-4 border-b border-[var(--foreground)]/10 pb-8">
