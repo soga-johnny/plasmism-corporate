@@ -43,7 +43,7 @@ export default function AboutBrandIdentitySection() {
   return (
     <section 
       ref={brandIdentitySectionRef} 
-      className="pb-10 rounded-3xl md:p-20 p-6 md:mt-102 mt-56 md:mb-[560px] mb-64 relative"
+      className="pb-10 rounded-3xl md:p-20 p-8 md:mt-102 mt-56 md:mb-[560px] mb-72 relative"
       style={{
         backgroundImage: `url('/background.png')`,
         backgroundRepeat: 'repeat',
@@ -66,7 +66,7 @@ export default function AboutBrandIdentitySection() {
                     alt="企業ロゴ"
                     width={500}
                     height={400}
-                    className="w-full md:h-[360px] h-auto"
+                    className="w-full h-auto object-contain"
                   />
                 </div>
                 <p className="text-md text-[var(--foreground)]/60">企業ロゴ</p>
@@ -79,7 +79,7 @@ export default function AboutBrandIdentitySection() {
                     alt="書体"
                     width={500}
                     height={400}
-                    className="w-full md:h-[360px] h-auto"
+                    className="w-full h-auto object-contain"
                   />
                 </div>
                 <p className="text-md text-[var(--foreground)]/60">書体</p>
@@ -92,7 +92,7 @@ export default function AboutBrandIdentitySection() {
                     alt="ブランドカラー"
                     width={500}
                     height={400}
-                    className="w-full md:h-[360px] h-auto"
+                    className="w-full h-auto object-contain"
                   />
                 </div>
                 <p className="text-md text-[var(--foreground)]/60">ブランドカラー</p>
@@ -105,7 +105,7 @@ export default function AboutBrandIdentitySection() {
                     alt="リブランディングに込めた想い"
                     width={500}
                     height={400}
-                    className="w-full md:h-[360px] h-auto"
+                    className="w-full h-auto object-contain"
                   />
                 </div>
                 <div className="flex justify-between items-center">

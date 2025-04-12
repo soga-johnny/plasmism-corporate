@@ -298,14 +298,14 @@ const Home = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-2 md:gap-x-2 gap-y-1 md:gap-y-2 mb-12 md:mb-16">
           {/* Product Item 1 */}
-          <div className='relative md:p-8 p-6 bg-[#F6F4F5] border-b border-r border-[#E2DFE0] rounded-3xl hover:bg-[var(--foreground)]/10 hover:border-[var(--foreground)]/20 transition-all duration-300'>
+          <div className='relative md:p-8 p-6 bg-[#F6F4F5] border-b border-r border-[#E2DFE0] rounded-3xl hover:bg-[var(--foreground)]/10 hover:border-[var(--foreground)]/20 hover:shadow-xl hover:scale-[1.02] transition-all duration-300'>
           {/* Number Pill */}
             <div className="absolute md:top-4 top-2 md:left-12 left-8 text-white z-10">
               <div className="w-3 h-12 bg-[#2B2325] rounded-full flex items-center justify-center md:mr-4 mr-3 py-8 px-3">
                   <span className="text-white text-sm">1</span>
                 </div>
             </div>
-          <Link href="/product#lean-designer" className="group block relative rounded-xl border border-[var(--foreground)]/10 hover:border-[var(--foreground)]/40 transition-all duration-300 aspect-[16/9]">
+          <Link href="/product#lean-designer" className="group block relative rounded-xl transition-all duration-300 aspect-[16/9]">
             {/* Image */}
             <div className="relative w-full h-full overflow-hidden rounded-t-xl">
               <Image
@@ -334,14 +334,14 @@ const Home = () => {
           
 
           {/* Product Item 2 */}
-          <div className='relative md:p-8 p-6 bg-[#F6F4F5] border-b border-r border-[#E2DFE0] rounded-3xl hover:bg-[var(--foreground)]/10 hover:border-[var(--foreground)]/20 transition-all duration-300'>
+          <div className='relative md:p-8 p-6 bg-[#F6F4F5] border-b border-r border-[#E2DFE0] rounded-3xl hover:bg-[var(--foreground)]/10 hover:border-[var(--foreground)]/20 hover:shadow-xl hover:scale-[1.02] transition-all duration-300'>
           {/* Number Pill */}
             <div className="absolute md:top-4 top-2 md:left-12 left-8 text-white z-10">
               <div className="w-3 h-12 bg-[#2B2325] rounded-full flex items-center justify-center md:mr-4 mr-3 py-8 px-3">
                   <span className="text-white text-sm">2</span>
                 </div>
             </div>
-          <Link href="/product#containeer" className="group block relative rounded-xl border border-[var(--foreground)]/10 hover:border-[var(--foreground)]/40 transition-all duration-300 aspect-[16/9]">
+          <Link href="/product#containeer" className="group block relative rounded-xl transition-all duration-300 aspect-[16/9]">
             {/* Image */}
             <div className="relative w-full h-full overflow-hidden rounded-t-xl">
               <Image
@@ -388,12 +388,12 @@ const Home = () => {
 
           <div
             ref={scrollContainerRef}
-            className="w-full mx-auto md:overflow-x-auto mb-0 md:mb-0 service-scroll-container relative overflow-visible"
+            className="w-full mx-auto md:overflow-x-auto mb-0 md:mb-0 md:pb-12 md:px-4 service-scroll-container relative overflow-visible"
             style={getMaskStyle()}
           >
               <div className="flex flex-col md:flex-row md:space-x-4 space-y-2 md:space-y-0 py-4">
                 {/* Service Item 1: UX Design */}
-                <Link href="/service#ux-design" className="md:p-12 md:pr-0 p-8 group flex flex-col md:flex-row md:w-[860px] bg-[#F6F4F5] rounded-3xl hover:bg-[#F6F4F5]/80 transition-all duration-300 flex-shrink-0">
+                <Link href="/service#ux-design" className="md:p-16 md:pr-0 p-8 group flex flex-col md:flex-row md:w-[860px] bg-[#F6F4F5] rounded-3xl hover:bg-[#F6F4F5]/80 hover:shadow-xl hover:scale-[1.01] transition-all duration-300 flex-shrink-0">
                     {/* Content Container (Icon, Title, Text, Image): Takes up most space */}
                     <div className="flex flex-col flex-1 order-1">
                         {/* Text Area */}
@@ -427,7 +427,7 @@ const Home = () => {
                 </Link>
 
                 {/* Service Item 2: Corporate Design */}
-                 <Link href="/service#corporate-design" className="md:p-12 md:pr-0 p-8 group flex flex-col md:flex-row md:w-[860px] bg-[#F6F4F5] rounded-3xl hover:bg-[#F6F4F5]/80 transition-all duration-300 flex-shrink-0">
+                 <Link href="/service#corporate-design" className="md:p-16 md:pr-0 p-8 group flex flex-col md:flex-row md:w-[860px] bg-[#F6F4F5] rounded-3xl hover:bg-[#F6F4F5]/80 hover:shadow-xl hover:scale-[1.01] transition-all duration-300 flex-shrink-0">
                     {/* Content Container */}
                     <div className="flex flex-col flex-1 order-1">
                         {/* Text Area */}
@@ -461,7 +461,7 @@ const Home = () => {
                 </Link>
 
                  {/* Service Item 3: Architecture Design */}
-                <Link href="/service#architecture-design" className="md:p-12 md:pr-0 p-8 group flex flex-col md:flex-row md:w-[860px] bg-[#F6F4F5] rounded-3xl hover:bg-[#F6F4F5]/80 transition-all duration-300 flex-shrink-0">
+                <Link href="/service#architecture-design" className="md:p-16 md:pr-0 p-8 group flex flex-col md:flex-row md:w-[860px] bg-[#F6F4F5] rounded-3xl hover:bg-[#F6F4F5]/80 hover:shadow-xl hover:scale-[1.01] transition-all duration-300 flex-shrink-0">
                      {/* Content Container */}
                      <div className="flex flex-col flex-1 order-1">
                          {/* Text Area */}
@@ -512,7 +512,7 @@ const Home = () => {
                 href="https://same-ranunculus-85c.notion.site/Plasmism-1bf43fbe1206801bb0efd6d37bf01449"
                 target="_blank"
                 rel="noopener noreferrer"
-             className="group block rounded-3xl hover:bg-[#3c3335] transition-all duration-300 overflow-hidden border border-transparent hover:border-[#4a4043]"
+             className="group block rounded-3xl hover:bg-[#3c3335] hover:shadow-xl hover:scale-[1.01] transition-all duration-300 overflow-hidden border border-transparent hover:border-[#4a4043]"
              style={{
               backgroundImage: `url('/background.png')`,
               backgroundRepeat: 'repeat',
@@ -543,7 +543,7 @@ const Home = () => {
                          />
                      </div>
                      {/* Arrow - Styled like Product section */}
-                     <div className="flex items-center md:justify-center justify-end md:pl-6 md:border-l border-white/20 h-full md:w-auto w-full md:py-0 py-6">
+                     <div className="flex items-center md:justify-center justify-end md:pl-6 md:border-l border-white/20 md:h-[200px] h-auto md:w-auto w-full md:py-0 py-6">
                         <svg className="w-10 h-10 text-white/70 group-hover:text-white transition-transform duration-500 group-hover:rotate-[360deg]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
                              {/* Top-right arrow path */}
                              <path d="M7 17l9.172-9.172M7 7h10v10" />

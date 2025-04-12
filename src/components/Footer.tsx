@@ -192,9 +192,9 @@ export default function Footer() {
           </div>
           
           {shouldShowContactSection && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-1">
+            <div className="grid grid-cols-1 md:grid-cols-2 md:gap-2 gap-1">
               <Link href="/contact" className="inline-block group">
-                <div className="bg-[var(--foreground)]/10 hover:bg-[var(--foreground)]/15 transition-all rounded-xl md:px-20 px-8 md:py-20 py-10 w-full">
+                <div className="bg-[var(--foreground)]/10 hover:bg-[var(--foreground)]/15 hover:shadow-xl hover:scale-[1.02] transition-all rounded-xl md:px-20 px-8 md:py-20 py-10 w-full">
                   <h3 className="md:text-4xl text-2xl mb-6 text-center border-b border-[var(--foreground)]/10 pb-4">お問い合わせ・ご相談</h3>
                   <p className="text-base md:mb-12 mb-6 text-[var(--foreground)]/80">
                     UXデザイン、コーポレートデザイン、アーキテクチャデザインなど、課題に真摯に向き合って対応。
@@ -209,7 +209,7 @@ export default function Footer() {
               </Link>
 
               <Link href="/download" className="inline-block group">
-                <div className="bg-[var(--foreground)]/10 hover:bg-[var(--foreground)]/15 transition-all rounded-xl md:px-20 px-8 md:py-20 py-10 w-full">
+                <div className="bg-[var(--foreground)]/10 hover:bg-[var(--foreground)]/15 hover:shadow-xl hover:scale-[1.02] transition-all rounded-xl md:px-20 px-8 md:py-20 py-10 w-full">
                   <h3 className="md:text-4xl text-2xl mb-6 text-center border-b border-[var(--foreground)]/10 pb-4">会社資料ダウンロード</h3>
                   <p className="text-base md:mb-12 mb-6 text-[var(--foreground)]/80">
                     サービスの具体的な内容や、実績事例、アプローチをまとめた資料をご用意。
@@ -227,7 +227,7 @@ export default function Footer() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
           <div>
-            <h4 className="text-sm mb-4 text-[var(--foreground)]/70">About us</h4>
+            <h4 className="text-xs mb-4 text-[var(--foreground)]/70">About us</h4>
             <ul className="space-y-3">
               <li><Link href="/about" className="hover:text-[var(--foreground)]/70 transition-colors text-base font-light">私たちについて</Link></li>
               <li><Link href="/feature" className="hover:text-[var(--foreground)]/70 transition-colors text-base font-light">特徴</Link></li>
@@ -235,7 +235,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="text-sm mb-4 text-[var(--foreground)]/70">Service and Product</h4>
+            <h4 className="text-xs mb-4 text-[var(--foreground)]/70">Service and Product</h4>
             <ul className="space-y-3">
               <li><Link href="/service" className="hover:text-[var(--foreground)]/70 transition-colors text-base font-light">サービス</Link></li>
               <li><Link href="/product" className="hover:text-[var(--foreground)]/70 transition-colors text-base font-light">プロダクト</Link></li>
@@ -243,14 +243,14 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="text-sm mb-4 text-[var(--foreground)]/70">Support</h4>
+            <h4 className="text-xs mb-4 text-[var(--foreground)]/70">Support</h4>
             <ul className="space-y-3">
               <li><Link href="/contact" className="hover:text-[var(--foreground)]/70 transition-colors text-base font-light">お問い合わせ</Link></li>
               <li><Link href="/download" className="hover:text-[var(--foreground)]/70 transition-colors text-base font-light">資料ダウンロード</Link></li>
             </ul>
           </div>
           <div>
-            <h4 className="text-sm mb-4 text-[var(--foreground)]/70">Recruit</h4>
+            <h4 className="text-xs mb-4 text-[var(--foreground)]/70">Recruit</h4>
             <ul className="space-y-3">
               <li><Link href="/recruit" className="hover:text-[var(--foreground)]/70 transition-colors text-base font-light">採用情報</Link></li>
             </ul>

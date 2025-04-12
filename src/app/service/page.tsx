@@ -3,6 +3,7 @@
 import Footer from '@/components/Footer';
 import PageTitle from '@/components/PageTitle';
 import Header from '@/components/Header';
+import Image from 'next/image';
 
 export default function ServicePage() {
   return (
@@ -19,11 +20,11 @@ export default function ServicePage() {
           <p className="text-[var(--foreground)]/80 mb-10 ">再現性のあるプロセスでソリューションを提供します。各サービスは単体でも組み合わせても提供可能です。</p>
           
           <div className="space-y-4">
-            <a href="#ux-design" className="flex items-center group border-b border-[var(--foreground)]/10 pb-4 hover:bg-[var(--foreground)]/10 hover:border-[var(--background)]/20 transition-all duration-300 rounded-lg p-4" onClick={(e) => {
+            <a href="#ux-design" className="flex items-center group border-b border-[var(--foreground)]/10 pb-4 hover:bg-[var(--foreground)]/10 hover:border-[var(--background)]/20 transition-all duration-300 rounded-lg p-4 pl-0" onClick={(e) => {
               e.preventDefault();
               document.querySelector('#ux-design')?.scrollIntoView({ behavior: 'smooth' });
             }}>
-                <svg className="w-8 h-8 text-[var(--foreground)] mr-2 mt-2 group-hover:text-[var(--foreground)]/50 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" /></svg>
+             <Image src="/ux-design-icon.svg" alt="UX Design Icon" width={36} height={36} className="mr-3" />
 
             <div className="flex-1 flex items-center justify-between">
               <div>
@@ -38,11 +39,11 @@ export default function ServicePage() {
             </div>
             </a>
             
-            <a href="#corporate-design" className="flex items-center group border-b border-[var(--foreground)]/10 pb-4 hover:bg-[var(--foreground)]/10 hover:border-[var(--background)]/20 transition-all duration-300 rounded-lg p-4" onClick={(e) => {
+            <a href="#corporate-design" className="flex items-center group border-b border-[var(--foreground)]/10 pb-4 hover:bg-[var(--foreground)]/10 hover:border-[var(--background)]/20 transition-all duration-300 rounded-lg p-4 pl-0" onClick={(e) => {
               e.preventDefault();
               document.querySelector('#corporate-design')?.scrollIntoView({ behavior: 'smooth' });
             }}>
-                 <svg className="w-8 h-8 text-[var(--foreground)] mr-2 mt-2 group-hover:text-[var(--foreground)]/50 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21M3 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21M21 21v-3.375c0-.621-.504-1.125-1.125-1.125h-3.75c-.621 0-1.125.504-1.125 1.125V21" /></svg>
+             <Image src="/corporate-design-icon.svg" alt="Corporate Design Icon" width={36} height={36} className="mr-3" />
 
             <div className="flex-1 flex items-center justify-between">
               <div>
@@ -57,11 +58,11 @@ export default function ServicePage() {
             </div>
             </a>
             
-            <a href="#architecture-design" className="flex items-center group border-b border-[var(--foreground)]/10 pb-4 hover:bg-[var(--foreground)]/10 hover:border-[var(--background)]/20 transition-all duration-300 rounded-lg p-4" onClick={(e) => {
+            <a href="#architecture-design" className="flex items-center group border-b border-[var(--foreground)]/10 pb-4 hover:bg-[var(--foreground)]/10 hover:border-[var(--background)]/20 transition-all duration-300 rounded-lg p-4 pl-0" onClick={(e) => {
               e.preventDefault();
               document.querySelector('#architecture-design')?.scrollIntoView({ behavior: 'smooth' });
             }}>
-                    <svg className="w-8 h-8 text-[var(--foreground)] mr-2 mt-2 group-hover:text-[var(--foreground)]/50 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1"><path strokeLinecap="round" strokeLinejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" /></svg>
+             <Image src="/architecture-design-icon.svg" alt="Architecture Design Icon" width={36} height={36} className="mr-3" />
 
             <div className="flex-1 flex items-center justify-between">
               <div>
@@ -84,7 +85,7 @@ export default function ServicePage() {
           <div className="relative group md:py-6 py-4 md:px-4 px-3 mb-8 rounded-lg sticky md:top-20 top-4 bg-[var(--background)] border border-[var(--foreground)]/40 z-10 overflow-hidden">
             <div className="absolute inset-0 bg-[url('/background.png')] bg-cover bg-center opacity-30 z-0"></div>
             <div className="relative z-10 flex items-center w-full">
-            <svg className="w-8 h-8 text-[var(--foreground)] mr-2 mt-2 group-hover:text-[var(--foreground)]/50 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" /></svg>
+            <Image src="/ux-design-icon.svg" alt="UX Design Icon" width={36} height={36} className="mr-3" />
 
               <div className="flex-1 flex items-center justify-between">
                 <div>
@@ -94,6 +95,17 @@ export default function ServicePage() {
               </div>
             </div>
           </div>
+
+
+          <div className="relative w-full h-auto aspect-video overflow-hidden rounded-xl mt-4 mb-8 md:mb-12">
+                          <Image
+                             src="/ux-design.jpg"
+                             alt="UX Design Image"
+                             fill
+                             sizes="100vw, 50vw"
+                             className="md:object-contain object-cover group-hover:scale-105 transition-transform duration-500"
+                             />
+                         </div>
             
             {/* こんな課題はありませんか？ */}
             <div className="mb-16">
@@ -311,7 +323,7 @@ export default function ServicePage() {
           <div className="relative group md:py-6 py-4 md:px-4 px-3 mb-8 rounded-lg sticky md:top-20 top-4 bg-[var(--background)] border border-[var(--foreground)]/40 z-10 overflow-hidden">
             <div className="absolute inset-0 bg-[url('/background.png')] bg-cover bg-center opacity-30 z-0"></div>
             <div className="relative z-10 flex items-center w-full">
-            <svg className="w-8 h-8 text-[var(--foreground)] mr-2 mt-2 group-hover:text-[var(--foreground)]/50 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21M3 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21M21 21v-3.375c0-.621-.504-1.125-1.125-1.125h-3.75c-.621 0-1.125.504-1.125 1.125V21" /></svg>
+            <Image src="/corporate-design-icon.svg" alt="Corporate Design Icon" width={36} height={36} className="mr-3" />
 
               <div className="flex-1 flex items-center justify-between">
                 <div>
@@ -321,6 +333,17 @@ export default function ServicePage() {
               </div>
             </div>
           </div>
+
+
+          <div className="relative w-full h-auto aspect-video overflow-hidden rounded-xl mt-4 mb-8 md:mb-12">
+                          <Image
+                             src="/corporate-design.jpg"
+                             alt="Corporate Design Image"
+                             fill
+                             sizes="100vw, 50vw"
+                             className="md:object-contain object-cover group-hover:scale-105 transition-transform duration-500"
+                             />
+                         </div>
             
             {/* こんな課題はありませんか？ */}
             <div className="mb-16">
@@ -514,7 +537,7 @@ export default function ServicePage() {
           <div className="relative group md:py-6 py-4 md:px-4 px-3 mb-8 rounded-lg sticky md:top-20 top-4 bg-[var(--background)] border border-[var(--foreground)]/40 z-10 overflow-hidden">
             <div className="absolute inset-0 bg-[url('/background.png')] bg-cover bg-center opacity-30 z-0"></div>
             <div className="relative z-10 flex items-center w-full">
-            <svg className="w-8 h-8 text-[var(--foreground)] mr-2 mt-2 group-hover:text-[var(--foreground)]/50 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1"><path strokeLinecap="round" strokeLinejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" /></svg>
+            <Image src="/architecture-design-icon.svg" alt="Architecture Design Icon" width={36} height={36} className="mr-3" />
 
               <div className="flex-1 flex items-center justify-between">
                 <div>
@@ -524,6 +547,16 @@ export default function ServicePage() {
               </div>
             </div>
           </div>
+
+          <div className="relative w-full h-auto aspect-video overflow-hidden rounded-xl mt-4 mb-8 md:mb-12">
+                          <Image
+                             src="/architecture-design.jpg"
+                             alt="Architecture Design Image"
+                             fill
+                             sizes="100vw, 50vw"
+                             className="md:object-contain object-cover group-hover:scale-105 transition-transform duration-500"
+                             />
+                         </div>
             
             {/* こんな課題はありませんか？ */}
             <div className="mb-16">
