@@ -554,6 +554,135 @@ const Home = () => {
         </Link>
         </motion.section>
 
+        {/* MEDIA Section */}
+        <motion.section
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          className="w-full max-w-[1440px] mx-auto px-6 md:px-16 flex flex-col justify-center py-16 md:py-24"
+        >
+          {/* PageTitle style title */}
+          <h2 className="text-2xl font-thin flex items-center mb-6">
+            メディア実績
+            <span className="ml-12 h-px flex-1 bg-[#2B2325]/10"></span>
+          </h2>
+
+          {/* Media Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-2 md:gap-x-2 md:gap-y-6">
+            {/* Media Item 1 */}
+            <div className="aspect-[3/2] relative bg-[#F6F4F5] rounded-xl p-4 md:p-6 flex items-center justify-center">
+              <Image
+                src="/images/media/logo_mainichi.svg"
+                alt="毎日新聞"
+                width={0}
+                height={0}
+                className="w-auto h-auto object-contain"
+                sizes="(max-width: 768px) 50vw, 20vw"
+              />
+            </div>
+            {/* Media Item 2 */}
+            <div className="aspect-[3/2] relative bg-[#F6F4F5] rounded-xl p-4 md:p-6 flex items-center justify-center">
+              <Image
+                src="/images/media/logo_voix.svg"
+                alt="VOIX biz"
+                width={0}
+                height={0}
+                className="w-auto h-auto object-contain"
+                sizes="(max-width: 768px) 50vw, 20vw"
+              />
+            </div>
+            {/* Media Item 3 */}
+            <div className="aspect-[3/2] relative bg-[#F6F4F5] rounded-xl p-4 md:p-6 flex items-center justify-center">
+              <Image
+                src="/images/media/logo_newsyou.svg"
+                alt="NEWS YOU-USE"
+                width={0}
+                height={0}
+                className="w-auto h-auto object-contain"
+                sizes="(max-width: 768px) 50vw, 20vw"
+              />
+            </div>
+            {/* Media Item 4 */}
+            <div className="aspect-[3/2] relative bg-[#F6F4F5] rounded-xl p-4 md:p-6 flex items-center justify-center">
+              <Image
+                src="/images/media/logo_livedoor.svg"
+                alt="livedoor News"
+                width={0}
+                height={0}
+                className="w-auto h-auto object-contain"
+                sizes="(max-width: 768px) 50vw, 20vw"
+              />
+            </div>
+            {/* Media Item 5 */}
+            <div className="aspect-[3/2] relative bg-[#F6F4F5] rounded-xl p-4 md:p-6 flex items-center justify-center">
+              <Image
+                src="/images/media/logo_zaikei.svg"
+                alt="財経新聞"
+                width={0}
+                height={0}
+                className="w-auto h-auto object-contain"
+                sizes="(max-width: 768px) 50vw, 20vw"
+              />
+            </div>
+            {/* Media Item 6 */}
+            <div className="aspect-[3/2] relative bg-[#F6F4F5] rounded-xl p-4 md:p-6 flex items-center justify-center">
+              <Image
+                src="/images/media/logo_mapion.svg"
+                alt="Mapion"
+                width={0}
+                height={0}
+                className="w-auto h-auto object-contain"
+                sizes="(max-width: 768px) 50vw, 20vw"
+              />
+            </div>
+            {/* Media Item 7 */}
+            <div className="aspect-[3/2] relative bg-[#F6F4F5] rounded-xl p-4 md:p-6 flex items-center justify-center">
+              <Image
+                src="/images/media/logo_third.svg"
+                alt="THIRD NEWS"
+                width={0}
+                height={0}
+                className="w-auto h-auto object-contain"
+                sizes="(max-width: 768px) 50vw, 20vw"
+              />
+            </div>
+            {/* Media Item 8 */}
+            <div className="aspect-[3/2] relative bg-[#F6F4F5] rounded-xl p-4 md:p-6 flex items-center justify-center">
+              <Image
+                src="/images/media/logo_tvtokyo.svg"
+                alt="テレ東"
+                width={0}
+                height={0}
+                className="w-auto h-auto object-contain"
+                sizes="(max-width: 768px) 50vw, 20vw"
+              />
+            </div>
+            {/* Media Item 9 */}
+            <div className="aspect-[3/2] relative bg-[#F6F4F5] rounded-xl p-4 md:p-6 flex items-center justify-center">
+              <Image
+                src="/images/media/logo_xexeq.svg"
+                alt="XEXEQ"
+                width={0}
+                height={0}
+                className="w-auto h-auto object-contain"
+                sizes="(max-width: 768px) 50vw, 20vw"
+              />
+            </div>
+            {/* Media Item 10 */}
+            <div className="aspect-[3/2] relative bg-[#F6F4F5] rounded-xl p-4 md:p-6 flex items-center justify-center">
+              <Image
+                src="/images/media/logo_nikkei.svg"
+                alt="NIKKEI"
+                width={0}
+                height={0}
+                className="w-auto h-auto object-contain"
+                sizes="(max-width: 768px) 50vw, 20vw"
+              />
+            </div>
+          </div>
+        </motion.section>
+
       <Footer />
 
       {/* Custom Scrollbar CSS */}
