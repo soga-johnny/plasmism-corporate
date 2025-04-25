@@ -7,7 +7,7 @@ export default function NotFound() {
   return (
     <main className="min-h-screen flex flex-col md:py-12 pt-2 pb-24">
       <Header />
-      <div className="flex-1 w-full max-w-[1440px] mx-auto px-4 md:px-2 pb-12">
+      <div className="flex-1 w-full max-w-[1980px] mx-auto px-4 md:px-12 pb-12">
         <div className="space-y-12 mb-16 md:mx-16 mx-4 pt-10">
           {/* 404エラーセクション */}
           <section className="h-[70vh] flex flex-col items-center justify-center border-b border-gray-200 pb-20">

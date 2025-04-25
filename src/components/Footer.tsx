@@ -167,9 +167,9 @@ export default function Footer() {
   
   return (
     <footer ref={footerRef} className="text-[var(--foreground)] pt-12 pb-4 transition-colors duration-300">
-      <div className="w-full max-w-[1440px] mx-auto px-6 md:px-12">
+      <div className="w-full mx-auto px-6 md:px-12">
         {/* パンくずリスト */}
-        <div className="border-y border-[var(--foreground)]/10 py-6 my-8">
+        <div className="border-y border-[var(--foreground)]/10 py-6 my-12">
           <div className="flex items-center space-x-2 text-sm">
             {breadcrumbs.map((breadcrumb, index) => (
               <div key={breadcrumb.path} className="flex items-center">
@@ -194,7 +194,7 @@ export default function Footer() {
           {shouldShowContactSection && (
             <div className="grid grid-cols-1 md:grid-cols-2 md:gap-2 gap-1">
               <Link href="/contact" className="inline-block group">
-                <div className="bg-[var(--foreground)]/10 hover:bg-[var(--foreground)]/15 hover:shadow-xl hover:scale-[1.02] transition-all rounded-xl md:px-20 px-8 md:py-20 py-10 w-full">
+                <div className="bg-[var(--foreground)]/10 hover:bg-[var(--foreground)]/15 hover:shadow-xl hover:scale-[1.01] transition-all rounded-xl md:px-20 px-8 md:py-20 py-10 w-full">
                   <h3 className="md:text-4xl text-2xl mb-6 text-center border-b border-[var(--foreground)]/10 pb-4">お問い合わせ・ご相談</h3>
                   <p className="text-base md:mb-12 mb-6 text-[var(--foreground)]/80">
                     UXデザイン、コーポレートデザイン、アーキテクチャデザインなど、課題に真摯に向き合って対応。
@@ -209,7 +209,7 @@ export default function Footer() {
               </Link>
 
               <Link href="/download" className="inline-block group">
-                <div className="bg-[var(--foreground)]/10 hover:bg-[var(--foreground)]/15 hover:shadow-xl hover:scale-[1.02] transition-all rounded-xl md:px-20 px-8 md:py-20 py-10 w-full">
+                <div className="bg-[var(--foreground)]/10 hover:bg-[var(--foreground)]/15 hover:shadow-xl hover:scale-[1.01] transition-all rounded-xl md:px-20 px-8 md:py-20 py-10 w-full">
                   <h3 className="md:text-4xl text-2xl mb-6 text-center border-b border-[var(--foreground)]/10 pb-4">会社資料ダウンロード</h3>
                   <p className="text-base md:mb-12 mb-6 text-[var(--foreground)]/80">
                     サービスの具体的な内容や、実績事例、アプローチをまとめた資料をご用意。
