@@ -573,111 +573,101 @@ const Home = () => {
             {/* Media Item 1 */}
             <div className="aspect-[3/2] relative bg-[#F6F4F5] rounded-xl p-4 md:p-6 flex items-center justify-center">
               <Image
-                src="/images/media/logo_mainichi.svg"
+                src="/images/media/logo_mainichi.png"
                 alt="毎日新聞"
-                width={0}
-                height={0}
-                className="w-auto h-auto object-contain"
-                sizes="(max-width: 768px) 50vw, 20vw"
+                width={228}
+                height={45}
+                sizes="(max-width: 768px) 80vw, 20vw"
               />
             </div>
             {/* Media Item 2 */}
             <div className="aspect-[3/2] relative bg-[#F6F4F5] rounded-xl p-4 md:p-6 flex items-center justify-center">
               <Image
-                src="/images/media/logo_voix.svg"
+                src="/images/media/logo_voix.png"
                 alt="VOIX biz"
-                width={0}
-                height={0}
-                className="w-auto h-auto object-contain"
-                sizes="(max-width: 768px) 50vw, 20vw"
+                width={196}
+                height={68}
+                sizes="(max-width: 768px) 80vw, 20vw"
               />
             </div>
             {/* Media Item 3 */}
             <div className="aspect-[3/2] relative bg-[#F6F4F5] rounded-xl p-4 md:p-6 flex items-center justify-center">
               <Image
-                src="/images/media/logo_newsyou.svg"
+                src="/images/media/logo_newsyou.png"
                 alt="NEWS YOU-USE"
-                width={0}
-                height={0}
-                className="w-auto h-auto object-contain"
-                sizes="(max-width: 768px) 50vw, 20vw"
+                width={248}
+                height={33}
+                sizes="(max-width: 768px) 80vw, 20vw"
               />
             </div>
             {/* Media Item 4 */}
             <div className="aspect-[3/2] relative bg-[#F6F4F5] rounded-xl p-4 md:p-6 flex items-center justify-center">
               <Image
-                src="/images/media/logo_livedoor.svg"
+                src="/images/media/logo_livedoor.png"
                 alt="livedoor News"
-                width={0}
-                height={0}
-                className="w-auto h-auto object-contain"
-                sizes="(max-width: 768px) 50vw, 20vw"
+                width={222}
+                height={27}
+                sizes="(max-width: 768px) 80vw, 20vw"
               />
             </div>
             {/* Media Item 5 */}
             <div className="aspect-[3/2] relative bg-[#F6F4F5] rounded-xl p-4 md:p-6 flex items-center justify-center">
               <Image
-                src="/images/media/logo_zaikei.svg"
+                src="/images/media/logo_zaikei.png"
                 alt="財経新聞"
-                width={0}
-                height={0}
-                className="w-auto h-auto object-contain"
-                sizes="(max-width: 768px) 50vw, 20vw"
+                width={147}
+                height={30}
+                sizes="(max-width: 768px) 80vw, 20vw"
               />
             </div>
             {/* Media Item 6 */}
             <div className="aspect-[3/2] relative bg-[#F6F4F5] rounded-xl p-4 md:p-6 flex items-center justify-center">
               <Image
-                src="/images/media/logo_mapion.svg"
+                src="/images/media/logo_mapion.png"
                 alt="Mapion"
-                width={0}
-                height={0}
-                className="w-auto h-auto object-contain"
-                sizes="(max-width: 768px) 50vw, 20vw"
+                width={198}
+                height={74}
+                sizes="(max-width: 768px) 80vw, 20vw"
               />
             </div>
             {/* Media Item 7 */}
             <div className="aspect-[3/2] relative bg-[#F6F4F5] rounded-xl p-4 md:p-6 flex items-center justify-center">
               <Image
-                src="/images/media/logo_third.svg"
+                src="/images/media/logo_third.png"
                 alt="THIRD NEWS"
-                width={0}
-                height={0}
-                className="w-auto h-auto object-contain"
-                sizes="(max-width: 768px) 50vw, 20vw"
+                width={173}
+                height={68}
+                sizes="(max-width: 768px) 80vw, 20vw"
               />
             </div>
             {/* Media Item 8 */}
             <div className="aspect-[3/2] relative bg-[#F6F4F5] rounded-xl p-4 md:p-6 flex items-center justify-center">
               <Image
-                src="/images/media/logo_tvtokyo.svg"
+                src="/images/media/logo_tvtokyo.png"
                 alt="テレ東"
-                width={0}
-                height={0}
-                className="w-auto h-auto object-contain"
-                sizes="(max-width: 768px) 50vw, 20vw"
+                width={156}
+                height={56}
+                sizes="(max-width: 768px) 80vw, 20vw"
               />
             </div>
             {/* Media Item 9 */}
             <div className="aspect-[3/2] relative bg-[#F6F4F5] rounded-xl p-4 md:p-6 flex items-center justify-center">
               <Image
-                src="/images/media/logo_xexeq.svg"
+                src="/images/media/logo_xexeq.png"
                 alt="XEXEQ"
-                width={0}
-                height={0}
-                className="w-auto h-auto object-contain"
-                sizes="(max-width: 768px) 50vw, 20vw"
+                width={192}
+                height={57}
+                sizes="(max-width: 768px) 80vw, 20vw"
               />
             </div>
             {/* Media Item 10 */}
             <div className="aspect-[3/2] relative bg-[#F6F4F5] rounded-xl p-4 md:p-6 flex items-center justify-center">
               <Image
-                src="/images/media/logo_nikkei.svg"
+                src="/images/media/logo_nikkei.png"
                 alt="NIKKEI"
-                width={0}
-                height={0}
-                className="w-auto h-auto object-contain"
-                sizes="(max-width: 768px) 50vw, 20vw"
+                width={203}
+                height={64}
+                sizes="(max-width: 768px) 80vw, 20vw"
               />
             </div>
           </div>
