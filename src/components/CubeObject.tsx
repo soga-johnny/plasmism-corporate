@@ -799,7 +799,7 @@ export default function CubeInteractive() {
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     const currentProgress = latest;
-    const factor = isMobile ? 0.7 : 0.9;
+    const factor = isMobile ? 0.75 : 0.95;
 
     const tDuration = DEFAULT_TRANSITION_DURATION * factor;
     const transitionWidth = tDuration / 3.1;
@@ -814,7 +814,7 @@ export default function CubeInteractive() {
     const s2TransitionStart = s2End - (transitionWidth / 2);
     const s3TransitionEnd = s2End + (transitionWidth / 2);
     const blurStart2 = s2TransitionStart - 0.025;
-    const blurEnd2 = s3TransitionEnd + 0.042;
+    const blurEnd2 = s3TransitionEnd + 0.045;
 
     const maxBlur = 22;
     let newBlur = 0;
