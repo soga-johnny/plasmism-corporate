@@ -565,7 +565,7 @@ function Cube({ isMobile }: { isMobile: boolean }) {
         // Calculate the group's start position based on single cube's final position
         const startPos = dummyVec; // Reuse dummy vector
         const finalX = isMobile ? 1 : 2.4; // Should match targetRightShift
-        const finalY = isMobile ? 1.0 : 0; // Adjusted mobile Y from 1.5 to 1.3
+        const finalY = isMobile ? 0.3 : 0; // Adjusted mobile Y from 1.5 to 1.3
         startPos.set(finalX, finalY, 0);
         stage3GroupRef.current.position.copy(startPos);
 
@@ -799,10 +799,10 @@ export default function CubeInteractive() {
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     const currentProgress = latest;
-    const factor = isMobile ? 0.85 : 1;
+    const factor = isMobile ? 0.7 : 0.9;
 
     const tDuration = DEFAULT_TRANSITION_DURATION * factor;
-    const transitionWidth = tDuration / 3.5;
+    const transitionWidth = tDuration / 3.1;
 
     const s1End = DEFAULT_STAGE1_END * factor;
     const transition1Start = s1End - (transitionWidth / 2);
@@ -814,7 +814,7 @@ export default function CubeInteractive() {
     const s2TransitionStart = s2End - (transitionWidth / 2);
     const s3TransitionEnd = s2End + (transitionWidth / 2);
     const blurStart2 = s2TransitionStart - 0.025;
-    const blurEnd2 = s3TransitionEnd + 0.035;
+    const blurEnd2 = s3TransitionEnd + 0.042;
 
     const maxBlur = 22;
     let newBlur = 0;
