@@ -236,14 +236,14 @@ CDOを2年経験の後、より良い顧客体験を追求したく、2024年に
                   </p>
                 </div>
                 <div className="mb-4 border-b border-[var(--foreground)]/10 pb-8">
-                  <h3 className="text-sm mb-3">LEAD DESIGNER</h3>
+                  <h3 className="text-sm mb-3">CCO</h3>
                   <p className="text-xl md:text-2xl text-[var(--foreground)] mb-1">伊藤 悠希</p>
                   <h3 className="text-sm mb-3">Yuki Ito</h3>
                   <p className="text-[var(--foreground)] text-xs md:text-sm font-light leading-relaxed">
                   愛媛出身、東京在住。コーヒーが好き。
 新卒で制作会社にデザイナーとして参画し、三菱地所、花王、ドコモなどのナショナルクライアントを中心にデザイン支援をする。<br/>
 以降同業種で数社経験し、Web、App、SaaS、のUI、VIデザインを幅広く経験。7名のクリエイティブチームを束ねるリードデザイナーとして、Design Opsにも力を入れる。<br/>
-現在は屋号「aaam」で独立して活動しながら、Plasmismにてデザインリードを務める。<br/>
+現在は屋号「aaam」で独立して活動しながら、Plasmismにてチーフ・クリエイティブ・オフィサーを務める。<br/>
 デザインの定義が拡張され、曖昧な今、肩書を越境した働き方を楽しんでいる。
                   </p>
                 </div>
