@@ -41,17 +41,17 @@ export default function ProductPage() {
             </div>
           </a>
           
-          <a href="#containeer" className="flex items-center group border-b border-[var(--foreground)]/10 pb-4 hover:bg-[var(--foreground)]/10 hover:border-[var(--background)]/20 transition-all duration-300 rounded-lg md:p-4 p-2" onClick={(e) => {
+          <a href="#catalyst-me" className="flex items-center group border-b border-[var(--foreground)]/10 pb-4 hover:bg-[var(--foreground)]/10 hover:border-[var(--background)]/20 transition-all duration-300 rounded-lg md:p-4 p-2" onClick={(e) => {
             e.preventDefault();
-            document.querySelector('#containeer')?.scrollIntoView({ behavior: 'smooth' });
+            document.querySelector('#catalyst-me')?.scrollIntoView({ behavior: 'smooth' });
           }}>
                   <div className="w-3 h-12 bg-[var(--background)] border border-[var(--foreground)] rounded-full flex items-center justify-center md:mr-4 mr-3 py-8 px-3">
                   <span className="text-[var(--foreground)] text-sm">2</span>
                 </div>
             <div className="flex-1 flex items-center justify-between">
               <div>
-                <h3 className="text-xl md:text-2xl group-hover:text-[var(--foreground)]/90">Containeer</h3>
-                <p className="text-[var(--foreground)]/60 text-sm md:text-base group-hover:text-[var(--foreground)]/80">バーチャルコンテンツのWEBギャラリーメディア</p>
+                <h3 className="text-xl md:text-2xl group-hover:text-[var(--foreground)]/90">Catalyst.me</h3>
+                <p className="text-[var(--foreground)]/60 text-sm md:text-base group-hover:text-[var(--foreground)]/80">応援されるポートフォリオサイト制作</p>
               </div>
               <div className="ml-2 transform group-hover:rotate-270 transition-transform duration-300">
                 <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" xmlns="http://www.w3.org/2000/svg">
@@ -136,8 +136,8 @@ export default function ProductPage() {
             </div>
         </section>
         
-       {/* Containeer */}
-       <section id="containeer" className="md:pb-20 pb-10 border-b border-[var(--foreground)]/10">
+       {/* Catalyst.me */}
+       <section id="catalyst-me" className="md:pb-20 pb-10 border-b border-[var(--foreground)]/10">
        <div className="relative group md:py-6 py-4 md:px-4 px-3 mb-8 rounded-lg sticky md:top-20 top-4 bg-[var(--background)] border border-[var(--foreground)]/40 z-10 overflow-hidden">
             <div className="absolute inset-0 bg-[var(--background)] z-0"></div>
             <div className="relative z-10 flex items-center w-full">
@@ -146,34 +146,34 @@ export default function ProductPage() {
                 </div>
               <div className="flex-1 flex items-center justify-between">
                 <div>
-                  <h3 className="text-2xl md:text-4xl mb-2">Containeer</h3>
-                  <p className="text-[var(--foreground)]/60 text-sm md:text-base">バーチャルコンテンツのWEBギャラリーメディア</p>
+                  <h3 className="text-2xl md:text-4xl mb-2">Catalyst.me</h3>
+                  <p className="text-[var(--foreground)]/60 text-sm md:text-base">応援されるポートフォリオサイト制作</p>
                 </div>
               </div>
             </div>
           </div>
         
           <div className="mb-16">
-            <h3 className="text-2xl mb-6">インスピレーションを全く新しいものにアップデートする</h3>
-            <p className="text-[var(--foreground)]/80 mb-8 text-sm md:text-base">世界中からセレクトしたXRのコンテンツをバーチャルギャラリーとして展示するWEBメディアです。</p>
+            <h3 className="text-2xl mb-6">&quot;挑戦&quot;や&quot;想い&quot;を言葉とデザインで可視化</h3>
+            <p className="text-[var(--foreground)]/80 mb-8 text-sm md:text-base">小さな挑戦から大きな夢まで、想いを宣言し、かたちにしていく</p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               <div className="w-full bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
                 <div className="text-center mb-3">
                   <span className="text-[var(--foreground)]/50 text-xl">01</span>
                 </div>
-                <h4 className="text-center text-lg mb-4">画面越しに堪能できる<br />インタラクティブコンテンツ</h4>
+                <h4 className="text-center text-lg mb-4">想いを伝える<br />サイト制作</h4>
                 <p className="text-[var(--foreground)]/80 text-xs md:text-sm leading-relaxed">
-                従来は難易度の高いインタラクティブなコンテンツをWEB上でも十分に体験できるようにゼロベースでUXを設計し、新しいギャラリーメディアの形を確立しました。
+                「何に取り組んでいるのか」だけではなく、「なぜそれをやっているのか」「どんな未来を描いているのか」といった想いをくみ取り、世界にひとつだけのWebサイトとして可視化します。
                 </p>
               </div>
               <div className="w-full bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
                 <div className="text-center mb-3">
                   <span className="text-[var(--foreground)]/50 text-xl">02</span>
                 </div>
-                <h4 className="text-center text-lg mb-4">厳選した<br />セレクション</h4>
+                <h4 className="text-center text-lg mb-4">更新・発信が<br />しやすい</h4>
                 <p className="text-[var(--foreground)]/80 text-xs md:text-sm leading-relaxed">
-                真摯に作品と向き合わている、デジタルアートにふさわしい作品をセレクトして掲載しています。
+                制作したサイトは、ご自身での文章追加や画像変更が簡単にできるように設計。活動の報告など長期的に発信の拠点として使っていただけます。また、SNSとの連携も可能で、効果的に発信可能です。
                 </p>
               </div>
             </div>
@@ -181,15 +181,15 @@ export default function ProductPage() {
  
             <div className="mt-6">
               <Link 
-                href="https://containeer.vercel.app/" 
+                href="https://catalyst-me.studio.site/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="group block w-full bg-[var(--foreground)]/5 rounded-lg border border-[var(--foreground)]/10 overflow-hidden hover:bg-[var(--foreground)]/10 hover:border-[var(--foreground)]/20 transition-all duration-300"
               >
                 <div className="relative w-full aspect-[16/9] overflow-hidden">
                   <Image
-                    src={'/containeer.jpg'}
-                    alt="Containeer"
+                    src={'/catalyst.me.jpg'}
+                    alt="Catalyst.me"
                     fill
                     className="object-cover transform group-hover:scale-105 transition-transform duration-500"
                   />

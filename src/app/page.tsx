@@ -353,12 +353,12 @@ const Home = () => {
                     <span className="text-white text-sm">2</span>
                   </div>
               </div>
-            <Link href="/product#containeer" className="group block relative rounded-xl transition-all duration-300 aspect-[16/9]">
+            <Link href="/product#catalyst-me" className="group block relative rounded-xl transition-all duration-300 aspect-[16/9]">
               {/* Image */}
               <div className="relative w-full h-full overflow-hidden rounded-t-xl">
                 <Image
-                  src="/containeer.jpg"
-                  alt="Containeer Product Image"
+                  src="/catalyst.me.jpg"
+                  alt="Catalyst.me Product Image"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover transform group-hover:scale-105 transition-transform duration-500"
@@ -367,8 +367,8 @@ const Home = () => {
               {/* Bottom Content */}
               <div className="p-4 md:p-6 bg-[#2B2325] backdrop-blur-sm text-white flex justify-between items-center rounded-b-xl">
                 <div>
-                  <h4 className="text-2xl md:text-3xl font-light mb-2">Containeer</h4>
-                  <p className="text-xs md:text-sm text-white/70 mb-2">バーチャルコンテンツのWEBギャラリーメディア</p>
+                  <h4 className="text-2xl md:text-3xl font-light mb-2">Catalyst.me</h4>
+                  <p className="text-xs md:text-sm text-white/70 mb-2">応援されるポートフォリオサイト制作</p>
                 </div>
                 {/* Arrow */}
                 <div className="flex justify-center ml-2">
@@ -404,18 +404,18 @@ const Home = () => {
               style={getMaskStyle()}
             >
                 <div className="flex flex-col md:flex-row md:space-x-4 space-y-2 md:space-y-0 py-4">
-                  {/* Service Item 1: UX Design */}
-                  <Link href="/service#ux-design" className="md:p-16 md:pr-0 p-8 group flex flex-col md:flex-row md:w-[860px] bg-[#F6F4F5] rounded-3xl hover:bg-[#F6F4F5]/80 hover:shadow-xl hover:scale-[1.01] transition-all duration-300 flex-shrink-0">
+                  {/* Service Item 1: Product Design */}
+                  <Link href="/service#product-design" className="md:p-16 md:pr-0 p-8 group flex flex-col md:flex-row md:w-[860px] bg-[#F6F4F5] rounded-3xl hover:bg-[#F6F4F5]/80 hover:shadow-xl hover:scale-[1.01] transition-all duration-300 flex-shrink-0">
                       {/* Content Container (Icon, Title, Text, Image): Takes up most space */}
                       <div className="flex flex-col flex-1 order-1">
                           {/* Text Area */}
                           <div className="pb-4 md:pb-6">
                        <div className="flex items-center mb-4">
-                           <Image src="/ux-design-icon.svg" alt="UX Design Icon" width={40} height={40} className="mr-3" />
-                           <h3 className="text-2xl md:text-4xl text-[#2B2325]">UXデザイン</h3>
+                           <Image src="/ux-design-icon.svg" alt="Product Design Icon" width={40} height={40} className="mr-3" />
+                           <h3 className="text-2xl md:text-4xl text-[#2B2325]">プロダクトデザイン</h3>
                        </div>
                        <p className="text-[#2B2325]/80 text-sm md:text-base font-light mb-auto leading-relaxed">
-                           ユーザーリサーチとデータ分析に基づき、直感的で使いやすいインターフェースと最適なユーザー体験を設計。ビジネス成果に直結する価値を創出します。
+                           アイデア段階からMVP開発、スケールまでの全フェーズを伴走支援。市場調査、仮説検証、データドリブンな改善により、成功するプロダクトの開発を実現します。
                        </p>
                           </div>
                           {/* Image Area */}
@@ -472,39 +472,7 @@ const Home = () => {
                       </div>
                   </Link>
 
-                   {/* Service Item 3: Architecture Design */}
-                  <Link href="/service#architecture-design" className="md:p-16 md:pr-0 p-8 group flex flex-col md:flex-row md:w-[860px] bg-[#F6F4F5] rounded-3xl hover:bg-[#F6F4F5]/80 hover:shadow-xl hover:scale-[1.01] transition-all duration-300 flex-shrink-0">
-                       {/* Content Container */}
-                       <div className="flex flex-col flex-1 order-1">
-                           {/* Text Area */}
-                           <div className="pb-4 md:pb-6">
-                        <div className="flex items-center mb-4">
-                           <Image src="/architecture-design-icon.svg" alt="Architecture Design Icon" width={40} height={40} className="mr-3" />
-                           <h3 className="text-2xl md:text-4xl text-[#2B2325]">アーキテクチャデザイン</h3>
-                        </div>
-                        <p className="text-[#2B2325]/80 text-sm md:text-base font-light mb-auto leading-relaxed">
-                          スケーラビリティ、セキュリティ、コスト効率を考慮し、ビジネスの成長を支える持続可能なシステム基盤を設計。将来の変化にも柔軟に対応します。
-                        </p>
-                           </div>
-                           {/* Image Area */}
-                           <div className="relative w-full h-auto aspect-video overflow-hidden rounded-xl mt-4">
-                            <Image
-                               src="/architecture-design.jpg"
-                               alt="Architecture Design Image"
-                               fill
-                               sizes="100vw, 50vw"
-                               className="object-contain group-hover:scale-105 transition-transform duration-500"
-                               />
-                           </div>
-                       </div>
 
-                       {/* Arrow Container */}
-                       <div className="flex items-center justify-end p-0 md:p-6 mt-4 mb-2 md:px-8 md:ml-12 ml-0 order-2 md:border-l border-[#E2DFE0]">
-                          <svg className="w-8 h-8 text-[#2B2325]/70 group-hover:text-[#2B2325] transition-transform duration-500 group-hover:rotate-[360deg]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.5">
-                              <path d="M5 12h14M12 5l7 7-7 7" />
-                          </svg>
-                      </div>
-                   </Link>
                   </div>
               </div>
           </div>
@@ -581,7 +549,7 @@ const Home = () => {
             </h2>
 
             {/* Media Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-2 md:gap-x-2 md:gap-y-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-x-2 md:gap-y-6">
               {/* Media Item 1 */}
               <div className="aspect-[3/2] relative bg-[#F6F4F5] rounded-xl p-4 md:p-6 flex items-center justify-center">
                 <Image
@@ -679,6 +647,26 @@ const Home = () => {
                   alt="NIKKEI"
                   width={203}
                   height={64}
+                  sizes="(max-width: 768px) 80vw, 20vw"
+                />
+              </div>
+              {/* Media Item 11 */}
+              <div className="aspect-[3/2] relative bg-[#F6F4F5] rounded-xl p-4 md:p-6 flex items-center justify-center">
+                <Image
+                  src="/images/media/logo_nikkei-trendy.png"
+                  alt="日経トレンディ"
+                  width={200}
+                  height={60}
+                  sizes="(max-width: 768px) 80vw, 20vw"
+                />
+              </div>
+              {/* Media Item 12 */}
+              <div className="aspect-[3/2] relative bg-[#F6F4F5] rounded-xl p-4 md:p-6 flex items-center justify-center">
+                <Image
+                  src="/images/media/logo_jijicom.png"
+                  alt="JIJI.COM"
+                  width={200}
+                  height={60}
                   sizes="(max-width: 768px) 80vw, 20vw"
                 />
               </div>
