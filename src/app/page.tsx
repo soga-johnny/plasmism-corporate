@@ -321,7 +321,7 @@ const Home = () => {
               {/* Image */}
               <div className="relative w-full h-full overflow-hidden rounded-t-xl">
                 <Image
-                  src="/lean-designer.jpg"
+                  src="/lean-designer-beta.jpg"
                   alt="Lean Designer Product Image"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -331,8 +331,8 @@ const Home = () => {
               {/* Bottom Content */}
               <div className="p-4 md:p-6 bg-[#2B2325] backdrop-blur-sm text-white flex justify-between items-center rounded-b-xl">
                 <div>
-                  <h4 className="text-2xl md:text-3xl font-light mb-2">Lean Designer</h4>
-                  <p className="text-xs md:text-sm text-white/70 mb-2">開発専門のハイエンドUI/UXソリューション</p>
+                  <h4 className="text-2xl md:text-3xl font-light mb-2">Lean Designer Beta</h4>
+                  <p className="text-xs md:text-sm text-white/70 mb-2">プロダクト構想フェーズ専門コンセプトシートAI生成サービス</p>
                 </div>
                 {/* Arrow */}
                 <div className="flex justify-center ml-2">

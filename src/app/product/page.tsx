@@ -75,34 +75,34 @@ export default function ProductPage() {
                 </div>
               <div className="flex-1 flex items-center justify-between">
                 <div>
-                  <h3 className="text-2xl md:text-4xl mb-2">Lean Designer</h3>
-                  <p className="text-[var(--foreground)]/60 text-sm md:text-base">開発専門のハイエンドUI/UXソリューション</p>
+                  <h3 className="text-2xl md:text-4xl mb-2">Lean Designer Beta</h3>
+                  <p className="text-[var(--foreground)]/60 text-sm md:text-base">プロダクト構想フェーズ専門コンセプトシートAI生成サービス</p>
                 </div>
               </div>
             </div>
           </div>
         
           <div className="mb-16">
-            <h3 className="text-2xl mb-6">デザインでかなえるクリティカルな課題解決、スマートな開発体験</h3>
-            <p className="text-[var(--foreground)]/80 mb-8 text-sm md:text-base">あなたの開発プロジェクトに最適したUI/UXの要件定義をまとめたデザイン計画書をAIを活用して生成</p>
+            <h3 className="text-2xl mb-6">アイデアを3分で隅々まで可視化する</h3>
+            <p className="text-[var(--foreground)]/80 mb-8 text-sm md:text-base">プロダクトの解像度を上げるためのイメージをビジュアライズするAIソリューション</p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               <div className="w-full bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
                 <div className="text-center mb-3">
                   <span className="text-[var(--foreground)]/50 text-xl">01</span>
                 </div>
-                <h4 className="text-center text-lg mb-4">デザイン計画書の<br />生成</h4>
+                <h4 className="text-center text-lg mb-4">コンセプトシートの<br />AI生成</h4>
                 <p className="text-[var(--foreground)]/80 text-xs md:text-sm leading-relaxed">
-                お客様の課題を洗い出し、最適なプランを提供するために設計された機能です。現状の課題やニーズを入力するだけで、プロジェクトに必要な要件を記載したデザイン計画書をAIが生成します。
+                プロダクト開発で想定される必要な戦略を考案して視覚化する「コンセプトシート」を作成。戦略策定に特化して各セクションのAI精度を細かくファインチューニング。視座高くプロダクトを精査できる。
                 </p>
               </div>
               <div className="w-full bg-[var(--foreground)]/5 p-6 rounded-lg border border-[var(--foreground)]/10">
                 <div className="text-center mb-3">
                   <span className="text-[var(--foreground)]/50 text-xl">02</span>
                 </div>
-                <h4 className="text-center text-lg mb-4">コンポーネント<br />システム</h4>
+                <h4 className="text-center text-lg mb-4">選択可能な<br />デザインシステム</h4>
                 <p className="text-[var(--foreground)]/80 text-xs md:text-sm leading-relaxed">
-                開発プロジェクトの進行状況やステージをセクションとして分類し、そのセクション内のコンポーネントを必要なものだけご選択いただくことができる仕組みを開発しました。
+                コンセプトシートのデザインを2種類のスタイルから選択可能。デザインはコンセプトシートのクオリティを落とさないように、ビジュアル的にも情報設計的にも最適なデザインシステムを０から考案。
                 </p>
               </div>
             </div>
