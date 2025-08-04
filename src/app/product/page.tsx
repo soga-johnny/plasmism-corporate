@@ -30,8 +30,8 @@ export default function ProductPage() {
                 </div>
             <div className="flex-1 flex items-center justify-between">
               <div>
-                <h3 className="text-xl md:text-2xl group-hover:text-[var(--foreground)]/90">Lean Designer</h3>
-                <p className="text-[var(--foreground)]/60 text-sm md:text-base group-hover:text-[var(--foreground)]/80">開発専門のハイエンドUI/UXソリューション</p>
+                <h3 className="text-xl md:text-2xl group-hover:text-[var(--foreground)]/90">Lean Designer Beta</h3>
+                <p className="text-[var(--foreground)]/60 text-sm md:text-base group-hover:text-[var(--foreground)]/80">プロダクト構想フェーズ専門コンセプトシートAI生成サービス</p>
               </div>
               <div className="ml-2 transform group-hover:rotate-270 transition-transform duration-300">
                 <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" xmlns="http://www.w3.org/2000/svg">
