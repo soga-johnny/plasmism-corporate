@@ -728,9 +728,9 @@ function Scene({ isMobile }: { isMobile: boolean }) {
       <directionalLight position={[10, 10, 5]} intensity={2} />
       <Suspense fallback={null}>
         <Cube isMobile={isMobile} />
+        <Environment files="/hdri/kiara_1_dawn_1k.hdr" />
         <SceneUpdater />
       </Suspense>
-      <Environment preset="dawn" />
       {!isMobile && (
         <EffectComposer>
           <Noise opacity={0.12} />

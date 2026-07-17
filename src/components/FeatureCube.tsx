@@ -196,7 +196,7 @@ export default function FeatureScene() {
         {/* <ambientLight intensity={2} /> */}
         {/* <directionalLight position={[10, 10, 5]} intensity={2} /> */}
         <FeatureCubeMesh />
-        <Environment preset="dawn" />
+        <Environment files="/hdri/kiara_1_dawn_1k.hdr" />
         <EffectComposer>
           <Noise opacity={0.15} />
         </EffectComposer>
