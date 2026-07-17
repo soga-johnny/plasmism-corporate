@@ -45,7 +45,7 @@ export default function AboutBrandIdentitySection() {
       ref={brandIdentitySectionRef} 
       className="pb-10 rounded-3xl md:p-20 p-8 md:mt-102 mt-56 md:mb-[560px] mb-72 relative"
       style={{
-        backgroundImage: `url('/background.png')`,
+        backgroundImage: `url('/background.webp')`,
         backgroundRepeat: 'repeat',
         backgroundSize: 'calc(100% - 20%) calc(100% - 20%)',
         backgroundColor: 'rgba(43, 35, 37, 0.9)'
@@ -62,7 +62,7 @@ export default function AboutBrandIdentitySection() {
               <div className="flex flex-col">
                 <div className="bg-[var(--background)] rounded-lg overflow-hidden mb-3 border border-[var(--foreground)]/10">
                   <Image
-                    src="/logo-vi.png"
+                    src="/logo-vi.webp"
                     alt="企業ロゴ"
                     width={500}
                     height={400}
@@ -75,7 +75,7 @@ export default function AboutBrandIdentitySection() {
               <div className="flex flex-col">
                 <div className="bg-[var(--background)] rounded-lg overflow-hidden mb-3 border border-[var(--foreground)]/10">
                   <Image
-                    src="/typography-vi.png"
+                    src="/typography-vi.webp"
                     alt="書体"
                     width={500}
                     height={400}
@@ -88,7 +88,7 @@ export default function AboutBrandIdentitySection() {
               <div className="flex flex-col">
                 <div className="bg-[var(--background)] rounded-lg overflow-hidden mb-3 border border-[var(--foreground)]/10">
                   <Image
-                    src="/colorscheme-vi.png"
+                    src="/colorscheme-vi.webp"
                     alt="ブランドカラー"
                     width={500}
                     height={400}
@@ -101,7 +101,7 @@ export default function AboutBrandIdentitySection() {
               <div className="flex flex-col">
                 <div className="bg-[var(--background)] rounded-lg overflow-hidden mb-3 border border-[var(--foreground)]/10">
                   <Image
-                    src="/comingsoon-vi.png"
+                    src="/comingsoon-vi.webp"
                     alt="リブランディングに込めた想い"
                     width={500}
                     height={400}

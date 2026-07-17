@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     description: "プラズミズムがこれまでに手がけたデザインプロジェクトや実績をご紹介します。具体的な事例をご覧ください。",
     images: [
       {
-        url: '/ogp.png',
+        url: '/ogp.webp',
         width: 1200,
         height: 630,
         alt: 'Plasmism OGP Image',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   twitter: {
     title: "実績紹介",
     description: "プラズミズムがこれまでに手がけたデザインプロジェクトや実績をご紹介します。具体的な事例をご覧ください。",
-    images: ['/ogp.png'],
+    images: ['/ogp.webp'],
   },
 };
 
@@ -82,7 +82,7 @@ export default async function AchievementsPage() {
                 }
               }
 
-              coverImage = coverImage || '/not-found.png'; // フォールバック画像
+              coverImage = coverImage || '/not-found.webp'; // フォールバック画像
 
               return (
                 <Link href={`/achievements/${id}`} key={id} className="block group relative">

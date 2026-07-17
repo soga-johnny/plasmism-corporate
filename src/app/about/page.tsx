@@ -3,7 +3,7 @@ import PageTitle from '@/components/PageTitle';
 import CompanyOverview from '@/components/CompanyOverview';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
-import AboutScene from '@/components/AboutCube';
+import AboutScene from '@/components/DynamicAboutCube';
 import AboutBrandIdentitySection from '@/components/AboutBrandIdentitySection';
 
 export const metadata: Metadata = {
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description: "プラズミズムは、最適解の設計・実装・検証・改良をコンピューターと情報表現でデザインする会社です。会社概要、ビジョン、ミッション、メンバーをご紹介します。",
     images: [
       {
-        url: '/ogp.png',
+        url: '/ogp.webp',
         width: 1200,
         height: 630,
         alt: 'Plasmism OGP Image',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   twitter: {
     title: "私たちについて",
     description: "プラズミズムは、最適解の設計・実装・検証・改良をコンピューターと情報表現でデザインする会社です。会社概要、ビジョン、ミッション、メンバーをご紹介します。",
-    images: ['/ogp.png'],
+    images: ['/ogp.webp'],
   },
 };
 
@@ -89,7 +89,7 @@ export default function AboutPage() {
               </div>
               {/* <div className="mt-8 md:mt-2 md:ml-2 w-full md:w-auto">
                 <Image 
-                  src="/sample1.png"
+                  src="/sample1.webp"
                   alt="Mission Image"
                   width={300}
                   height={300}
@@ -121,7 +121,7 @@ export default function AboutPage() {
               </div>
               {/* <div className="mt-8 md:mt-12 md:ml-2 w-full md:w-auto">
                 <Image 
-                  src="/sample1.png"
+                  src="/sample1.webp"
                   alt="Mission Image" // Changed alt text for clarity
                   width={300}
                   height={300}
@@ -185,7 +185,7 @@ export default function AboutPage() {
               </div>
               {/* <div className="mt-8 md:mt-2 md:ml-2 w-full md:w-auto">
                 <Image 
-                  src="/sample1.png"
+                  src="/sample1.webp"
                   alt="Values Image"
                   width={300}
                   height={300}

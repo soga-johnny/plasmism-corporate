@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description: "プラズミズムの基本的な会社情報（所在地、設立年月日、代表者など）と、私たちのデジタル上の拠点についてご案内します。",
     images: [
       {
-        url: '/ogp.png',
+        url: '/ogp.webp',
         width: 1200,
         height: 630,
         alt: 'Plasmism OGP Image',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   twitter: {
     title: "会社概要",
     description: "プラズミズムの基本的な会社情報（所在地、設立年月日、代表者など）と、私たちのデジタル上の拠点についてご案内します。",
-    images: ['/ogp.png'],
+    images: ['/ogp.webp'],
   },
 };
 

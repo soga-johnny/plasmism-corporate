@@ -730,10 +730,12 @@ function Scene({ isMobile }: { isMobile: boolean }) {
         <Cube isMobile={isMobile} />
         <SceneUpdater />
       </Suspense>
-      <Environment preset="dawn" /> {/* Keep dawn as per previous adjustment? Or revert? Let's keep dawn for now */}
-      <EffectComposer>
-        <Noise opacity={0.12} />
-      </EffectComposer>
+      <Environment preset="dawn" />
+      {!isMobile && (
+        <EffectComposer>
+          <Noise opacity={0.12} />
+        </EffectComposer>
+      )}
     </>
   )
 }

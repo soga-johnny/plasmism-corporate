@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     description: "プラズミズムの個人情報保護方針（プライバシーポリシー）です。お客様の個人情報に関する当社の取り組みについて記載しています。",
     images: [
       {
-        url: '/ogp.png',
+        url: '/ogp.webp',
         width: 1200,
         height: 630,
         alt: 'Plasmism OGP Image',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   twitter: {
     title: "プライバシーポリシー",
     description: "プラズミズムの個人情報保護方針（プライバシーポリシー）です。お客様の個人情報に関する当社の取り組みについて記載しています。",
-    images: ['/ogp.png'],
+    images: ['/ogp.webp'],
   },
 };
 

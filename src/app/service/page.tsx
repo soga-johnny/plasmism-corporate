@@ -64,7 +64,7 @@ export default function ServicePage() {
           {/* プロダクトデザイン */}
           <section id="product-design" className="md:pb-20 pb-10 border-b border-[var(--foreground)]/10">
           <div className="relative group md:py-6 py-4 md:px-4 px-3 mb-8 rounded-lg sticky md:top-20 top-4 bg-[var(--background)] border border-[var(--foreground)]/40 z-10 overflow-hidden">
-            <div className="absolute inset-0 bg-[url('/background.png')] bg-cover bg-center opacity-30 z-0"></div>
+            <div className="absolute inset-0 bg-[url('/background.webp')] bg-cover bg-center opacity-30 z-0"></div>
             <div className="relative z-10 flex items-center w-full">
             <Image src="/ux-design-icon.svg" alt="Product Design Icon" width={36} height={36} className="mr-3" />
 
@@ -80,10 +80,10 @@ export default function ServicePage() {
 
           <div className="relative w-full h-auto aspect-video overflow-hidden rounded-xl mt-4 mb-8 md:mb-12">
                           <Image
-                             src="/ux-design.jpg"
+                             src="/ux-design.webp"
                              alt="UX Design Image"
                              fill
-                             sizes="100vw, 50vw"
+                             sizes="(max-width: 768px) 100vw, 50vw"
                              className="md:object-contain object-cover group-hover:scale-105 transition-transform duration-500"
                              />
                          </div>
@@ -218,7 +218,7 @@ export default function ServicePage() {
                 <div className="bg-[var(--foreground)]/5 rounded-lg border border-[var(--foreground)]/10 overflow-hidden">
                   <div className="relative w-full aspect-[4/3]">  
                     <Image
-                      src="/sample1.png"
+                      src="/sample1.webp"
                       alt="UIUXデザイン実績"
                       fill
                       className="object-cover"
@@ -235,7 +235,7 @@ export default function ServicePage() {
                 <div className="bg-[var(--foreground)]/5 rounded-lg border border-[var(--foreground)]/10 overflow-hidden hover:bg-[var(--foreground)]/10 transition-all duration-300 group">
                   <div className="relative w-full aspect-[4/3]">
                     <Image
-                      src="/sample1.png"
+                      src="/sample1.webp"
                       alt="UIUXデザイン実績"
                       fill
                       className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -302,7 +302,7 @@ export default function ServicePage() {
           {/* Corporate design */}
           <section id="corporate-design" className="pb-20">
           <div className="relative group md:py-6 py-4 md:px-4 px-3 mb-8 rounded-lg sticky md:top-20 top-4 bg-[var(--background)] border border-[var(--foreground)]/40 z-10 overflow-hidden">
-            <div className="absolute inset-0 bg-[url('/background.png')] bg-cover bg-center opacity-30 z-0"></div>
+            <div className="absolute inset-0 bg-[url('/background.webp')] bg-cover bg-center opacity-30 z-0"></div>
             <div className="relative z-10 flex items-center w-full">
             <Image src="/corporate-design-icon.svg" alt="Corporate Design Icon" width={36} height={36} className="mr-3" />
 
@@ -318,10 +318,10 @@ export default function ServicePage() {
 
           <div className="relative w-full h-auto aspect-video overflow-hidden rounded-xl mt-4 mb-8 md:mb-12">
                           <Image
-                             src="/corporate-design.jpg"
+                             src="/corporate-design.webp"
                              alt="Corporate Design Image"
                              fill
-                             sizes="100vw, 50vw"
+                             sizes="(max-width: 768px) 100vw, 50vw"
                              className="md:object-contain object-cover group-hover:scale-105 transition-transform duration-500"
                              />
                          </div>
@@ -432,7 +432,7 @@ export default function ServicePage() {
                 <div className="bg-white/5 rounded-lg border border-white/10 overflow-hidden">
                   <div className="relative w-full aspect-[4/3]">
                     <Image
-                      src="/sample1.png"
+                      src="/sample1.webp"
                       alt="コーポレートブランディング実績"
                       fill
                       className="object-cover"
@@ -449,7 +449,7 @@ export default function ServicePage() {
                 <div className="bg-white/5 rounded-lg border border-white/10 overflow-hidden">
                   <div className="relative w-full aspect-[4/3]">
                     <Image
-                      src="/sample1.png"
+                      src="/sample1.webp"
                       alt="コーポレートブランディング実績"
                       fill
                       className="object-cover"

@@ -110,7 +110,7 @@ export default async function AchievementPage({ params }: { params: { id: string
         coverImage = page.cover.file.url;
       }
     }
-    coverImage = coverImage || '/not-found.png';
+    coverImage = coverImage || '/not-found.webp';
 
     // ★ ブロックをレンダリングするためのヘルパー関数
     const renderBlocks = (blocksToRender: BlockObjectResponse[]) => {

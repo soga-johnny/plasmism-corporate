@@ -17,7 +17,7 @@ export default function RecruitInfo() {
                 rel="noopener noreferrer"
              className="group block rounded-3xl hover:bg-[#3c3335] hover:shadow-xl hover:scale-[1.01] transition-all duration-300 overflow-hidden border border-transparent hover:border-[#4a4043]"
              style={{
-              backgroundImage: `url('/background.png')`,
+              backgroundImage: `url('/background.webp')`,
               backgroundRepeat: 'repeat',
               backgroundSize: 'calc(100% - 20%) calc(100% - 20%)',
               backgroundColor: 'rgba(43, 35, 37, 1)'
@@ -38,7 +38,7 @@ export default function RecruitInfo() {
                      {/* Image */}
                      <div className="relative md:w-4/5 w-full aspect-[4/3] rounded-xl overflow-hidden md:mr-8 mr-0">
                          <Image
-                             src="/recruit-image.jpg"
+                             src="/recruit-image.webp"
                              alt="採用情報イメージ"
                              fill
                              sizes="(max-width: 768px) 80vw, 30vw"

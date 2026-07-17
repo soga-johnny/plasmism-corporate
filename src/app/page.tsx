@@ -1,7 +1,7 @@
 "use client"
 
 import Footer from '@/components/Footer';
-import CubeInteractive from '@/components/CubeObject';
+import CubeInteractive from '@/components/DynamicCubeObject';
 // import Spline from '@splinetool/react-spline/next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -276,7 +276,7 @@ const Home = () => {
                 </div>
                 {/* <div className="mt-8 md:mt-2 md:ml-2 w-full md:w-auto">
                   <Image 
-                    src="/sample1.png"
+                    src="/sample1.webp"
                     alt="Mission Image"
                     width={300}
                     height={300}
@@ -321,7 +321,7 @@ const Home = () => {
               {/* Image */}
               <div className="relative w-full h-full overflow-hidden rounded-t-xl">
                 <Image
-                  src="/lean-designer-beta.jpg"
+                  src="/lean-designer-beta.webp"
                   alt="Lean Designer Product Image"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -357,7 +357,7 @@ const Home = () => {
               {/* Image */}
               <div className="relative w-full h-full overflow-hidden rounded-t-xl">
                 <Image
-                  src="/catalyst.me.jpg"
+                  src="/catalyst.me.webp"
                   alt="Catalyst.me Product Image"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -421,10 +421,10 @@ const Home = () => {
                           {/* Image Area */}
                           <div className="relative w-full h-auto aspect-video overflow-hidden rounded-xl mt-4">
                            <Image
-                           src="/ux-design.jpg"
+                           src="/ux-design.webp"
                            alt="UX Design Image"
                            fill
-                           sizes="100vw, 50vw"
+                           sizes="(max-width: 768px) 100vw, 50vw"
                            className="object-contain group-hover:scale-105 transition-transform duration-500"
                            />
                            </div>
@@ -455,10 +455,10 @@ const Home = () => {
                           {/* Image Area */}
                           <div className="relative w-full h-auto aspect-video overflow-hidden rounded-xl mt-4">
                            <Image
-                              src="/corporate-design.jpg"
+                              src="/corporate-design.webp"
                               alt="Corporate Design Image"
                               fill
-                              sizes="100vw, 50vw"
+                              sizes="(max-width: 768px) 100vw, 50vw"
                               className="object-contain group-hover:scale-105 transition-transform duration-500"
                               />
                           </div>
@@ -494,7 +494,7 @@ const Home = () => {
                   rel="noopener noreferrer"
                className="group block rounded-3xl hover:bg-[#3c3335] hover:shadow-xl hover:scale-[1.01] transition-all duration-300 overflow-hidden border border-transparent hover:border-[#4a4043]"
                style={{
-                backgroundImage: `url('/background.png')`,
+                backgroundImage: `url('/background.webp')`,
                 backgroundRepeat: 'repeat',
                 backgroundSize: 'calc(100% - 20%) calc(100% - 20%)',
                 backgroundColor: 'rgba(43, 35, 37, 1)'
@@ -515,7 +515,7 @@ const Home = () => {
                        {/* Image */}
                        <div className="relative md:w-4/5 w-full aspect-[4/3] rounded-xl overflow-hidden md:mr-8 mr-0">
                            <Image
-                               src="/recruit-image.jpg"
+                               src="/recruit-image.webp"
                                alt="採用情報イメージ"
                                fill
                                sizes="(max-width: 768px) 80vw, 30vw"
@@ -543,7 +543,7 @@ const Home = () => {
             className="w-full max-w-[1440px] mx-auto px-6 md:px-16 flex flex-col justify-center py-16 md:py-24"
           >
             {/* PageTitle style title */}
-            <h2 className="text-2xl font-thin flex items-center mb-6">
+            <h2 className="text-2xl font-extralight flex items-center mb-6">
               メディア実績
               <span className="ml-12 h-px flex-1 bg-[#2B2325]/10"></span>
             </h2>
@@ -553,7 +553,7 @@ const Home = () => {
               {/* Media Item 1 */}
               <div className="aspect-[3/2] relative bg-[#F6F4F5] rounded-xl p-4 md:p-6 flex items-center justify-center">
                 <Image
-                  src="/images/media/logo_mainichi.png"
+                  src="/images/media/logo_mainichi.webp"
                   alt="毎日新聞"
                   width={228}
                   height={45}
@@ -563,7 +563,7 @@ const Home = () => {
               {/* Media Item 2 */}
               <div className="aspect-[3/2] relative bg-[#F6F4F5] rounded-xl p-4 md:p-6 flex items-center justify-center">
                 <Image
-                  src="/images/media/logo_voix.png"
+                  src="/images/media/logo_voix.webp"
                   alt="VOIX biz"
                   width={196}
                   height={68}
@@ -573,7 +573,7 @@ const Home = () => {
               {/* Media Item 3 */}
               <div className="aspect-[3/2] relative bg-[#F6F4F5] rounded-xl p-4 md:p-6 flex items-center justify-center">
                 <Image
-                  src="/images/media/logo_newsyou.png"
+                  src="/images/media/logo_newsyou.webp"
                   alt="NEWS YOU-USE"
                   width={248}
                   height={33}
@@ -583,7 +583,7 @@ const Home = () => {
               {/* Media Item 4 */}
               <div className="aspect-[3/2] relative bg-[#F6F4F5] rounded-xl p-4 md:p-6 flex items-center justify-center">
                 <Image
-                  src="/images/media/logo_livedoor.png"
+                  src="/images/media/logo_livedoor.webp"
                   alt="livedoor News"
                   width={222}
                   height={27}
@@ -593,7 +593,7 @@ const Home = () => {
               {/* Media Item 5 */}
               <div className="aspect-[3/2] relative bg-[#F6F4F5] rounded-xl p-4 md:p-6 flex items-center justify-center">
                 <Image
-                  src="/images/media/logo_zaikei.png"
+                  src="/images/media/logo_zaikei.webp"
                   alt="財経新聞"
                   width={147}
                   height={30}
@@ -603,7 +603,7 @@ const Home = () => {
               {/* Media Item 6 */}
               <div className="aspect-[3/2] relative bg-[#F6F4F5] rounded-xl p-4 md:p-6 flex items-center justify-center">
                 <Image
-                  src="/images/media/logo_mapion.png"
+                  src="/images/media/logo_mapion.webp"
                   alt="Mapion"
                   width={198}
                   height={74}
@@ -613,7 +613,7 @@ const Home = () => {
               {/* Media Item 7 */}
               <div className="aspect-[3/2] relative bg-[#F6F4F5] rounded-xl p-4 md:p-6 flex items-center justify-center">
                 <Image
-                  src="/images/media/logo_third.png"
+                  src="/images/media/logo_third.webp"
                   alt="THIRD NEWS"
                   width={173}
                   height={68}
@@ -623,7 +623,7 @@ const Home = () => {
               {/* Media Item 8 */}
               <div className="aspect-[3/2] relative bg-[#F6F4F5] rounded-xl p-4 md:p-6 flex items-center justify-center">
                 <Image
-                  src="/images/media/logo_tvtokyo.png"
+                  src="/images/media/logo_tvtokyo.webp"
                   alt="テレ東"
                   width={156}
                   height={56}
@@ -633,7 +633,7 @@ const Home = () => {
               {/* Media Item 9 */}
               <div className="aspect-[3/2] relative bg-[#F6F4F5] rounded-xl p-4 md:p-6 flex items-center justify-center">
                 <Image
-                  src="/images/media/logo_xexeq.png"
+                  src="/images/media/logo_xexeq.webp"
                   alt="XEXEQ"
                   width={192}
                   height={57}
@@ -643,7 +643,7 @@ const Home = () => {
               {/* Media Item 10 */}
               <div className="aspect-[3/2] relative bg-[#F6F4F5] rounded-xl p-4 md:p-6 flex items-center justify-center">
                 <Image
-                  src="/images/media/logo_nikkei.png"
+                  src="/images/media/logo_nikkei.webp"
                   alt="NIKKEI"
                   width={203}
                   height={64}
@@ -653,7 +653,7 @@ const Home = () => {
               {/* Media Item 11 */}
               <div className="aspect-[3/2] relative bg-[#F6F4F5] rounded-xl p-4 md:p-6 flex items-center justify-center">
                 <Image
-                  src="/images/media/logo_nikkei-trendy.png"
+                  src="/images/media/logo_nikkei-trendy.webp"
                   alt="日経トレンディ"
                   width={200}
                   height={60}
@@ -663,7 +663,7 @@ const Home = () => {
               {/* Media Item 12 */}
               <div className="aspect-[3/2] relative bg-[#F6F4F5] rounded-xl p-4 md:p-6 flex items-center justify-center">
                 <Image
-                  src="/images/media/logo_jijicom.png"
+                  src="/images/media/logo_jijicom.webp"
                   alt="JIJI.COM"
                   width={200}
                   height={60}

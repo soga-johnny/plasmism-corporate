@@ -117,7 +117,7 @@ export default function ProductPage() {
               >
                 <div className="relative w-full aspect-[16/9] overflow-hidden">
                   <Image
-                    src={'/lean-designer.jpg'}
+                    src={'/lean-designer.webp'}
                     alt="Lean Designer"
                     fill
                     className="object-cover transform group-hover:scale-105 transition-transform duration-500"
@@ -188,7 +188,7 @@ export default function ProductPage() {
               >
                 <div className="relative w-full aspect-[16/9] overflow-hidden">
                   <Image
-                    src={'/catalyst.me.jpg'}
+                    src={'/catalyst.me.webp'}
                     alt="Catalyst.me"
                     fill
                     className="object-cover transform group-hover:scale-105 transition-transform duration-500"

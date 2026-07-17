@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     description: "プラズミズムでは新しい仲間を募集しています。尽きない探究と革新の瞬間を共有しませんか？募集職種や応募方法はこちらをご覧ください。",
     images: [
       {
-        url: '/ogp.png',
+        url: '/ogp.webp',
         width: 1200,
         height: 630,
         alt: 'Plasmism OGP Image',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   twitter: {
     title: "採用情報",
     description: "プラズミズムでは新しい仲間を募集しています。尽きない探究と革新の瞬間を共有しませんか？募集職種や応募方法はこちらをご覧ください。",
-    images: ['/ogp.png'],
+    images: ['/ogp.webp'],
   },
 };
 

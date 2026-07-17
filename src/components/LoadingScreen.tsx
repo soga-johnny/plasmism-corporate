@@ -4,6 +4,7 @@ import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import { create, StateCreator } from 'zustand';
 import { motion, AnimatePresence } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 
 // ローディング状態を管理するグローバルストア
 interface LoadingState {
@@ -29,7 +30,11 @@ const loadingStoreCreator: StateCreator<LoadingState> = (set) => ({
 
 export const useLoadingStore = create<LoadingState>(loadingStoreCreator);
 
+const THREE_D_PATHS = new Set(['/', '/about', '/feature']);
+
 export default function LoadingScreen() {
+  const pathname = usePathname();
+  const is3DPage = THREE_D_PATHS.has(pathname);
   const { isLoading, progress, setLoading } = useLoadingStore();
   const [visualProgress, setVisualProgress] = useState(0);
   const [canHide, setCanHide] = useState(false);
@@ -37,9 +42,11 @@ export default function LoadingScreen() {
   const [isMounted, setIsMounted] = useState(false);
   const progressRef = useRef(progress);
   const visualProgressRef = useRef(visualProgress);
-  const readyDisplayDuration = 800; // Ready表示の持続時間(ms)
-  const lastProgressUpdateTime = useRef<number | null>(null); // 追加
-  const progressCheckTimeout = useRef<NodeJS.Timeout | null>(null); // 追加
+  const readyDisplayDuration = is3DPage ? 800 : 200;
+  const lastProgressUpdateTime = useRef<number | null>(null);
+  const progressCheckTimeout = useRef<NodeJS.Timeout | null>(null);
+  const minDisplayTime = is3DPage ? 2000 : 400;
+  const progressTimeoutMs = is3DPage ? 1500 : 300;
 
   // ストアのprogressをrefに同期
   useEffect(() => {
@@ -118,15 +125,15 @@ export default function LoadingScreen() {
       clearTimeout(progressCheckTimeout.current);
     }
 
-    // マウントから1.5秒後に実行されるタイマーを設定
+    // マウントから一定時間後に実行されるタイマーを設定
     progressCheckTimeout.current = setTimeout(() => {
-      // 1.5秒経っても progress が低いまま、または更新がない場合
+      // 一定時間経っても progress が低いまま、または更新がない場合
       if (progressRef.current < 10 || lastProgressUpdateTime.current === null) {
-        console.warn("LoadingScreen: No significant progress detected after 1.5s. Forcing progress to 100.");
+        console.warn("LoadingScreen: No significant progress detected. Forcing progress to 100.");
         useLoadingStore.setState({ progress: 100 });
       }
       progressCheckTimeout.current = null; // タイマー完了
-    }, 1500); // 1.5秒のタイムアウト
+    }, progressTimeoutMs);
 
     // クリーンアップ関数
     return () => {
@@ -135,19 +142,17 @@ export default function LoadingScreen() {
         progressCheckTimeout.current = null;
       }
     };
-    // isMounted と isLoading が変わった時も再設定
-  }, [isMounted, isLoading]); 
+  }, [isMounted, isLoading, progressTimeoutMs]); 
 
   // 最低表示時間と初期ビジュアルアニメーション
   useEffect(() => {
-    if (!isMounted || !isLoading) return; // isLoadingもチェック
+    if (!isMounted || !isLoading) return;
 
-    const minDisplayTime = 2000;
     const startTime = performance.now();
     let visualAnimationId: number | null = null;
 
     // --- visualProgress の初期アニメーション --- 
-    const initialVisualDuration = 1800; 
+    const initialVisualDuration = is3DPage ? 1800 : 300; 
     const targetVisualProgress = 80;
     const animateVisualProgress = (currentTime: number) => {
          const elapsed = currentTime - startTime;
@@ -181,7 +186,7 @@ export default function LoadingScreen() {
           cancelAnimationFrame(visualAnimationId);
       }
     };
-  }, [isMounted, isLoading]); // isLoading を依存配列に追加
+  }, [isMounted, isLoading, is3DPage, minDisplayTime]);
 
   // 進捗が100%になったらReady表示 & フェードアウト
   useEffect(() => {
@@ -212,7 +217,7 @@ export default function LoadingScreen() {
           key="loading-screen"
           className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#2B2325]"
           style={{
-            backgroundImage: 'url("/background.png")',
+            backgroundImage: 'url("/background.webp")',
             backgroundSize: 'auto 80%', // 画像サイズを小さく表示
             backgroundRepeat: 'repeat',
             willChange: 'opacity, filter, transform',
@@ -269,7 +274,7 @@ export default function LoadingScreen() {
           >
             {showReady ? 
               <motion.span 
-                className="text-[#00E7A2] font-medium inline-block"
+                className="text-[#00E7A2] font-normal inline-block"
                 initial={{ opacity: 0, y: 5 }}
                 animate={{ 
                   opacity: 1, 

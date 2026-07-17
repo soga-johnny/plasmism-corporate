@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Footer from '@/components/Footer';
 import PageTitle from '@/components/PageTitle';
 import Header from '@/components/Header';
-import FeatureScene from '@/components/FeatureCube';
+import FeatureScene from '@/components/DynamicFeatureCube';
 import ScrollingTitle from '@/components/ScrollingTitle';
 
 export const metadata: Metadata = {
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     description: "プラズミズム独自の強みや特徴について解説します。少数精鋭だからこそ実現する、再現性のある戦略的アプローチをご覧ください。",
     images: [
       {
-        url: '/ogp.png',
+        url: '/ogp.webp',
         width: 1200,
         height: 630,
         alt: 'Plasmism OGP Image',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   twitter: {
     title: "私たちの特徴",
     description: "プラズミズム独自の強みや特徴について解説します。少数精鋭だからこそ実現する、再現性のある戦略的アプローチをご覧ください。",
-    images: ['/ogp.png'],
+    images: ['/ogp.webp'],
   },
 };
 
@@ -108,7 +108,7 @@ export default function FeaturePage() {
             </div>
             {/* <div className="mt-8 md:mt-2 md:max-w-[500px] w-full h-full">
               <Image 
-                src="/sample1.png"
+                src="/sample1.webp"
                 alt="実装イメージ"
                 width={400}
                 height={600}
@@ -160,7 +160,7 @@ export default function FeaturePage() {
             </div>
             {/* <div className="mt-8 md:mt-2 md:max-w-[500px] w-full h-full">
               <Image 
-                src="/sample1.png"
+                src="/sample1.webp"
                 alt="実装イメージ"
                 width={400}
                 height={600}
@@ -212,7 +212,7 @@ export default function FeaturePage() {
             </div>
             {/* <div className="mt-8 md:mt-2 md:max-w-[500px] w-full h-full">
               <Image 
-                src="/sample1.png"
+                src="/sample1.webp"
                 alt="検証イメージ"
                 width={400}
                 height={600}
@@ -264,7 +264,7 @@ export default function FeaturePage() {
             </div>
             {/* <div className="mt-8 md:mt-2 md:max-w-[500px] w-full h-full">
               <Image 
-                src="/sample1.png"
+                src="/sample1.webp"
                 alt="改良イメージ"
                 width={400}
                 height={600}
