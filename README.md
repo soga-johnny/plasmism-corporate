@@ -21,7 +21,7 @@
   - [Three.js](https://threejs.org/) / [React Three Fiber](https://github.com/pmndrs/react-three-fiber)
 - **外部サービス連携**:
   - [Notion API](https://developers.notion.com/) - コンテンツ管理
-  - [AWS SES](https://aws.amazon.com/ses/) - メール送信
+  - [Resend](https://resend.com/) - メール送信
   - [Vercel Analytics](https://vercel.com/analytics) - 分析
 - **デプロイ**: [Vercel](https://vercel.com/)
 
@@ -94,7 +94,7 @@ src/
 │   └── ...                  # その他コンポーネント
 ├── lib/                     # ユーティリティ関数と外部APIクライアント
 │   ├── notion.ts            # Notion API連携
-│   ├── aws-ses.ts           # AWS SES連携
+│   ├── resend.ts            # Resend連携
 │   └── ...                  # その他ユーティリティ
 └── types/                   # TypeScriptの型定義
 ```
@@ -119,7 +119,7 @@ npm run dev
 - **レスポンシブデザイン**: すべてのデバイスサイズに最適化されたレイアウト
 - **アニメーション**: Framer Motionを使用したスムーズなページトランジションと要素アニメーション
 - **コンテンツ管理**: Notion APIを活用したコンテンツ管理
-- **問い合わせフォーム**: AWS SESを使用したメール送信機能
+- **問い合わせフォーム**: Resendを使用したメール送信機能
 
 ## 🚢 デプロイ
 
@@ -131,6 +131,6 @@ npm run dev
 
 - `NOTION_API_KEY` - Notion API認証キー
 - `NOTION_DATABASE_ID` - コンテンツを格納するNotionデータベースID
-- `AWS_ACCESS_KEY_ID` - AWS認証用アクセスキー
-- `AWS_SECRET_ACCESS_KEY` - AWS認証用シークレットキー
-- `AWS_REGION` - AWSリージョン（SES用）
+- `RESEND_API_KEY` - Resend APIキー
+- `RESEND_FROM_EMAIL` - 送信元メールアドレス（例: `Plasmism <info@plasmism.com>`）
+- `CONTACT_TO_EMAIL` - 問い合わせ・資料ダウンロードの通知先メールアドレス

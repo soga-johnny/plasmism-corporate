@@ -34,19 +34,14 @@ export default function ContactPage() {
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
-    // SES API未実装のためコメントアウト -> コメント解除
     try {
-      const response = await fetch('/api/contact', { // ここでAPIルートを呼び出す
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
       });
-
-      // // aws-ses.ts のダミー関数を直接呼ぶ（一時的な代替）-> 削除
-      // await sendContactEmail(formData);
-      // const response = { ok: true }; // ダミーレスポンス -> 削除
 
       if (response.ok) {
         setSubmitStatus('success');
